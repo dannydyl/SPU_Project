@@ -26,4 +26,9 @@ module half_adder_tb;
         // Finish simulation
         $finish;
     end
+
+    initial begin
+    $dumpfile("waveform.vcd");  // Create a waveform file
+    $dumpvars(0, half_adder_tb); // Dump all signals in this module
+end
 endmodule
