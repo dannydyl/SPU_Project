@@ -156,10 +156,94 @@ string assembleRI18(int opcode, int imm18, int rt) {
 unordered_map<string, InstructionInfo> instructionMap = {
     // Example: "AND" uses RR format with an 11-bit opcode of 0x123 (binary 100100011).
     // Just a placeholder. Convert your real opcode bits to decimal and put them here.
-    {"AND",  {FormatType::RR, 0x123}},
-
-    // Another example for an RRR-format instruction (4-bit opcode).
-    {"MUL",  {FormatType::RRR, 0xC}},  // 0xC in decimal is 1100 in binary.
+    {"addx", {FormatType::RR, 0b1101000000}},
+    {"ah", {FormatType::RR, 0b11001000}},
+    {"ahi", {FormatType::RI10, 0b00011101}},
+    {"a", {FormatType::RR, 0b00011000000}},
+    {"ai", {FormatType::RI10, 0b00011100}},
+    {"and", {FormatType::RR, 0b00011000001}},
+    {"andhi", {FormatType::RI10, 0b00010101}},
+    {"andi", {FormatType::RI10, 0b00010100}},
+    {"bg", {FormatType::RR, 0b00001000010}},
+    {"bgx", {FormatType::RR, 0b01101000011}},
+    {"cg", {FormatType::RR, 0b00011000010}},
+    {"cgx", {FormatType::RR, 0b01101000010}},
+    {"ceqh", {FormatType::RR, 0b01111001000}},
+    {"ceqhi", {FormatType::RI10, 0b01111101}},
+    {"ceq", {FormatType::RR, 0b01111000000}},
+    {"ceqi", {FormatType::RI10, 0b01111100}},
+    {"cgth", {FormatType::RR, 0b01001001000}},
+    {"cgthi", {FormatType::RI10, 0b01001101}},
+    {"cgt", {FormatType::RR, 0b01001000000}},
+    {"cgti", {FormatType::RI10, 0b01001100}},
+    {"clz", {FormatType::RR, 0b01010100101}},
+    {"eqv", {FormatType::RR, 0b01001001001}},
+    {"xor", {FormatType::RR, 0b01001000001}},
+    {"xorhi", {FormatType::RI10, 0b01000101}},
+    {"xori", {FormatType::RI10, 0b01000100}},
+    {"ila", {FormatType::RI18, 0b0100001}},
+    {"ilh", {FormatType::RI16, 0b010000011}},
+    {"ilhu", {FormatType::RI16, 0b010000010}},
+    {"il", {FormatType::RI16, 0b010000001}},
+    {"iohl", {FormatType::RI16, 0b011000001}},
+    {"nand", {FormatType::RR, 0b00011001001}},
+    {"nor", {FormatType::RR, 0b00001001001}},
+    {"or", {FormatType::RR, 0b00001000001}},
+    {"orhi", {FormatType::RI10, 0b00000101}},
+    {"ori", {FormatType::RI10, 0b00000100}},
+    {"selb", {FormatType::RRR, 0b1000}},
+    {"sfx", {FormatType::RR, 0b01101000001}},
+    {"sfh", {FormatType::RR, 0b00001001000}},
+    {"sfhi", {FormatType::RI10, 0b00001101}},
+    {"sf", {FormatType::RR, 0b00001000000}},
+    {"sfi", {FormatType::RI10, 0b00001100}},
+    {"roth", {FormatType::RR, 0b00001011100}},
+    {"rothi", {FormatType::RI7, 0b00001111100}},
+    {"rot", {FormatType::RR, 0b00001011000}},
+    {"roti", {FormatType::RI7, 0b00001111000}},
+    {"shlh", {FormatType::RR, 0b00001011111}},
+    {"shlhi", {FormatType::RI7, 0b00001111111}},
+    {"shl", {FormatType::RR, 0b00001011011}},
+    {"shli", {FormatType::RI7, 0b00001111011}},
+    {"fa", {FormatType::RR, 0b01011000100}},
+    {"fm", {FormatType::RR, 0b01011000110}},
+    {"fma", {FormatType::RRR, 0b1110}},
+    {"fms", {FormatType::RRR, 0b1111}},
+    {"fnms", {FormatType::RRR, 0b1101}},
+    {"fs", {FormatType::RR, 0b01011000101}},
+    {"mpy", {FormatType::RR, 0b01111000100}},
+    {"mpya", {FormatType::RRR, 0b1100}},
+    {"mpyi", {FormatType::RI10, 0b01110100}},
+    {"mpyu", {FormatType::RR, 0b01111001100}},
+    {"mpyui", {FormatType::RI10, 0b01110101}},
+    {"mpyh", {FormatType::RR, 0b01111000101}},
+    {"cntb", {FormatType::RR, 0b01010110100}},
+    {"absdb", {FormatType::RR, 0b00001010011}},
+    {"sumb", {FormatType::RR, 0b01001010011}},
+    {"avgb", {FormatType::RR, 0b00011010011}},
+    {"rotqbyi", {FormatType::RI7, 0b00111111100}},
+    {"rotqby", {FormatType::RR, 0b00111011100}},
+    {"rotqbii", {FormatType::RI7, 0b00111111000}},
+    {"rotqbi", {FormatType::RR, 0b00111011000}},
+    {"shlqbii", {FormatType::RI7, 0b00111111011}},
+    {"shlqbi", {FormatType::RR, 0b00111011011}},
+    {"shlqbyi", {FormatType::RI7, 0b00111111111}},
+    {"shlqby", {FormatType::RR, 0b00111011111}},
+    {"lqd", {FormatType::RI10, 0b00110100}},
+    {"lqa", {FormatType::RI16, 0b001100001}},
+    {"stqa", {FormatType::RI16, 0b001000001}},
+    {"stqd", {FormatType::RI10, 0b00100100}},
+    {"bra", {FormatType::RI16, 0b001100000}},
+    {"brhnz", {FormatType::RI16, 0b001000110}},
+    {"brz", {FormatType::RI16, 0b001000000}},
+    {"brnz", {FormatType::RI16, 0b001000010}},
+    {"brasl", {FormatType::RI16, 0b001100010}},
+    {"brsl", {FormatType::RI16, 0b001100110}},
+    {"br", {FormatType::RI16, 0b001100100}},
+    {"brhz", {FormatType::RI16, 0b001000100}},
+    {"lnop", {FormatType::RR, 0b00000000001}},
+    {"nop", {FormatType::RR, 0b01000000001}},
+    {"stop", {FormatType::RR, 0b00000000000}},
 
     // Add more instructions...
 };
@@ -296,30 +380,33 @@ string processInstruction(const string &line) {
 }
 
 int main() {
-    ifstream infile("input.txt");
-    ofstream outfile("output.txt");
+    ifstream infile("input_assembly.txt");
+    ofstream outfile("output_binary.txt");
     if (!infile) {
-        cerr << "Error opening input.txt\n";
+        cerr << "Error opening input_assembly.txt\n";
         return 1;
     }
     if (!outfile) {
-        cerr << "Error opening output.txt\n";
+        cerr << "Error opening output_binary.txt\n";
         return 1;
     }
 
     string line;
     while (getline(infile, line)) {
-        // Skip empty lines
-        if (line.empty()) continue;
+        // Trim leading whitespace
+        size_t pos = line.find_first_not_of(" \t");
+        if (pos == string::npos) continue;  // Skip empty lines
 
-        // Assemble
+        // Check if the first non-whitespace characters form a comment marker (e.g. "//")
+        if (line.substr(pos, 2) == "//") continue;
+
+        // Process the line normally if it's not a comment
         string bits32 = processInstruction(line);
         if (!bits32.empty()) {
             if (bits32.size() != 32) {
                 cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
                 continue;
             }
-            // Write the 32-bit binary to output
             outfile << bits32 << "\n";
         }
     }

@@ -1,0 +1,29 @@
+// RR format (e.g. AND)
+// Assembly: "and $1, $2, $3"
+// Meaning: $1 = $2 AND $3, which will be encoded as [OP(11)][RB($3)][RA($2)][RT($1)]
+and $1, $2, $3
+
+// RRR format (e.g. SELB)
+// Assembly: "selb $4, $5, $6, $7"
+// Meaning: $4 = SELB($5, $6, $7) with bit layout: [OP(4)][RT($4)][RB($5)][RA($6)][RC($7)]
+selb $4, $5, $6, $7
+
+// RI7 format (e.g. ROTHI)
+// Assembly: "rothi $1, $2, 5"
+// Meaning: $1 = ROTHI($2, 5) with bit layout: [OP(11)][I7(5)][RA($2)][RT($1)]
+rothi $1, $2, 5
+
+// RI10 format (e.g. AHI)
+// Assembly: "ahi $1, $2, 10"
+// Meaning: $1 = AHI($2, 10) with bit layout: [OP(8)][I10(10)][RA($2)][RT($1)]
+ahi $1, $2, 10
+
+// RI16 format (e.g. LQA)
+// Assembly: "lqa $1, 255"
+// Meaning: $1 = LQA(255) with bit layout: [OP(9)][I16(16)][RT($1)]
+lqa $1, 255
+
+// RI18 format (e.g. ILA)
+// Assembly: "ila $1, 1023"
+// Meaning: $1 = ILA(1023) with bit layout: [OP(7)][I18(18)][RT($1)]
+ila $1, 1023
