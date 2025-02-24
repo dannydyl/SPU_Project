@@ -1,11 +1,10 @@
-module IMEM(
+module Dual_instr_fetch(
     input wire clk,
     input wire rst,
     input wire load_en,
     input wire [31:0] instruction_in,
-    output reg [31:0] instruction_out,
-    output reg no_more_instruction,
-    output wire [9:0] PC_out_v  // Now uses 10-bit PC to address 1024 instructions
+    output reg [31:0] instruction_out1,
+    output reg [31:0] instruction_out2
 );
 
     // Constants
@@ -16,6 +15,7 @@ module IMEM(
     
     // Program Counter
     reg [9:0] PC_current;
+    reg no_more_instruction;
 
     // Instantiate Program Counter module
     Program_Counter PC_inst (
@@ -23,6 +23,9 @@ module IMEM(
         .rst(rst),
         .PC_out(PC_current)
     );
+
+    assign instruction_out1 = instr_buffer[PC_current];
+    assign instruction_out2 = instr_buffer[PC_current+1];
 
     // Process to load and output instructions
     always @(posedge clk or posedge rst) begin
@@ -35,7 +38,6 @@ module IMEM(
             if (load_en) begin
                 instr_buffer[PC_current] <= instruction_in;  // Load instruction
             end else begin
-                instruction_out <= instr_buffer[PC_current];  // Read instruction
                 if (PC_current == LINE_LENGTH-1)
                     no_more_instruction <= 1'b1;
                 else

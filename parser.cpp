@@ -156,8 +156,8 @@ string assembleRI18(int opcode, int imm18, int rt) {
 unordered_map<string, InstructionInfo> instructionMap = {
     // Example: "AND" uses RR format with an 11-bit opcode of 0x123 (binary 100100011).
     // Just a placeholder. Convert your real opcode bits to decimal and put them here.
-    {"addx", {FormatType::RR, 0b1101000000}},
-    {"ah", {FormatType::RR, 0b11001000}},
+    {"addx", {FormatType::RR, 0b01101000000}},
+    {"ah", {FormatType::RR, 0b00011001000}},
     {"ahi", {FormatType::RI10, 0b00011101}},
     {"a", {FormatType::RR, 0b00011000000}},
     {"ai", {FormatType::RI10, 0b00011100}},
