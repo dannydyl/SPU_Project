@@ -1,7 +1,7 @@
 module Program_Counter(
   input clk,
   input rst,
-  output reg [9:0] PC_out
+  output reg [0:9] PC_out
 );
 
 always @(posedge clk or posedge rst) begin

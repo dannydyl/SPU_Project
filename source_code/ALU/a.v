@@ -1,13 +1,13 @@
 module a(
-  input [127:0] ra,
-  input [127:0] rb,
+  input [0:127] ra,
+  input [0:127] rb,
 
-  output [127:0] result
+  output [0:127] result
 );
 always(*) begin
-  result[31:0]  = ra[31:0]   + rb[31:0];
-  result[63:32] = ra[63:32]  + rb[63:32];
-  result[95:64] = ra[95:64]  + rb[95:64];
-  result[127:96] = ra[127:96] + rb[127:96];
+  result[0:31]  = ra[0:31]   + rb[0:31];
+  result[32:63] = ra[32:63]  + rb[32:63];
+  result[64:95] = ra[64:95]  + rb[64:95];
+  result[96:127]= ra[96:127] + rb[96:127];
 end
 endmodule

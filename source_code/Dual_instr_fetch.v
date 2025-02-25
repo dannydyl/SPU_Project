@@ -2,19 +2,19 @@ module Dual_instr_fetch(
     input wire clk,
     input wire rst,
     input wire load_en,
-    input wire [31:0] instruction_in,
-    output reg [31:0] instruction_out1,
-    output reg [31:0] instruction_out2
+    input wire [0:31] instruction_in,
+    output reg [0:31] instruction_out1,
+    output reg [0:31] instruction_out2
 );
 
     // Constants
     localparam LINE_LENGTH = 1024;  // 1024 instructions (4KB total)
 
     // Instruction buffer memory (4KB = 1024 x 32-bit instructions)
-    reg [31:0] instr_buffer [0:LINE_LENGTH-1];
+    reg [0:31] instr_buffer [0:LINE_LENGTH-1];
     
     // Program Counter
-    reg [9:0] PC_current;
+    reg [0:9] PC_current;
     reg no_more_instruction;
 
     // Instantiate Program Counter module
