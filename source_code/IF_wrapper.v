@@ -1,4 +1,4 @@
-module Dual_instr_fetch(
+module IF_wrapper(
     input wire clk,
     input wire rst,
     input wire load_en,

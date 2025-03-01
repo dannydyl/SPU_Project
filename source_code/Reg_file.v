@@ -45,8 +45,28 @@ always @(posedge clk or posedge rst)
     end
   end
   else begin
-    if (reg_write_en_1) reg_file[reg_write_addr_1] <= reg_write_data_1;
-    if (reg_write_en_2) reg_file[reg_write_addr_2] <= reg_write_data_2;
+    if (reg_write_en_1) begin 
+      reg_file[reg_write_addr_1] <= reg_write_data_1;
+
+      // forwarding data if the same register is read and written at the same Clock cycle
+      if (reg_write_addr_1 == reg_read_addr_1) reg_read_data_1 <= reg_write_data_1;
+      if (reg_write_addr_1 == reg_read_addr_2) reg_read_data_2 <= reg_write_data_1;
+      if (reg_write_addr_1 == reg_read_addr_3) reg_read_data_3 <= reg_write_data_1;
+      if (reg_write_addr_1 == reg_read_addr_4) reg_read_data_4 <= reg_write_data_1;
+      if (reg_write_addr_1 == reg_read_addr_5) reg_read_data_5 <= reg_write_data_1;
+      if (reg_write_addr_1 == reg_read_addr_6) reg_read_data_6 <= reg_write_data_1;
+    end
+    if begin 
+      (reg_write_en_2) reg_file[reg_write_addr_2] <= reg_write_data_2;
+
+      // forwarding data if the same register is read and written at the same Clock cycle
+      if (reg_write_addr_2 == reg_read_addr_1) reg_read_data_1 <= reg_write_data_2;
+      if (reg_write_addr_2 == reg_read_addr_2) reg_read_data_2 <= reg_write_data_2;
+      if (reg_write_addr_2 == reg_read_addr_3) reg_read_data_3 <= reg_write_data_2;
+      if (reg_write_addr_2 == reg_read_addr_4) reg_read_data_4 <= reg_write_data_2;
+      if (reg_write_addr_2 == reg_read_addr_5) reg_read_data_5 <= reg_write_data_2;
+      if (reg_write_addr_2 == reg_read_addr_6) reg_read_data_6 <= reg_write_data_2;
+    end
   end   
 
 endmodule
