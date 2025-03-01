@@ -6,7 +6,7 @@ module ceqh(
 );
 
 integer j;
-always(*) begin
+always @(*) begin
   for(j = 0 ; j < 16 ; j = j + 2) begin
     if(ra[j*8 +:16] == rb[j*8 +:16]) 
       result[j*8 +:16] = 16'hFFFF;

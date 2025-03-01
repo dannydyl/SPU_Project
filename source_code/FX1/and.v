@@ -5,7 +5,7 @@ module and(
   output [0:127] result
 );
 
-always(*) begin
+always @(*) begin
   result[0:31]   = ra[0:31]   & rb[0:31];
   result[32:63]  = ra[32:63]  & rb[32:63];
   result[64:95]  = ra[64:95]  & rb[64:95];

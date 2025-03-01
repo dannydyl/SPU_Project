@@ -6,7 +6,7 @@ module andi(
 
 reg  [0:31] t;
 
-always(*) begin 
+always @(*) begin 
   t = {{22{imme[0]}}, imme};
 
   result[0:31]   = ra[0:31]   & t;

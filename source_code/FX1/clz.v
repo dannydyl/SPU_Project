@@ -5,7 +5,7 @@ module clz(
 integer j, m;
 reg [0:31] t;
 reg [0:31] u;
-always(*) begin
+always @(*) begin
   for(j = 0 ; j < 16 ; j = j + 4) begin
     t = 32'h00000000;
     u = ra[j*8 +:32];

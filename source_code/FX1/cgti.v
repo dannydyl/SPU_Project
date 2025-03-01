@@ -7,7 +7,7 @@ module cgti(
 integer j;
 reg [0:31] t;
 
-always(*) begin
+always @(*) begin
   t = {{22{imme[0]}}, imme};
   for(j = 0 ; j < 16 ; j = j + 4) begin
     if(ra[j*8 +:32] > t) 

@@ -5,7 +5,7 @@ module ahi(
   output [0:127] result
 );
   reg [0:15] s; // Extended immediate value
-always(*) begin
+always @(*) begin
   // Replicate and sign-extend the immediate value
   s = {{6{imme[0]}}, imme}; // Sign-extend 10-bit immediate to 16-bit
 

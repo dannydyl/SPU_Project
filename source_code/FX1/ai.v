@@ -5,7 +5,7 @@ module ai(
   output [0:127] result 
 );
 reg [0:31] s; 
-always(*) begin
+always @(*) begin
   // Replicate and sign-extend the immediate value
   s = {{22{imme[0]}}, imme}; // Sign-extend 10-bit immediate to 32-bit
   // 32 - 10 22

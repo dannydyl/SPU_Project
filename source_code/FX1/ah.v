@@ -4,7 +4,7 @@ module ah(
 
   output [0:127] result
 );
-  always(*) begin
+  always @(*) begin
     result[0:15]   = ra[0:15]   + rb[0:15];
     result[16:31]  = ra[16:31]  + rb[16:31];
     result[32:47]  = ra[32:47]  + rb[32:47];

@@ -6,7 +6,7 @@ module ceqhi(
 
 integer j;
 reg [0:16] t;
-always(*) begin
+always @(*) begin
   t = {{6{imme[0]}}, imme};
   for(j = 0 ; j < 16 ; j = j + 2) begin
     if(ra[j*8 +:16] == rb[j*8 +:16]) 

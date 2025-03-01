@@ -6,7 +6,7 @@ module andhi(
 );
 
 reg [0:15] t; // Extended immediate value
-always(*) begin
+always @(*) begin
   t = {{6{imme[0]}}, imme}; // Sign-extend 10-bit immediate to 16-bit
 
   // Perform bitwise AND operation for each 16-bit halfword slot
