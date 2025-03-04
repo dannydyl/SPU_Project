@@ -11,3 +11,4 @@ always @(*) begin
     result[j*32 +:32] = t;
   end
 end
+endmodule
