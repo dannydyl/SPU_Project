@@ -27,7 +27,12 @@ module Even_Pipe(
   output [0:142] packed_result_4stage,
   output [0:142] packed_result_5stage,
   output [0:142] packed_result_6stage,
-  output [0:142] packed_result_7stage
+  output [0:142] packed_result_7stage,
+
+  // Write back stage
+  output [0:6] WB_reg_write_addr,
+  output [0:127] WB_reg_write_data,
+  output WB_reg_write_en
 
 );
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
@@ -62,20 +67,17 @@ FX1_ALU fx1_inst (
 // BYTE unit
 
 
-always @(posedge clk or posedge rst) begin
-  if (rst) begin
-    packed_result <= 0;
-  end
-  else begin
-    case (unit_id) 
-      3'b000: result <= FX1_result;
-      3'b001: result <= FX2_result;
-      3'b010: result <= SP_result;
-      3'b011: result <= BYTE_result;
-    endcase
+always @(*) begin
 
-    packed_result <= {unit_id, result, reg_dst, latency, reg_wr};
-  end
+  case (unit_id) 
+    3'b000: result <= FX1_result;
+    3'b001: result <= FX2_result;
+    3'b010: result <= SP_result;  
+    3'b011: result <= BYTE_result;
+  endcase
+
+  packed_result <= {unit_id, result, reg_dst, latency, reg_wr};
+
 end
 
 always @(posedge clk or posedge rst) begin
@@ -96,6 +98,9 @@ always @(posedge clk or posedge rst) begin
     packed_result_5stage <= packed_result_4stage;
     packed_result_6stage <= packed_result_5stage;
     packed_result_7stage <= packed_result_6stage;
+    WB_reg_write_addr <= packed_result_7stage[131:137];
+    WB_reg_write_data <= packed_result_7stage[3:130];
+    WB_reg_write_en <= packed_result_7stage[142];
   end
 end
 
