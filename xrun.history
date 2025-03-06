@@ -1,0 +1,22 @@
+#e1(09Feb2025:19:45:17): source ./xcelium.d/env.d/env.history.09Feb2025_19_45_17
+s1(09Feb2025:19:45:17):  xrun -sv half_adder_tb.v half_adder.v 
+#e2(09Feb2025:19:48:23): source ./xcelium.d/env.d/env.history.09Feb2025_19_48_23
+s2(09Feb2025:19:48:23):  xrun -licinfo 
+#e3(09Feb2025:19:49:35): source ./xcelium.d/env.d/env.history.09Feb2025_19_49_35
+s3(09Feb2025:19:49:35):  xrun -licinfo 
+#e4(09Feb2025:19:49:42): source ./xcelium.d/env.d/env.history.09Feb2025_19_49_42
+s4(09Feb2025:19:49:42):  xrun -sv half_adder_tb.v half_adder.v 
+#e5(09Feb2025:19:52:48): source ./xcelium.d/env.d/env.history.09Feb2025_19_52_48
+s5(09Feb2025:19:52:48):  xrun -sv half_adder_tb.v half_adder.v 
+#e6(09Feb2025:19:53:20): source ./xcelium.d/env.d/env.history.09Feb2025_19_53_20
+s6(09Feb2025:19:53:20):  xrun -sv half_adder_tb.v half_adder.v 
+#e7(09Feb2025:19:53:59): source ./xcelium.d/env.d/env.history.09Feb2025_19_53_59
+s7(09Feb2025:19:53:59):  xrun -sv +access+r half_adder_tb.v half_adder.v 
+#e8(09Feb2025:22:36:38): source ./xcelium.d/env.d/env.history.09Feb2025_22_36_38
+s8(09Feb2025:22:36:38):  xrun -sv +access+r -gui half_adder_tb.v half_adder.v 
+#e9(06Mar2025:16:26:55): source ./xcelium.d/env.d/env.history.06Mar2025_16_26_55
+s9(06Mar2025:16:26:55):  xrun -sv +acess+r -gui /home/home5/dlee/source_code/tb_Even_Pipe.v /home/home5/dlee/source_code/Even_Pipe.v 
+#e10(06Mar2025:16:27:50): source ./xcelium.d/env.d/env.history.06Mar2025_16_27_50
+s10(06Mar2025:16:27:50):  xrun -sv +access+r -gui /home/home5/dlee/source_code/tb_Even_Pipe.v /home/home5/dlee/source_code/Even_Pipe.v 
+#e11(06Mar2025:16:29:06): source ./xcelium.d/env.d/env.history.06Mar2025_16_29_06
+s11(06Mar2025:16:29:06):  xrun -sv +access+r -gui /home/home5/dlee/ese545_work/source_code/tb_Even_Pipe.v /home/home5/dlee/ese545_work/source_code/Even_Pipe.v 
