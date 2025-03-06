@@ -71,9 +71,9 @@ always @(*) begin
 
   case (unit_id) 
     3'b000: result <= FX1_result;
-    3'b001: result <= FX2_result;
-    3'b010: result <= SP_result;  
-    3'b011: result <= BYTE_result;
+    // 3'b001: result <= FX2_result;
+    // 3'b010: result <= SP_result;  
+    // 3'b011: result <= BYTE_result;
   endcase
 
   packed_result <= {unit_id, result, reg_dst, latency, reg_wr};
