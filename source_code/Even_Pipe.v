@@ -21,18 +21,18 @@ module Even_Pipe(
 
 
   // output for forwarding unit
-  output [0:142] packed_result_1stage,
-  output [0:142] packed_result_2stage,
-  output [0:142] packed_result_3stage,
-  output [0:142] packed_result_4stage,
-  output [0:142] packed_result_5stage,
-  output [0:142] packed_result_6stage,
-  output [0:142] packed_result_7stage,
+  output reg [0:142] packed_result_1stage,
+  output reg [0:142] packed_result_2stage,
+  output reg [0:142] packed_result_3stage,
+  output reg [0:142] packed_result_4stage,
+  output reg [0:142] packed_result_5stage,
+  output reg [0:142] packed_result_6stage,
+  output reg [0:142] packed_result_7stage,
 
   // Write back stage
-  output [0:6] WB_reg_write_addr,
-  output [0:127] WB_reg_write_data,
-  output WB_reg_write_en
+  output reg [0:6] WB_reg_write_addr,
+  output reg [0:127] WB_reg_write_data,
+  output reg WB_reg_write_en
 
 );
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
