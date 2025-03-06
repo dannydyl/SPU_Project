@@ -1,0 +1,8 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-sv
++access+r
+half_adder_tb.v
+half_adder.v

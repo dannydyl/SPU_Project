@@ -1,0 +1,10 @@
+define XMSIMRC	( /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc, ~/.xmsimrc )
+define AMSRC	( /usr/local/cds/XCELIUM2409/tools/xcelium/files/amsrc, ~/.amsrc )
+include ./hdlrun.var
+define SNAPSHOT worklib.half_adder_tb:v
+DEFINE RUNMODEDEFAULT 1
+DEFINE LIB_MAP ( + => worklib )
+define ELAB_SNAPSHOT
+define SNAPSHOT worklib.half_adder_tb:v
+define ELAB_SNAPSHOT
+define SNAPSHOT worklib.half_adder_tb:v

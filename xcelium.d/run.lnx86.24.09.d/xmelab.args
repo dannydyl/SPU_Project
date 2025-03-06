@@ -1,0 +1,20 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
++access+r
+-ACCESS
++r
+-no_analogsolver
+-MESSAGES
+-dms_perf
+-XLMODE
+./xcelium.d/run.lnx86.24.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx86.24.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx86.24.09.d/hdl.var
+-WORK
+worklib
+-HASXLMODE

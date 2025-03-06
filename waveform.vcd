@@ -1,0 +1,49 @@
+$date
+    Feb  9, 2025  22:38:51
+$end
+$version
+    TOOL:	xmsim	24.09-s001
+$end
+$timescale
+    1 ps
+$end
+
+$scope module half_adder_tb $end
+$var reg       1 !    a $end
+$var reg       1 "    b $end
+$var wire      1 #    sum  $end
+$var wire      1 $    carry  $end
+
+$scope module uut $end
+$var wire      1 %    a  $end
+$var wire      1 &    b  $end
+$var wire      1 #    sum  $end
+$var wire      1 $    carry  $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+0!
+0"
+0#
+0$
+0%
+0&
+$end
+#10000
+1"
+1&
+1#
+#20000
+1!
+0"
+0&
+1%
+#30000
+1"
+1&
+1$
+0#
+#40000
