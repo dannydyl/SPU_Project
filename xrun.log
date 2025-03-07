@@ -1,11 +1,11 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 06, 2025 at 16:29:06 EST
+TOOL:	xrun	24.09-s001: Started on Mar 06, 2025 at 16:43:35 EST
 xrun
 	-sv
 	+access+r
 	-gui
-	/home/home5/dlee/ese545_work/source_code/tb_Even_Pipe.v
-	/home/home5/dlee/ese545_work/source_code/Even_Pipe.v
-xrun: *E,FILEMIS: Cannot find the provided file /home/home5/dlee/ese545_work/source_code/tb_Even_Pipe.v.
-xrun: *E,FILEMIS: Cannot find the provided file /home/home5/dlee/ese545_work/source_code/Even_Pipe.v.
-TOOL:	xrun	24.09-s001: Exiting on Mar 06, 2025 at 16:29:06 EST  (total: 00:00:00)
+	tb_Even_Pipe.v
+	Even_Pipe.v
+xrun: *E,FILEMIS: Cannot find the provided file tb_Even_Pipe.v.
+xrun: *E,FILEMIS: Cannot find the provided file Even_Pipe.v.
+TOOL:	xrun	24.09-s001: Exiting on Mar 06, 2025 at 16:43:35 EST  (total: 00:00:00)

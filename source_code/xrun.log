@@ -1,38 +1,33 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 06, 2025 at 16:34:13 EST
+TOOL:	xrun	24.09-s001: Started on Mar 06, 2025 at 16:44:02 EST
 xrun
 	-sv
 	+access+r
 	-gui
 	tb_Even_Pipe.v
 	Even_Pipe.v
-file: tb_Even_Pipe.v
-	module worklib.FX1_ALU:v
-		errors: 0, warnings: 0
-	module worklib.tb_even_pipe:v
-		errors: 0, warnings: 0
 file: Even_Pipe.v
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|31): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_1stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|31): identifier 'packed_result_1stage' previously declared in file Even_Pipe.v at line 24 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                      |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|53): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_2stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|53): identifier 'packed_result_2stage' previously declared in file Even_Pipe.v at line 25 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                                            |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|75): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_3stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|75): identifier 'packed_result_3stage' previously declared in file Even_Pipe.v at line 26 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                                                                  |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|97): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_4stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|97): identifier 'packed_result_4stage' previously declared in file Even_Pipe.v at line 27 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                                                                                        |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|119): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_5stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|119): identifier 'packed_result_5stage' previously declared in file Even_Pipe.v at line 28 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                                                                                                              |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|141): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_6stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|141): identifier 'packed_result_6stage' previously declared in file Even_Pipe.v at line 29 [12.5(IEEE)].
 reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
                                                                                                                                                                    |
-xmvlog: *W,ILLPDX (Even_Pipe.v,40|163): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'packed_result_7stage') [12.3.4(IEEE-2001)].
+xmvlog: *E,DUPIDN (Even_Pipe.v,40|163): identifier 'packed_result_7stage' previously declared in file Even_Pipe.v at line 30 [12.5(IEEE)].
 reg [0:2] unit_id;
                 |
 xmvlog: *W,ILLPDX (Even_Pipe.v,43|16): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'unit_id') [12.3.4(IEEE-2001)].
@@ -45,16 +40,7 @@ xmvlog: *W,ILLPDX (Even_Pipe.v,45|16): Multiple declarations for a port not allo
 reg reg_wr;
          |
 xmvlog: *W,ILLPDX (Even_Pipe.v,46|9): Multiple declarations for a port not allowed in module with ANSI list of port declarations (port 'reg_wr') [12.3.4(IEEE-2001)].
-    3'b001: result <= FX2_result;
-                               |
-xmvlog: *E,UNDIDN (Even_Pipe.v,74|31): 'FX2_result': undeclared identifier [12.5(IEEE)].
-    3'b010: result <= SP_result;  
-                              |
-xmvlog: *E,UNDIDN (Even_Pipe.v,75|30): 'SP_result': undeclared identifier [12.5(IEEE)].
-    3'b011: result <= BYTE_result;
-                                |
-xmvlog: *E,UNDIDN (Even_Pipe.v,76|32): 'BYTE_result': undeclared identifier [12.5(IEEE)].
 	module worklib.Even_Pipe:v
-		errors: 3, warnings: 11
+		errors: 7, warnings: 4
 xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
-TOOL:	xrun	24.09-s001: Exiting on Mar 06, 2025 at 16:34:13 EST  (total: 00:00:00)
+TOOL:	xrun	24.09-s001: Exiting on Mar 06, 2025 at 16:44:02 EST  (total: 00:00:00)
