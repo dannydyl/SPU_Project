@@ -130,4 +130,10 @@ module tb_even_pipe;
              $time, WB_reg_write_addr, WB_reg_write_data, WB_reg_write_en);
   end
 
+  initial begin
+    $dumpfile("waveform.vcd");  // Dump to a VCD file
+    $dumpvars(0, tb_even_pipe);  // Dump all signals in tb_even_pipe
+  end 
+
+
 endmodule

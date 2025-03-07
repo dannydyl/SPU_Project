@@ -9,7 +9,7 @@ else
     export LM_LICENSE_FILE=${LM_LICENSE_FILE}:5280@license4.ece.stonybrook.edu:29000@license4.ece.stonybrook.edu
 fi
 
-export XCELIUM_HOME=/usr/local/cds/DDI231/XCELIUM2409
+export XCELIUM_HOME=/usr/local/cds/XCELIUM2409
 export VERISIUM_DEBUG_ROOT=/usr/local/cds/VERISIUMDEBUG2409
 export CDA_ASSISTANT_HOME=/usr/local/cds/DOCASSISTANT241
  
