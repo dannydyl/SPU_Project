@@ -88,13 +88,13 @@ ah ah_inst(
 
 ahi ahi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(ahi_result)
 );
 
 ai ai_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(ai_result)
 );
 
@@ -106,13 +106,13 @@ and and_inst(
 
 andhi andhi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(andhi_result)
 );
 
 andi andi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(andi_result)
 );
 
@@ -143,13 +143,13 @@ ceqh ceqh_inst(
 
 ceqhi ceqhi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(ceqhi_result)
 );
 
 ceqi ceqi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(ceqi_result)
 );
 
@@ -173,13 +173,13 @@ cgth cgth_inst(
 
 cgthi cgthi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(cgthi_result)
 );
 
 cgti cgti_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(cgti_result)
 );
 
@@ -247,13 +247,13 @@ or or_inst(
 
 orhi orhi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(orhi_result)
 );
 
 ori ori_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(ori_result)
 );
 
@@ -278,13 +278,13 @@ sfh sfh_inst(
 
 sfhi sfhi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(sfhi_result)
 );
 
 sfi sfi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(sfi_result)
 );
 
@@ -303,13 +303,13 @@ xor xor_inst(
 
 xorhi xorhi_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(xorhi_result)
 );
 
 xori xori_inst(
   .ra(ra_data),
-  .imm(imme10),
+  .imme(imme10),
   .result(xori_result)
 );
 
