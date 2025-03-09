@@ -2,7 +2,7 @@ module rot(
   input [0:127] ra,
   input [0:127] rb,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j, b;
 reg [0:15] s;
@@ -21,6 +21,7 @@ always @(*) begin
     end
     result[8*j +: 32] = r;
   end
+end
 end
 
 endmodule
