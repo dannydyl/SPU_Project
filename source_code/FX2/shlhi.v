@@ -8,9 +8,8 @@ integer j, b;
 reg [0:15] s;
 reg [0:15] t, r;
 
-assign s = {{9{imme7[0]}}, imme7[0:6]} & 16'h001F;
-
 always @(*) begin
+  s = {{9{imme7[0]}}, imme7[0:6]} & 16'h001F;
   for(j=0 ; j<16 ; j=j+2) begin
     t = ra[8*j +: 16];
     for(b=0 ; b<16 ; b=b+1) begin

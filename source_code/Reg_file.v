@@ -56,8 +56,8 @@ always @(posedge clk or posedge rst)
       if (reg_write_addr_1 == reg_read_addr_5) reg_read_data_5 <= reg_write_data_1;
       if (reg_write_addr_1 == reg_read_addr_6) reg_read_data_6 <= reg_write_data_1;
     end
-    if begin 
-      (reg_write_en_2) reg_file[reg_write_addr_2] <= reg_write_data_2;
+    if (reg_write_en_2) begin 
+      reg_file[reg_write_addr_2] <= reg_write_data_2;
 
       // forwarding data if the same register is read and written at the same Clock cycle
       if (reg_write_addr_2 == reg_read_addr_1) reg_read_data_1 <= reg_write_data_2;
