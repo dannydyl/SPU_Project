@@ -6,8 +6,6 @@ module IF_wrapper(
     output reg [0:31] instruction_out1,
     output reg [0:31] instruction_out2
 );
-
-    // Constants
     localparam LINE_LENGTH = 1024;  // 1024 instructions (4KB total)
 
     // Instruction buffer memory (4KB = 1024 x 32-bit instructions)
