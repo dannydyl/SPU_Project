@@ -131,8 +131,8 @@
 `define instr_ID_sfh    7'd37;
 `define instr_ID_sfhi   7'd38;
 `define instr_ID_sf     7'd39;
-`define instr_ID_sfi    7'd40;
-`define instr_ID_roth   7'd41;
+`define instr_ID_sfi    7'd40; 
+`define instr_ID_roth   7'd41;  // FX2 start
 `define instr_ID_rothi  7'd42;
 `define instr_ID_rot    7'd43;
 `define instr_ID_roti   7'd44;
@@ -140,7 +140,7 @@
 `define instr_ID_shlhi  7'd46;
 `define instr_ID_shl    7'd47;
 `define instr_ID_shli   7'd48;
-`define instr_ID_fa     7'd49;
+`define instr_ID_fa     7'd49;  // SP start
 `define instr_ID_fm     7'd50;
 `define instr_ID_fma    7'd51;
 `define instr_ID_fms    7'd52;
@@ -152,11 +152,11 @@
 `define instr_ID_mpyu   7'd58;
 `define instr_ID_mpyui  7'd59;
 `define instr_ID_mpyh   7'd60;
-`define instr_ID_cntb   7'd61;
+`define instr_ID_cntb   7'd61;  // BYTE start
 `define instr_ID_absdb  7'd62;
 `define instr_ID_sumb   7'd63;
 `define instr_ID_avgb   7'd64;
-`define instr_ID_rotqbyi 7'd65;
+`define instr_ID_rotqbyi 7'd65; // PERMUTE start
 `define instr_ID_rotqby  7'd66;
 `define instr_ID_rotqbii 7'd67;
 `define instr_ID_rotqbi  7'd68;
@@ -164,11 +164,11 @@
 `define instr_ID_shlqbi  7'd70;
 `define instr_ID_shlqbyi 7'd71;
 `define instr_ID_shlqby  7'd72;
-`define instr_ID_lqd    7'd73;
+`define instr_ID_lqd    7'd73;   // LS start
 `define instr_ID_lqa    7'd74;
 `define instr_ID_stqa   7'd75;
 `define instr_ID_stqd   7'd76;
-`define instr_ID_bra    7'd77;
+`define instr_ID_bra    7'd77;   // BRANCH start
 `define instr_ID_brhnz  7'd78;
 `define instr_ID_brz    7'd79;
 `define instr_ID_brnz   7'd80;

@@ -186,6 +186,8 @@ module Forwarding_Unit(
   assign latency_6stage_odd = packed_6stage_odd[138:141];
   assign latency_7stage_odd = packed_7stage_odd[138:141];
 
+  // forwarding enable
+
   assign ra_fw_en_1stage_even = (reg_ra_src_even == reg_dst_1stage_even) && reg_wr_1stage_even && (latency_1stage_even <= 1);
   assign rb_fw_en_1stage_even = (reg_rb_src_even == reg_dst_1stage_even) && reg_wr_1stage_even && (latency_1stage_even <= 1); 
   assign rc_fw_en_1stage_even = (reg_rc_src_even == reg_dst_1stage_even) && reg_wr_1stage_even && (latency_1stage_even <= 1);

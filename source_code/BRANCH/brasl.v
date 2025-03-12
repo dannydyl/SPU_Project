@@ -8,6 +8,6 @@ module brasl(
 
 assign rt_result[0:31] = {22'b0, (in_PC + 1)};
 assign rt_result[32:127] = 96'b0;
-assign PC_result = in_PC + imme16;
+assign PC_result = imme16;
 
 endmodule

@@ -1,4 +1,4 @@
-module Even_Pipe(
+module Odd_Pipe(
   input clk,
   input rst,
 
@@ -17,7 +17,7 @@ module Even_Pipe(
   input [0:15] imme16,
   input [0:17] imme18,
 
-
+  input [0:9] current_PC,
 
 
   // output for forwarding unit
@@ -29,26 +29,35 @@ module Even_Pipe(
   output reg [0:142] packed_result_6stage,
   output reg [0:142] packed_result_7stage,
 
-  // Write back stage
+  // Write back stage also used for load instruction
   output reg [0:6] WB_reg_write_addr,
   output reg [0:127] WB_reg_write_data,
-  output reg WB_reg_write_en
+  output reg WB_reg_write_en,
 
+  // branch new PC
+  output reg [0:9] new_PC
 );
-// [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
+
+// [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr, [143:157] LS_addr, [158:167] PC_result
 reg [0:142] packed_result;
 // reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
 
-reg [0:127] result;
+reg [0:14] LS_addr;
+reg [0:9] PC_result; // for branch
+reg [0:127] result; // used for permute or branch 
 reg [0:2] unit_id;
 reg [0:6] reg_dst;
 reg [0:3] latency;
 reg reg_wr;
 
-reg [0:127] FX1_result, FX2_result, SP_result, BYTE_result;
+reg [0:127] PERM_result, branch_rt_result, LS_data_result;
+reg [0:9] new_PC;
+reg [0:14] addr_result;
 
+reg LS_write_en;
 
-FX1_ALU fx1_inst (
+// Permute 
+PERM_ALU PERM_inst(
   .instr_id(instr_id),
   .ra_data(ra_data),
   .rb_data(rb_data),
@@ -57,54 +66,57 @@ FX1_ALU fx1_inst (
   .imme10(imme10),
   .imme16(imme16),
   .imme18(imme18),
-  .result(FX1_result)
+  .result(PERM_result)
 );
 
-// FX2 unit
-FX2_ALU FX2_inst(
+// Branch
+BRANCH_ALU BRANCH_inst(
   .instr_id(instr_id),
-  .ra_data(ra_data),
-  .rb_data(rb_data),
   .rc_data(rc_data),
-  .imme7(imme7),
-  .imme10(imme10),
   .imme16(imme16),
-  .imme18(imme18),
-  .result(result)
+  .in_PC(current_PC),
+  .new_PC(new_PC),
+  .rt_result(branch_rt_result)
 );
 
-// SP unit
-SP_ALU SP_inst(
+// LS
+LS_ALU LS_inst(
   .instr_id(instr_id),
   .ra_data(ra_data),
-  .rb_data(rb_data),
-  .rc_data(rc_data),
-  .imme7(imme7),
-  .imme10(imme10),
   .imme16(imme16),
-  .imme18(imme18),
-  .result(result)
+  .addr_result(addr_result)
 );
 
-// BYTE unit
-BYTE_ALU BYTE_inst(
-  .instr_id(instr_id),
-  .ra_data(ra_data),
-  .rb_data(rb_data),
-  .rc_data(rc_data),
-  .imme7(imme7),
-  .imme10(imme10),
-  .imme16(imme16),
-  .imme18(imme18),
-  .result(result)
+// below two always block can be combined
+always @(*) begin // this should actually come from ID stage
+  case (instr_id)
+    `instr_ID_stqa: LS_write_en = 1'b1;
+    `instr_ID_stq: LS_write_en = 1'b1;
+    default: LS_write_en = 1'b0;
+  endcase
+end
+
+always @(*) begin // this is for store instruction to be able forwarding
+  if (instr_id == `instr_ID_stqa || instr_id == `instr_ID_stq) begin
+    LS_data_result = rc_data;
+  end
+end
+
+// LocalStore
+LocalStore LS_inst(
+  .clk(clk),
+  .rst(rst),
+  .LS_write_en(LS_write_en),
+  .LS_addr(addr_result),
+  .LS_data_in(rc_data),
+  .LS_data_out(LS_data_result)
 );
 
 always @(*) begin
-  case (unit_id) 
-    3'b000: result = FX1_result;
-    3'b001: result = FX2_result;
-    3'b010: result = SP_result;  
-    3'b011: result = BYTE_result;
+  case (unit_id)
+    3'b100: result = PERM_result; // permute result
+    3'b101: result = LS_data_result;  // load result (from ls)
+    3'b110: result = branch_rt_result; 
     default: result = 128'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
   endcase
   packed_result = {unit_id, result, reg_dst, latency, reg_wr};
@@ -133,9 +145,5 @@ always @(posedge clk or posedge rst) begin
     WB_reg_write_en <= packed_result_7stage[142];
   end
 end
-
-
-
-
 
 endmodule

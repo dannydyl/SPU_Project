@@ -1,16 +1,16 @@
 module FX1_ALU(
   input [0:6] instr_id,
-  input [0:127] ra,
-  input [0:127] rb,
-  input [0:127] rc, // rc port is also used for instructions that need rt data as an operand
+  input [0:127] ra_data,
+  input [0:127] rb_data,
+  input [0:127] rc_data, // rc port is also used for instructions that need rt data as an operand
   input [0:7] imme7,
   input [0:9] imme10,
   input [0:15] imme16,
   input [0:17] imme18,
 
-  output [0:127] result
+  output reg [0:127] result
 );
-`include "opcode_pacakge.vh"
+`include "opcode_package.vh"
 
 wire [0:127] a_result, addx_result, ah_result, ahi_result, ai_result, and_result, andhi_result, 
              andi_result, bg_result, bgx_result, ceq_result, ceqh_result, ceqi_result, ceqhi_result,
@@ -63,6 +63,7 @@ always @(*) begin
     `instr_ID_xor:    result = xor_result;
     `instr_ID_xorhi:  result = xorhi_result;
     `instr_ID_xori:   result = xori_result;
+    default : result = 128'b0;
   endcase
 end
 
@@ -202,7 +203,7 @@ eqv eqv_inst(
 );
 
 il il_inst(
-  .imme(imme16)
+  .imme(imme16),
   .result(il_result)
 );
 
