@@ -96,11 +96,11 @@ always @(*) begin // this should actually come from ID stage
   endcase
 end
 
-always @(*) begin // this is for store instruction to be able forwarding
-  if (instr_id == `instr_ID_stqa || instr_id == `instr_ID_stq) begin
-    LS_data_result = rc_data;
-  end
-end
+// always @(*) begin // this is for store instruction to be able forwarding
+//   if (instr_id == `instr_ID_stqa || instr_id == `instr_ID_stq) begin
+//     LS_data_result = rc_data;
+//   end
+// end
 
 // LocalStore
 LocalStore LS_inst(
@@ -112,6 +112,9 @@ LocalStore LS_inst(
   .LS_data_out(LS_data_result)
 );
 
+// the problem here is that if the instruction is store, the rt data should be able to forward before writing on LS
+// but load instruction, will not be able to forward until 7th stage
+// now that i think about it, store instruction dont really need to forward anything because no register is being written
 always @(*) begin
   case (unit_id)
     3'b100: result = PERM_result; // permute result

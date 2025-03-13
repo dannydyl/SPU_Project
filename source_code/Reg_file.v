@@ -23,8 +23,11 @@ module Reg_file(
   output [0:127] reg_read_data_3,
   output [0:127] reg_read_data_4,
   output [0:127] reg_read_data_5,
-  output [0:127] reg_read_data_6
+  output [0:127] reg_read_data_6,
 
+  // Preload inputs for verification purpose only
+  input preload_en,
+  input [0:127] preload_values [0:127] // Entire register file preload
 );
 // 128 registers, 128 bit width
 reg [0:127] reg_file [0:127];
@@ -42,6 +45,13 @@ always @(posedge clk or posedge rst)
     integer i;
     for(i=0;i<128;i=i+1) begin
       reg_file[i] <= 128'b0;
+    end
+  end
+  else if (preload_en) begin
+    // Load all register values at once
+    integer i;
+    for (i = 0; i < 128; i = i + 1) begin
+      reg_file[i] <= preload_values[i];
     end
   end
   else begin

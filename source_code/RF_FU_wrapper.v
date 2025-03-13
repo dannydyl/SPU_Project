@@ -3,15 +3,30 @@ module RF_FU_wrapper(
   input rst,
 
   // inputs for instruction
-  input [0:31] instruction_even,
-  input [0:31] instruction_odd,
-  input [0:2] unit_id_even,
-  input [0:2] unit_id_odd,
+  input [0:31] full_instr_even,
   input [0:6] instr_id_even,
+  input [0:6] reg_dst_even,
+  input [0:2] unit_id_even,
+  input [0:3] latency_even,
+  input reg_wr_even,
+  input [0:6] imme7_even,
+  input [0:9] imme10_even,
+  input [0:15] imme16_even,
+  input [0:17] imme18_even,
+
+  input [0:31] full_instr_odd,
   input [0:6] instr_id_odd,
+  input [0:6] reg_dst_odd,
+  input [0:2] unit_id_odd,
+  input [0:3] latency_odd,
+  input reg_wr_odd,
+  input [0:6] imme7_odd,
+  input [0:9] imme10_odd,
+  input [0:15] imme16_odd,
+  input [0:17] imme18_odd,
 
   // inputs for register file
-  input [0:6] ra_addr_even,
+  input [0:6] ra_addr_even,   // these three addresses are also used for forwarding unit
   input [0:6] rb_addr_even,
   input [0:6] rc_addr_even,
 
@@ -28,77 +43,44 @@ module RF_FU_wrapper(
   input [0:127] reg_write_data_2,
 
   // inputs for forwarding unit
-  input [0:6] reg_dst_1stage_even,
-  input [0:6] reg_dst_2stage_even,
-  input [0:6] reg_dst_3stage_even,
-  input [0:6] reg_dst_4stage_even,
-  input [0:6] reg_dst_5stage_even,
-  input [0:6] reg_dst_6stage_even,
-  input [0:6] reg_dst_7stage_even,
+  input [0:142] packed_1stage_even,
+  input [0:142] packed_2stage_even,
+  input [0:142] packed_3stage_even,
+  input [0:142] packed_4stage_even,
+  input [0:142] packed_5stage_even,
+  input [0:142] packed_6stage_even,
+  input [0:142] packed_7stage_even,
 
-  input reg_wr_1stage_even,
-  input reg_wr_2stage_even,
-  input reg_wr_3stage_even,
-  input reg_wr_4stage_even,
-  input reg_wr_5stage_even,
-  input reg_wr_6stage_even,
-  input reg_wr_7stage_even,
-
-  input [0:3] latency_1stage_even,
-  input [0:3] latency_2stage_even,
-  input [0:3] latency_3stage_even,
-  input [0:3] latency_4stage_even,
-  input [0:3] latency_5stage_even,
-  input [0:3] latency_6stage_even,
-  input [0:3] latency_7stage_even,
-
-  input [0:6] reg_dst_1stage_odd,
-  input [0:6] reg_dst_2stage_odd,
-  input [0:6] reg_dst_3stage_odd,
-  input [0:6] reg_dst_4stage_odd,
-  input [0:6] reg_dst_5stage_odd,
-  input [0:6] reg_dst_6stage_odd,
-  input [0:6] reg_dst_7stage_odd,
-
-  input reg_wr_1stage_odd,
-  input reg_wr_2stage_odd,
-  input reg_wr_3stage_odd,
-  input reg_wr_4stage_odd,
-  input reg_wr_5stage_odd,
-  input reg_wr_6stage_odd,
-  input reg_wr_7stage_odd,
-
-  input [0:3] latency_1stage_odd,
-  input [0:3] latency_2stage_odd,
-  input [0:3] latency_3stage_odd,
-  input [0:3] latency_4stage_odd,
-  input [0:3] latency_5stage_odd,
-  input [0:3] latency_6stage_odd,
-  input [0:3] latency_7stage_odd,
-
-  input [0:127] reg_dst_result_1stage_even,
-  input [0:127] reg_dst_result_2stage_even,
-  input [0:127] reg_dst_result_3stage_even,
-  input [0:127] reg_dst_result_4stage_even,
-  input [0:127] reg_dst_result_5stage_even,
-  input [0:127] reg_dst_result_6stage_even,
-  input [0:127] reg_dst_result_7stage_even,
-
-  input [0:127] reg_dst_result_1stage_odd,
-  input [0:127] reg_dst_result_2stage_odd,
-  input [0:127] reg_dst_result_3stage_odd,
-  input [0:127] reg_dst_result_4stage_odd,
-  input [0:127] reg_dst_result_5stage_odd,
-  input [0:127] reg_dst_result_6stage_odd,
-  input [0:127] reg_dst_result_7stage_odd,
+  input [0:142] packed_1stage_odd,
+  input [0:142] packed_2stage_odd,
+  input [0:142] packed_3stage_odd,
+  input [0:142] packed_4stage_odd,
+  input [0:142] packed_5stage_odd,
+  input [0:142] packed_6stage_odd,
+  input [0:142] packed_7stage_odd,
 
   // OUTPUT 
-  output reg [0:31] out_instr_even,
-  output reg [0:31] out_instr_odd,
+  output reg [0:31] out_full_instr_even, // bypassing signals from ID
   output reg [0:6] out_instr_id_even,
-  output reg [0:6] out_instr_id_odd,
+  output reg [0:6] out_reg_dst_even,
   output reg [0:2] out_unit_id_even,
+  output reg [0:3] out_latency_even,
+  output reg out_reg_wr_even,
+  output reg [0:6] out_imme7_even,
+  output reg [0:9] out_imme10_even,
+  output reg [0:15] out_imme16_even,
+  output reg [0:17] out_imme18_even,
+
+  output reg [0:31] out_full_instr_odd,
+  output reg [0:6] out_instr_id_odd,
+  output reg [0:6] out_reg_dst_odd,
   output reg [0:2] out_unit_id_odd,
+  output reg [0:3] out_latency_odd,
+  output reg out_reg_wr_odd,
+  output reg [0:6] out_imme7_odd,
+  output reg [0:9] out_imme10_odd,
+  output reg [0:15] out_imme16_odd,
+  output reg [0:17] out_imme18_odd,
 
   output reg [0:127] ra_data_even,
   output reg [0:127] rb_data_even,
@@ -106,7 +88,11 @@ module RF_FU_wrapper(
 
   output reg [0:127] ra_data_odd,
   output reg [0:127] rb_data_odd,
-  output reg [0:127] rc_data_odd
+  output reg [0:127] rc_data_odd,
+
+  // Preload RF. Verification purpose only
+  input preload_en,
+  input [0:127] preload_values [0:127]
 
 );
 reg [0:127] regfile_out_data_1;
@@ -163,6 +149,9 @@ Reg_file RF_inst(
   .reg_read_data_4(regfile_out_data_4),
   .reg_read_data_5(regfile_out_data_5),
   .reg_read_data_6(regfile_out_data_6),
+
+  .preload_en(preload_en),
+  .preload_values(preload_values)
 );
 
 Forwarding_Unit FU_inst(
@@ -170,57 +159,25 @@ Forwarding_Unit FU_inst(
   .reg_rb_src_even(rb_addr_even),
   .reg_rc_src_even(rc_addr_even),
 
-  .reg_dst_1stage_even(reg_dst_1stage_even),
-  .reg_dst_2stage_even(reg_dst_2stage_even),
-  .reg_dst_3stage_even(reg_dst_3stage_even),
-  .reg_dst_4stage_even(reg_dst_4stage_even),
-  .reg_dst_5stage_even(reg_dst_5stage_even),
-  .reg_dst_6stage_even(reg_dst_6stage_even),
-  .reg_dst_7stage_even(reg_dst_7stage_even),
-
-  .reg_wr_1stage_even(reg_wr_1stage_even),
-  .reg_wr_2stage_even(reg_wr_2stage_even),
-  .reg_wr_3stage_even(reg_wr_3stage_even),
-  .reg_wr_4stage_even(reg_wr_4stage_even),
-  .reg_wr_5stage_even(reg_wr_5stage_even),
-  .reg_wr_6stage_even(reg_wr_6stage_even),
-  .reg_wr_7stage_even(reg_wr_7stage_even),
-
-  .latency_1stage_even(latency_1stage_even),
-  .latency_2stage_even(latency_2stage_even),
-  .latency_3stage_even(latency_3stage_even),
-  .latency_4stage_even(latency_4stage_even),
-  .latency_5stage_even(latency_5stage_even),
-  .latency_6stage_even(latency_6stage_even),
-  .latency_7stage_even(latency_7stage_even),
-
   .reg_ra_src_odd(ra_addr_odd),
   .reg_rb_src_odd(rb_addr_odd),
   .reg_rc_src_odd(rc_addr_odd),
 
-  .reg_dst_1stage_odd(reg_dst_1stage_odd),
-  .reg_dst_2stage_odd(reg_dst_2stage_odd),
-  .reg_dst_3stage_odd(reg_dst_3stage_odd),
-  .reg_dst_4stage_odd(reg_dst_4stage_odd),
-  .reg_dst_5stage_odd(reg_dst_5stage_odd),
-  .reg_dst_6stage_odd(reg_dst_6stage_odd),
-  .reg_dst_7stage_odd(reg_dst_7stage_odd),
+  .packed_1stage_even(packed_1stage_even),
+  .packed_2stage_even(packed_2stage_even),
+  .packed_3stage_even(packed_3stage_even),
+  .packed_4stage_even(packed_4stage_even),
+  .packed_5stage_even(packed_5stage_even),
+  .packed_6stage_even(packed_6stage_even),
+  .packed_7stage_even(packed_7stage_even),
 
-  .reg_wr_1stage_odd(reg_wr_1stage_odd),
-  .reg_wr_2stage_odd(reg_wr_2stage_odd),
-  .reg_wr_3stage_odd(reg_wr_3stage_odd),
-  .reg_wr_4stage_odd(reg_wr_4stage_odd),
-  .reg_wr_5stage_odd(reg_wr_5stage_odd),
-  .reg_wr_6stage_odd(reg_wr_6stage_odd),
-  .reg_wr_7stage_odd(reg_wr_7stage_odd),
-
-  .latency_1stage_odd(latency_1stage_odd),
-  .latency_2stage_odd(latency_2stage_odd),
-  .latency_3stage_odd(latency_3stage_odd),
-  .latency_4stage_odd(latency_4stage_odd),
-  .latency_5stage_odd(latency_5stage_odd),
-  .latency_6stage_odd(latency_6stage_odd),
-  .latency_7stage_odd(latency_7stage_odd),
+  .packed_1stage_odd(packed_1stage_odd),
+  .packed_2stage_odd(packed_2stage_odd),
+  .packed_3stage_odd(packed_3stage_odd),
+  .packed_4stage_odd(packed_4stage_odd),
+  .packed_5stage_odd(packed_5stage_odd),
+  .packed_6stage_odd(packed_6stage_odd),
+  .packed_7stage_odd(packed_7stage_odd),
 
   // OUTPUT
   .ra_fw_en_1stage_even(ra_fw_en_1stage_even),
@@ -243,7 +200,29 @@ Forwarding_Unit FU_inst(
   .rc_fw_en_6stage_even(rc_fw_en_6stage_even),
   .ra_fw_en_7stage_even(ra_fw_en_7stage_even),
   .rb_fw_en_7stage_even(rb_fw_en_7stage_even),
-  .rc_fw_en_7stage_even(rc_fw_en_7stage_even)
+  .rc_fw_en_7stage_even(rc_fw_en_7stage_even),
+
+  .ra_fw_en_1stage_odd(ra_fw_en_1stage_odd),
+  .rb_fw_en_1stage_odd(rb_fw_en_1stage_odd),
+  .rc_fw_en_1stage_odd(rc_fw_en_1stage_odd),
+  .ra_fw_en_2stage_odd(ra_fw_en_2stage_odd),
+  .rb_fw_en_2stage_odd(rb_fw_en_2stage_odd),
+  .rc_fw_en_2stage_odd(rc_fw_en_2stage_odd),
+  .ra_fw_en_3stage_odd(ra_fw_en_3stage_odd),
+  .rb_fw_en_3stage_odd(rb_fw_en_3stage_odd),
+  .rc_fw_en_3stage_odd(rc_fw_en_3stage_odd),
+  .ra_fw_en_4stage_odd(ra_fw_en_4stage_odd),
+  .rb_fw_en_4stage_odd(rb_fw_en_4stage_odd),
+  .rc_fw_en_4stage_odd(rc_fw_en_4stage_odd),
+  .ra_fw_en_5stage_odd(ra_fw_en_5stage_odd),
+  .rb_fw_en_5stage_odd(rb_fw_en_5stage_odd),
+  .rc_fw_en_5stage_odd(rc_fw_en_5stage_odd),
+  .ra_fw_en_6stage_odd(ra_fw_en_6stage_odd),
+  .rb_fw_en_6stage_odd(rb_fw_en_6stage_odd),
+  .rc_fw_en_6stage_odd(rc_fw_en_6stage_odd),
+  .ra_fw_en_7stage_odd(ra_fw_en_7stage_odd),
+  .rb_fw_en_7stage_odd(rb_fw_en_7stage_odd),
+  .rc_fw_en_7stage_odd(rc_fw_en_7stage_odd)
 );
 
 

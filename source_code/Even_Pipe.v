@@ -2,7 +2,7 @@ module Even_Pipe(
   input clk,
   input rst,
 
-  input [0:31] full_isntr,
+  input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
   input [0:2] unit_id,
@@ -21,13 +21,13 @@ module Even_Pipe(
 
 
   // output for forwarding unit
-  output reg [0:142] packed_result_1stage,
-  output reg [0:142] packed_result_2stage,
-  output reg [0:142] packed_result_3stage,
-  output reg [0:142] packed_result_4stage,
-  output reg [0:142] packed_result_5stage,
-  output reg [0:142] packed_result_6stage,
-  output reg [0:142] packed_result_7stage,
+  output reg [0:142] packed_1stage,
+  output reg [0:142] packed_2stage,
+  output reg [0:142] packed_3stage,
+  output reg [0:142] packed_4stage,
+  output reg [0:142] packed_5stage,
+  output reg [0:142] packed_6stage,
+  output reg [0:142] packed_7stage,
 
   // Write back stage
   output reg [0:6] WB_reg_write_addr,
