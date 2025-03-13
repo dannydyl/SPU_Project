@@ -99,7 +99,7 @@ ai ai_inst(
   .result(ai_result)
 );
 
-and and_inst(
+and_op and_inst(
   .ra(ra_data),
   .rb(rb_data),
   .result(and_result)
@@ -228,19 +228,19 @@ iohl iohl_inst(
   .result(iohl_result)
 );
 
-nand nand_inst(
+nand_op nand_inst(
   .ra(ra_data),
   .rb(rb_data),
   .result(nand_result)
 );
 
-nor nor_inst(
+nor_op nor_inst(
   .ra(ra_data),
   .rb(rb_data),
   .result(nor_result)
 );
 
-or or_inst(
+or_op or_inst(
   .ra(ra_data),
   .rb(rb_data),
   .result(or_result)
@@ -296,7 +296,7 @@ sfx sfx_inst(
   .result(sfx_result)
 );
 
-xor xor_inst(
+xor_op xor_inst(
   .ra(ra_data),
   .rb(rb_data),
   .result(xor_result)

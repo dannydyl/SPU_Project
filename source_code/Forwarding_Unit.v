@@ -87,29 +87,29 @@ module Forwarding_Unit(
 );
   // NOTE: forwarding actually only works from 2 stage to 6 stage
   // even pipe -------------------
-  wire [0:6] reg_dst_1stage_even, // dont need since we can't forward from stage 1
-  wire [0:6] reg_dst_2stage_even, // even pipe register destination
-  wire [0:6] reg_dst_3stage_even,
-  wire [0:6] reg_dst_4stage_even,
-  wire [0:6] reg_dst_5stage_even,
-  wire [0:6] reg_dst_6stage_even,
-  wire [0:6] reg_dst_7stage_even,
+  wire [0:6] reg_dst_1stage_even; // dont need since we can't forward from stage 1
+  wire [0:6] reg_dst_2stage_even; // even pipe register destination
+  wire [0:6] reg_dst_3stage_even;
+  wire [0:6] reg_dst_4stage_even;
+  wire [0:6] reg_dst_5stage_even;
+  wire [0:6] reg_dst_6stage_even;
+  wire [0:6] reg_dst_7stage_even;
 
-  wire reg_wr_1stage_even,
-  wire reg_wr_2stage_even,
-  wire reg_wr_3stage_even,
-  wire reg_wr_4stage_even,
-  wire reg_wr_5stage_even,
-  wire reg_wr_6stage_even,
-  wire reg_wr_7stage_even,
+  wire reg_wr_1stage_even;
+  wire reg_wr_2stage_even;
+  wire reg_wr_3stage_even;
+  wire reg_wr_4stage_even;
+  wire reg_wr_5stage_even;
+  wire reg_wr_6stage_even;
+  wire reg_wr_7stage_even;
 
-  wire [0:3] latency_1stage_even,
-  wire [0:3] latency_2stage_even,
-  wire [0:3] latency_3stage_even,
-  wire [0:3] latency_4stage_even,
-  wire [0:3] latency_5stage_even,
-  wire [0:3] latency_6stage_even,
-  wire [0:3] latency_7stage_even,
+  wire [0:3] latency_1stage_even;
+  wire [0:3] latency_2stage_even;
+  wire [0:3] latency_3stage_even;
+  wire [0:3] latency_4stage_even;
+  wire [0:3] latency_5stage_even;
+  wire [0:3] latency_6stage_even;
+  wire [0:3] latency_7stage_even;
 
   // unpacking packed data
   assign reg_dst_1stage_even = packed_1stage_even[131:137];
@@ -137,29 +137,29 @@ module Forwarding_Unit(
   assign latency_7stage_even = packed_7stage_even[138:141];
 // odd pipe -------------------
 
-  wire [0:6] reg_dst_1stage_odd,
-  wire [0:6] reg_dst_2stage_odd,
-  wire [0:6] reg_dst_3stage_odd,
-  wire [0:6] reg_dst_4stage_odd,
-  wire [0:6] reg_dst_5stage_odd,
-  wire [0:6] reg_dst_6stage_odd,
-  wire [0:6] reg_dst_7stage_odd,
+  wire [0:6] reg_dst_1stage_odd;
+  wire [0:6] reg_dst_2stage_odd;
+  wire [0:6] reg_dst_3stage_odd;
+  wire [0:6] reg_dst_4stage_odd;
+  wire [0:6] reg_dst_5stage_odd;
+  wire [0:6] reg_dst_6stage_odd;
+  wire [0:6] reg_dst_7stage_odd;
 
-  wire reg_wr_1stage_odd,
-  wire reg_wr_2stage_odd,
-  wire reg_wr_3stage_odd,
-  wire reg_wr_4stage_odd,
-  wire reg_wr_5stage_odd,
-  wire reg_wr_6stage_odd,
-  wire reg_wr_7stage_odd,
+  wire reg_wr_1stage_odd;
+  wire reg_wr_2stage_odd;
+  wire reg_wr_3stage_odd;
+  wire reg_wr_4stage_odd;
+  wire reg_wr_5stage_odd;
+  wire reg_wr_6stage_odd;
+  wire reg_wr_7stage_odd;
 
-  wire [0:3] latency_1stage_odd,
-  wire [0:3] latency_2stage_odd,
-  wire [0:3] latency_3stage_odd,
-  wire [0:3] latency_4stage_odd,
-  wire [0:3] latency_5stage_odd,
-  wire [0:3] latency_6stage_odd,
-  wire [0:3] latency_7stage_odd,
+  wire [0:3] latency_1stage_odd;
+  wire [0:3] latency_2stage_odd;
+  wire [0:3] latency_3stage_odd;
+  wire [0:3] latency_4stage_odd;
+  wire [0:3] latency_5stage_odd;
+  wire [0:3] latency_6stage_odd;
+  wire [0:3] latency_7stage_odd;
   
   // unpacking packed data
   assign reg_dst_1stage_odd = packed_1stage_odd[131:137];

@@ -32,24 +32,33 @@ module Reg_file(
 // 128 registers, 128 bit width
 reg [0:127] reg_file [0:127];
 
-// read operations (asynchronous)
-assign reg_read_data_1 = reg_file[reg_read_addr_1];
-assign reg_read_data_2 = reg_file[reg_read_addr_2];
-assign reg_read_data_3 = reg_file[reg_read_addr_3];
-assign reg_read_data_4 = reg_file[reg_read_addr_4];
-assign reg_read_data_5 = reg_file[reg_read_addr_5];
-assign reg_read_data_6 = reg_file[reg_read_addr_6];
+// read operations (asynchronous) also checking RAW hazards
+assign reg_read_data_1 = (reg_write_addr_1 == reg_read_addr_1) ? reg_write_data_1 : reg_file[reg_read_addr_1];
+assign reg_read_data_2 = (reg_write_addr_1 == reg_read_addr_2) ? reg_write_data_1 : reg_file[reg_read_addr_2];
+assign reg_read_data_3 = (reg_write_addr_1 == reg_read_addr_3) ? reg_write_data_1 : reg_file[reg_read_addr_3];
+assign reg_read_data_4 = (reg_write_addr_1 == reg_read_addr_4) ? reg_write_data_1 : reg_file[reg_read_addr_4];
+assign reg_read_data_5 = (reg_write_addr_1 == reg_read_addr_5) ? reg_write_data_1 : reg_file[reg_read_addr_5];
+assign reg_read_data_6 = (reg_write_addr_1 == reg_read_addr_6) ? reg_write_data_1 : reg_file[reg_read_addr_6];
 
+assign reg_read_data_1 = (reg_write_addr_2 == reg_read_addr_1) ? reg_write_data_2 : reg_file[reg_read_addr_1];
+assign reg_read_data_2 = (reg_write_addr_2 == reg_read_addr_2) ? reg_write_data_2 : reg_file[reg_read_addr_2];
+assign reg_read_data_3 = (reg_write_addr_2 == reg_read_addr_3) ? reg_write_data_2 : reg_file[reg_read_addr_3];
+assign reg_read_data_4 = (reg_write_addr_2 == reg_read_addr_4) ? reg_write_data_2 : reg_file[reg_read_addr_4];
+assign reg_read_data_5 = (reg_write_addr_2 == reg_read_addr_5) ? reg_write_data_2 : reg_file[reg_read_addr_5];
+assign reg_read_data_6 = (reg_write_addr_2 == reg_read_addr_6) ? reg_write_data_2 : reg_file[reg_read_addr_6];
+
+
+integer i;
+
+// write operations (synchronous)
 always @(posedge clk or posedge rst)
   if (preload_en) begin
     // Load register every cycle
-    integer i;
     for (i = 0; i < 128; i = i + 1) begin
       reg_file[i] <= preload_values;
     end
   end
   else if (rst) begin
-    integer i;
     for(i=0;i<128;i=i+1) begin
       reg_file[i] <= 128'b0;
     end
@@ -57,25 +66,9 @@ always @(posedge clk or posedge rst)
   else begin
     if (reg_write_en_1) begin 
       reg_file[reg_write_addr_1] <= reg_write_data_1;
-
-      // forwarding data if the same register is read and written at the same Clock cycle
-      if (reg_write_addr_1 == reg_read_addr_1) reg_read_data_1 <= reg_write_data_1;
-      if (reg_write_addr_1 == reg_read_addr_2) reg_read_data_2 <= reg_write_data_1;
-      if (reg_write_addr_1 == reg_read_addr_3) reg_read_data_3 <= reg_write_data_1;
-      if (reg_write_addr_1 == reg_read_addr_4) reg_read_data_4 <= reg_write_data_1;
-      if (reg_write_addr_1 == reg_read_addr_5) reg_read_data_5 <= reg_write_data_1;
-      if (reg_write_addr_1 == reg_read_addr_6) reg_read_data_6 <= reg_write_data_1;
     end
     if (reg_write_en_2) begin 
       reg_file[reg_write_addr_2] <= reg_write_data_2;
-
-      // forwarding data if the same register is read and written at the same Clock cycle
-      if (reg_write_addr_2 == reg_read_addr_1) reg_read_data_1 <= reg_write_data_2;
-      if (reg_write_addr_2 == reg_read_addr_2) reg_read_data_2 <= reg_write_data_2;
-      if (reg_write_addr_2 == reg_read_addr_3) reg_read_data_3 <= reg_write_data_2;
-      if (reg_write_addr_2 == reg_read_addr_4) reg_read_data_4 <= reg_write_data_2;
-      if (reg_write_addr_2 == reg_read_addr_5) reg_read_data_5 <= reg_write_data_2;
-      if (reg_write_addr_2 == reg_read_addr_6) reg_read_data_6 <= reg_write_data_2;
     end
   end   
 

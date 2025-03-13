@@ -38,6 +38,8 @@ module Odd_Pipe(
   output reg [0:9] new_PC
 );
 
+`include "opcode_package.vh"
+
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr, [143:157] LS_addr, [158:167] PC_result
 reg [0:142] packed_result;
 // reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
@@ -45,13 +47,13 @@ reg [0:142] packed_result;
 reg [0:14] LS_addr;
 reg [0:9] PC_result; // for branch
 reg [0:127] result; // used for permute or branch 
-reg [0:2] unit_id;
-reg [0:6] reg_dst;
-reg [0:3] latency;
-reg reg_wr;
+// reg [0:2] unit_id;
+// reg [0:6] reg_dst;
+// reg [0:3] latency;
+// reg reg_wr;
 
 reg [0:127] PERM_result, branch_rt_result, LS_data_result;
-reg [0:9] new_PC;
+// reg [0:9] new_PC;
 reg [0:14] addr_result;
 
 reg LS_write_en;
@@ -91,7 +93,7 @@ LS_ALU LS_inst(
 always @(*) begin // this should actually come from ID stage
   case (instr_id)
     `instr_ID_stqa: LS_write_en = 1'b1;
-    `instr_ID_stq: LS_write_en = 1'b1;
+    `instr_ID_stqd: LS_write_en = 1'b1;
     default: LS_write_en = 1'b0;
   endcase
 end
@@ -103,7 +105,7 @@ end
 // end
 
 // LocalStore
-LocalStore LS_inst(
+LocalStore LSmem_inst(
   .clk(clk),
   .rst(rst),
   .LS_write_en(LS_write_en),

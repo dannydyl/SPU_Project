@@ -11,10 +11,9 @@ module LocalStore(
 reg [0:127] LS_mem [0:2047];
 
 assign LS_data_out = LS_mem[LS_addr[0:10]];
-
+integer i;
 always @(posedge clk or posedge rst) begin
   if (rst) begin
-    integer i;
     for(i=0;i<2048;i=i+1) begin
       LS_mem[i] <= 128'b0;
     end

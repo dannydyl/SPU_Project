@@ -1,4 +1,4 @@
-module or(
+module or_op(
   input [0:127] ra,
   input [0:127] rb,
 
