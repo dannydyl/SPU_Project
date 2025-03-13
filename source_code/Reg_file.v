@@ -41,17 +41,17 @@ assign reg_read_data_5 = reg_file[reg_read_addr_5];
 assign reg_read_data_6 = reg_file[reg_read_addr_6];
 
 always @(posedge clk or posedge rst)
-  if (rst) begin
-    integer i;
-    for(i=0;i<128;i=i+1) begin
-      reg_file[i] <= 128'b0;
-    end
-  end
-  else if (preload_en) begin
+  if (preload_en) begin
     // Load all register values at once
     integer i;
     for (i = 0; i < 128; i = i + 1) begin
       reg_file[i] <= preload_values[i];
+    end
+  end
+  else if (rst) begin
+    integer i;
+    for(i=0;i<128;i=i+1) begin
+      reg_file[i] <= 128'b0;
     end
   end
   else begin

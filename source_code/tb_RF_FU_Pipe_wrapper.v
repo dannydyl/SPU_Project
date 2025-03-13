@@ -30,6 +30,8 @@ module tb_RF_FU_Pipe_wrapper;
   reg preload_en;
   reg [0:127] preload_values [0:127];
 
+  localparam clk_cycle = 10;
+
   // Instantiate the DUT
   RF_FU_Pipe_wrapper dut (
     .clk(clk),
@@ -63,7 +65,7 @@ module tb_RF_FU_Pipe_wrapper;
   // Clock generation: 10ns period
   initial begin
     clk = 0;
-    forever #5 clk = ~clk;
+    forever #(clock_cycle/2) clk = ~clk;
   end
 
   // Dump waveforms for simulation
@@ -76,7 +78,7 @@ module tb_RF_FU_Pipe_wrapper;
   initial begin
     // Initialize all signals
     rst = 1;
-    preload_en = 0;
+    // preload_en = 0;
     full_instr_even = 32'd0;
     instr_id_even   = 7'd0;
     reg_dst_even    = 7'd0;
@@ -98,17 +100,25 @@ module tb_RF_FU_Pipe_wrapper;
     rb_addr_odd  = 7'd0;
     rc_addr_odd  = 7'd0;
 
+      // Load pre-defined values into all 128 registers
+    preload_en = 1;
+    for (int i = 0; i < 128; i = i + 1) begin
+      preload_values[i] = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
+    end
+    #(clock_cycle);
+    
+    preload_en = 0;
     // Apply reset for a short duration
     #20;
     rst = 0;
 
     // Apply first set of sample instructions
-    #10;
-    full_instr_even = 32'hA5A5A5A5;
+    #(clock_cycle);
+    full_instr_even = 32'h6800C101;
     instr_id_even   = 7'h01;
     reg_dst_even    = 7'h02;
-    unit_id_even    = 3'h3;
-    latency_even    = 4'h4;
+    unit_id_even    = 3'h1;
+    latency_even    = 4'd3;
     reg_wr_even     = 1;
 
     full_instr_odd  = 32'h5A5A5A5A;
@@ -119,8 +129,8 @@ module tb_RF_FU_Pipe_wrapper;
     reg_wr_odd      = 1;
 
     // Add further test cases (or loop over an array of ~90 instructions)
-    #10;
-    full_instr_even = 32'hFFFFFFFF;
+    #(clock_cycle);
+    full_instr_even = 32'h8c90c9c8;
     instr_id_even   = 7'h03;
     reg_dst_even    = 7'h04;
     unit_id_even    = 3'h5;

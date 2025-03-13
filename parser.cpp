@@ -380,38 +380,57 @@ string processInstruction(const string &line) {
 }
 
 int main() {
-    ifstream infile("input_assembly.txt");
-    ofstream outfile("output_binary.txt");
-    if (!infile) {
-        cerr << "Error opening input_assembly.txt\n";
-        return 1;
-    }
-    if (!outfile) {
-        cerr << "Error opening output_binary.txt\n";
-        return 1;
-    }
 
+    // file mode
+    // ifstream infile("input_assembly.txt");
+    // ofstream outfile("output_binary.txt");
+    // if (!infile) {
+    //     cerr << "Error opening input_assembly.txt\n";
+    //     return 1;
+    // }
+    // if (!outfile) {
+    //     cerr << "Error opening output_binary.txt\n";
+    //     return 1;
+    // }
+
+    // string line;
+    // while (getline(infile, line)) {
+    //     // Trim leading whitespace
+    //     size_t pos = line.find_first_not_of(" \t");
+    //     if (pos == string::npos) continue;  // Skip empty lines
+
+    //     // Check if the first non-whitespace characters form a comment marker (e.g. "//")
+    //     if (line.substr(pos, 2) == "//") continue;
+
+    //     // Process the line normally if it's not a comment
+    //     string bits32 = processInstruction(line);
+    //     if (!bits32.empty()) {
+    //         if (bits32.size() != 32) {
+    //             cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
+    //             continue;
+    //         }
+    //         outfile << bits32 << "\n";
+    //     }
+    // }
+
+    // infile.close();
+    // outfile.close();
+
+    // print out mode
+    cout << "Enter assembly instructions (type 'exit' to quit):\n";
     string line;
-    while (getline(infile, line)) {
-        // Trim leading whitespace
-        size_t pos = line.find_first_not_of(" \t");
-        if (pos == string::npos) continue;  // Skip empty lines
-
-        // Check if the first non-whitespace characters form a comment marker (e.g. "//")
-        if (line.substr(pos, 2) == "//") continue;
-
-        // Process the line normally if it's not a comment
-        string bits32 = processInstruction(line);
-        if (!bits32.empty()) {
-            if (bits32.size() != 32) {
-                cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
-                continue;
-            }
-            outfile << bits32 << "\n";
+    while (true) {
+        cout << ">> ";
+        getline(cin, line);
+        if (line == "exit") break;
+        string binary = processInstruction(line);
+        if (!binary.empty() && binary.find("Error") == string::npos) {
+            // Convert binary to hex correctly
+            unsigned long value = bitset<32>(binary).to_ulong();
+            cout << "Binary: " << binary << " | Hex: 0x" << hex << setw(8) << setfill('0') << value << "\n";
+        } else {
+            cout << binary << "\n";
         }
     }
-
-    infile.close();
-    outfile.close();
     return 0;
 }
