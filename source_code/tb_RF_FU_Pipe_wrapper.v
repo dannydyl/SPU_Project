@@ -28,9 +28,9 @@ module tb_RF_FU_Pipe_wrapper;
 
   // Preload signals (for verification)
   reg preload_en;
-  reg [0:127] preload_values [0:127];
+  reg [0:127] preload_values;
 
-  localparam clk_cycle = 10;
+  localparam clock_cycle = 10;
 
   // Instantiate the DUT
   RF_FU_Pipe_wrapper dut (
@@ -103,7 +103,8 @@ module tb_RF_FU_Pipe_wrapper;
       // Load pre-defined values into all 128 registers
     preload_en = 1;
     for (int i = 0; i < 128; i = i + 1) begin
-      preload_values[i] = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
+      preload_values = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
+      #(clock_cycle); // have to preload reg value every cycle
     end
     #(clock_cycle);
     

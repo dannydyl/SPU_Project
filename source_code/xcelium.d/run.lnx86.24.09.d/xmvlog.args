@@ -6,8 +6,8 @@
 ./xcelium.d/run.lnx86.24.09.d
 -RUNMODE
 -sv
-tb_Even_Pipe.v
-Even_Pipe.v
+tb_RF_FU_Pipe_wrapper.v
+RF_FU_Pipe_wrapper.v
 -CDSLIB
 ./xcelium.d/run.lnx86.24.09.d/cdsrun.lib
 -HDLVAR

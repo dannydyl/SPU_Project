@@ -1,0 +1,127 @@
+xmvlog: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+    ra_data_even <= (ra_fw_en_1stage_even) ? reg_dst_result_1stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,328|70): 'reg_dst_result_1stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,329|70): 'reg_dst_result_2stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,330|70): 'reg_dst_result_3stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,331|70): 'reg_dst_result_4stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,332|70): 'reg_dst_result_5stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,333|70): 'reg_dst_result_6stage_even': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,334|70): 'reg_dst_result_7stage_even': undeclared identifier [12.5(IEEE)].
+    rb_data_even <= (rb_fw_en_1stage_even) ? reg_dst_result_1stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,338|70): 'reg_dst_result_1stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,339|70): 'reg_dst_result_2stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,340|70): 'reg_dst_result_3stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,341|70): 'reg_dst_result_4stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,342|70): 'reg_dst_result_5stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,343|70): 'reg_dst_result_6stage_even': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,344|70): 'reg_dst_result_7stage_even': undeclared identifier [12.5(IEEE)].
+    rc_data_even <= (rc_fw_en_1stage_even) ? reg_dst_result_1stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,347|70): 'reg_dst_result_1stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,348|70): 'reg_dst_result_2stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,349|70): 'reg_dst_result_3stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,350|70): 'reg_dst_result_4stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,351|70): 'reg_dst_result_5stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,352|70): 'reg_dst_result_6stage_even': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                                                                      |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,353|70): 'reg_dst_result_7stage_even': undeclared identifier [12.5(IEEE)].
+    ra_data_odd <=  (ra_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,356|68): 'reg_dst_result_1stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,357|68): 'reg_dst_result_2stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,358|68): 'reg_dst_result_3stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,359|68): 'reg_dst_result_4stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,360|68): 'reg_dst_result_5stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,361|68): 'reg_dst_result_6stage_odd': undeclared identifier [12.5(IEEE)].
+                    (ra_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,362|68): 'reg_dst_result_7stage_odd': undeclared identifier [12.5(IEEE)].
+    rb_data_odd <=  (rb_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,365|68): 'reg_dst_result_1stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,366|68): 'reg_dst_result_2stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,367|68): 'reg_dst_result_3stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,368|68): 'reg_dst_result_4stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,369|68): 'reg_dst_result_5stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,370|68): 'reg_dst_result_6stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rb_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,371|68): 'reg_dst_result_7stage_odd': undeclared identifier [12.5(IEEE)].
+    rc_data_odd <=  (rc_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,374|68): 'reg_dst_result_1stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,375|68): 'reg_dst_result_2stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,376|68): 'reg_dst_result_3stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,377|68): 'reg_dst_result_4stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,378|68): 'reg_dst_result_5stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,379|68): 'reg_dst_result_6stage_odd': undeclared identifier [12.5(IEEE)].
+                    (rc_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                                                                    |
+xmvlog: *E,UNDIDN (RF_FU_wrapper.v,380|68): 'reg_dst_result_7stage_odd': undeclared identifier [12.5(IEEE)].

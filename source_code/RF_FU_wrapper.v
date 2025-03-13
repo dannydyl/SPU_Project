@@ -92,7 +92,7 @@ module RF_FU_wrapper(
 
   // Preload RF. Verification purpose only
   input preload_en,
-  input [0:127] preload_values [0:127]
+  input [0:127] preload_values
 
 );
 reg [0:127] regfile_out_data_1;
@@ -225,29 +225,107 @@ Forwarding_Unit FU_inst(
   .rc_fw_en_7stage_odd(rc_fw_en_7stage_odd)
 );
 
+// For instruction info bypassing
+wire [0:31] temp_full_instr_even;
+wire [0:6] temp_instr_id_even;
+wire [0:6] temp_reg_dst_even;
+wire [0:2] temp_unit_id_even;
+wire [0:3] temp_latency_even;
+wire temp_reg_wr_even;
+wire [0:6] temp_imme7_even;
+wire [0:9] temp_imme10_even;
+wire [0:15] temp_imme16_even;
+wire [0:17] temp_imme18_even;
 
-wire temp_instr_even;
-wire temp_instr_odd;
-wire temp_instr_id_even;
-wire temp_instr_id_odd;
-wire temp_unit_id_even;
-wire temp_unit_id_odd;
+wire [0:31] temp_full_instr_odd;
+wire [0:6] temp_instr_id_odd;
+wire [0:6] temp_reg_dst_odd;
+wire [0:2] temp_unit_id_odd;
+wire [0:3] temp_latency_odd;
+wire temp_reg_wr_odd;
+wire [0:6] temp_imme7_odd;
+wire [0:9] temp_imme10_odd;
+wire [0:15] temp_imme16_odd;
+wire [0:17] temp_imme18_odd;
 
-assign temp_instr_even = instruction_even;
-assign temp_instr_odd = instruction_odd;
+assign temp_full_instr_even = full_instr_even;
 assign temp_instr_id_even = instr_id_even;
-assign temp_instr_id_odd = instr_id_odd;
+assign temp_reg_dst_even = reg_dst_even;
 assign temp_unit_id_even = unit_id_even;
+assign temp_latency_even = latency_even;
+assign temp_reg_wr_even = reg_wr_even;
+assign temp_imme7_even = imme7_even;
+assign temp_imme10_even = imme10_even;
+assign temp_imme16_even = imme16_even;
+assign temp_imme18_even = imme18_even;
+
+assign temp_full_instr_odd = full_instr_odd;
+assign temp_instr_id_odd = instr_id_odd;
+assign temp_reg_dst_odd = reg_dst_odd;
 assign temp_unit_id_odd = unit_id_odd;
+assign temp_latency_odd = latency_odd;
+assign temp_reg_wr_odd = reg_wr_odd;
+assign temp_imme7_odd = imme7_odd;
+assign temp_imme10_odd = imme10_odd;
+assign temp_imme16_odd = imme16_odd;
+assign temp_imme18_odd = imme18_odd;
+
+// for forwarding reg dst result extracted from packed value
+wire [0:127] reg_dst_result_1stage_even;
+wire [0:127] reg_dst_result_2stage_even;
+wire [0:127] reg_dst_result_3stage_even;
+wire [0:127] reg_dst_result_4stage_even;
+wire [0:127] reg_dst_result_5stage_even;
+wire [0:127] reg_dst_result_6stage_even;
+wire [0:127] reg_dst_result_7stage_even;
+
+wire [0:127] reg_dst_result_1stage_odd;
+wire [0:127] reg_dst_result_2stage_odd;
+wire [0:127] reg_dst_result_3stage_odd;
+wire [0:127] reg_dst_result_4stage_odd;
+wire [0:127] reg_dst_result_5stage_odd;
+wire [0:127] reg_dst_result_6stage_odd;
+wire [0:127] reg_dst_result_7stage_odd;
+
+assign reg_dst_result_1stage_even = packed_1stage_even[3:130];
+assign reg_dst_result_2stage_even = packed_2stage_even[3:130];
+assign reg_dst_result_3stage_even = packed_3stage_even[3:130];
+assign reg_dst_result_4stage_even = packed_4stage_even[3:130];
+assign reg_dst_result_5stage_even = packed_5stage_even[3:130];
+assign reg_dst_result_6stage_even = packed_6stage_even[3:130];
+assign reg_dst_result_7stage_even = packed_7stage_even[3:130];
+
+assign reg_dst_result_1stage_odd = packed_1stage_odd[3:130];
+assign reg_dst_result_2stage_odd = packed_2stage_odd[3:130];
+assign reg_dst_result_3stage_odd = packed_3stage_odd[3:130];
+assign reg_dst_result_4stage_odd = packed_4stage_odd[3:130];
+assign reg_dst_result_5stage_odd = packed_5stage_odd[3:130];
+assign reg_dst_result_6stage_odd = packed_6stage_odd[3:130];
+assign reg_dst_result_7stage_odd = packed_7stage_odd[3:130];
 
 always @(posedge clk or posedge rst) begin
   if(rst) begin
-    out_instr_even <= 32'b0;
-    out_instr_odd <= 32'b0;
+    out_full_instr_even <= 32'b0;
     out_instr_id_even <= 7'b0;
-    out_instr_id_odd <= 7'b0;
+    out_reg_dst_even <= 7'b0;
     out_unit_id_even <= 3'b0;
+    out_latency_even <= 4'b0;
+    out_reg_wr_even <= 1'b0;
+    out_imme7_even <= 7'b0;
+    out_imme10_even <= 10'b0;
+    out_imme16_even <= 16'b0;
+    out_imme18_even <= 18'b0;
+
+    out_full_instr_odd <= 32'b0;
+    out_instr_id_odd <= 7'b0;
+    out_reg_dst_odd <= 7'b0;
     out_unit_id_odd <= 3'b0;
+    out_latency_odd <= 4'b0;
+    out_reg_wr_odd <= 1'b0;
+    out_imme7_odd <= 7'b0;
+    out_imme10_odd <= 10'b0;
+    out_imme16_odd <= 16'b0;
+    out_imme18_odd <= 18'b0;
     
     regfile_out_data_1 <= 128'b0;
     regfile_out_data_2 <= 128'b0;
@@ -257,12 +335,27 @@ always @(posedge clk or posedge rst) begin
     regfile_out_data_6 <= 128'b0;
   end
   else begin
-    out_instr_even <= temp_instr_even;
-    out_instr_odd <= temp_instr_odd;
+    out_full_instr_even <= temp_full_instr_even;
     out_instr_id_even <= temp_instr_id_even;
-    out_instr_id_odd <= temp_instr_id_odd;
+    out_reg_dst_even <= temp_reg_dst_even;
     out_unit_id_even <= temp_unit_id_even;
+    out_latency_even <= temp_latency_even;
+    out_reg_wr_even <= temp_reg_wr_even;
+    out_imme7_even <= temp_imme7_even;
+    out_imme10_even <= temp_imme10_even;
+    out_imme16_even <= temp_imme16_even;
+    out_imme18_even <= temp_imme18_even;
+
+    out_full_instr_odd <= temp_full_instr_odd;
+    out_instr_id_odd <= temp_instr_id_odd;
+    out_reg_dst_odd <= temp_reg_dst_odd;
     out_unit_id_odd <= temp_unit_id_odd;
+    out_latency_odd <= temp_latency_odd;
+    out_reg_wr_odd <= temp_reg_wr_odd;
+    out_imme7_odd <= temp_imme7_odd;
+    out_imme10_odd <= temp_imme10_odd;
+    out_imme16_odd <= temp_imme16_odd;
+    out_imme18_odd <= temp_imme18_odd;
 
     // when result has to be forwarded to ra (even), recent stages has priority for forwarding
     ra_data_even <= (ra_fw_en_1stage_even) ? reg_dst_result_1stage_even :
@@ -274,7 +367,6 @@ always @(posedge clk or posedge rst) begin
                     (ra_fw_en_7stage_even) ? reg_dst_result_7stage_even :
                     regfile_out_data_1;
 
-    // when result has to be forwarded to rb (even), recent stages has priority for forwarding
     rb_data_even <= (rb_fw_en_1stage_even) ? reg_dst_result_1stage_even :
                     (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
                     (rb_fw_en_3stage_even) ? reg_dst_result_3stage_even :

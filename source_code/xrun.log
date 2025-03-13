@@ -1,39 +1,46 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 07, 2025 at 11:42:47 EST
+TOOL:	xrun	24.09-s001: Started on Mar 13, 2025 at 10:47:12 EDT
 xrun
 	-sv
 	+access+r
 	-gui
-	tb_Even_Pipe.v
-	Even_Pipe.v
-xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
-
--------------------------------------
-Relinquished control to SimVision...
-xcelium> 
-xcelium> source /usr/local/cds/XCELIUM2409/tools/xcelium/files/xmsimrc
-xcelium> database -open waves -into waves.shm -default
-Created default SHM database waves
-xcelium> probe -create -shm tb_even_pipe.WB_reg_write_data tb_even_pipe.WB_reg_write_addr tb_even_pipe.WB_reg_write_en tb_even_pipe.clk tb_even_pipe.full_isntr tb_even_pipe.imme7 tb_even_pipe.imme10 tb_even_pipe.imme16 tb_even_pipe.imme18 tb_even_pipe.instr_id tb_even_pipe.latency tb_even_pipe.packed_result_1stage tb_even_pipe.packed_result_2stage tb_even_pipe.packed_result_3stage tb_even_pipe.packed_result_4stage tb_even_pipe.packed_result_5stage tb_even_pipe.packed_result_6stage tb_even_pipe.packed_result_7stage tb_even_pipe.ra_data tb_even_pipe.rb_data tb_even_pipe.rc_data tb_even_pipe.reg_dst tb_even_pipe.reg_wr tb_even_pipe.rst tb_even_pipe.unit_id
-Created probe 1
-xcelium> run
-Time=0 | WB_reg_write_addr=xx | WB_reg_write_data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx | WB_reg_write_en=x
-Time=15 | WB_reg_write_addr=00 | WB_reg_write_data=00000000000000000000000000000000 | WB_reg_write_en=0
-Time=85 | WB_reg_write_addr=07 | WB_reg_write_data=33333333333333333333333333333333 | WB_reg_write_en=1
-Time=185 | WB_reg_write_addr=71 | WB_reg_write_data=66666666666666666666666666666665 | WB_reg_write_en=0
-Simulation complete via $finish(1) at time 212 NS + 0
-./tb_Even_Pipe.v:124     $finish;
-xcelium> probe -create -shm tb_even_pipe.dut.FX1_result tb_even_pipe.dut.WB_reg_write_addr tb_even_pipe.dut.WB_reg_write_data tb_even_pipe.dut.WB_reg_write_en tb_even_pipe.dut.clk tb_even_pipe.dut.full_isntr tb_even_pipe.dut.imme7 tb_even_pipe.dut.imme10 tb_even_pipe.dut.imme16 tb_even_pipe.dut.imme18 tb_even_pipe.dut.instr_id tb_even_pipe.dut.latency tb_even_pipe.dut.packed_result tb_even_pipe.dut.packed_result_1stage tb_even_pipe.dut.packed_result_2stage tb_even_pipe.dut.packed_result_3stage tb_even_pipe.dut.packed_result_4stage tb_even_pipe.dut.packed_result_5stage tb_even_pipe.dut.packed_result_6stage tb_even_pipe.dut.packed_result_7stage tb_even_pipe.dut.ra_data tb_even_pipe.dut.rb_data tb_even_pipe.dut.rc_data tb_even_pipe.dut.reg_dst tb_even_pipe.dut.reg_wr tb_even_pipe.dut.result tb_even_pipe.dut.rst tb_even_pipe.dut.unit_id
-Created probe 2
-xcelium> reset
-Loaded snapshot worklib.tb_even_pipe:v
-xcelium> run
-Time=0 | WB_reg_write_addr=xx | WB_reg_write_data=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx | WB_reg_write_en=x
-Time=15 | WB_reg_write_addr=00 | WB_reg_write_data=00000000000000000000000000000000 | WB_reg_write_en=0
-Time=85 | WB_reg_write_addr=07 | WB_reg_write_data=33333333333333333333333333333333 | WB_reg_write_en=1
-Time=185 | WB_reg_write_addr=71 | WB_reg_write_data=66666666666666666666666666666665 | WB_reg_write_en=0
-Simulation complete via $finish(1) at time 212 NS + 0
-./tb_Even_Pipe.v:124     $finish;
-xcelium> ^C
-xcelium> exit
-TOOL:	xrun	24.09-s001: Exiting on Mar 07, 2025 at 11:49:42 EST  (total: 00:06:55)
+	tb_RF_FU_Pipe_wrapper.v
+	RF_FU_Pipe_wrapper.v
+file: tb_RF_FU_Pipe_wrapper.v
+	module worklib.tb_RF_FU_Pipe_wrapper:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+RF_FU_wrapper RF_FU_wrapper_inst (
+                               |
+xmelab: *E,CUVMUR (./RF_FU_Pipe_wrapper.v,54|31): instance 'tb_RF_FU_Pipe_wrapper.dut@RF_FU_Pipe_wrapper<module>.RF_FU_wrapper_inst' of design unit 'RF_FU_wrapper' is unresolved in 'worklib.RF_FU_Pipe_wrapper:v'.
+  .full_instr(full_instr_even_to_pipe),
+            |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,149|12): Port name 'full_instr' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_1stage(packed_1stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,162|15): Port name 'packed_1stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_2stage(packed_2stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,163|15): Port name 'packed_2stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_3stage(packed_3stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,164|15): Port name 'packed_3stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_4stage(packed_4stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,165|15): Port name 'packed_4stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_5stage(packed_5stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,166|15): Port name 'packed_5stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_6stage(packed_6stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,167|15): Port name 'packed_6stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+  .packed_7stage(packed_7stage_even),
+               |
+xmelab: *E,CUVPOM (./RF_FU_Pipe_wrapper.v,168|15): Port name 'packed_7stage' of instance 'tb_RF_FU_Pipe_wrapper.dut.Even_Pipe_inst' is invalid or has multiple connections and the instantiated module is defined in file '/home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v'.
+Odd_Pipe Odd_Pipe_inst(
+                     |
+xmelab: *E,CUVMUR (./RF_FU_Pipe_wrapper.v,174|21): instance 'tb_RF_FU_Pipe_wrapper.dut@RF_FU_Pipe_wrapper<module>.Odd_Pipe_inst' of design unit 'Odd_Pipe' is unresolved in 'worklib.RF_FU_Pipe_wrapper:v'.
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 1), exiting.
+TOOL:	xrun	24.09-s001: Exiting on Mar 13, 2025 at 10:47:12 EDT  (total: 00:00:00)

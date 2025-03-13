@@ -26,7 +26,7 @@ module RF_FU_Pipe_wrapper(
 
   // preload RF. Verification purpose only
   input preload_en,
-  input [0:127] preload_values [0:127]
+  input [0:127] preload_values
 );
 // NOTE: forwarding between different pipes has to be implemented
 
