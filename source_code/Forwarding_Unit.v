@@ -85,7 +85,7 @@ module Forwarding_Unit(
   output rc_fw_en_7stage_odd
   // ----------------------------------------------
 );
-
+  // NOTE: forwarding actually only works from 2 stage to 6 stage
   // even pipe -------------------
   wire [0:6] reg_dst_1stage_even, // dont need since we can't forward from stage 1
   wire [0:6] reg_dst_2stage_even, // even pipe register destination
