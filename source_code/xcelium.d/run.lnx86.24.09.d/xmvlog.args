@@ -5,8 +5,8 @@
 -XLMODE
 ./xcelium.d/run.lnx86.24.09.d
 -RUNMODE
--sv
-tb_RF_FU_Pipe_wrapper.v
+-WORK
+worklib
 RF_FU_Pipe_wrapper.v
 -CDSLIB
 ./xcelium.d/run.lnx86.24.09.d/cdsrun.lib

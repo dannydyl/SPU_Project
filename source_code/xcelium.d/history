@@ -25,3 +25,5 @@ s20::(07Mar2025:11:41:54):( xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v )&&(./
 s21::(07Mar2025:11:42:48):( xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v )&&(./xcelium.d/env.d/env.history.07Mar2025_11_42_48)
 s22::(13Mar2025:10:45:32):( xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v )&&(./xcelium.d/env.d/env.history.13Mar2025_10_45_32)
 s23::(13Mar2025:10:47:12):( xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v )&&(./xcelium.d/env.d/env.history.13Mar2025_10_47_12)
+s24::(14Mar2025:11:38:05):( xrun -sv -work worklib RF_FU_Pipe_wrapper.v )&&(./xcelium.d/env.d/env.history.14Mar2025_11_38_05)
+s25::(14Mar2025:11:49:52):( xrun -elaborate -work worklib RF_FU_Pipe_wrapper.v )&&(./xcelium.d/env.d/env.history.14Mar2025_11_49_52)
