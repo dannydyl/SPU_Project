@@ -1,9 +1,8 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 11:43:22 EDT
+TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 11:49:03 EDT
 xrun
 	-sv
 	+access+r
-	-gui
 	-f file_list.f
 		tb_RF_FU_Pipe_wrapper.v
 		RF_FU_Pipe_wrapper.v
@@ -105,7 +104,6 @@ xrun
 		BYTE/avgb.v
 		BYTE/cntb.v
 		BYTE/absdb.v
-xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 Trying to check out license...
 	Xcelium_Limited_Single_Core 24.00 - Failed
@@ -115,4 +113,4 @@ Trying to check out license...
 	Xcelium_Multi_Core 24.00 - Failed
 	Xcelium_For_Partners 24.00 - Failed
 xmsim: *F,NOLICN: Unable to checkout license for the simulation. 'lic_error LMF-03012'.
-TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 11:43:41 EDT  (total: 00:00:19)
+TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 11:49:21 EDT  (total: 00:00:18)
