@@ -95,12 +95,12 @@ module RF_FU_wrapper(
   input [0:127] preload_values
 
 );
-reg [0:127] regfile_out_data_1;
-reg [0:127] regfile_out_data_2;
-reg [0:127] regfile_out_data_3;
-reg [0:127] regfile_out_data_4;
-reg [0:127] regfile_out_data_5;
-reg [0:127] regfile_out_data_6;
+wire [0:127] regfile_out_data_1;
+wire [0:127] regfile_out_data_2;
+wire [0:127] regfile_out_data_3;
+wire [0:127] regfile_out_data_4;
+wire [0:127] regfile_out_data_5;
+wire [0:127] regfile_out_data_6;
 
 wire ra_fw_en_1stage_even;
 wire rb_fw_en_1stage_even;
@@ -327,12 +327,13 @@ always @(posedge clk or posedge rst) begin
     out_imme16_odd <= 16'b0;
     out_imme18_odd <= 18'b0;
     
-    regfile_out_data_1 <= 128'b0;
-    regfile_out_data_2 <= 128'b0;
-    regfile_out_data_3 <= 128'b0;
-    regfile_out_data_4 <= 128'b0;
-    regfile_out_data_5 <= 128'b0;
-    regfile_out_data_6 <= 128'b0;
+    ra_data_even <= 128'b0;
+    rb_data_even <= 128'b0;
+    rc_data_even <= 128'b0;
+
+    ra_data_odd <= 128'b0;
+    rb_data_odd <= 128'b0;
+    rc_data_odd <= 128'b0;
   end
   else begin
     out_full_instr_even <= temp_full_instr_even;

@@ -1,7 +1,7 @@
 module Even_Pipe(
   input clk,
   input rst,
-  
+
   input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
@@ -12,7 +12,7 @@ module Even_Pipe(
   input [0:127] ra_data,
   input [0:127] rb_data,
   input [0:127] rc_data, // rc port is also used for instructions that need rt data as an operand
-  input [0:7] imme7,
+  input [0:6] imme7,
   input [0:9] imme10,
   input [0:15] imme16,
   input [0:17] imme18,
@@ -70,7 +70,7 @@ FX2_ALU FX2_inst(
   .imme10(imme10),
   .imme16(imme16),
   .imme18(imme18),
-  .result(result)
+  .result(FX2_result)
 );
 
 // SP unit
@@ -83,7 +83,7 @@ SP_ALU SP_inst(
   .imme10(imme10),
   .imme16(imme16),
   .imme18(imme18),
-  .result(result)
+  .result(SP_result)
 );
 
 // BYTE unit
@@ -96,7 +96,7 @@ BYTE_ALU BYTE_inst(
   .imme10(imme10),
   .imme16(imme16),
   .imme18(imme18),
-  .result(result)
+  .result(BYTE_result)
 );
 
 always @(*) begin

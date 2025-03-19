@@ -1,4 +1,5 @@
 tb_RF_FU_Pipe_wrapper.v
+RF_FU_Pipe_wrapper.v
 Even_Pipe.v
 Odd_Pipe.v
 RF_FU_wrapper.v
@@ -10,6 +11,8 @@ BYTE_ALU.v
 BRANCH_ALU.v
 PERM_ALU.v
 SP_ALU.v
+LocalStore.v
+Reg_file.v
 FX1/ceqhi.v
 FX1/ai.v
 FX1/bgx.v

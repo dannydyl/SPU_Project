@@ -2,7 +2,7 @@ module LS_ALU(
   input [0:6] instr_id,
   input [0:127] ra_data,
   input [0:9] imme10,
-  input [0:16] imme16,
+  input [0:15] imme16,
 
   output reg [0:14] addr_result
 );

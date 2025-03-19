@@ -1,5 +1,3 @@
-`timescale 1ns/1ps
-
 module RF_FU_Pipe_wrapper(
   input clk,
   input rst,
@@ -10,6 +8,10 @@ module RF_FU_Pipe_wrapper(
   input [0:2] unit_id_even,
   input [0:3] latency_even,
   input reg_wr_even,
+  input [0:6] imme7_even,
+  input [0:9] imme10_even,
+  input [0:15] imme16_even,
+  input [0:17] imme18_even,
 
   input [0:31] full_instr_odd,
   input [0:6] instr_id_odd,
@@ -17,6 +19,10 @@ module RF_FU_Pipe_wrapper(
   input [0:2] unit_id_odd,
   input [0:3] latency_odd,
   input reg_wr_odd,
+  input [0:6] imme7_odd,
+  input [0:9] imme10_odd,
+  input [0:15] imme16_odd,
+  input [0:17] imme18_odd,
 
   input [0:6] ra_addr_even,
   input [0:6] rb_addr_even,
@@ -44,6 +50,9 @@ wire [0:9] imme10_even_to_pipe, imme10_odd_to_pipe;
 wire [0:15] imme16_even_to_pipe, imme16_odd_to_pipe;
 wire [0:17] imme18_even_to_pipe, imme18_odd_to_pipe;
 
+wire [0:127] ra_data_even_to_pipe, rb_data_even_to_pipe, rc_data_even_to_pipe,
+              ra_data_odd_to_pipe, rb_data_odd_to_pipe, rc_data_odd_to_pipe;
+
 wire [0:142] packed_1stage_even, packed_2stage_even, packed_3stage_even, packed_4stage_even, 
               packed_5stage_even, packed_6stage_even, packed_7stage_even,
               packed_1stage_odd, packed_2stage_odd, packed_3stage_odd, packed_4stage_odd,
@@ -52,6 +61,8 @@ wire [0:142] packed_1stage_even, packed_2stage_even, packed_3stage_even, packed_
 wire [0:6] WB_reg_write_addr_even, WB_reg_write_addr_odd;
 wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
+
+wire [0:9] current_PC_odd, new_PC_odd;
 
 RF_FU_wrapper RF_FU_wrapper_inst (
   .clk(clk),

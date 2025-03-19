@@ -3,6 +3,7 @@
 // Do not modify this file
 //
 /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
+/home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v
@@ -14,6 +15,8 @@
 /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v
+/home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v
+/home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqhi.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ai.v
 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/bgx.v

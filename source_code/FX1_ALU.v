@@ -3,7 +3,7 @@ module FX1_ALU(
   input [0:127] ra_data,
   input [0:127] rb_data,
   input [0:127] rc_data, // rc port is also used for instructions that need rt data as an operand
-  input [0:7] imme7,
+  input [0:6] imme7,
   input [0:9] imme10,
   input [0:15] imme16,
   input [0:17] imme18,

@@ -24,3 +24,7 @@ s11(06Mar2025:16:29:06):  xrun -sv +access+r -gui /home/home5/dlee/ese545_work/s
 s12(06Mar2025:16:43:35):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
 #e13(18Mar2025:15:03:18): source ./xcelium.d/env.d/env.history.18Mar2025_15_03_18
 s13(18Mar2025:15:03:18):  xrun -work worklib ah.v 
+#e14(19Mar2025:00:20:22): source ./xcelium.d/env.d/env.history.19Mar2025_00_20_22
+s14(19Mar2025:00:20:22):  xrun -licinfo 
+#e15(19Mar2025:00:21:12): source ./xcelium.d/env.d/env.history.19Mar2025_00_21_12
+s15(19Mar2025:00:21:12):  xrun -licdebug 

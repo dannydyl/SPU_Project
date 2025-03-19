@@ -19,7 +19,7 @@ string toBinary(int value, int bits) {
 }
 
 /*
- * You have 6 instruction formats:
+ * 6 instruction formats:
  *   1) RR
  *   2) RRR
  *   3) RI7

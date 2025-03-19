@@ -1,7 +1,6 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 18, 2025 at 15:03:18 EDT
+TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 00:21:12 EDT
 xrun
-	-work worklib
-	ah.v
-xrun: *E,FILEMIS: Cannot find the provided file ah.v.
-TOOL:	xrun	24.09-s001: Exiting on Mar 18, 2025 at 15:03:18 EDT  (total: 00:00:00)
+	-licdebug
+xrun: *E,NOMOPT: You have not specified a -R (or a -r <snapshot>) option, nor have you specified a source file for compilation.
+TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 00:21:12 EDT  (total: 00:00:00)

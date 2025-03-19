@@ -13,6 +13,10 @@ module tb_RF_FU_Pipe_wrapper;
   reg [0:2]  unit_id_even;
   reg [0:3]  latency_even;
   reg        reg_wr_even;
+  reg [0:6] imme7_even;
+  reg [0:9] imme10_even;
+  reg [0:15] imme16_even;
+  reg [0:17] imme18_even;
 
   // Odd pipe inputs
   reg [0:31] full_instr_odd;
@@ -21,6 +25,10 @@ module tb_RF_FU_Pipe_wrapper;
   reg [0:2]  unit_id_odd;
   reg [0:3]  latency_odd;
   reg        reg_wr_odd;
+  reg [0:6] imme7_odd;
+  reg [0:9] imme10_odd;
+  reg [0:15] imme16_odd;
+  reg [0:17] imme18_odd;
 
   // Register file addresses
   reg [0:6] ra_addr_even, rb_addr_even, rc_addr_even;
@@ -43,6 +51,10 @@ module tb_RF_FU_Pipe_wrapper;
     .unit_id_even(unit_id_even),
     .latency_even(latency_even),
     .reg_wr_even(reg_wr_even),
+    .imme7_even(imme7_even),
+    .imme10_even(imme10_even),
+    .imme16_even(imme16_even),
+    .imme18_even(imme18_even),
 
     .full_instr_odd(full_instr_odd),
     .instr_id_odd(instr_id_odd),
@@ -50,6 +62,10 @@ module tb_RF_FU_Pipe_wrapper;
     .unit_id_odd(unit_id_odd),
     .latency_odd(latency_odd),
     .reg_wr_odd(reg_wr_odd),
+    .imme7_odd(imme7_odd),
+    .imme10_odd(imme10_odd),
+    .imme16_odd(imme16_odd),
+    .imme18_odd(imme18_odd),
 
     .ra_addr_even(ra_addr_even),
     .rb_addr_even(rb_addr_even),
@@ -85,6 +101,10 @@ module tb_RF_FU_Pipe_wrapper;
     unit_id_even    = 3'd0;
     latency_even    = 4'd0;
     reg_wr_even     = 0;
+    imme7_even      = 7'd0;
+    imme10_even     = 10'd0;
+    imme16_even     = 16'd0;
+    imme18_even     = 18'd0;
 
     full_instr_odd  = 32'd0;
     instr_id_odd    = 7'd0;
@@ -92,6 +112,10 @@ module tb_RF_FU_Pipe_wrapper;
     unit_id_odd     = 3'd0;
     latency_odd     = 4'd0;
     reg_wr_odd      = 0;
+    imme7_odd       = 7'd0;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
 
     ra_addr_even = 7'd0;
     rb_addr_even = 7'd0;
@@ -121,6 +145,10 @@ module tb_RF_FU_Pipe_wrapper;
     unit_id_even    = 3'b001;
     latency_even    = 4'b0011;
     reg_wr_even     = 1;
+    imme7_even      = 7'd0;
+    imme10_even     = 10'd0;
+    imme16_even     = 16'd0;
+    imme18_even     = 18'd0;
 
     full_instr_odd  = 32'd0;
     instr_id_odd    = 7'd0;
@@ -128,6 +156,10 @@ module tb_RF_FU_Pipe_wrapper;
     unit_id_odd     = 3'd0;
     latency_odd     = 4'd0;
     reg_wr_odd      = 0;
+    imme7_odd       = 7'd0;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
 
     ra_addr_even = 7'd0000010;
     rb_addr_even = 7'd0000011;

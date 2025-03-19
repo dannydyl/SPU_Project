@@ -4,3 +4,5 @@ include ./hdlrun.var
 define SNAPSHOT worklib.tb_RF_FU_Pipe_wrapper:v
 DEFINE RUNMODEDEFAULT 1
 DEFINE LIB_MAP ( + => worklib )
+define ELAB_SNAPSHOT
+define SNAPSHOT worklib.tb_RF_FU_Pipe_wrapper:v

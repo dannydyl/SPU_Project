@@ -12,6 +12,7 @@ module BRANCH_ALU(
 `include "opcode_package.vh"
 
 wire [0:9] br_result, bra_result, brasl_result, brhnz_result, brhz_result, brnz_result, brsl_result, brz_result;
+wire [0:127] rt_result_temp;
 
 always @(*) begin
   case (instr_id)
@@ -25,6 +26,7 @@ always @(*) begin
     `instr_ID_brz:   PC_result = brz_result;
     default : PC_result = 10'h0;
   endcase
+  rt_result = rt_result_temp;
 end
 
 br br_inst (
@@ -42,7 +44,7 @@ brasl brasl_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .PC_result(brasl_result),
-  .rt_result(rt_result)
+  .rt_result(rt_result_temp)
 );
 
 brhnz brhnz_inst (
@@ -70,7 +72,7 @@ brsl brsl_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .PC_result(brsl_result),
-  .rt_result(rt_result)
+  .rt_result(rt_result_temp)
 );
 
 brz brz_inst (
