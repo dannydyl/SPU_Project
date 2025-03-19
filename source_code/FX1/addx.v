@@ -3,7 +3,7 @@ module addx(
   input [0:127] rb,
   input [0:127] rt,
 
-  output [0:127] result
+  output reg [0:127] result
 );
   always @(*) begin
     // Compute the result for each 32-bit slot

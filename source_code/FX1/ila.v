@@ -1,7 +1,7 @@
 module ila(
   input [0:17] imme,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j;
 reg [0:31] t;

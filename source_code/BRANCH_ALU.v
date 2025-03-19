@@ -61,6 +61,7 @@ brhz brhz_inst (
 
 brnz brnz_inst (
   .in_PC(in_PC),
+  .rt(rc_data),
   .imme16(imme16),
   .PC_result(brnz_result)
 );
@@ -74,6 +75,7 @@ brsl brsl_inst (
 
 brz brz_inst (
   .in_PC(in_PC),
+  .rt(rc_data),
   .imme16(imme16),
   .PC_result(brz_result)
 );

@@ -2,7 +2,7 @@ module a(
   input [0:127] ra,
   input [0:127] rb,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 always @(*) begin
   result[0:31]  = ra[0:31]   + rb[0:31];

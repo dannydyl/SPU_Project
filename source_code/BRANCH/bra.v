@@ -1,10 +1,10 @@
 module bra(
   input [0:15] imme16,
 
-  output [0:9] PC_result
+  output reg [0:9] PC_result
 );
 
-assign PC_result = rt[0:9] + imme16;
+assign PC_result = imme16[6:15];
 
 
 endmodule

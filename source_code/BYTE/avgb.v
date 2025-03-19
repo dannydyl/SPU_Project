@@ -1,4 +1,4 @@
-module avbg(
+module avgb(
   input [0:127] ra,
   input [0:127] rb,
 

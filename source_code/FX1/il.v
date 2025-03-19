@@ -1,7 +1,7 @@
 module il(
   input [0:15] imme,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j;
 reg [0:31] t;

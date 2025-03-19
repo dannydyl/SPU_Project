@@ -1,7 +1,7 @@
 module ilh(
   input [0:15] imme,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j;
 always @(*) begin

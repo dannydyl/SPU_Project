@@ -3,7 +3,7 @@ module selb(
   input [0:127] rb,
   input [0:127] rc,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 
 always @(*) begin

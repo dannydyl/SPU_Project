@@ -115,19 +115,26 @@ module tb_RF_FU_Pipe_wrapper;
 
     // Apply first set of sample instructions
     #(clock_cycle);
-    full_instr_even = 32'h6800C101;
-    instr_id_even   = 7'h01;
-    reg_dst_even    = 7'h02;
-    unit_id_even    = 3'h1;
-    latency_even    = 4'd3;
+    full_instr_even = 32'b00011001000000001100000100000001;
+    instr_id_even   = 7'd1;
+    reg_dst_even    = 7'b0000001;
+    unit_id_even    = 3'b001;
+    latency_even    = 4'b0011;
     reg_wr_even     = 1;
 
-    full_instr_odd  = 32'h5A5A5A5A;
-    instr_id_odd    = 7'h01;
-    reg_dst_odd     = 7'h02;
-    unit_id_odd     = 3'h3;
-    latency_odd     = 4'h4;
-    reg_wr_odd      = 1;
+    full_instr_odd  = 32'd0;
+    instr_id_odd    = 7'd0;
+    reg_dst_odd     = 7'd0;
+    unit_id_odd     = 3'd0;
+    latency_odd     = 4'd0;
+    reg_wr_odd      = 0;
+
+    ra_addr_even = 7'd0000010;
+    rb_addr_even = 7'd0000011;
+    rc_addr_even = 7'd0;
+    ra_addr_odd  = 7'd0;
+    rb_addr_odd  = 7'd0;
+    rc_addr_odd  = 7'd0;
 
     // Add further test cases (or loop over an array of ~90 instructions)
     #(clock_cycle);

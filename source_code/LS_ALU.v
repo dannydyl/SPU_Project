@@ -1,6 +1,7 @@
 module LS_ALU(
   input [0:6] instr_id,
   input [0:127] ra_data,
+  input [0:9] imme10,
   input [0:16] imme16,
 
   output reg [0:14] addr_result
@@ -17,7 +18,7 @@ lqa lqa_inst (
 
 lqd lqd_inst (
   .ra(ra_data),
-  .imme16(imme16),
+  .imme10(imme10),
   .addr_result(lqd_result)
 );
 
@@ -28,7 +29,7 @@ stqa stqa_inst (
 
 stqd stqd_inst (
   .ra(ra_data),
-  .imme16(imme16),
+  .imme10(imme10),
   .addr_result(stqd_result)
 );
 

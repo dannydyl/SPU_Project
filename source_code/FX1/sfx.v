@@ -3,7 +3,7 @@ module sfx(
   input [0:127] rb,
   input [0:127] rt,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j;
 always @(*) begin

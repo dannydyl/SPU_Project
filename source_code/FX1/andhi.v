@@ -2,7 +2,7 @@ module andhi(
   input [0:127] ra,
   input [0:9] imme,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 
 reg [0:15] t; // Extended immediate value

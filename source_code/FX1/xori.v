@@ -1,7 +1,7 @@
 module xori(
   input [0:127] ra,
   input [0:9] imme,
-  output [0:127] result
+  output reg [0:127] result
 );
 
 integer j;

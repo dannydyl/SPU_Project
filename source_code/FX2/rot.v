@@ -15,13 +15,12 @@ always @(*) begin
     for(b=0 ; b<32 ; b=b+1) begin
       if(b+s < 32) begin
         r[b] = t[b+s];
-      else begin
+      end else begin
         r[b] = t[b+s-32];
       end
     end
     result[8*j +: 32] = r;
   end
-end
 end
 
 endmodule

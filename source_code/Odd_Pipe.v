@@ -2,7 +2,7 @@ module Odd_Pipe(
   input clk,
   input rst,
 
-  input [0:31] full_isntr,
+  input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
   input [0:2] unit_id,
@@ -21,13 +21,13 @@ module Odd_Pipe(
 
 
   // output for forwarding unit
-  output reg [0:142] packed_result_1stage,
-  output reg [0:142] packed_result_2stage,
-  output reg [0:142] packed_result_3stage,
-  output reg [0:142] packed_result_4stage,
-  output reg [0:142] packed_result_5stage,
-  output reg [0:142] packed_result_6stage,
-  output reg [0:142] packed_result_7stage,
+  output reg [0:142] packed_1stage,
+  output reg [0:142] packed_2stage,
+  output reg [0:142] packed_3stage,
+  output reg [0:142] packed_4stage,
+  output reg [0:142] packed_5stage,
+  output reg [0:142] packed_6stage,
+  output reg [0:142] packed_7stage,
 
   // Write back stage also used for load instruction
   output reg [0:6] WB_reg_write_addr,
@@ -77,7 +77,7 @@ BRANCH_ALU BRANCH_inst(
   .rc_data(rc_data),
   .imme16(imme16),
   .in_PC(current_PC),
-  .new_PC(new_PC),
+  .PC_result(new_PC),
   .rt_result(branch_rt_result)
 );
 
@@ -85,6 +85,7 @@ BRANCH_ALU BRANCH_inst(
 LS_ALU LS_inst(
   .instr_id(instr_id),
   .ra_data(ra_data),
+  .imme10(imme10),
   .imme16(imme16),
   .addr_result(addr_result)
 );
@@ -129,25 +130,25 @@ end
 
 always @(posedge clk or posedge rst) begin
   if (rst) begin
-    packed_result_1stage <= 0;
-    packed_result_2stage <= 0;
-    packed_result_3stage <= 0;
-    packed_result_4stage <= 0;
-    packed_result_5stage <= 0;
-    packed_result_6stage <= 0;
-    packed_result_7stage <= 0;
+    packed_1stage <= 0;
+    packed_2stage <= 0;
+    packed_3stage <= 0;
+    packed_4stage <= 0;
+    packed_5stage <= 0;
+    packed_6stage <= 0;
+    packed_7stage <= 0;
   end
   else begin
-    packed_result_1stage <= packed_result;
-    packed_result_2stage <= packed_result_1stage;
-    packed_result_3stage <= packed_result_2stage;
-    packed_result_4stage <= packed_result_3stage;
-    packed_result_5stage <= packed_result_4stage;
-    packed_result_6stage <= packed_result_5stage;
-    packed_result_7stage <= packed_result_6stage;
-    WB_reg_write_addr <= packed_result_7stage[131:137];
-    WB_reg_write_data <= packed_result_7stage[3:130];
-    WB_reg_write_en <= packed_result_7stage[142];
+    packed_1stage <= packed_result;
+    packed_2stage <= packed_1stage;
+    packed_3stage <= packed_2stage;
+    packed_4stage <= packed_3stage;
+    packed_5stage <= packed_4stage;
+    packed_6stage <= packed_5stage;
+    packed_7stage <= packed_6stage;
+    WB_reg_write_addr <= packed_7stage[131:137];
+    WB_reg_write_data <= packed_7stage[3:130];
+    WB_reg_write_en <= packed_7stage[142];
   end
 end
 

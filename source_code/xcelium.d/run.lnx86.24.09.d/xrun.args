@@ -2,7 +2,8 @@
 // File created by:  xrun
 // Do not modify this file
 //
--elaborate
--work
-worklib
-RF_FU_Pipe_wrapper.v
+-sv
++access+r
+-gui
+-f
+file_list.f

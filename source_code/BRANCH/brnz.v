@@ -1,8 +1,9 @@
 module brnz(
   input [0:15] imme16,
+  input [0:127] rt,
   input [0:9] in_PC,
 
-  output [0:9] PC_result
+  output reg [0:9] PC_result
 );
 always @(*) begin
   if (rt[0:31] != 0) begin

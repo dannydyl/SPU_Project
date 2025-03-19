@@ -2,7 +2,7 @@ module iohl(
   input [0:127] rt,
   input [0:15] imme,
 
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j;
 reg [0:31] t;

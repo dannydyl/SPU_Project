@@ -1,6 +1,6 @@
 module clz(
   input [0:127] ra,
-  output [0:127] result
+  output reg [0:127] result
 );
 integer j, m;
 reg [0:31] t;

@@ -1,7 +1,7 @@
 module Even_Pipe(
   input clk,
   input rst,
-
+  
   input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
@@ -133,9 +133,4 @@ always @(posedge clk or posedge rst) begin
     WB_reg_write_en <= packed_7stage[142];
   end
 end
-
-
-
-
-
 endmodule

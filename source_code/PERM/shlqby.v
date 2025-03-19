@@ -6,6 +6,7 @@ module shlqby(
 );
 integer b;
 reg [0:4] s;
+reg [0:127] temp;
 
 always @(*) begin
   s = rb[27:31];

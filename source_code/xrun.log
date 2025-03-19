@@ -1,6 +1,225 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 14, 2025 at 11:51:24 EDT
+TOOL:	xrun	24.09-s001: Started on Mar 18, 2025 at 20:04:25 EDT
 xrun
-	-xmlibdirname worklib
-xrun: *E,NOMOPT: You have not specified a -R (or a -r <snapshot>) option, nor have you specified a source file for compilation.
-TOOL:	xrun	24.09-s001: Exiting on Mar 14, 2025 at 11:51:24 EDT  (total: 00:00:00)
+	-sv
+	+access+r
+	-gui
+	-f file_list.f
+		tb_RF_FU_Pipe_wrapper.v
+		Even_Pipe.v
+		Odd_Pipe.v
+		RF_FU_wrapper.v
+		Forwarding_Unit.v
+		FX1_ALU.v
+		FX2_ALU.v
+		LS_ALU.v
+		BYTE_ALU.v
+		BRANCH_ALU.v
+		PERM_ALU.v
+		SP_ALU.v
+		FX1/ceqhi.v
+		FX1/ai.v
+		FX1/bgx.v
+		FX1/sfi.v
+		FX1/iohl.v
+		FX1/ori.v
+		FX1/il.v
+		FX1/sfh.v
+		FX1/addx.v
+		FX1/ceq.v
+		FX1/ah.v
+		FX1/andi.v
+		FX1/orhi.v
+		FX1/nor.v
+		FX1/a.v
+		FX1/cgx.v
+		FX1/ceqh.v
+		FX1/and.v
+		FX1/or.v
+		FX1/sfhi.v
+		FX1/ceqi.v
+		FX1/xorhi.v
+		FX1/ilhu.v
+		FX1/xori.v
+		FX1/cgthi.v
+		FX1/cgth.v
+		FX1/nand.v
+		FX1/sf.v
+		FX1/ilh.v
+		FX1/xor.v
+		FX1/ahi.v
+		FX1/cgti.v
+		FX1/cgt.v
+		FX1/bg.v
+		FX1/cg.v
+		FX1/selb.v
+		FX1/andhi.v
+		FX1/clz.v
+		FX1/sfx.v
+		FX1/eqv.v
+		FX1/ila.v
+		FX2/shl.v
+		FX2/shlh.v
+		FX2/shli.v
+		FX2/roth.v
+		FX2/rot.v
+		FX2/rothi.v
+		FX2/roti.v
+		FX2/shlhi.v
+		BRANCH/brnz.v
+		BRANCH/br.v
+		BRANCH/brasl.v
+		BRANCH/brhz.v
+		BRANCH/bra.v
+		BRANCH/brhnz.v
+		BRANCH/brsl.v
+		BRANCH/brz.v
+		LS/stqd.v
+		LS/lqd.v
+		LS/stqa.v
+		LS/lqa.v
+		PERM/rotqby.v
+		PERM/shlqbii.v
+		PERM/shlqby.v
+		PERM/shlqbyi.v
+		PERM/shlqbi.v
+		PERM/rotqbyi.v
+		PERM/rotqbi.v
+		PERM/rotqbii.v
+		SP/mpyui.v
+		SP/fnms.v
+		SP/fma.v
+		SP/fs.v
+		SP/fm.v
+		SP/mpya.v
+		SP/mpy.v
+		SP/mpyu.v
+		SP/mpyh.v
+		SP/fa.v
+		SP/fms.v
+		SP/mpyi.v
+		BYTE/sumb.v
+		BYTE/avgb.v
+		BYTE/cntb.v
+		BYTE/absdb.v
+Recompiling... reason: file './Even_Pipe.v' is newer than expected.
+	expected: Tue Mar 18 19:23:17 2025
+	actual:   Tue Mar 18 20:10:44 2025
+file: Even_Pipe.v
+	module worklib.Even_Pipe:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+);
+                       |
+xmelab: *W,CUVWSI (./RF_FU_Pipe_wrapper.v,146|23): 1 input port was not connected:
+xmelab: (./Even_Pipe.v,5): full_instr
+
+xmelab: *W,CUSRCH: Resolved design unit 'LocalStore' at 'LSmem_inst' to 'worklib.LocalStore:module' through a global search of all libraries.
+	Top level design units:
+		tb_RF_FU_Pipe_wrapper
+	Modules w/wo timescales:
+		timescale of worklib.xori:v = 1ns/1ps
+		timescale of worklib.xorhi:v = 1ns/1ps
+		timescale of worklib.xor_op:v = 1ns/1ps
+		timescale of worklib.tb_RF_FU_Pipe_wrapper:v = 1ns/1ps
+		timescale of worklib.sumb:v = 1ns/1ps
+		timescale of worklib.stqd:v = 1ns/1ps
+		timescale of worklib.stqa:v = 1ns/1ps
+		timescale of worklib.shlqbyi:v = 1ns/1ps
+		timescale of worklib.shlqby:v = 1ns/1ps
+		timescale of worklib.shlqbii:v = 1ns/1ps
+		timescale of worklib.shlqbi:v = 1ns/1ps
+		timescale of worklib.shli:v = 1ns/1ps
+		timescale of worklib.shlhi:v = 1ns/1ps
+		timescale of worklib.shlh:v = 1ns/1ps
+		timescale of worklib.shl:v = 1ns/1ps
+		timescale of worklib.sfx:v = 1ns/1ps
+		timescale of worklib.sfi:v = 1ns/1ps
+		timescale of worklib.sfhi:v = 1ns/1ps
+		timescale of worklib.sfh:v = 1ns/1ps
+		timescale of worklib.sf:v = 1ns/1ps
+		timescale of worklib.selb:v = 1ns/1ps
+		timescale of worklib.rotqbyi:v = 1ns/1ps
+		timescale of worklib.rotqby:v = 1ns/1ps
+		timescale of worklib.rotqbii:v = 1ns/1ps
+		timescale of worklib.rotqbi:v = 1ns/1ps
+		timescale of worklib.roti:v = 1ns/1ps
+		timescale of worklib.rothi:v = 1ns/1ps
+		timescale of worklib.roth:v = 1ns/1ps
+		timescale of worklib.rot:v = 1ns/1ps
+		timescale of worklib.ori:v = 1ns/1ps
+		timescale of worklib.orhi:v = 1ns/1ps
+		timescale of worklib.or_op:v = 1ns/1ps
+		timescale of worklib.nor_op:v = 1ns/1ps
+		timescale of worklib.nand_op:v = 1ns/1ps
+		timescale of worklib.mpyui:v = 1ns/1ps
+		timescale of worklib.mpyu:v = 1ns/1ps
+		timescale of worklib.mpyi:v = 1ns/1ps
+		timescale of worklib.mpyh:v = 1ns/1ps
+		timescale of worklib.mpya:v = 1ns/1ps
+		timescale of worklib.mpy:v = 1ns/1ps
+		timescale of worklib.lqd:v = 1ns/1ps
+		timescale of worklib.lqa:v = 1ns/1ps
+		timescale of worklib.iohl:v = 1ns/1ps
+		timescale of worklib.ilhu:v = 1ns/1ps
+		timescale of worklib.ilh:v = 1ns/1ps
+		timescale of worklib.ila:v = 1ns/1ps
+		timescale of worklib.il:v = 1ns/1ps
+		timescale of worklib.fs:v = 1ns/1ps
+		timescale of worklib.fnms:v = 1ns/1ps
+		timescale of worklib.fms:v = 1ns/1ps
+		timescale of worklib.fma:v = 1ns/1ps
+		timescale of worklib.fm:v = 1ns/1ps
+		timescale of worklib.fa:v = 1ns/1ps
+		timescale of worklib.eqv:v = 1ns/1ps
+		timescale of worklib.cntb:v = 1ns/1ps
+		timescale of worklib.clz:v = 1ns/1ps
+		timescale of worklib.cgx:v = 1ns/1ps
+		timescale of worklib.cgti:v = 1ns/1ps
+		timescale of worklib.cgthi:v = 1ns/1ps
+		timescale of worklib.cgth:v = 1ns/1ps
+		timescale of worklib.cgt:v = 1ns/1ps
+		timescale of worklib.cg:v = 1ns/1ps
+		timescale of worklib.ceqi:v = 1ns/1ps
+		timescale of worklib.ceqhi:v = 1ns/1ps
+		timescale of worklib.ceqh:v = 1ns/1ps
+		timescale of worklib.ceq:v = 1ns/1ps
+		timescale of worklib.brz:v = 1ns/1ps
+		timescale of worklib.brsl:v = 1ns/1ps
+		timescale of worklib.brnz:v = 1ns/1ps
+		timescale of worklib.brhz:v = 1ns/1ps
+		timescale of worklib.brhnz:v = 1ns/1ps
+		timescale of worklib.brasl:v = 1ns/1ps
+		timescale of worklib.bra:v = 1ns/1ps
+		timescale of worklib.br:v = 1ns/1ps
+		timescale of worklib.bgx:v = 1ns/1ps
+		timescale of worklib.bg:v = 1ns/1ps
+		timescale of worklib.avgb:v = 1ns/1ps
+		timescale of worklib.andi:v = 1ns/1ps
+		timescale of worklib.andhi:v = 1ns/1ps
+		timescale of worklib.and_op:v = 1ns/1ps
+		timescale of worklib.ai:v = 1ns/1ps
+		timescale of worklib.ahi:v = 1ns/1ps
+		timescale of worklib.ah:v = 1ns/1ps
+		timescale of worklib.addx:v = 1ns/1ps
+		timescale of worklib.absdb:v = 1ns/1ps
+		timescale of worklib.a:v = 1ns/1ps
+		timescale of worklib.SP_ALU:v = 1ns/1ps
+		timescale of worklib.Reg_file:v = NOTSET
+		timescale of worklib.RF_FU_wrapper:v = 1ns/1ps
+		timescale of worklib.RF_FU_Pipe_wrapper:v = 1ns/1ps
+		timescale of worklib.PERM_ALU:v = 1ns/1ps
+		timescale of worklib.Odd_Pipe:v = 1ns/1ps
+		timescale of worklib.LocalStore:module = NOTSET
+		timescale of worklib.LS_ALU:v = 1ns/1ps
+		timescale of worklib.Forwarding_Unit:v = 1ns/1ps
+		timescale of worklib.FX2_ALU:v = 1ns/1ps
+		timescale of worklib.FX1_ALU:v = 1ns/1ps
+		timescale of worklib.Even_Pipe:v = 1ns/1ps
+		timescale of worklib.BYTE_ALU:v = 1ns/1ps
+		timescale of worklib.BRANCH_ALU:v = 1ns/1ps
+xmelab: *F,CUMSTS: Timescale directive missing on one or more modules.
+xrun: *E,ELBERR: Error (*E) or soft error (*SE) occurred during elaboration (status 2), exiting.
+TOOL:	xrun	24.09-s001: Exiting on Mar 18, 2025 at 20:04:25 EDT  (total: 00:00:00)

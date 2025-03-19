@@ -9,7 +9,7 @@ reg [0:2] s;
 reg [0:127] r;
 
 always @(*) begin
-  s = imme7[4:6];
+  s = rb[29:31];
   if (s == 0) begin
     result = ra; // No rotation needed, directly assign RA to result
   end else begin

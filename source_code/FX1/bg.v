@@ -1,7 +1,7 @@
 module bg(
   input [0:127] ra,
   input [0:127] rb,
-  output [0:127] result
+  output reg [0:127] result
 );
   integer j;
   always @(*) begin

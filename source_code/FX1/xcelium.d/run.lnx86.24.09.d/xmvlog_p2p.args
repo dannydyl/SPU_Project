@@ -1,0 +1,12 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-WORK
+worklib
+-UPDATE
+-NEVERWARN
+-CDSLIB
+./xcelium.d/run.lnx86.24.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx86.24.09.d/hdl.var

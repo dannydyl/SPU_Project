@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+
 module RF_FU_Pipe_wrapper(
   input clk,
   input rst,
@@ -143,7 +145,7 @@ RF_FU_wrapper RF_FU_wrapper_inst (
   .preload_values(preload_values)
 );
 
-Even_Pipe Even_Pipe_inst(
+Even_Pipe Even_Pipe_inst (
   .clk(clk),
   .rst(rst),
   .full_instr(full_instr_even_to_pipe),
@@ -200,8 +202,4 @@ Odd_Pipe Odd_Pipe_inst(
   .WB_reg_write_en(WB_reg_write_en_odd),
   .new_PC(new_PC_odd) // have to be connected to PC module
 );
-
-
-
-
 endmodule

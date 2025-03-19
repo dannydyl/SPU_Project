@@ -1,20 +1,20 @@
 // Dummy FX1_ALU module definition for simulation
-module FX1_ALU(
-  input  [0:6]   instr_id,
-  input  [0:127] ra,
-  input  [0:127] rb,
-  input  [0:127] rc,
-  input  [0:7]   imme7,
-  input  [0:9]   imme10,
-  input  [0:15]  imme16,
-  input  [0:17]  imme18,
-  output reg [0:127] result
-);
-  // Simple operation: for example, add ra and rb.
-  always @(*) begin
-    result = ra + rb;
-  end
-endmodule
+// module FX1_ALU(
+//   input  [0:6]   instr_id,
+//   input  [0:127] ra,
+//   input  [0:127] rb,
+//   input  [0:127] rc,
+//   input  [0:7]   imme7,
+//   input  [0:9]   imme10,
+//   input  [0:15]  imme16,
+//   input  [0:17]  imme18,
+//   output reg [0:127] result
+// );
+//   // Simple operation: for example, add ra and rb.
+//   always @(*) begin
+//     result = ra + rb;
+//   end
+// endmodule
 
 // Testbench for Even_Pipe module
 module tb_even_pipe;
@@ -36,13 +36,13 @@ module tb_even_pipe;
   reg [0:15]  imme16;
   reg [0:17]  imme18;
 
-  wire [0:142] packed_result_1stage;
-  wire [0:142] packed_result_2stage;
-  wire [0:142] packed_result_3stage;
-  wire [0:142] packed_result_4stage;
-  wire [0:142] packed_result_5stage;
-  wire [0:142] packed_result_6stage;
-  wire [0:142] packed_result_7stage;
+  wire [0:142] packed_1stage;
+  wire [0:142] packed_2stage;
+  wire [0:142] packed_3stage;
+  wire [0:142] packed_4stage;
+  wire [0:142] packed_5stage;
+  wire [0:142] packed_6stage;
+  wire [0:142] packed_7stage;
   wire [0:6]   WB_reg_write_addr;
   wire [0:127] WB_reg_write_data;
   wire         WB_reg_write_en;
@@ -51,7 +51,7 @@ module tb_even_pipe;
   Even_Pipe dut (
     .clk(clk),
     .rst(rst),
-    .full_isntr(full_isntr),
+    .full_instr(full_isntr),
     .instr_id(instr_id),
     .reg_dst(reg_dst),
     .unit_id(unit_id),
@@ -64,13 +64,13 @@ module tb_even_pipe;
     .imme10(imme10),
     .imme16(imme16),
     .imme18(imme18),
-    .packed_result_1stage(packed_result_1stage),
-    .packed_result_2stage(packed_result_2stage),
-    .packed_result_3stage(packed_result_3stage),
-    .packed_result_4stage(packed_result_4stage),
-    .packed_result_5stage(packed_result_5stage),
-    .packed_result_6stage(packed_result_6stage),
-    .packed_result_7stage(packed_result_7stage),
+    .packed_1stage(packed_result_1stage),
+    .packed_2stage(packed_result_2stage),
+    .packed_3stage(packed_result_3stage),
+    .packed_4stage(packed_result_4stage),
+    .packed_5stage(packed_result_5stage),
+    .packed_6stage(packed_result_6stage),
+    .packed_7stage(packed_result_7stage),
     .WB_reg_write_addr(WB_reg_write_addr),
     .WB_reg_write_data(WB_reg_write_data),
     .WB_reg_write_en(WB_reg_write_en)

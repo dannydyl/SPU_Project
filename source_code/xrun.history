@@ -1,2 +1,128 @@
-#e1(14Mar2025:11:51:24): source ./worklib/env.d/env.history.14Mar2025_11_51_24
-s1(14Mar2025:11:51:24):  xrun -xmlibdirname worklib 
+#e1(06Mar2025:16:34:13): source ./xcelium.d/env.d/env.history.06Mar2025_16_34_13
+s1(06Mar2025:16:34:13):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e2(06Mar2025:16:39:02): source ./xcelium.d/env.d/env.history.06Mar2025_16_39_02
+s2(06Mar2025:16:39:02):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e3(06Mar2025:16:44:02): source ./xcelium.d/env.d/env.history.06Mar2025_16_44_02
+s3(06Mar2025:16:44:02):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e4(07Mar2025:10:45:41): source ./xcelium.d/env.d/env.history.07Mar2025_10_45_41
+s4(07Mar2025:10:45:41):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e5(07Mar2025:10:47:04): source ./xcelium.d/env.d/env.history.07Mar2025_10_47_04
+s5(07Mar2025:10:47:04):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e6(07Mar2025:10:52:32): source ./xcelium.d/env.d/env.history.07Mar2025_10_52_32
+s6(07Mar2025:10:52:32):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e7(07Mar2025:10:53:58): source ./xcelium.d/env.d/env.history.07Mar2025_10_53_58
+s7(07Mar2025:10:53:58):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e8(07Mar2025:11:08:04): source ./xcelium.d/env.d/env.history.07Mar2025_11_08_04
+s8(07Mar2025:11:08:04):  xrun -sv -gui tb_Even_Pipe.v Even_Pipe.v 
+#e9(07Mar2025:11:11:28): source ./xcelium.d/env.d/env.history.07Mar2025_11_11_28
+s9(07Mar2025:11:11:28):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e10(07Mar2025:11:11:52): source ./xcelium.d/env.d/env.history.07Mar2025_11_11_52
+s10(07Mar2025:11:11:52):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e11(07Mar2025:11:13:03): source ./xcelium.d/env.d/env.history.07Mar2025_11_13_03
+s11(07Mar2025:11:13:03):  xrun -lincinfo 
+#e12(07Mar2025:11:13:30): source ./xcelium.d/env.d/env.history.07Mar2025_11_13_30
+s12(07Mar2025:11:13:30):  xrun -licinfo 
+#e13(07Mar2025:11:15:53): source ./xcelium.d/env.d/env.history.07Mar2025_11_15_53
+s13(07Mar2025:11:15:53):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e14(07Mar2025:11:16:16): source ./xcelium.d/env.d/env.history.07Mar2025_11_16_16
+s14(07Mar2025:11:16:16):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e15(07Mar2025:11:24:38): source ./xcelium.d/env.d/env.history.07Mar2025_11_24_38
+s15(07Mar2025:11:24:38):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e16(07Mar2025:11:27:07): source ./xcelium.d/env.d/env.history.07Mar2025_11_27_07
+s16(07Mar2025:11:27:07):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e17(07Mar2025:11:27:55): source ./xcelium.d/env.d/env.history.07Mar2025_11_27_55
+s17(07Mar2025:11:27:55):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e18(07Mar2025:11:32:47): source ./xcelium.d/env.d/env.history.07Mar2025_11_32_47
+s18(07Mar2025:11:32:47):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e19(07Mar2025:11:33:21): source ./xcelium.d/env.d/env.history.07Mar2025_11_33_21
+s19(07Mar2025:11:33:21):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e20(07Mar2025:11:41:54): source ./xcelium.d/env.d/env.history.07Mar2025_11_41_54
+s20(07Mar2025:11:41:54):  xrun -sv +access+r tb_Even_Pipe.v Even_Pipe.v 
+#e21(07Mar2025:11:42:48): source ./xcelium.d/env.d/env.history.07Mar2025_11_42_48
+s21(07Mar2025:11:42:48):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e22(13Mar2025:10:45:32): source ./xcelium.d/env.d/env.history.13Mar2025_10_45_32
+s22(13Mar2025:10:45:32):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e23(13Mar2025:10:47:12): source ./xcelium.d/env.d/env.history.13Mar2025_10_47_12
+s23(13Mar2025:10:47:12):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e24(14Mar2025:11:38:05): source ./xcelium.d/env.d/env.history.14Mar2025_11_38_05
+s24(14Mar2025:11:38:05):  xrun -sv -work worklib RF_FU_Pipe_wrapper.v 
+#e25(14Mar2025:11:49:52): source ./xcelium.d/env.d/env.history.14Mar2025_11_49_52
+s25(14Mar2025:11:49:52):  xrun -elaborate -work worklib RF_FU_Pipe_wrapper.v 
+#e26(18Mar2025:11:38:16): source ./xcelium.d/env.d/env.history.18Mar2025_11_38_16
+s26(18Mar2025:11:38:16):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e27(18Mar2025:11:42:08): source ./xcelium.d/env.d/env.history.18Mar2025_11_42_08
+s27(18Mar2025:11:42:08):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e28(18Mar2025:14:44:54): source ./xcelium.d/env.d/env.history.18Mar2025_14_44_54
+s28(18Mar2025:14:44:54):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e29(18Mar2025:14:48:10): source ./xcelium.d/env.d/env.history.18Mar2025_14_48_10
+s29(18Mar2025:14:48:10):  xrun -sv +access+r -gui tb_RF_FU_Pipe_wrapper.v RF_FU_Pipe_wrapper.v 
+#e30(18Mar2025:14:49:29): source ./xcelium.d/env.d/env.history.18Mar2025_14_49_29
+s30(18Mar2025:14:49:29):  xrun -work worklib Even_Pipe.v 
+#e31(18Mar2025:14:49:43): source ./xcelium.d/env.d/env.history.18Mar2025_14_49_43
+s31(18Mar2025:14:49:43):  xrun -work worklib FX1_ALU.v 
+#e32(18Mar2025:14:49:46): source ./xcelium.d/env.d/env.history.18Mar2025_14_49_46
+s32(18Mar2025:14:49:46):  xrun -work worklib FX2_ALU.v 
+#e33(18Mar2025:14:49:50): source ./xcelium.d/env.d/env.history.18Mar2025_14_49_50
+s33(18Mar2025:14:49:50):  xrun -work worklib Even_Pipe.v 
+#e34(18Mar2025:14:49:53): source ./xcelium.d/env.d/env.history.18Mar2025_14_49_53
+s34(18Mar2025:14:49:53):  xrun -work worklib FX1_ALU.v 
+#e35(18Mar2025:14:51:06): source ./xcelium.d/env.d/env.history.18Mar2025_14_51_06
+s35(18Mar2025:14:51:06):  xrun -work worklib Reg_file.v 
+#e36(18Mar2025:14:53:36): source ./xcelium.d/env.d/env.history.18Mar2025_14_53_36
+s36(18Mar2025:14:53:36):  xrun -work worklib Reg_file.v 
+#e37(18Mar2025:14:54:15): source ./xcelium.d/env.d/env.history.18Mar2025_14_54_15
+s37(18Mar2025:14:54:15):  xrun -work worklib FX1_ALU.v 
+#e38(18Mar2025:15:07:44): source ./xcelium.d/env.d/env.history.18Mar2025_15_07_44
+s38(18Mar2025:15:07:44):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e39(18Mar2025:15:10:06): source ./xcelium.d/env.d/env.history.18Mar2025_15_10_06
+s39(18Mar2025:15:10:06):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e40(18Mar2025:15:12:15): source ./xcelium.d/env.d/env.history.18Mar2025_15_12_15
+s40(18Mar2025:15:12:15):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 
+#e41(18Mar2025:15:13:58): source ./xcelium.d/env.d/env.history.18Mar2025_15_13_58
+s41(18Mar2025:15:13:58):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v FX1_ALU.v 
+#e42(18Mar2025:16:37:34): source ./xcelium.d/env.d/env.history.18Mar2025_16_37_34
+s42(18Mar2025:16:37:34):  xrun -sv +access+r -gui -f file_list.f 
+#e43(18Mar2025:16:45:25): source ./xcelium.d/env.d/env.history.18Mar2025_16_45_25
+s43(18Mar2025:16:45:25):  xrun -sv +access+r -gui -f file_list.f 
+#e44(18Mar2025:17:21:14): source ./xcelium.d/env.d/env.history.18Mar2025_17_21_14
+s44(18Mar2025:17:21:14):  xrun -sv +access+r -gui -f file_list.f 
+#e45(18Mar2025:17:23:01): source ./xcelium.d/env.d/env.history.18Mar2025_17_23_01
+s45(18Mar2025:17:23:01):  xrun -sv +access+r -gui -f file_list.f 
+#e46(18Mar2025:17:23:41): source ./xcelium.d/env.d/env.history.18Mar2025_17_23_41
+s46(18Mar2025:17:23:41):  xrun -sv +access+r -gui -f file_list.f 
+#e47(18Mar2025:17:30:05): source ./xcelium.d/env.d/env.history.18Mar2025_17_30_05
+s47(18Mar2025:17:30:05):  xrun -sv +access+r -gui -f file_list.f 
+#e48(18Mar2025:18:56:35): source ./xcelium.d/env.d/env.history.18Mar2025_18_56_35
+s48(18Mar2025:18:56:35):  xrun -sv +access+r -gui -f file_list.f 
+#e49(18Mar2025:18:56:57): source ./xcelium.d/env.d/env.history.18Mar2025_18_56_57
+s49(18Mar2025:18:56:57):  xrun -sv +access+r -gui -f file_list.f 
+#e50(18Mar2025:18:57:06): source ./xcelium.d/env.d/env.history.18Mar2025_18_57_06
+s50(18Mar2025:18:57:06):  xrun -sv +access+r -gui -f file_list.f 
+#e51(18Mar2025:18:57:34): source ./xcelium.d/env.d/env.history.18Mar2025_18_57_34
+s51(18Mar2025:18:57:34):  xrun -sv +access+r -gui -f file_list.f 
+#e52(18Mar2025:18:57:47): source ./xcelium.d/env.d/env.history.18Mar2025_18_57_47
+s52(18Mar2025:18:57:47):  xrun -sv +access+r -gui -f file_list.f 
+#e53(18Mar2025:18:58:02): source ./xcelium.d/env.d/env.history.18Mar2025_18_58_02
+s53(18Mar2025:18:58:02):  xrun -sv +access+r -gui -f file_list.f 
+#e54(18Mar2025:18:58:30): source ./xcelium.d/env.d/env.history.18Mar2025_18_58_30
+s54(18Mar2025:18:58:30):  xrun -sv +access+r -gui -f file_list.f 
+#e55(18Mar2025:19:00:42): source ./xcelium.d/env.d/env.history.18Mar2025_19_00_42
+s55(18Mar2025:19:00:42):  xrun -sv +access+r -gui -f file_list.f 
+#e56(18Mar2025:19:16:16): source ./xcelium.d/env.d/env.history.18Mar2025_19_16_16
+s56(18Mar2025:19:16:16):  xrun -sv +access+r -gui -f file_list.f 
+#e57(18Mar2025:19:16:42): source ./xcelium.d/env.d/env.history.18Mar2025_19_16_42
+s57(18Mar2025:19:16:42):  xrun -sv +access+r -gui -f file_list.f 
+#e58(18Mar2025:19:20:18): source ./xcelium.d/env.d/env.history.18Mar2025_19_20_18
+s58(18Mar2025:19:20:18):  xrun -sv +access+r -gui -f file_list.f 
+#e59(18Mar2025:19:23:53): source ./xcelium.d/env.d/env.history.18Mar2025_19_23_53
+s59(18Mar2025:19:23:53):  xrun -sv +access+r -gui -f file_list.f 
+#e60(18Mar2025:19:26:46): source ./xcelium.d/env.d/env.history.18Mar2025_19_26_46
+s60(18Mar2025:19:26:46):  xrun -sv +access+r -gui -f file_list.f 
+#e61(18Mar2025:19:33:48): source ./xcelium.d/env.d/env.history.18Mar2025_19_33_48
+s61(18Mar2025:19:33:48):  xrun -sv +access+r -gui -f file_list.f 
+#e62(18Mar2025:20:00:39): source ./xcelium.d/env.d/env.history.18Mar2025_20_00_39
+s62(18Mar2025:20:00:39):  xrun -sv +access+r -gui -f file_list.f 
+#e63(18Mar2025:20:03:19): source ./xcelium.d/env.d/env.history.18Mar2025_20_03_19
+s63(18Mar2025:20:03:19):  xrun -sv +access+r -gui -f file_list.f 
+#e64(18Mar2025:20:04:25): source ./xcelium.d/env.d/env.history.18Mar2025_20_04_25
+s64(18Mar2025:20:04:25):  xrun -sv +access+r -gui -f file_list.f 

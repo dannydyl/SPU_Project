@@ -16,13 +16,12 @@ always @(*) begin
     for(b=0 ; b<16 ; b=b+1) begin
       if(b+s < 16) begin
         r[b] = t[b+s];
-      else begin
+      end else begin
         r[b] = t[b+s-16];
       end
     end
-    rt[8*j +: 16] = r;
+    result[8*j +: 16] = r;
   end
-end
 end
 
 endmodule
