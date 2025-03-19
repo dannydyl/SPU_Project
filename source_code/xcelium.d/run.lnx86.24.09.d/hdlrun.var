@@ -88,5 +88,3 @@ define VIEW_MAP ( $VIEW_MAP \
 )
 define ELAB_SNAPSHOT
 define SNAPSHOT worklib.tb_RF_FU_Pipe_wrapper:v
-define ELAB_SNAPSHOT
-define SNAPSHOT worklib.tb_RF_FU_Pipe_wrapper:v

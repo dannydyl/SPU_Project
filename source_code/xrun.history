@@ -182,3 +182,5 @@ s90(19Mar2025:00:53:30):  xrun -licdebug
 s91(19Mar2025:11:43:22):  xrun -sv +access+r -gui -f file_list.f 
 #e92(19Mar2025:11:49:03): source ./xcelium.d/env.d/env.history.19Mar2025_11_49_03
 s92(19Mar2025:11:49:03):  xrun -sv +access+r -f file_list.f 
+#e93(19Mar2025:11:53:53): source ./xcelium.d/env.d/env.history.19Mar2025_11_53_53
+s93(19Mar2025:11:53:53):  xrun -sv +access+r -gui tb_Even_Pipe.v Even_Pipe.v 

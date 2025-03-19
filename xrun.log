@@ -1,6 +1,14 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 00:21:12 EDT
+TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 11:53:11 EDT
 xrun
-	-licdebug
-xrun: *E,NOMOPT: You have not specified a -R (or a -r <snapshot>) option, nor have you specified a source file for compilation.
-TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 00:21:12 EDT  (total: 00:00:00)
+	-R
+
+Trying to check out license...
+	Xcelium_Limited_Single_Core 24.00 - Failed
+	Xcelium_Single_Core 24.00 - Failed
+	Xcelium_Safety_Sim 24.00 - Failed
+	Xcelium_Safety 24.00 - Failed
+	Xcelium_Multi_Core 24.00 - Failed
+	Xcelium_For_Partners 24.00 - Failed
+xmsim: *F,NOLICN: Unable to checkout license for the simulation. 'lic_error LMF-03012'.
+TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 11:53:30 EDT  (total: 00:00:19)
