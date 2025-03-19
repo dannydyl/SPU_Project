@@ -4,5 +4,6 @@
 //
 -sv
 +access+r
-half_adder_tb.v
-half_adder.v
+-gui
+tb_test_adder.v
+test_adder.v

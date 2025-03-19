@@ -1,7 +1,41 @@
 xrun: 24.09-s001: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
-TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 11:53:11 EDT
+TOOL:	xrun	24.09-s001: Started on Mar 19, 2025 at 12:00:18 EDT
 xrun
-	-R
+	-sv
+	+access+r
+	-gui
+	tb_test_adder.v
+	test_adder.v
+file: tb_test_adder.v
+	module worklib.adder_tb:v
+		errors: 0, warnings: 0
+file: test_adder.v
+	module worklib.adder:v
+		errors: 0, warnings: 0
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		adder_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.adder:v <0x3889c543>
+			streams:   1, words:   332
+		worklib.adder_tb:v <0x723ac429>
+			streams:   5, words:  7369
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               3       3
+		Scalar wires:            2       -
+		Vectored wires:          3       -
+		Initial blocks:          1       1
+		Cont. assignments:       1       1
+		Pseudo assignments:      3       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.adder_tb:v
+xmsim: *W,NOMTDGUI: Multi-Threaded Dumping is disabled for interactive debug mode.
 
 Trying to check out license...
 	Xcelium_Limited_Single_Core 24.00 - Failed
@@ -11,4 +45,4 @@ Trying to check out license...
 	Xcelium_Multi_Core 24.00 - Failed
 	Xcelium_For_Partners 24.00 - Failed
 xmsim: *F,NOLICN: Unable to checkout license for the simulation. 'lic_error LMF-03012'.
-TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 11:53:30 EDT  (total: 00:00:19)
+TOOL:	xrun	24.09-s001: Exiting on Mar 19, 2025 at 12:00:37 EDT  (total: 00:00:19)

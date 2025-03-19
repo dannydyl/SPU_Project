@@ -6,8 +6,8 @@
 ./xcelium.d/run.lnx86.24.09.d
 -RUNMODE
 -sv
-half_adder_tb.v
-half_adder.v
+tb_test_adder.v
+test_adder.v
 -CDSLIB
 ./xcelium.d/run.lnx86.24.09.d/cdsrun.lib
 -HDLVAR
