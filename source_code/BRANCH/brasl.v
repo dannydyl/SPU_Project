@@ -6,8 +6,10 @@ module brasl(
   output reg [0:127] rt_result
 );
 
-assign rt_result[0:31] = {22'b0, (in_PC + 1)};
-assign rt_result[32:127] = 96'b0;
-assign PC_result = imme16;
+always @(*) begin
+  rt_result[0:31] = {22'b0, (in_PC + 1)};
+  rt_result[32:127] = 96'b0;
+  PC_result = imme16;
+end
 
 endmodule

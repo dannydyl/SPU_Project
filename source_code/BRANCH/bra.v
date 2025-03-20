@@ -4,7 +4,8 @@ module bra(
   output reg [0:9] PC_result
 );
 
-assign PC_result = imme16[6:15];
-
+always @(*) begin
+  PC_result = imme16[6:15];
+end
 
 endmodule

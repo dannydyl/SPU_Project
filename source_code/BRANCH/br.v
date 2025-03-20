@@ -5,6 +5,8 @@ module br(
   output reg [0:9] PC_result
 );
 
-assign PC_result = in_PC + imme16;
+always @(*) begin
+  PC_result = in_PC + imme16;
+end
 
 endmodule

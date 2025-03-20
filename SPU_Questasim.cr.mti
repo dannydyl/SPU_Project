@@ -1,0 +1,710 @@
+/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ilh
+
+Top level modules:
+	ilh
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v {2 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module tb_RF_FU_Pipe_wrapper
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(167): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(168): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	tb_RF_FU_Pipe_wrapper
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module roth
+
+Top level modules:
+	roth
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module BYTE_ALU
+
+Top level modules:
+	BYTE_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module PERM_ALU
+
+Top level modules:
+	PERM_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbyi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbyi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rotqbyi
+
+Top level modules:
+	rotqbyi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fma.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fma.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fma
+
+Top level modules:
+	fma
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyui.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyui.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpyui
+
+Top level modules:
+	mpyui
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module a
+
+Top level modules:
+	a
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module RF_FU_Pipe_wrapper
+
+Top level modules:
+	RF_FU_Pipe_wrapper
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sfx
+
+Top level modules:
+	sfx
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brsl
+
+Top level modules:
+	brsl
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module xorhi
+
+Top level modules:
+	xorhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sfi
+
+Top level modules:
+	sfi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ceqhi
+
+Top level modules:
+	ceqhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpya.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpya.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpya
+
+Top level modules:
+	mpya
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fs.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fs.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fs
+
+Top level modules:
+	fs
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ila.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ila.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ila
+
+Top level modules:
+	ila
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgt.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgt.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cgt
+
+Top level modules:
+	cgt
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module Reg_file
+
+Top level modules:
+	Reg_file
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shli.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shli.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shli
+
+Top level modules:
+	shli
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sf.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sf.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sf
+
+Top level modules:
+	sf
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module Program_Counter
+
+Top level modules:
+	Program_Counter
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqh.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqh.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ceqh
+
+Top level modules:
+	ceqh
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpy.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpy.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpy
+
+Top level modules:
+	mpy
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgx.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cgx
+
+Top level modules:
+	cgx
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cg.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cg.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cg
+
+Top level modules:
+	cg
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpyi
+
+Top level modules:
+	mpyi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/avgb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/avgb.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module avgb
+
+Top level modules:
+	avgb
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rotqbi
+
+Top level modules:
+	rotqbi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module roti
+
+Top level modules:
+	roti
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/orhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/orhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module orhi
+
+Top level modules:
+	orhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fa.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fa.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fa
+
+Top level modules:
+	fa
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module FX2_ALU
+
+Top level modules:
+	FX2_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brasl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brasl.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brasl
+
+Top level modules:
+	brasl
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module Even_Pipe
+
+Top level modules:
+	Even_Pipe
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgth.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgth.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cgth
+
+Top level modules:
+	cgth
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyu.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyu.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpyu
+
+Top level modules:
+	mpyu
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nor.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nor.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module nor_op
+
+Top level modules:
+	nor_op
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shl.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shl
+
+Top level modules:
+	shl
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbii.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbii.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlqbii
+
+Top level modules:
+	shlqbii
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module stqa
+
+Top level modules:
+	stqa
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xori.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xori.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module xori
+
+Top level modules:
+	xori
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceqi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ceqi
+
+Top level modules:
+	ceqi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Forwarding_Unit.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Forwarding_Unit.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module Forwarding_Unit
+
+Top level modules:
+	Forwarding_Unit
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module RF_FU_wrapper
+
+Top level modules:
+	RF_FU_wrapper
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/cntb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/cntb.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cntb
+
+Top level modules:
+	cntb
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brhz.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brhz.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brhz
+
+Top level modules:
+	brhz
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module Odd_Pipe
+
+Top level modules:
+	Odd_Pipe
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqby.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqby.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rotqby
+
+Top level modules:
+	rotqby
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rothi
+
+Top level modules:
+	rothi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fm.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fm.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fm
+
+Top level modules:
+	fm
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ceq
+
+Top level modules:
+	ceq
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/addx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/addx.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module addx
+
+Top level modules:
+	addx
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xor.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xor.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module xor_op
+
+Top level modules:
+	xor_op
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module lqd
+
+Top level modules:
+	lqd
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ahi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ahi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ahi
+
+Top level modules:
+	ahi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module FX1_ALU
+
+Top level modules:
+	FX1_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module LocalStore
+
+Top level modules:
+	LocalStore
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ilhu
+
+Top level modules:
+	ilhu
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/and.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/and.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module and_op
+
+Top level modules:
+	and_op
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/andhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/andhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module andhi
+
+Top level modules:
+	andhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/sumb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/sumb.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sumb
+
+Top level modules:
+	sumb
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/eqv.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/eqv.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module eqv
+
+Top level modules:
+	eqv
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brz.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brz.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brz
+
+Top level modules:
+	brz
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module SP_ALU
+
+Top level modules:
+	SP_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgti.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgti.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cgti
+
+Top level modules:
+	cgti
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlqbi
+
+Top level modules:
+	shlqbi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fnms.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fnms.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fnms
+
+Top level modules:
+	fnms
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/bgx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/bgx.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module bgx
+
+Top level modules:
+	bgx
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ah.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ah.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ah
+
+Top level modules:
+	ah
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module BRANCH_ALU
+
+Top level modules:
+	BRANCH_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/clz.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/clz.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module clz
+
+Top level modules:
+	clz
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlhi
+
+Top level modules:
+	shlhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlqbyi
+
+Top level modules:
+	shlqbyi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module tb_even_pipe
+
+Top level modules:
+	tb_even_pipe
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module LS_ALU
+
+Top level modules:
+	LS_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ori
+
+Top level modules:
+	ori
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfhi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sfhi
+
+Top level modules:
+	sfhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brhnz.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brhnz.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brhnz
+
+Top level modules:
+	brhnz
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/andi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/andi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module andi
+
+Top level modules:
+	andi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/iohl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/iohl.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module iohl
+
+Top level modules:
+	iohl
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rot.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rot.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rot
+
+Top level modules:
+	rot
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module lqa
+
+Top level modules:
+	lqa
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbii.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbii.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module rotqbii
+
+Top level modules:
+	rotqbii
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/bg.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/bg.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module bg
+
+Top level modules:
+	bg
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/or.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/or.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module or_op
+
+Top level modules:
+	or_op
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfh.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfh.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module sfh
+
+Top level modules:
+	sfh
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fms.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fms.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module fms
+
+Top level modules:
+	fms
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brnz.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brnz.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brnz
+
+Top level modules:
+	brnz
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/il.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/il.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module il
+
+Top level modules:
+	il
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module selb
+
+Top level modules:
+	selb
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgthi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/cgthi.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module cgthi
+
+Top level modules:
+	cgthi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlh.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlh.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlh
+
+Top level modules:
+	shlh
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqby.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqby.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module shlqby
+
+Top level modules:
+	shlqby
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/absdb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/absdb.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module absdb
+
+Top level modules:
+	absdb
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nand.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nand.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module nand_op
+
+Top level modules:
+	nand_op
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ai.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ai.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ai
+
+Top level modules:
+	ai
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyh.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyh.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module mpyh
+
+Top level modules:
+	mpyh
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/br.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/br.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module br
+
+Top level modules:
+	br
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/bra.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/bra.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module bra
+
+Top level modules:
+	bra
+
+} {} {}}

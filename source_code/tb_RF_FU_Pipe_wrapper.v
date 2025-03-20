@@ -84,6 +84,7 @@ module tb_RF_FU_Pipe_wrapper;
     forever #(clock_cycle/2) clk = ~clk;
   end
 
+integer i;
   // Dump waveforms for simulation
   initial begin
     $dumpfile("RF_FU_Pipe_wrapper_tb.vcd");
@@ -126,10 +127,12 @@ module tb_RF_FU_Pipe_wrapper;
 
       // Load pre-defined values into all 128 registers
     preload_en = 1;
-    for (int i = 0; i < 128; i = i + 1) begin
+
+    for (i = 0; i < 128; i = i + 1) begin
       preload_values = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
       #(clock_cycle); // have to preload reg value every cycle
     end
+
     #(clock_cycle);
     
     preload_en = 0;

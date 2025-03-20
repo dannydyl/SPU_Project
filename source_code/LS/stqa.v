@@ -4,6 +4,8 @@ module stqa(
   output reg [0:14] addr_result
 );
 
-assign addr_result = imme16 & 15'h7FF0;
+always @(*) begin
+  addr_result = imme16 & 15'h7FF0;
+end
 
 endmodule

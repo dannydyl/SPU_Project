@@ -1,0 +1,654 @@
+# //  Questa Sim
+# //  Version 2023.4_3 linux Feb 17 2024
+# //
+# //  Copyright 1991-2024 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Load canceled
+vsim -voptargs=+acc work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" work.tb_RF_FU_Pipe_wrapper 
+# Start time: 22:56:58 on Mar 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v(11): Register is illegal in left-hand side of continuous assignment
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 22:56:59 on Mar 19,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+# Loading project SPU_Questasim
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# 102 compiles, 0 failed with no errors.
+vsim -voptargs=+acc work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" work.tb_RF_FU_Pipe_wrapper 
+# Start time: 23:03:17 on Mar 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v(11): Register is illegal in left-hand side of continuous assignment
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 23:03:17 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 3
+vlog roti.v
+# QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+# Start time: 23:04:21 on Mar 19,2025
+# vlog -reportprogress 300 roti.v 
+# ** Error: (vlog-7) Failed to open design unit file "roti.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 23:04:21 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /usr/local/mgc/questasim/linux/vlog failed.
+# Compile of roti.v was successful.
+vsim -voptargs=+acc work.tb_RF_FU_Pipe_wrapper -novopt
+# vsim -voptargs="+acc" work.tb_RF_FU_Pipe_wrapper -novopt 
+# Start time: 23:10:19 on Mar 19,2025
+# ** Error (suppressible): (vsim-12110) All optimizations are disabled because the -novopt option is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features, please see the User's Manual section on Preserving Object Visibility with vopt. -novopt option is now deprecated and will be removed in future releases.
+# Error loading design
+# End time: 23:10:21 on Mar 19,2025, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 2
+vlog -work work tb_RF_FU_Pipe_wrapper.v
+# QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+# Start time: 23:11:39 on Mar 19,2025
+# vlog -reportprogress 300 -work work tb_RF_FU_Pipe_wrapper.v 
+# ** Error: (vlog-7) Failed to open design unit file "tb_RF_FU_Pipe_wrapper.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 23:11:39 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /usr/local/mgc/questasim/linux/vlog failed.
+ls -l tb_RF_FU_Pipe_wrapper.v
+# ls: cannot access 'tb_RF_FU_Pipe_wrapper.v': No such file or directory
+ls
+# SPU_Questasim.cr.mti
+# SPU_Questasim.mpf
+# input_assembly.txt
+# output_binary.txt
+# parser
+# parser.cpp
+# source_code
+# tb_test_adder.v
+# test_adder.v
+# transcript
+# waveform.dsn
+# waveform.trn
+# waveform.vcd
+# waves.shm
+# work
+# xcelium.bashrc
+# xcelium.d
+# xmvlog.log
+# xrun.history
+# xrun.key
+# xrun.log
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# 102 compiles, 0 failed with no errors.
+vsim -voptargs=+acc -vopt work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" -vopt work.tb_RF_FU_Pipe_wrapper 
+# Start time: 00:07:59 on Mar 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/br.v(8): Register is illegal in left-hand side of continuous assignment
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 00:07:59 on Mar 20,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 3
+vsim -voptargs=+acc -vopt work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" -vopt work.tb_RF_FU_Pipe_wrapper 
+# Start time: 00:10:20 on Mar 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/br.v(8): Register is illegal in left-hand side of continuous assignment
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 00:10:20 on Mar 20,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 2
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# 102 compiles, 0 failed with no errors.
+vsim -voptargs=+acc -vopt work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" -vopt work.tb_RF_FU_Pipe_wrapper 
+# Start time: 00:10:48 on Mar 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v(7): Register is illegal in left-hand side of continuous assignment
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 00:10:49 on Mar 20,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 3
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v failed with 1 errors.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# 102 compiles, 1 failed with 1 error.
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# 102 compiles, 0 failed with no errors.
+vsim -voptargs=+acc -vopt work.tb_RF_FU_Pipe_wrapper
+# vsim -voptargs="+acc" -vopt work.tb_RF_FU_Pipe_wrapper 
+# Start time: 00:15:41 on Mar 20,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(85): (vopt-8884) Illegal output port connection for 'addr_result' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'PC_result' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'rt_result' (6th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(62): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(90): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(77): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(64): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(51): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=8, Warnings=1.
+# Error loading design
+# End time: 00:15:43 on Mar 20,2025, Elapsed time: 0:00:02
+# Errors: 8, Warnings: 4
