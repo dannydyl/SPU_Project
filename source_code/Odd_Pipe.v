@@ -35,7 +35,7 @@ module Odd_Pipe(
   output reg WB_reg_write_en,
 
   // branch new PC
-  output reg [0:9] new_PC
+  output [0:9] new_PC
 );
 
 `include "opcode_package.vh"
@@ -52,9 +52,9 @@ reg [0:127] result; // used for permute or branch
 // reg [0:3] latency;
 // reg reg_wr;
 
-reg [0:127] PERM_result, branch_rt_result, LS_data_result;
+wire [0:127] PERM_result, branch_rt_result, LS_data_result;
 // reg [0:9] new_PC;
-reg [0:14] addr_result;
+wire [0:14] addr_result;
 
 reg LS_write_en;
 
@@ -120,9 +120,9 @@ LocalStore LSmem_inst(
 // now that i think about it, store instruction dont really need to forward anything because no register is being written
 always @(*) begin
   case (unit_id)
-    3'b100: result = PERM_result; // permute result
-    3'b101: result = LS_data_result;  // load result (from ls)
-    3'b110: result = branch_rt_result; 
+    3'b101: result = PERM_result; // permute result
+    3'b110: result = LS_data_result;  // load result (from ls)
+    3'b111: result = branch_rt_result; 
     default: result = 128'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
   endcase
   packed_result = {unit_id, result, reg_dst, latency, reg_wr};

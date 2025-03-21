@@ -5,28 +5,12 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	ilh
 
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v {2 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module tb_RF_FU_Pipe_wrapper
-** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(167): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(168): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-
-Top level modules:
-	tb_RF_FU_Pipe_wrapper
-
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module roth
 
 Top level modules:
 	roth
-
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module BYTE_ALU
-
-Top level modules:
-	BYTE_ALU
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -42,6 +26,13 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	rotqbyi
 
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module BYTE_ALU
+
+Top level modules:
+	BYTE_ALU
+
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fma.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/SP/fma.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module fma
@@ -56,19 +47,19 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	mpyui
 
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module a
-
-Top level modules:
-	a
-
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module RF_FU_Pipe_wrapper
 
 Top level modules:
 	RF_FU_Pipe_wrapper
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module a
+
+Top level modules:
+	a
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -77,19 +68,19 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	sfx
 
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module brsl
-
-Top level modules:
-	brsl
-
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module xorhi
 
 Top level modules:
 	xorhi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH/brsl.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module brsl
+
+Top level modules:
+	brsl
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -195,6 +186,13 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 
 Top level modules:
 	mpyi
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqd.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqd.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module stqd
+
+Top level modules:
+	stqd
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/avgb.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE/avgb.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -364,19 +362,19 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	fm
 
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module ceq
-
-Top level modules:
-	ceq
-
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/addx.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/addx.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module addx
 
 Top level modules:
 	addx
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ceq.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ceq
+
+Top level modules:
+	ceq
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xor.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xor.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -392,6 +390,13 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	lqd
 
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module LocalStore
+
+Top level modules:
+	LocalStore
+
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ahi.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ahi.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module ahi
@@ -405,13 +410,6 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 
 Top level modules:
 	FX1_ALU
-
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LocalStore.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module LocalStore
-
-Top level modules:
-	LocalStore
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
@@ -525,19 +523,19 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	shlqbyi
 
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module tb_even_pipe
-
-Top level modules:
-	tb_even_pipe
-
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/LS_ALU.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/LS_ALU.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module LS_ALU
 
 Top level modules:
 	LS_ALU
+
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_Even_Pipe.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module tb_even_pipe
+
+Top level modules:
+	tb_even_pipe
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024

@@ -27,6 +27,7 @@ module Reg_file(
 
   // Preload inputs for verification purpose only
   input preload_en,
+  input [0:127] preload_addr,
   input [0:127] preload_values // array input does not support from veilog, only support in systemverilog
 );
 // 128 registers, 128 bit width
@@ -52,15 +53,14 @@ integer i;
 
 // write operations (synchronous)
 always @(posedge clk or posedge rst)
-  if (preload_en) begin
-    // Load register every cycle
-    for (i = 0; i < 128; i = i + 1) begin
-      reg_file[i] <= preload_values;
-    end
-  end
-  else if (rst) begin
-    for(i=0;i<128;i=i+1) begin
-      reg_file[i] <= 128'b0;
+  if (rst) begin
+    if (preload_en) begin
+      // Load register every cycle
+      reg_file[preload_addr] <= preload_values;
+    end else begin 
+      for(i=0;i<128;i=i+1) begin
+        reg_file[i] <= 128'b0;
+      end
     end
   end
   else begin

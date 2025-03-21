@@ -92,6 +92,7 @@ module RF_FU_wrapper(
 
   // Preload RF. Verification purpose only
   input preload_en,
+  input [0:127] preload_addr,
   input [0:127] preload_values
 
 );
@@ -151,6 +152,7 @@ Reg_file RF_inst(
   .reg_read_data_6(regfile_out_data_6),
 
   .preload_en(preload_en),
+  .preload_addr(preload_addr),
   .preload_values(preload_values)
 );
 

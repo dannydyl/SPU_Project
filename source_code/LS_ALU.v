@@ -11,6 +11,16 @@ module LS_ALU(
 
 wire [0:14] lqa_result, lqd_result, stqa_result, stqd_result;
 
+always @(*) begin
+  case(instr_id)
+    `instr_ID_lqa: addr_result = lqa_result;
+    `instr_ID_lqd: addr_result = lqd_result;
+    `instr_ID_stqa: addr_result = stqa_result;
+    `instr_ID_stqd: addr_result = stqd_result;
+    default: addr_result = 15'b0;
+  endcase
+end
+
 lqa lqa_inst (
   .imme16(imme16),
   .addr_result(lqa_result)

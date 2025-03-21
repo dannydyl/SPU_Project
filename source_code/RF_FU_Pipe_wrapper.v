@@ -34,6 +34,7 @@ module RF_FU_Pipe_wrapper(
 
   // preload RF. Verification purpose only
   input preload_en,
+  input [0:127] preload_addr,
   input [0:127] preload_values
 );
 // NOTE: forwarding between different pipes has to be implemented
@@ -153,6 +154,7 @@ RF_FU_wrapper RF_FU_wrapper_inst (
   .rc_data_odd(rc_data_odd_to_pipe),
 
   .preload_en(preload_en),
+  .preload_addr(preload_addr),
   .preload_values(preload_values)
 );
 

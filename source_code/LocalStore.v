@@ -10,7 +10,12 @@ module LocalStore(
 );
 reg [0:127] LS_mem [0:2047];
 
+// always @(*) begin
+//   LS_data_out = LS_mem[LS_addr[0:10]];
+// end
+
 assign LS_data_out = LS_mem[LS_addr[0:10]];
+
 integer i;
 always @(posedge clk or posedge rst) begin
   if (rst) begin

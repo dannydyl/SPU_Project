@@ -36,7 +36,7 @@ module tb_RF_FU_Pipe_wrapper;
 
   // Preload signals (for verification)
   reg preload_en;
-  reg [0:127] preload_values;
+  reg [0:127] preload_addr, preload_values;
 
   localparam clock_cycle = 10;
 
@@ -75,6 +75,7 @@ module tb_RF_FU_Pipe_wrapper;
     .rc_addr_odd(rc_addr_odd),
 
     .preload_en(preload_en),
+    .preload_addr(preload_addr),
     .preload_values(preload_values)
   );
 
@@ -94,6 +95,7 @@ integer i;
   // Test stimulus
   initial begin
     // Initialize all signals
+    #(clock_cycle/2);
     rst = 1;
     // preload_en = 0;
     full_instr_even = 32'd0;
@@ -126,32 +128,50 @@ integer i;
     rc_addr_odd  = 7'd0;
 
       // Load pre-defined values into all 128 registers
+    #(clock_cycle); // let all the registers to be all 0s
+
     preload_en = 1;
 
-    for (i = 0; i < 128; i = i + 1) begin
-      preload_values = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
-      #(clock_cycle); // have to preload reg value every cycle
-    end
+    preload_addr = 128'h1;
+    preload_values = 128'h00000001_00000001_00000001_00000001;
+    #(clock_cycle);
+
+    preload_addr = 128'h3;
+    preload_values = 128'h00000003_00000003_00000003_00000003;
+    #(clock_cycle);
+
+    preload_addr = 128'h2;
+    preload_values = 128'h00000002_00000002_00000002_00000002;
+    #(clock_cycle);
+
+    preload_addr = 128'h3;
+    preload_values = 128'h00000003_00000003_00000003_00000003;
+    #(clock_cycle);
+
+    preload_en = 0;
+    rst = 0;
+    // for (i = 0; i < 128; i = i + 1) begin
+    //   preload_values = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
+    //   #(clock_cycle); // have to preload reg value every cycle
+    // end
 
     #(clock_cycle);
-    
-    preload_en = 0;
-    // Apply reset for a short duration
-    #20;
-    rst = 0;
 
     // Apply first set of sample instructions
-    #(clock_cycle);
-    full_instr_even = 32'b00011001000000001100000100000001;
-    instr_id_even   = 7'd1;
+    full_instr_even = 32'b00011100000000001100000100000001;
+    instr_id_even   = 7'd4;
     reg_dst_even    = 7'b0000001;
     unit_id_even    = 3'b001;
     latency_even    = 4'b0011;
     reg_wr_even     = 1;
     imme7_even      = 7'd0;
-    imme10_even     = 10'd0;
+    imme10_even     = 10'd3;
     imme16_even     = 16'd0;
     imme18_even     = 18'd0;
+
+    ra_addr_even = 7'd2;
+    rb_addr_even = 7'd3;
+    rc_addr_even = 7'd1;
 
     full_instr_odd  = 32'd0;
     instr_id_odd    = 7'd0;
@@ -164,31 +184,28 @@ integer i;
     imme16_odd      = 16'd0;
     imme18_odd      = 18'd0;
 
-    ra_addr_even = 7'd0000010;
-    rb_addr_even = 7'd0000011;
-    rc_addr_even = 7'd0;
     ra_addr_odd  = 7'd0;
     rb_addr_odd  = 7'd0;
     rc_addr_odd  = 7'd0;
 
     // Add further test cases (or loop over an array of ~90 instructions)
-    #(clock_cycle);
-    full_instr_even = 32'h8c90c9c8;
-    instr_id_even   = 7'h03;
-    reg_dst_even    = 7'h04;
-    unit_id_even    = 3'h5;
-    latency_even    = 4'h6;
-    reg_wr_even     = 0;
+    // #(clock_cycle);
+    // full_instr_even = 32'h8c90c9c8;
+    // instr_id_even   = 7'h03;
+    // reg_dst_even    = 7'h04;
+    // unit_id_even    = 3'h5;
+    // latency_even    = 4'h6;
+    // reg_wr_even     = 0;
 
-    full_instr_odd  = 32'h00000000;
-    instr_id_odd    = 7'h03;
-    reg_dst_odd     = 7'h04;
-    unit_id_odd     = 3'h5;
-    latency_odd     = 4'h6;
-    reg_wr_odd      = 0;
+    // full_instr_odd  = 32'h00000000;
+    // instr_id_odd    = 7'h03;
+    // reg_dst_odd     = 7'h04;
+    // unit_id_odd     = 3'h5;
+    // latency_odd     = 4'h6;
+    // reg_wr_odd      = 0;
 
     // Run simulation for additional cycles
-    #50;
+    #200;
     $finish;
   end
 
