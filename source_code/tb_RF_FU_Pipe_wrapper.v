@@ -136,10 +136,6 @@ integer i;
     preload_values = 128'h00000001_00000001_00000001_00000001;
     #(clock_cycle);
 
-    preload_addr = 128'h3;
-    preload_values = 128'h00000003_00000003_00000003_00000003;
-    #(clock_cycle);
-
     preload_addr = 128'h2;
     preload_values = 128'h00000002_00000002_00000002_00000002;
     #(clock_cycle);
@@ -147,6 +143,11 @@ integer i;
     preload_addr = 128'h3;
     preload_values = 128'h00000003_00000003_00000003_00000003;
     #(clock_cycle);
+
+    preload_addr = 128'h4;
+    preload_values = 128'h00000004_00000004_00000004_00000004;
+    #(clock_cycle);
+
 
     preload_en = 0;
     rst = 0;
@@ -158,20 +159,20 @@ integer i;
     #(clock_cycle);
 
     // Apply first set of sample instructions
-    full_instr_even = 32'b00011100000000001100000100000001;
-    instr_id_even   = 7'd4;
+    full_instr_even = 32'b01000001000000000000000110000001;
+    instr_id_even   = 7'd40;
     reg_dst_even    = 7'b0000001;
     unit_id_even    = 3'b001;
     latency_even    = 4'b0011;
     reg_wr_even     = 1;
     imme7_even      = 7'd0;
     imme10_even     = 10'd3;
-    imme16_even     = 16'd0;
-    imme18_even     = 18'd0;
+    imme16_even     = 16'd3;
+    imme18_even     = 18'd3;
 
     ra_addr_even = 7'd2;
     rb_addr_even = 7'd3;
-    rc_addr_even = 7'd1;
+    rc_addr_even = 7'd4;
 
     full_instr_odd  = 32'd0;
     instr_id_odd    = 7'd0;
