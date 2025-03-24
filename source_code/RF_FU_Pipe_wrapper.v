@@ -107,7 +107,6 @@ RF_FU_wrapper RF_FU_wrapper_inst (
   .reg_write_data_2(WB_reg_write_data_odd),
   
   // inputs for forwarding unit
-  .packed_1stage_even(packed_1stage_even),
   .packed_2stage_even(packed_2stage_even),
   .packed_3stage_even(packed_3stage_even),
   .packed_4stage_even(packed_4stage_even),
@@ -115,7 +114,6 @@ RF_FU_wrapper RF_FU_wrapper_inst (
   .packed_6stage_even(packed_6stage_even),
   .packed_7stage_even(packed_7stage_even),
 
-  .packed_1stage_odd(packed_1stage_odd),
   .packed_2stage_odd(packed_2stage_odd),
   .packed_3stage_odd(packed_3stage_odd),
   .packed_4stage_odd(packed_4stage_odd),
@@ -174,7 +172,6 @@ Even_Pipe Even_Pipe_inst (
   .imme10(imme10_even_to_pipe),
   .imme16(imme16_even_to_pipe),
   .imme18(imme18_even_to_pipe),
-  .packed_1stage(packed_1stage_even),
   .packed_2stage(packed_2stage_even),
   .packed_3stage(packed_3stage_even),
   .packed_4stage(packed_4stage_even),
@@ -203,7 +200,6 @@ Odd_Pipe Odd_Pipe_inst(
   .imme16(imme16_odd_to_pipe),
   .imme18(imme18_odd_to_pipe),
   .current_PC(current_PC_odd), // have to be connected to PC module
-  .packed_1stage(packed_1stage_odd),
   .packed_2stage(packed_2stage_odd),
   .packed_3stage(packed_3stage_odd),
   .packed_4stage(packed_4stage_odd),

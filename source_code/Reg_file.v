@@ -33,22 +33,37 @@ module Reg_file(
 // 128 registers, 128 bit width
 reg [0:127] reg_file [0:127];
 
-// read operations (asynchronous) also checking RAW hazards
-assign reg_read_data_1 = (reg_write_addr_1 == reg_read_addr_1) ? reg_write_data_1 : reg_file[reg_read_addr_1];
-assign reg_read_data_2 = (reg_write_addr_1 == reg_read_addr_2) ? reg_write_data_1 : reg_file[reg_read_addr_2];
-assign reg_read_data_3 = (reg_write_addr_1 == reg_read_addr_3) ? reg_write_data_1 : reg_file[reg_read_addr_3];
-assign reg_read_data_4 = (reg_write_addr_1 == reg_read_addr_4) ? reg_write_data_1 : reg_file[reg_read_addr_4];
-assign reg_read_data_5 = (reg_write_addr_1 == reg_read_addr_5) ? reg_write_data_1 : reg_file[reg_read_addr_5];
-assign reg_read_data_6 = (reg_write_addr_1 == reg_read_addr_6) ? reg_write_data_1 : reg_file[reg_read_addr_6];
+// read operations (asynchronous) also resolving RAW hazards
+// write enable 1 has higher priority than write enable 2
+assign reg_read_data_1 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_1) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_1) ? reg_write_data_2 :
+    reg_file[reg_read_addr_1];
 
-assign reg_read_data_1 = (reg_write_addr_2 == reg_read_addr_1) ? reg_write_data_2 : reg_file[reg_read_addr_1];
-assign reg_read_data_2 = (reg_write_addr_2 == reg_read_addr_2) ? reg_write_data_2 : reg_file[reg_read_addr_2];
-assign reg_read_data_3 = (reg_write_addr_2 == reg_read_addr_3) ? reg_write_data_2 : reg_file[reg_read_addr_3];
-assign reg_read_data_4 = (reg_write_addr_2 == reg_read_addr_4) ? reg_write_data_2 : reg_file[reg_read_addr_4];
-assign reg_read_data_5 = (reg_write_addr_2 == reg_read_addr_5) ? reg_write_data_2 : reg_file[reg_read_addr_5];
-assign reg_read_data_6 = (reg_write_addr_2 == reg_read_addr_6) ? reg_write_data_2 : reg_file[reg_read_addr_6];
+assign reg_read_data_2 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_2) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_2) ? reg_write_data_2 :
+    reg_file[reg_read_addr_2];
 
+assign reg_read_data_3 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_3) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_3) ? reg_write_data_2 :
+    reg_file[reg_read_addr_3];
 
+assign reg_read_data_4 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_4) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_4) ? reg_write_data_2 :
+    reg_file[reg_read_addr_4];
+
+assign reg_read_data_5 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_5) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_5) ? reg_write_data_2 :
+    reg_file[reg_read_addr_5];
+
+assign reg_read_data_6 = 
+    (reg_write_en_1 && reg_write_addr_1 == reg_read_addr_6) ? reg_write_data_1 :
+    (reg_write_en_2 && reg_write_addr_2 == reg_read_addr_6) ? reg_write_data_2 :
+    reg_file[reg_read_addr_6];
 integer i;
 
 // write operations (synchronous)

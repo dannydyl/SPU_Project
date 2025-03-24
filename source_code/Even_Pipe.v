@@ -21,7 +21,6 @@ module Even_Pipe(
 
 
   // output for forwarding unit
-  output reg [0:142] packed_1stage,
   output reg [0:142] packed_2stage,
   output reg [0:142] packed_3stage,
   output reg [0:142] packed_4stage,
@@ -36,7 +35,7 @@ module Even_Pipe(
 
 );
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
-reg [0:142] packed_result;
+reg [0:142] packed_1stage;
 // reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
 
 reg [0:127] result;
@@ -105,9 +104,9 @@ always @(*) begin
     3'b010: result = FX2_result;
     3'b011: result = SP_result;  
     3'b100: result = BYTE_result;
-    default: result = 128'hFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
+    default: result = 128'd0;
   endcase
-  packed_result = {unit_id, result, reg_dst, latency, reg_wr};
+  packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
 end
 
 always @(posedge clk or posedge rst) begin
@@ -121,7 +120,6 @@ always @(posedge clk or posedge rst) begin
     packed_7stage <= 0;
   end
   else begin
-    packed_1stage <= packed_result;
     packed_2stage <= packed_1stage;
     packed_3stage <= packed_2stage;
     packed_4stage <= packed_3stage;

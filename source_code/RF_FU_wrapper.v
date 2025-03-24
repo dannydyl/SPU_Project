@@ -43,7 +43,6 @@ module RF_FU_wrapper(
   input [0:127] reg_write_data_2,
 
   // inputs for forwarding unit
-  input [0:142] packed_1stage_even,
   input [0:142] packed_2stage_even,
   input [0:142] packed_3stage_even,
   input [0:142] packed_4stage_even,
@@ -51,7 +50,6 @@ module RF_FU_wrapper(
   input [0:142] packed_6stage_even,
   input [0:142] packed_7stage_even,
 
-  input [0:142] packed_1stage_odd,
   input [0:142] packed_2stage_odd,
   input [0:142] packed_3stage_odd,
   input [0:142] packed_4stage_odd,
@@ -102,10 +100,7 @@ wire [0:127] regfile_out_data_3;
 wire [0:127] regfile_out_data_4;
 wire [0:127] regfile_out_data_5;
 wire [0:127] regfile_out_data_6;
-
-wire ra_fw_en_1stage_even;
-wire rb_fw_en_1stage_even;
-wire rc_fw_en_1stage_even;
+// need fw en for odd pipe
 wire ra_fw_en_2stage_even;
 wire rb_fw_en_2stage_even;
 wire rc_fw_en_2stage_even;
@@ -124,6 +119,63 @@ wire rc_fw_en_6stage_even;
 wire ra_fw_en_7stage_even;
 wire rb_fw_en_7stage_even;
 wire rc_fw_en_7stage_even;
+
+wire ra_fw_en_2stage_odd;
+wire rb_fw_en_2stage_odd;
+wire rc_fw_en_2stage_odd;
+wire ra_fw_en_3stage_odd;
+wire rb_fw_en_3stage_odd;
+wire rc_fw_en_3stage_odd;
+wire ra_fw_en_4stage_odd;
+wire rb_fw_en_4stage_odd;
+wire rc_fw_en_4stage_odd;
+wire ra_fw_en_5stage_odd;
+wire rb_fw_en_5stage_odd;
+wire rc_fw_en_5stage_odd;
+wire ra_fw_en_6stage_odd;
+wire rb_fw_en_6stage_odd;
+wire rc_fw_en_6stage_odd;
+wire ra_fw_en_7stage_odd;
+wire rb_fw_en_7stage_odd;
+wire rc_fw_en_7stage_odd;
+
+wire ra_fw_en_2stage_from_odd_to_even;
+wire rb_fw_en_2stage_from_odd_to_even;
+wire rc_fw_en_2stage_from_odd_to_even;
+wire ra_fw_en_3stage_from_odd_to_even;
+wire rb_fw_en_3stage_from_odd_to_even;
+wire rc_fw_en_3stage_from_odd_to_even;
+wire ra_fw_en_4stage_from_odd_to_even;
+wire rb_fw_en_4stage_from_odd_to_even;
+wire rc_fw_en_4stage_from_odd_to_even;
+wire ra_fw_en_5stage_from_odd_to_even;
+wire rb_fw_en_5stage_from_odd_to_even;
+wire rc_fw_en_5stage_from_odd_to_even;
+wire ra_fw_en_6stage_from_odd_to_even;
+wire rb_fw_en_6stage_from_odd_to_even;
+wire rc_fw_en_6stage_from_odd_to_even;
+wire ra_fw_en_7stage_from_odd_to_even;
+wire rb_fw_en_7stage_from_odd_to_even;
+wire rc_fw_en_7stage_from_odd_to_even;
+
+wire ra_fw_en_2stage_from_even_to_odd;
+wire rb_fw_en_2stage_from_even_to_odd;
+wire rc_fw_en_2stage_from_even_to_odd;
+wire ra_fw_en_3stage_from_even_to_odd;
+wire rb_fw_en_3stage_from_even_to_odd;
+wire rc_fw_en_3stage_from_even_to_odd;
+wire ra_fw_en_4stage_from_even_to_odd;
+wire rb_fw_en_4stage_from_even_to_odd;
+wire rc_fw_en_4stage_from_even_to_odd;
+wire ra_fw_en_5stage_from_even_to_odd;
+wire rb_fw_en_5stage_from_even_to_odd;
+wire rc_fw_en_5stage_from_even_to_odd;
+wire ra_fw_en_6stage_from_even_to_odd;
+wire rb_fw_en_6stage_from_even_to_odd;
+wire rc_fw_en_6stage_from_even_to_odd;
+wire ra_fw_en_7stage_from_even_to_odd;
+wire rb_fw_en_7stage_from_even_to_odd;
+wire rc_fw_en_7stage_from_even_to_odd;
 
 Reg_file RF_inst(
   .clk(clk),
@@ -165,7 +217,6 @@ Forwarding_Unit FU_inst(
   .reg_rb_src_odd(rb_addr_odd),
   .reg_rc_src_odd(rc_addr_odd),
 
-  .packed_1stage_even(packed_1stage_even),
   .packed_2stage_even(packed_2stage_even),
   .packed_3stage_even(packed_3stage_even),
   .packed_4stage_even(packed_4stage_even),
@@ -173,7 +224,6 @@ Forwarding_Unit FU_inst(
   .packed_6stage_even(packed_6stage_even),
   .packed_7stage_even(packed_7stage_even),
 
-  .packed_1stage_odd(packed_1stage_odd),
   .packed_2stage_odd(packed_2stage_odd),
   .packed_3stage_odd(packed_3stage_odd),
   .packed_4stage_odd(packed_4stage_odd),
@@ -182,9 +232,6 @@ Forwarding_Unit FU_inst(
   .packed_7stage_odd(packed_7stage_odd),
 
   // OUTPUT
-  .ra_fw_en_1stage_even(ra_fw_en_1stage_even),
-  .rb_fw_en_1stage_even(rb_fw_en_1stage_even),
-  .rc_fw_en_1stage_even(rc_fw_en_1stage_even),
   .ra_fw_en_2stage_even(ra_fw_en_2stage_even),
   .rb_fw_en_2stage_even(rb_fw_en_2stage_even),
   .rc_fw_en_2stage_even(rc_fw_en_2stage_even),
@@ -204,9 +251,6 @@ Forwarding_Unit FU_inst(
   .rb_fw_en_7stage_even(rb_fw_en_7stage_even),
   .rc_fw_en_7stage_even(rc_fw_en_7stage_even),
 
-  .ra_fw_en_1stage_odd(ra_fw_en_1stage_odd),
-  .rb_fw_en_1stage_odd(rb_fw_en_1stage_odd),
-  .rc_fw_en_1stage_odd(rc_fw_en_1stage_odd),
   .ra_fw_en_2stage_odd(ra_fw_en_2stage_odd),
   .rb_fw_en_2stage_odd(rb_fw_en_2stage_odd),
   .rc_fw_en_2stage_odd(rc_fw_en_2stage_odd),
@@ -224,7 +268,45 @@ Forwarding_Unit FU_inst(
   .rc_fw_en_6stage_odd(rc_fw_en_6stage_odd),
   .ra_fw_en_7stage_odd(ra_fw_en_7stage_odd),
   .rb_fw_en_7stage_odd(rb_fw_en_7stage_odd),
-  .rc_fw_en_7stage_odd(rc_fw_en_7stage_odd)
+  .rc_fw_en_7stage_odd(rc_fw_en_7stage_odd),
+
+  .ra_fw_en_2stage_from_odd_to_even(ra_fw_en_2stage_from_odd_to_even),
+  .rb_fw_en_2stage_from_odd_to_even(rb_fw_en_2stage_from_odd_to_even),
+  .rc_fw_en_2stage_from_odd_to_even(rc_fw_en_2stage_from_odd_to_even),
+  .ra_fw_en_3stage_from_odd_to_even(ra_fw_en_3stage_from_odd_to_even),
+  .rb_fw_en_3stage_from_odd_to_even(rb_fw_en_3stage_from_odd_to_even),
+  .rc_fw_en_3stage_from_odd_to_even(rc_fw_en_3stage_from_odd_to_even),
+  .ra_fw_en_4stage_from_odd_to_even(ra_fw_en_4stage_from_odd_to_even),
+  .rb_fw_en_4stage_from_odd_to_even(rb_fw_en_4stage_from_odd_to_even),
+  .rc_fw_en_4stage_from_odd_to_even(rc_fw_en_4stage_from_odd_to_even),
+  .ra_fw_en_5stage_from_odd_to_even(ra_fw_en_5stage_from_odd_to_even),
+  .rb_fw_en_5stage_from_odd_to_even(rb_fw_en_5stage_from_odd_to_even),
+  .rc_fw_en_5stage_from_odd_to_even(rc_fw_en_5stage_from_odd_to_even),
+  .ra_fw_en_6stage_from_odd_to_even(ra_fw_en_6stage_from_odd_to_even),
+  .rb_fw_en_6stage_from_odd_to_even(rb_fw_en_6stage_from_odd_to_even),
+  .rc_fw_en_6stage_from_odd_to_even(rc_fw_en_6stage_from_odd_to_even),
+  .ra_fw_en_7stage_from_odd_to_even(ra_fw_en_7stage_from_odd_to_even),
+  .rb_fw_en_7stage_from_odd_to_even(rb_fw_en_7stage_from_odd_to_even),
+  .rc_fw_en_7stage_from_odd_to_even(rc_fw_en_7stage_from_odd_to_even),
+
+  .ra_fw_en_2stage_from_even_to_odd(ra_fw_en_2stage_from_even_to_odd),
+  .rb_fw_en_2stage_from_even_to_odd(rb_fw_en_2stage_from_even_to_odd),
+  .rc_fw_en_2stage_from_even_to_odd(rc_fw_en_2stage_from_even_to_odd),
+  .ra_fw_en_3stage_from_even_to_odd(ra_fw_en_3stage_from_even_to_odd),
+  .rb_fw_en_3stage_from_even_to_odd(rb_fw_en_3stage_from_even_to_odd),
+  .rc_fw_en_3stage_from_even_to_odd(rc_fw_en_3stage_from_even_to_odd),
+  .ra_fw_en_4stage_from_even_to_odd(ra_fw_en_4stage_from_even_to_odd),
+  .rb_fw_en_4stage_from_even_to_odd(rb_fw_en_4stage_from_even_to_odd),
+  .rc_fw_en_4stage_from_even_to_odd(rc_fw_en_4stage_from_even_to_odd),
+  .ra_fw_en_5stage_from_even_to_odd(ra_fw_en_5stage_from_even_to_odd),
+  .rb_fw_en_5stage_from_even_to_odd(rb_fw_en_5stage_from_even_to_odd),
+  .rc_fw_en_5stage_from_even_to_odd(rc_fw_en_5stage_from_even_to_odd),
+  .ra_fw_en_6stage_from_even_to_odd(ra_fw_en_6stage_from_even_to_odd),
+  .rb_fw_en_6stage_from_even_to_odd(rb_fw_en_6stage_from_even_to_odd),
+  .rc_fw_en_6stage_from_even_to_odd(rc_fw_en_6stage_from_even_to_odd),
+  .ra_fw_en_7stage_from_even_to_odd(ra_fw_en_7stage_from_even_to_odd),
+  .rb_fw_en_7stage_from_even_to_odd(rb_fw_en_7stage_from_even_to_odd),
+  .rc_fw_en_7stage_from_even_to_odd(rc_fw_en_7stage_from_even_to_odd)
 );
 
 // For instruction info bypassing
@@ -273,7 +355,6 @@ assign temp_imme16_odd = imme16_odd;
 assign temp_imme18_odd = imme18_odd;
 
 // for forwarding reg dst result extracted from packed value
-wire [0:127] reg_dst_result_1stage_even;
 wire [0:127] reg_dst_result_2stage_even;
 wire [0:127] reg_dst_result_3stage_even;
 wire [0:127] reg_dst_result_4stage_even;
@@ -281,7 +362,6 @@ wire [0:127] reg_dst_result_5stage_even;
 wire [0:127] reg_dst_result_6stage_even;
 wire [0:127] reg_dst_result_7stage_even;
 
-wire [0:127] reg_dst_result_1stage_odd;
 wire [0:127] reg_dst_result_2stage_odd;
 wire [0:127] reg_dst_result_3stage_odd;
 wire [0:127] reg_dst_result_4stage_odd;
@@ -289,7 +369,6 @@ wire [0:127] reg_dst_result_5stage_odd;
 wire [0:127] reg_dst_result_6stage_odd;
 wire [0:127] reg_dst_result_7stage_odd;
 
-assign reg_dst_result_1stage_even = packed_1stage_even[3:130];
 assign reg_dst_result_2stage_even = packed_2stage_even[3:130];
 assign reg_dst_result_3stage_even = packed_3stage_even[3:130];
 assign reg_dst_result_4stage_even = packed_4stage_even[3:130];
@@ -297,7 +376,6 @@ assign reg_dst_result_5stage_even = packed_5stage_even[3:130];
 assign reg_dst_result_6stage_even = packed_6stage_even[3:130];
 assign reg_dst_result_7stage_even = packed_7stage_even[3:130];
 
-assign reg_dst_result_1stage_odd = packed_1stage_odd[3:130];
 assign reg_dst_result_2stage_odd = packed_2stage_odd[3:130];
 assign reg_dst_result_3stage_odd = packed_3stage_odd[3:130];
 assign reg_dst_result_4stage_odd = packed_4stage_odd[3:130];
@@ -360,60 +438,91 @@ always @(posedge clk or posedge rst) begin
     out_imme16_odd <= temp_imme16_odd;
     out_imme18_odd <= temp_imme18_odd;
 
-    // when result has to be forwarded to ra (even), recent stages has priority for forwarding
-    ra_data_even <= (ra_fw_en_1stage_even) ? reg_dst_result_1stage_even :
-                    (ra_fw_en_2stage_even) ? reg_dst_result_2stage_even :
-                    (ra_fw_en_3stage_even) ? reg_dst_result_3stage_even :
-                    (ra_fw_en_4stage_even) ? reg_dst_result_4stage_even :
-                    (ra_fw_en_5stage_even) ? reg_dst_result_5stage_even :
-                    (ra_fw_en_6stage_even) ? reg_dst_result_6stage_even :
-                    (ra_fw_en_7stage_even) ? reg_dst_result_7stage_even :
-                    regfile_out_data_1;
+    // when result has to be forwarded to ra (even), recent stages has priority for forwarding ALSO same pipe has priority
+    ra_data_even <=             (ra_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                    (ra_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
+                                (ra_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                    (ra_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
+                                (ra_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                    (ra_fw_en_4stage_from_odd_to_even) ? reg_dst_result_4stage_odd :
+                                (ra_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                    (ra_fw_en_5stage_from_odd_to_even) ? reg_dst_result_5stage_odd :
+                                (ra_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                    (ra_fw_en_6stage_from_odd_to_even) ? reg_dst_result_6stage_odd :
+                                (ra_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                    (ra_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
+                                                         regfile_out_data_1;
 
-    rb_data_even <= (rb_fw_en_1stage_even) ? reg_dst_result_1stage_even :
-                    (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
-                    (rb_fw_en_3stage_even) ? reg_dst_result_3stage_even :
-                    (rb_fw_en_4stage_even) ? reg_dst_result_4stage_even :
-                    (rb_fw_en_5stage_even) ? reg_dst_result_5stage_even :
-                    (rb_fw_en_6stage_even) ? reg_dst_result_6stage_even :
-                    (rb_fw_en_7stage_even) ? reg_dst_result_7stage_even :
-                    regfile_out_data_2;
+    rb_data_even <=             (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                    (rb_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
+                                (rb_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                    (rb_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
+                                (rb_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                    (rb_fw_en_4stage_from_odd_to_even) ? reg_dst_result_4stage_odd :
+                                (rb_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                    (rb_fw_en_5stage_from_odd_to_even) ? reg_dst_result_5stage_odd :
+                                (rb_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                    (rb_fw_en_6stage_from_odd_to_even) ? reg_dst_result_6stage_odd :
+                                (rb_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                    (rb_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
+                                                         regfile_out_data_2;
 
-    rc_data_even <= (rc_fw_en_1stage_even) ? reg_dst_result_1stage_even :
-                    (rc_fw_en_2stage_even) ? reg_dst_result_2stage_even :
-                    (rc_fw_en_3stage_even) ? reg_dst_result_3stage_even :
-                    (rc_fw_en_4stage_even) ? reg_dst_result_4stage_even :
-                    (rc_fw_en_5stage_even) ? reg_dst_result_5stage_even :
-                    (rc_fw_en_6stage_even) ? reg_dst_result_6stage_even :
-                    (rc_fw_en_7stage_even) ? reg_dst_result_7stage_even :
-                    regfile_out_data_3;
+    rc_data_even <=             (rc_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+                    (rc_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
+                                (rc_fw_en_3stage_even) ? reg_dst_result_3stage_even :
+                    (rc_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
+                                (rc_fw_en_4stage_even) ? reg_dst_result_4stage_even :
+                    (rc_fw_en_4stage_from_odd_to_even) ? reg_dst_result_4stage_odd :
+                                (rc_fw_en_5stage_even) ? reg_dst_result_5stage_even :
+                    (rc_fw_en_5stage_from_odd_to_even) ? reg_dst_result_5stage_odd :
+                                (rc_fw_en_6stage_even) ? reg_dst_result_6stage_even :
+                    (rc_fw_en_6stage_from_odd_to_even) ? reg_dst_result_6stage_odd :
+                                (rc_fw_en_7stage_even) ? reg_dst_result_7stage_even :
+                    (rc_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
+                                                         regfile_out_data_3;
+                    
+    ra_data_odd <=               (ra_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                    (ra_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
+                                 (ra_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                    (ra_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
+                                 (ra_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                    (ra_fw_en_4stage_from_even_to_odd) ? reg_dst_result_4stage_even :
+                                 (ra_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                    (ra_fw_en_5stage_from_even_to_odd) ? reg_dst_result_5stage_even :
+                                 (ra_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                    (ra_fw_en_6stage_from_even_to_odd) ? reg_dst_result_6stage_even :
+                                 (ra_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                    (ra_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
+                                                         regfile_out_data_4;
+                    
+    rb_data_odd <=               (rb_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                    (rb_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
+                                 (rb_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                    (rb_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
+                                 (rb_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                    (rb_fw_en_4stage_from_even_to_odd) ? reg_dst_result_4stage_even :
+                                 (rb_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                    (rb_fw_en_5stage_from_even_to_odd) ? reg_dst_result_5stage_even :
+                                 (rb_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                    (rb_fw_en_6stage_from_even_to_odd) ? reg_dst_result_6stage_even :
+                                 (rb_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                    (rb_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
+                                                         regfile_out_data_5;
 
-    ra_data_odd <=  (ra_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
-                    (ra_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
-                    (ra_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
-                    (ra_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
-                    (ra_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
-                    (ra_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
-                    (ra_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
-                    regfile_out_data_4;
-
-    rb_data_odd <=  (rb_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
-                    (rb_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
-                    (rb_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
-                    (rb_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
-                    (rb_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
-                    (rb_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
-                    (rb_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
-                    regfile_out_data_5;
-
-    rc_data_odd <=  (rc_fw_en_1stage_odd) ? reg_dst_result_1stage_odd :
-                    (rc_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
-                    (rc_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
-                    (rc_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
-                    (rc_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
-                    (rc_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
-                    (rc_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
-                    regfile_out_data_6;
+    rc_data_odd <=               (rc_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+                    (rc_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
+                                 (rc_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
+                    (rc_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
+                                 (rc_fw_en_4stage_odd) ? reg_dst_result_4stage_odd :
+                    (rc_fw_en_4stage_from_even_to_odd) ? reg_dst_result_4stage_even :
+                                 (rc_fw_en_5stage_odd) ? reg_dst_result_5stage_odd :
+                    (rc_fw_en_5stage_from_even_to_odd) ? reg_dst_result_5stage_even :
+                                 (rc_fw_en_6stage_odd) ? reg_dst_result_6stage_odd :
+                    (rc_fw_en_6stage_from_even_to_odd) ? reg_dst_result_6stage_even :
+                                 (rc_fw_en_7stage_odd) ? reg_dst_result_7stage_odd :
+                    (rc_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
+                                                         regfile_out_data_6;
+                    
 
 
   end

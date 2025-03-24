@@ -144,7 +144,7 @@ integer i;
     preload_values = 128'h00000003_00000003_00000003_00000003;
     #(clock_cycle);
 
-    preload_addr = 128'h4;
+    preload_addr = 128'd12;
     preload_values = 128'h00000004_00000004_00000004_00000004;
     #(clock_cycle);
 
@@ -158,52 +158,102 @@ integer i;
 
     #(clock_cycle);
 
-    // Apply first set of sample instructions
-    full_instr_even = 32'b01000001000000000000000110000001;
-    instr_id_even   = 7'd40;
-    reg_dst_even    = 7'b0000001;
-    unit_id_even    = 3'b001;
-    latency_even    = 4'b0011;
-    reg_wr_even     = 1;
-    imme7_even      = 7'd0;
-    imme10_even     = 10'd3;
-    imme16_even     = 16'd3;
-    imme18_even     = 18'd3;
+    // and $1, $2, $3
+    // full_instr_even = 32'b00011000001000001100000100000001;
+    // instr_id_even   = 7'd5;
+    // reg_dst_even    = 7'd1;
+    // unit_id_even    = 3'b001;
+    // latency_even    = 4'd3;
+    // reg_wr_even     = 1;
+    // imme7_even      = 7'd0;
+    // imme10_even     = 10'd3;
+    // imme16_even     = 16'd3;
+    // imme18_even     = 18'd3;
 
-    ra_addr_even = 7'd2;
-    rb_addr_even = 7'd3;
-    rc_addr_even = 7'd4;
+    // ra_addr_even = 7'd2;
+    // rb_addr_even = 7'd3;
+    // rc_addr_even = 7'd0;
 
-    full_instr_odd  = 32'd0;
-    instr_id_odd    = 7'd0;
-    reg_dst_odd     = 7'd0;
-    unit_id_odd     = 3'd0;
-    latency_odd     = 4'd0;
-    reg_wr_odd      = 0;
-    imme7_odd       = 7'd0;
+    // shlqbii $1, $2, 0h1
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd69;
+    reg_dst_odd     = 7'd1;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd1;
     imme10_odd      = 10'd0;
     imme16_odd      = 16'd0;
     imme18_odd      = 18'd0;
 
-    ra_addr_odd  = 7'd0;
+    ra_addr_odd  = 7'd2;
     rb_addr_odd  = 7'd0;
     rc_addr_odd  = 7'd0;
 
-    // Add further test cases (or loop over an array of ~90 instructions)
-    // #(clock_cycle);
-    // full_instr_even = 32'h8c90c9c8;
-    // instr_id_even   = 7'h03;
-    // reg_dst_even    = 7'h04;
-    // unit_id_even    = 3'h5;
-    // latency_even    = 4'h6;
-    // reg_wr_even     = 0;
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd69;
+    reg_dst_odd     = 7'd4;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd1;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
 
-    // full_instr_odd  = 32'h00000000;
-    // instr_id_odd    = 7'h03;
-    // reg_dst_odd     = 7'h04;
-    // unit_id_odd     = 3'h5;
-    // latency_odd     = 4'h6;
-    // reg_wr_odd      = 0;
+    ra_addr_odd  = 7'd5;
+    rb_addr_odd  = 7'd0;
+    rc_addr_odd  = 7'd0;
+
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd69;
+    reg_dst_odd     = 7'd7;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd1;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
+
+    ra_addr_odd  = 7'd8;
+    rb_addr_odd  = 7'd0;
+    rc_addr_odd  = 7'd0;
+
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd69;
+    reg_dst_odd     = 7'd10;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd1;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
+
+    ra_addr_odd  = 7'd11;
+    rb_addr_odd  = 7'd0;
+    rc_addr_odd  = 7'd0;
+
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd69;
+    reg_dst_odd     = 7'd13;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd1;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd0;
+    imme18_odd      = 18'd0;
+
+    ra_addr_odd  = 7'd1;
+    rb_addr_odd  = 7'd0;
+    rc_addr_odd  = 7'd0;
 
     // Run simulation for additional cycles
     #200;
@@ -211,16 +261,16 @@ integer i;
   end
 
   // Print packed stage signals each cycle
-  always @(posedge clk) begin
-    $display("Time: %0t", $time);
-    $display("Even pipe stages: 1:%b 2:%b 3:%b 4:%b 5:%b 6:%b 7:%b",
-             dut.packed_1stage_even, dut.packed_2stage_even, dut.packed_3stage_even,
-             dut.packed_4stage_even, dut.packed_5stage_even, dut.packed_6stage_even,
-             dut.packed_7stage_even);
-    $display("Odd pipe stages:  1:%b 2:%b 3:%b 4:%b 5:%b 6:%b 7:%b",
-             dut.packed_1stage_odd, dut.packed_2stage_odd, dut.packed_3stage_odd,
-             dut.packed_4stage_odd, dut.packed_5stage_odd, dut.packed_6stage_odd,
-             dut.packed_7stage_odd);
-  end
+  // always @(posedge clk) begin
+  //   $display("Time: %0t", $time);
+  //   $display("Even pipe stages: 1:%b 2:%b 3:%b 4:%b 5:%b 6:%b 7:%b",
+  //            dut.packed_1stage_even, dut.packed_2stage_even, dut.packed_3stage_even,
+  //            dut.packed_4stage_even, dut.packed_5stage_even, dut.packed_6stage_even,
+  //            dut.packed_7stage_even);
+  //   $display("Odd pipe stages:  1:%b 2:%b 3:%b 4:%b 5:%b 6:%b 7:%b",
+  //            dut.packed_1stage_odd, dut.packed_2stage_odd, dut.packed_3stage_odd,
+  //            dut.packed_4stage_odd, dut.packed_5stage_odd, dut.packed_6stage_odd,
+  //            dut.packed_7stage_odd);
+  // end
 
 endmodule

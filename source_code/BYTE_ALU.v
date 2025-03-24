@@ -21,6 +21,7 @@ always @(*) begin
     `instr_ID_avgb:  result = avgb_result;
     `instr_ID_cntb:  result = cntb_result;
     `instr_ID_sumb:  result = sumb_result;
+    default: result = 128'b0;
   endcase
 end
 absdb absdb_inst (
