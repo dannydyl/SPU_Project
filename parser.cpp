@@ -269,6 +269,21 @@ int parseOperand(const string &operand) {
     return stoi(operand);
 }
 
+// Parses "imm($reg)" syntax for D-form
+pair<int, int> parseDFormOperand(const string& operand) {
+    size_t openParen = operand.find('(');
+    size_t closeParen = operand.find(')');
+    if (openParen == string::npos || closeParen == string::npos || closeParen <= openParen)
+        return {0, 0}; // Default fallback
+
+    string immStr = operand.substr(0, openParen);
+    string regStr = operand.substr(openParen + 1, closeParen - openParen - 1);
+
+    int imm = parseOperand(immStr);
+    int ra = parseOperand(regStr);
+    return {imm, ra};
+}
+
 /*
  * Process a single line of assembly: "MNEMONIC operand1, operand2, ..."
  *  - Lookup the mnemonic in instructionMap
@@ -342,26 +357,43 @@ string processInstruction(const string &line) {
         return assembleRI7(info.opcode, imm, ra, rt);
     }
     case FormatType::RI10: {
-        // e.g. "MNEMONIC $rt, $ra, imm10"
-        if (operands.size() < 3) {
-            cerr << "Error: RI10 expects 3 operands (RT, RA, I10).\n";
+        if (operands.size() < 2) {
+            cerr << "Error: RI10 expects 2 operands (RT, I10(ra)).\n";
             return "";
         }
-        int rt  = parseOperand(operands[0]);
-        int ra  = parseOperand(operands[1]);
-        int imm = parseOperand(operands[2]);
+        int rt = parseOperand(operands[0]);
+
+        // Try parsing the D-form syntax
+        int imm = 0, ra = 0;
+        if (operands[1].find('(') != string::npos) {
+            tie(imm, ra) = parseDFormOperand(operands[1]);
+        } else {
+            if (operands.size() < 3) {
+                cerr << "Error: RI10 expects 3 operands if not using D-form.\n";
+                return "";
+            }
+            ra = parseOperand(operands[1]);
+            imm = parseOperand(operands[2]);
+        }
+
         return assembleRI10(info.opcode, imm, ra, rt);
     }
     case FormatType::RI16: {
         // e.g. "MNEMONIC $rt, imm16"
         // or "MNEMONIC $rt, $ra, imm16" if your doc says so. Adjust as needed.
-        if (operands.size() < 2) {
-            cerr << "Error: RI16 expects at least 2 operands (RT, I16).\n";
+        if (operands.size() == 1) {
+            // e.g., bra h3
+            int rt = 0; // default RT register (ignored or $0)
+            int imm = parseOperand(operands[0]);
+            return assembleRI16(info.opcode, imm, rt);
+        } else if (operands.size() >= 2) {
+            int rt  = parseOperand(operands[0]);
+            int imm = parseOperand(operands[1]);
+            return assembleRI16(info.opcode, imm, rt);
+        } else {
+            cerr << "Error: RI16 expects 1 or 2 operands (imm or RT, imm).\n";
             return "";
         }
-        int rt  = parseOperand(operands[0]);
-        int imm = parseOperand(operands[1]);
-        return assembleRI16(info.opcode, imm, rt);
     }
     case FormatType::RI18: {
         // e.g. "MNEMONIC $rt, imm18"
@@ -382,55 +414,55 @@ string processInstruction(const string &line) {
 int main() {
 
     // file mode
-    // ifstream infile("input_assembly.txt");
-    // ofstream outfile("output_binary.txt");
-    // if (!infile) {
-    //     cerr << "Error opening input_assembly.txt\n";
-    //     return 1;
-    // }
-    // if (!outfile) {
-    //     cerr << "Error opening output_binary.txt\n";
-    //     return 1;
-    // }
+    ifstream infile("input_assembly.txt");
+    ofstream outfile("output_binary.txt");
+    if (!infile) {
+        cerr << "Error opening input_assembly.txt\n";
+        return 1;
+    }
+    if (!outfile) {
+        cerr << "Error opening output_binary.txt\n";
+        return 1;
+    }
 
-    // string line;
-    // while (getline(infile, line)) {
-    //     // Trim leading whitespace
-    //     size_t pos = line.find_first_not_of(" \t");
-    //     if (pos == string::npos) continue;  // Skip empty lines
-
-    //     // Check if the first non-whitespace characters form a comment marker (e.g. "//")
-    //     if (line.substr(pos, 2) == "//") continue;
-
-    //     // Process the line normally if it's not a comment
-    //     string bits32 = processInstruction(line);
-    //     if (!bits32.empty()) {
-    //         if (bits32.size() != 32) {
-    //             cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
-    //             continue;
-    //         }
-    //         outfile << bits32 << "\n";
-    //     }
-    // }
-
-    // infile.close();
-    // outfile.close();
-
-    // print out mode
-    cout << "Enter assembly instructions (type 'exit' to quit):\n";
     string line;
-    while (true) {
-        cout << ">> ";
-        getline(cin, line);
-        if (line == "exit") break;
-        string binary = processInstruction(line);
-        if (!binary.empty() && binary.find("Error") == string::npos) {
-            // Convert binary to hex correctly
-            unsigned long value = bitset<32>(binary).to_ulong();
-            cout << "Binary: " << binary << " | Hex: 0x" << hex << setw(8) << setfill('0') << value << "\n";
-        } else {
-            cout << binary << "\n";
+    while (getline(infile, line)) {
+        // Trim leading whitespace
+        size_t pos = line.find_first_not_of(" \t");
+        if (pos == string::npos) continue;  // Skip empty lines
+
+        // Check if the first non-whitespace characters form a comment marker (e.g. "//")
+        if (line.substr(pos, 2) == "//") continue;
+
+        // Process the line normally if it's not a comment
+        string bits32 = processInstruction(line);
+        if (!bits32.empty()) {
+            if (bits32.size() != 32) {
+                cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
+                continue;
+            }
+            outfile << bits32 << "\n";
         }
     }
+
+    infile.close();
+    outfile.close();
+
+    // print out mode
+    // cout << "Enter assembly instructions (type 'exit' to quit):\n";
+    // string line;
+    // while (true) {
+    //     cout << ">> ";
+    //     getline(cin, line);
+    //     if (line == "exit") break;
+    //     string binary = processInstruction(line);
+    //     if (!binary.empty() && binary.find("Error") == string::npos) {
+    //         // Convert binary to hex correctly
+    //         unsigned long value = bitset<32>(binary).to_ulong();
+    //         cout << "Binary: " << binary << " | Hex: 0x" << hex << setw(8) << setfill('0') << value << "\n";
+    //     } else {
+    //         cout << binary << "\n";
+    //     }
+    // }
     return 0;
 }
