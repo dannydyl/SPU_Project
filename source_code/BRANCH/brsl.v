@@ -9,7 +9,7 @@ module brsl(
 always @(*) begin
   rt_result[0:31] = {22'b0, (in_PC + 1)};
   rt_result[32:127] = 96'b0;
-  PC_result = in_PC + imme16;
+  PC_result = in_PC + $signed(imme16);
 end
 
 endmodule

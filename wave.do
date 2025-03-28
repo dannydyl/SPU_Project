@@ -24,6 +24,13 @@ add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapp
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/preload_addr
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/preload_values
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/i
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/clk
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/rst
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_write_en
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_addr
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_data_in
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_data_out
+add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_mem
 add wave -noupdate -expand -group Registers {/tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/reg_file[0]}
 add wave -noupdate -expand -group Registers {/tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/reg_file[1]}
 add wave -noupdate -expand -group Registers {/tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/reg_file[2]}
@@ -256,7 +263,6 @@ add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/WB_reg_write_addr
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/WB_reg_write_data
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/WB_reg_write_en
-add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/packed_result
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/result
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/FX1_result
 add wave -noupdate -expand -group EvenPipe /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/FX2_result
@@ -289,7 +295,6 @@ add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_in
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/WB_reg_write_data
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/WB_reg_write_en
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/new_PC
-add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/packed_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LS_addr
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/PC_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/result
@@ -298,56 +303,56 @@ add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_in
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LS_data_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/addr_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LS_write_en
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/instr_id
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ra_data
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/rb_data
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/rc_data
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme7
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme10
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme16
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme18
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/a_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/addx_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ah_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ahi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ai_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/and_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/andhi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/andi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/bg_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/bgx_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceq_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqh_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqhi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cg_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgt_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgth_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgthi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgti_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgx_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/clz_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/eqv_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/il_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ila_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ilh_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ilhu_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/iohl_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/nand_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/nor_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/or_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/orhi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ori_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/selb_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sf_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfh_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfhi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfx_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xor_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xorhi_result
-add wave -noupdate -expand -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xori_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/instr_id
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ra_data
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/rb_data
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/rc_data
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme7
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme10
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme16
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/imme18
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/a_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/addx_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ah_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ahi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ai_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/and_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/andhi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/andi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/bg_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/bgx_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceq_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqh_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ceqhi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cg_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgt_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgth_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgthi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgti_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/cgx_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/clz_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/eqv_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/il_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ila_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ilh_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ilhu_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/iohl_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/nand_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/nor_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/or_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/orhi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/ori_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/selb_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sf_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfh_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfhi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/sfx_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xor_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xorhi_result
+add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xori_result
 TreeUpdate [SetDefaultTree]
 WaveRestoreCursors {{Cursor 1} {65000 ps} 0}
 quietly wave cursor active 1

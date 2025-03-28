@@ -34,22 +34,32 @@ module Odd_Pipe(
   output reg WB_reg_write_en,
 
   // branch new PC
-  output [0:9] new_PC
+  output [0:9] new_PC,
+
+  // preload signals
+  input preload_LS_en,
+  input [0:14] preload_LS_addr,
+  input [0:127] preload_LS_data
 );
 
 `include "opcode_package.vh"
 
-// [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr, [143:157] LS_addr, [158:167] PC_result
+// [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
-// reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
 
-reg [0:14] LS_addr;
 reg [0:9] PC_result; // for branch
 reg [0:127] result; // used for permute or branch 
-// reg [0:2] unit_id;
-// reg [0:6] reg_dst;
-// reg [0:3] latency;
-// reg reg_wr;
+
+// was going to use this but it seems like it is not necessary
+// [0:127] rt data, [128:142] addr_result, [143] LS_write_en
+// reg [0:143] packed_LS_result_stage1;
+// reg [0:143] packed_LS_result_stage2;
+// reg [0:143] packed_LS_result_stage3;
+// reg [0:143] packed_LS_result_stage4;
+// reg [0:143] packed_LS_result_stage5;
+// reg [0:143] packed_LS_result_stage6;
+// reg [0:143] packed_LS_result_stage7;
+
 
 wire [0:127] PERM_result, branch_rt_result, LS_data_result;
 // reg [0:9] new_PC;
@@ -110,21 +120,30 @@ LocalStore LSmem_inst(
   .rst(rst),
   .LS_write_en(LS_write_en),
   .LS_addr(addr_result),
-  .LS_data_in(rc_data),
-  .LS_data_out(LS_data_result)
+  .LS_data_in(rc_data), // from ID stage, it should place rt data here
+  .LS_data_out(LS_data_result),
+  // preload
+  .preload_LS_en(preload_LS_en),
+  .preload_LS_addr(preload_LS_addr),
+  .preload_LS_data(preload_LS_data)
 );
 
 // the problem here is that if the instruction is store, the rt data should be able to forward before writing on LS
 // but load instruction, will not be able to forward until 7th stage
 // now that i think about it, store instruction dont really need to forward anything because no register is being written
 always @(*) begin
-  case (unit_id)
-    3'b101: result = PERM_result; // permute result
-    3'b110: result = LS_data_result;  // load result (from ls)
-    3'b111: result = branch_rt_result; 
-    default: result = 128'd0;
-  endcase
-  packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
+  if (instr_id == 7'd85 | instr_id == 7'd87) begin
+    packed_1stage = 143'b0;
+  end else begin
+    case (unit_id)
+      3'b101: result = PERM_result; // permute result
+      3'b110: result = LS_data_result;  // load result (from ls)
+      3'b111: result = branch_rt_result; 
+      default: result = 128'd0;
+    endcase
+    packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
+    // packed_LS_result_stage1 = {rc_data, addr_result, LS_write_en};
+  end
 end
 
 always @(posedge clk or posedge rst) begin

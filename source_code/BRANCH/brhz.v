@@ -8,7 +8,7 @@ module brhz(
 
 always @(*) begin
   if (rt[16:31] == 0) begin
-    PC_result = in_PC + imme16 + 1;
+    PC_result = in_PC + $signed(imme16) + 1;
   end else begin
     PC_result = in_PC + 1;
   end

@@ -37,6 +37,9 @@ module tb_RF_FU_Pipe_wrapper;
   // Preload signals (for verification)
   reg preload_en;
   reg [0:127] preload_addr, preload_values;
+  reg preload_LS_en;
+  reg [0:14] preload_LS_addr;
+  reg [0:127] preload_LS_data;
 
   localparam clock_cycle = 10;
 
@@ -76,7 +79,10 @@ module tb_RF_FU_Pipe_wrapper;
 
     .preload_en(preload_en),
     .preload_addr(preload_addr),
-    .preload_values(preload_values)
+    .preload_values(preload_values),
+    .preload_LS_en(preload_LS_en),
+    .preload_LS_addr(preload_LS_addr),
+    .preload_LS_data(preload_LS_data)
   );
 
   // Clock generation: 10ns period
@@ -85,7 +91,7 @@ module tb_RF_FU_Pipe_wrapper;
     forever #(clock_cycle/2) clk = ~clk;
   end
 
-integer i;
+  integer i;
   // Dump waveforms for simulation
   initial begin
     $dumpfile("RF_FU_Pipe_wrapper_tb.vcd");
@@ -127,7 +133,8 @@ integer i;
     rb_addr_odd  = 7'd0;
     rc_addr_odd  = 7'd0;
 
-      // Load pre-defined values into all 128 registers
+  // ------------------------------------------------------------------------
+  // --------------------- preload Reg & LS ---------------------------------
     #(clock_cycle); // let all the registers to be all 0s
 
     preload_en = 1;
@@ -137,7 +144,7 @@ integer i;
     #(clock_cycle);
 
     preload_addr = 128'h2;
-    preload_values = 128'h00000002_00000002_00000002_00000002;
+    preload_values = 128'h000000F0_00000002_00000002_00000002;
     #(clock_cycle);
 
     preload_addr = 128'h3;
@@ -148,30 +155,35 @@ integer i;
     preload_values = 128'h00000004_00000004_00000004_00000004;
     #(clock_cycle);
 
-
+    preload_LS_en = 1;
+    preload_LS_addr = 15'd32;
+    preload_LS_data = 128'h00000001_00000001_00000001_00000001;
+    #(clock_cycle);
+    
+    preload_LS_en = 0;
     preload_en = 0;
     rst = 0;
-    // for (i = 0; i < 128; i = i + 1) begin
-    //   preload_values = {8{i}}; // Example pattern: {i, i, i, i, i, i, i, i}
-    //   #(clock_cycle); // have to preload reg value every cycle
-    // end
+  // ------------------------------------------------------------------------
+  // ------------------------------------------------------------------------
+
+  // ------------------------ test cases ------------------------------------
 
     // load
-    // #(clock_cycle);
-    // full_instr_odd  = 32'd00011000001000001100000100000001;
-    // instr_id_odd    = 7'd73;
-    // reg_dst_odd     = 7'd1;
-    // unit_id_odd     = 3'd6;
-    // latency_odd     = 4'd7;
-    // reg_wr_odd      = 1;
-    // imme7_odd       = 7'd3;
-    // imme10_odd      = 10'd0;
-    // imme16_odd      = 16'd3;
-    // imme18_odd      = 18'd3;
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd73;
+    reg_dst_odd     = 7'd3;
+    unit_id_odd     = 3'd6;
+    latency_odd     = 4'd7;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd3;
+    imme10_odd      = 10'd0;
+    imme16_odd      = 16'd2;
+    imme18_odd      = 18'd3;
 
-    // ra_addr_odd  = 7'd2;
-    // rb_addr_odd  = 7'd3;
-    // rc_addr_odd  = 7'd4;
+    ra_addr_odd  = 7'd2;
+    rb_addr_odd  = 7'd3;
+    rc_addr_odd  = 7'd1;
 
     // #(clock_cycle);
     // full_instr_odd  = 32'd00011000001000001100000100000001;
@@ -189,21 +201,21 @@ integer i;
     // rb_addr_odd  = 7'd3;
     // rc_addr_odd  = 7'd4;
 
-    #(clock_cycle);
-    full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd75;
-    reg_dst_odd     = 7'd1;
-    unit_id_odd     = 3'd6;
-    latency_odd     = 4'd7;
-    reg_wr_odd      = 0;
-    imme7_odd       = 7'd3;
-    imme10_odd      = 10'd3;
-    imme16_odd      = 16'd1;
-    imme18_odd      = 18'd3;
+    // #(clock_cycle);
+    // full_instr_odd  = 32'd00011000001000001100000100000001;
+    // instr_id_odd    = 7'd75;
+    // reg_dst_odd     = 7'd1;
+    // unit_id_odd     = 3'd6;
+    // latency_odd     = 4'd7;
+    // reg_wr_odd      = 0;
+    // imme7_odd       = 7'd3;
+    // imme10_odd      = 10'd3;
+    // imme16_odd      = 16'd1;
+    // imme18_odd      = 18'd3;
 
-    ra_addr_odd  = 7'd2;
-    rb_addr_odd  = 7'd3;
-    rc_addr_odd  = 7'd4;
+    // ra_addr_odd  = 7'd2;
+    // rb_addr_odd  = 7'd3;
+    // rc_addr_odd  = 7'd1;
 
 
     // #(clock_cycle);

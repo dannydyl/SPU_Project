@@ -3,9 +3,10 @@ module lqa(
 
   output reg [0:14] addr_result
 );
-
+wire [0:14] temp;
+assign temp = imme16[1:15] << 4;
 always @(*) begin
-  addr_result = imme16 & 15'h7FF0;
+  addr_result = temp & 15'h7FF0;
 end
 
 endmodule

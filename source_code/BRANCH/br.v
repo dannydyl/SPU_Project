@@ -6,7 +6,7 @@ module br(
 );
 
 always @(*) begin
-  PC_result = in_PC + imme16;
+  PC_result = in_PC + $signed(imme16);
 end
 
 endmodule

@@ -32,12 +32,14 @@ module RF_FU_Pipe_wrapper(
   input [0:6] rc_addr_odd,
 
 
-  // preload RF. Verification purpose only
+  // preload Verification purpose only
   input preload_en,
   input [0:127] preload_addr,
-  input [0:127] preload_values
+  input [0:127] preload_values,
+  input preload_LS_en,
+  input [0:14] preload_LS_addr,
+  input [0:127] preload_LS_data
 );
-// NOTE: forwarding between different pipes has to be implemented
 
 wire [0:31] full_instr_even_to_pipe, full_instr_odd_to_pipe;
 wire [0:6] instr_id_even_to_pipe, instr_id_odd_to_pipe;
@@ -209,6 +211,9 @@ Odd_Pipe Odd_Pipe_inst(
   .WB_reg_write_addr(WB_reg_write_addr_odd),
   .WB_reg_write_data(WB_reg_write_data_odd),
   .WB_reg_write_en(WB_reg_write_en_odd),
-  .new_PC(new_PC_odd) // have to be connected to PC module
+  .new_PC(new_PC_odd), // have to be connected to PC module
+  .preload_LS_en(preload_LS_en),
+  .preload_LS_addr(preload_LS_addr),
+  .preload_LS_data(preload_LS_data)
 );
 endmodule

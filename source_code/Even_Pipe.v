@@ -39,10 +39,6 @@ reg [0:142] packed_1stage;
 // reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
 
 reg [0:127] result;
-// reg [0:2] unit_id;
-// reg [0:6] reg_dst;
-// reg [0:3] latency;
-// reg reg_wr;
 
 wire [0:127] FX1_result, FX2_result, SP_result, BYTE_result;
 
@@ -99,14 +95,18 @@ BYTE_ALU BYTE_inst(
 );
 
 always @(*) begin
-  case (unit_id) 
-    3'b001: result = FX1_result;
-    3'b010: result = FX2_result;
-    3'b011: result = SP_result;  
-    3'b100: result = BYTE_result;
-    default: result = 128'd0;
-  endcase
-  packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
+  if (instr_id == 7'd86 | instr_id == 7'd87) begin
+    packed_1stage = 143'b0;
+  end else begin
+    case (unit_id) 
+      3'b001: result = FX1_result;
+      3'b010: result = FX2_result;
+      3'b011: result = SP_result;  
+      3'b100: result = BYTE_result;
+      default: result = 128'd0;
+    endcase
+    packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
+  end
 end
 
 always @(posedge clk or posedge rst) begin
