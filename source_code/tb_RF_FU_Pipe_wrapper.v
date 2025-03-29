@@ -169,71 +169,132 @@ module tb_RF_FU_Pipe_wrapper;
   // ------------------------ test cases ------------------------------------
 
     // load
+    // #(clock_cycle);
+    // full_instr_odd  = 32'd00011000001000001100000100000001;
+    // instr_id_odd    = 7'd84;
+    // reg_dst_odd     = 7'd1;
+    // unit_id_odd     = 3'd7;
+    // latency_odd     = 4'd2;
+    // reg_wr_odd      = 0;
+    // imme7_odd       = 7'd3;
+    // imme10_odd      = 10'd0;
+    // imme16_odd      = 16'd14;
+    // imme18_odd      = 18'd4;
+
+    // ra_addr_odd  = 7'd2;
+    // rb_addr_odd  = 7'd3;
+    // rc_addr_odd  = 7'd1;
+
     #(clock_cycle);
     full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd73;
-    reg_dst_odd     = 7'd3;
+    instr_id_odd    = 7'd74;
+    reg_dst_odd     = 7'd1;
     unit_id_odd     = 3'd6;
     latency_odd     = 4'd7;
     reg_wr_odd      = 1;
     imme7_odd       = 7'd3;
-    imme10_odd      = 10'd0;
+    imme10_odd      = 10'd3;
     imme16_odd      = 16'd2;
+    imme18_odd      = 18'd3;
+
+    ra_addr_odd  = 7'd2;
+    rb_addr_odd  = 7'd3;
+    rc_addr_odd  = 7'd4;
+
+        full_instr_even  = 32'd00011000001000001100000100000001;
+    instr_id_even    = 7'd47;
+    reg_dst_even     = 7'd3;
+    unit_id_even     = 3'd2;
+    latency_even     = 4'd4;
+    reg_wr_even      = 1;
+    imme7_even       = 7'd3;
+    imme10_even      = 10'd3;
+    imme16_even      = 16'd3;
+    imme18_even      = 18'd3;
+
+    ra_addr_even  = 7'd2;
+    rb_addr_even  = 7'd3;
+    rc_addr_even  = 7'd0;
+
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd87;
+    reg_dst_odd     = 7'd1;
+    unit_id_odd     = 3'd6;
+    latency_odd     = 4'd7;
+    reg_wr_odd      = 0;
+    imme7_odd       = 7'd3;
+    imme10_odd      = 10'd3;
+    imme16_odd      = 16'd1;
     imme18_odd      = 18'd3;
 
     ra_addr_odd  = 7'd2;
     rb_addr_odd  = 7'd3;
     rc_addr_odd  = 7'd1;
 
+        full_instr_even  = 32'd00011000001000001100000100000001;
+    instr_id_even    = 7'd87;
+    reg_dst_even     = 7'd3;
+    unit_id_even     = 3'd2;
+    latency_even     = 4'd4;
+    reg_wr_even      = 1;
+    imme7_even       = 7'd3;
+    imme10_even      = 10'd3;
+    imme16_even      = 16'd3;
+    imme18_even      = 18'd3;
+
+    ra_addr_even  = 7'd2;
+    rb_addr_even  = 7'd3;
+    rc_addr_even  = 7'd0;
+
+
+    #(clock_cycle);
+    full_instr_odd  = 32'd00011000001000001100000100000001;
+    instr_id_odd    = 7'd72;
+    reg_dst_odd     = 7'd1;
+    unit_id_odd     = 3'd5;
+    latency_odd     = 4'd4;
+    reg_wr_odd      = 1;
+    imme7_odd       = 7'd3;
+    imme10_odd      = 10'd3;
+    imme16_odd      = 16'd3;
+    imme18_odd      = 18'd3;
+
+    ra_addr_odd  = 7'd2;
+    rb_addr_odd  = 7'd3;
+    rc_addr_odd  = 7'd4;
+
+        full_instr_even  = 32'd00011000001000001100000100000001;
+    instr_id_even    = 7'd47;
+    reg_dst_even     = 7'd3;
+    unit_id_even     = 3'd2;
+    latency_even     = 4'd4;
+    reg_wr_even      = 1;
+    imme7_even       = 7'd3;
+    imme10_even      = 10'd3;
+    imme16_even      = 16'd3;
+    imme18_even      = 18'd3;
+
+    ra_addr_even  = 7'd2;
+    rb_addr_even  = 7'd3;
+    rc_addr_even  = 7'd0;
+
+
     // #(clock_cycle);
-    // full_instr_odd  = 32'd00011000001000001100000100000001;
-    // instr_id_odd    = 7'd74;
-    // reg_dst_odd     = 7'd1;
-    // unit_id_odd     = 3'd6;
-    // latency_odd     = 4'd7;
-    // reg_wr_odd      = 1;
-    // imme7_odd       = 7'd3;
-    // imme10_odd      = 10'd3;
-    // imme16_odd      = 16'd2;
-    // imme18_odd      = 18'd3;
+    // full_instr_even  = 32'd00011000001000001100000100000001;
+    // instr_id_even    = 7'd47;
+    // reg_dst_even     = 7'd1;
+    // unit_id_even     = 3'd2;
+    // latency_even     = 4'd4;
+    // reg_wr_even      = 1;
+    // imme7_even       = 7'd3;
+    // imme10_even      = 10'd3;
+    // imme16_even      = 16'd3;
+    // imme18_even      = 18'd3;
 
-    // ra_addr_odd  = 7'd2;
-    // rb_addr_odd  = 7'd3;
-    // rc_addr_odd  = 7'd4;
-
-    // #(clock_cycle);
-    // full_instr_odd  = 32'd00011000001000001100000100000001;
-    // instr_id_odd    = 7'd75;
-    // reg_dst_odd     = 7'd1;
-    // unit_id_odd     = 3'd6;
-    // latency_odd     = 4'd7;
-    // reg_wr_odd      = 0;
-    // imme7_odd       = 7'd3;
-    // imme10_odd      = 10'd3;
-    // imme16_odd      = 16'd1;
-    // imme18_odd      = 18'd3;
-
-    // ra_addr_odd  = 7'd2;
-    // rb_addr_odd  = 7'd3;
-    // rc_addr_odd  = 7'd1;
-
-
-    // #(clock_cycle);
-    // full_instr_odd  = 32'd00011000001000001100000100000001;
-    // instr_id_odd    = 7'd72;
-    // reg_dst_odd     = 7'd1;
-    // unit_id_odd     = 3'd5;
-    // latency_odd     = 4'd4;
-    // reg_wr_odd      = 1;
-    // imme7_odd       = 7'd3;
-    // imme10_odd      = 10'd3;
-    // imme16_odd      = 16'd3;
-    // imme18_odd      = 18'd3;
-
-    // ra_addr_odd  = 7'd2;
-    // rb_addr_odd  = 7'd3;
-    // rc_addr_odd  = 7'd4;
-
+    // ra_addr_even  = 7'd2;
+    // rb_addr_even  = 7'd3;
+    // rc_addr_even  = 7'd0;
 
     // #(clock_cycle);
     // full_instr_even  = 32'd00011000001000001100000100000001;

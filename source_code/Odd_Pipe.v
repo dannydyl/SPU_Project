@@ -47,7 +47,6 @@ module Odd_Pipe(
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
 
-reg [0:9] PC_result; // for branch
 reg [0:127] result; // used for permute or branch 
 
 // was going to use this but it seems like it is not necessary

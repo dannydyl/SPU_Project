@@ -10,7 +10,7 @@ always @(*) begin
   if (rt[0:31] == 0) begin
     PC_result = in_PC + $signed(imme16);
   end else begin
-    PC_result = in_PC + 1;
+    PC_result = in_PC + 2;
   end
 end
 

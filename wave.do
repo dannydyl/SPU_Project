@@ -24,6 +24,12 @@ add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapp
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/preload_addr
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/preload_values
 add wave -noupdate -expand -group RegFile /tb_RF_FU_Pipe_wrapper/dut/RF_FU_wrapper_inst/RF_inst/i
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/clk
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/rst
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/instr_id
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/PC_in
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/PC_out
+add wave -noupdate -expand -group PC /tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/PC
 add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/clk
 add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/rst
 add wave -noupdate -expand -group LSMEM /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LSmem_inst/LS_write_en
@@ -295,8 +301,6 @@ add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_in
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/WB_reg_write_data
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/WB_reg_write_en
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/new_PC
-add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/LS_addr
-add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/PC_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/PERM_result
 add wave -noupdate -expand -group OddPipe /tb_RF_FU_Pipe_wrapper/dut/Odd_Pipe_inst/branch_rt_result
@@ -354,7 +358,7 @@ add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_
 add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xorhi_result
 add wave -noupdate -group FX1_ALU /tb_RF_FU_Pipe_wrapper/dut/Even_Pipe_inst/fx1_inst/xori_result
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {65000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {69381 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 502
 configure wave -valuecolwidth 100

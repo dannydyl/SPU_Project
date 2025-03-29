@@ -201,7 +201,7 @@ Odd_Pipe Odd_Pipe_inst(
   .imme10(imme10_odd_to_pipe),
   .imme16(imme16_odd_to_pipe),
   .imme18(imme18_odd_to_pipe),
-  .current_PC(current_PC_odd), // have to be connected to PC module
+  .current_PC(new_PC_odd), // have to be connected to PC module
   .packed_2stage(packed_2stage_odd),
   .packed_3stage(packed_3stage_odd),
   .packed_4stage(packed_4stage_odd),
@@ -211,9 +211,17 @@ Odd_Pipe Odd_Pipe_inst(
   .WB_reg_write_addr(WB_reg_write_addr_odd),
   .WB_reg_write_data(WB_reg_write_data_odd),
   .WB_reg_write_en(WB_reg_write_en_odd),
-  .new_PC(new_PC_odd), // have to be connected to PC module
+  .new_PC(current_PC_odd), // have to be connected to PC module
   .preload_LS_en(preload_LS_en),
   .preload_LS_addr(preload_LS_addr),
   .preload_LS_data(preload_LS_data)
+);
+
+Program_Counter Program_Counter_inst( // only for branch verification purpose. Should be placed in ID stage
+  .clk(clk),
+  .rst(rst),
+  .unit_id(unit_id_odd_to_pipe),
+  .PC_in(current_PC_odd),
+  .PC_out(new_PC_odd)
 );
 endmodule
