@@ -116,86 +116,362 @@
 # Compile of mpyu.v was successful.
 # Compile of mpyui.v was successful.
 # 102 compiles, 0 failed with no errors.
-vsim work.tb_RF_FU_Pipe_wrapper
-# vsim work.tb_RF_FU_Pipe_wrapper 
-# Start time: 16:31:06 on Mar 20,2025
+vsim voptargs="+acc" tb_RF_FU_Pipe_wrapper
+# vsim voptargs="+acc" tb_RF_FU_Pipe_wrapper 
+# Start time: 14:45:56 on Mar 30,2025
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(109): (vopt-8884) Illegal output port connection for 'LS_data_out' (6th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(85): (vopt-8884) Illegal output port connection for 'addr_result' (5th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'PC_result' (5th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'rt_result' (6th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(62): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v(43): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v(38): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v(32): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BYTE_ALU.v(26): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(90): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(109): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(103): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(97): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(91): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(84): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(78): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(72): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(65): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(58): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(51): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(45): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/SP_ALU.v(39): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(77): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(74): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(68): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(62): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(56): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(50): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(44): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(38): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX2_ALU.v(32): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(64): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(311): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(305): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(299): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(292): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(286): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(280): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(274): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(268): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(261): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(255): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(249): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(243): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(237): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(231): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(225): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(220): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(215): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(210): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(205): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(199): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(194): (vopt-8884) Illegal output port connection for 'result' (2nd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(187): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(181): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(175): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(169): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(163): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(157): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(151): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(145): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(139): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(133): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(126): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(120): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(114): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(108): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(102): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(96): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(90): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(84): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(77): (vopt-8884) Illegal output port connection for 'result' (4th connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/FX1_ALU.v(71): (vopt-8884) Illegal output port connection for 'result' (3rd connection) to reg type. 
-# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Even_Pipe.v(51): (vopt-8884) Illegal output port connection for 'result' (9th connection) to reg type. 
+# ** Error: (vopt-13130) Failed to find design unit 'voptargs="+acc"'.
+#         Searched libraries:
+#             work
 # Optimization failed
-# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=74, Warnings=0.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=0.
 # Error loading design
-# End time: 16:31:07 on Mar 20,2025, Elapsed time: 0:00:01
-# Errors: 74, Warnings: 2
+# End time: 14:45:57 on Mar 30,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 2
+vsim -voptargs="+acc" tb_RF_FU_Pipe_wrapper
+# vsim -voptargs=""+acc"" tb_RF_FU_Pipe_wrapper 
+# Start time: 14:47:21 on Mar 30,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_wrapper(fast)
+# Loading work.Reg_file(fast)
+# Loading work.Forwarding_Unit(fast)
+# Loading work.Even_Pipe(fast)
+# Loading work.FX1_ALU(fast)
+# Loading work.a(fast)
+# Loading work.addx(fast)
+# Loading work.ah(fast)
+# Loading work.ahi(fast)
+# Loading work.ai(fast)
+# Loading work.and_op(fast)
+# Loading work.andhi(fast)
+# Loading work.andi(fast)
+# Loading work.bg(fast)
+# Loading work.bgx(fast)
+# Loading work.ceq(fast)
+# Loading work.ceqh(fast)
+# Loading work.ceqhi(fast)
+# Loading work.ceqi(fast)
+# Loading work.cg(fast)
+# Loading work.cgt(fast)
+# Loading work.cgth(fast)
+# Loading work.cgthi(fast)
+# Loading work.cgti(fast)
+# Loading work.cgx(fast)
+# Loading work.clz(fast)
+# Loading work.eqv(fast)
+# Loading work.il(fast)
+# Loading work.ila(fast)
+# Loading work.ilh(fast)
+# Loading work.ilhu(fast)
+# Loading work.iohl(fast)
+# Loading work.nand_op(fast)
+# Loading work.nor_op(fast)
+# Loading work.or_op(fast)
+# Loading work.orhi(fast)
+# Loading work.ori(fast)
+# Loading work.selb(fast)
+# Loading work.sf(fast)
+# Loading work.sfh(fast)
+# Loading work.sfhi(fast)
+# Loading work.sfi(fast)
+# Loading work.sfx(fast)
+# Loading work.xor_op(fast)
+# Loading work.xorhi(fast)
+# Loading work.xori(fast)
+# Loading work.FX2_ALU(fast)
+# Loading work.rot(fast)
+# Loading work.roth(fast)
+# Loading work.rothi(fast)
+# Loading work.roti(fast)
+# Loading work.shl(fast)
+# Loading work.shlh(fast)
+# Loading work.shlhi(fast)
+# Loading work.shli(fast)
+# Loading work.SP_ALU(fast)
+# Loading work.fa(fast)
+# Loading work.fm(fast)
+# Loading work.fma(fast)
+# Loading work.fms(fast)
+# Loading work.fnms(fast)
+# Loading work.fs(fast)
+# Loading work.mpy(fast)
+# Loading work.mpya(fast)
+# Loading work.mpyh(fast)
+# Loading work.mpyi(fast)
+# Loading work.mpyu(fast)
+# Loading work.mpyui(fast)
+# Loading work.BYTE_ALU(fast)
+# Loading work.absdb(fast)
+# Loading work.avgb(fast)
+# Loading work.cntb(fast)
+# Loading work.sumb(fast)
+# Loading work.Odd_Pipe(fast)
+# Loading work.PERM_ALU(fast)
+# Loading work.rotqbi(fast)
+# Loading work.rotqbii(fast)
+# Loading work.rotqby(fast)
+# Loading work.rotqbyi(fast)
+# Loading work.shlqbi(fast)
+# Loading work.shlqbii(fast)
+# Loading work.shlqby(fast)
+# Loading work.shlqbyi(fast)
+# Loading work.BRANCH_ALU(fast)
+# Loading work.br(fast)
+# Loading work.bra(fast)
+# Loading work.brasl(fast)
+# Loading work.brhnz(fast)
+# Loading work.brhz(fast)
+# Loading work.brnz(fast)
+# Loading work.brsl(fast)
+# Loading work.brz(fast)
+# Loading work.LS_ALU(fast)
+# Loading work.lqa(fast)
+# Loading work.lqd(fast)
+# Loading work.stqa(fast)
+# Loading work.stqd(fast)
+# Loading work.LocalStore(fast)
+# Loading work.Program_Counter(fast)
+do /home/home5/dlee/ese545work/SPU_Project/wave.do
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/tb_RF_FU_Pipe_wrapper/dut/Program_Counter_inst/instr_id'.
+# Executing ONERROR command at macro /home/home5/dlee/ese545work/SPU_Project/wave.do line 29
+run -all
+# ** Note: $finish    : /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(384)
+#    Time: 325 ns  Iteration: 0  Instance: /tb_RF_FU_Pipe_wrapper
+# 1
+# Break in Module tb_RF_FU_Pipe_wrapper at /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v line 384
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+restart
+# Closing VCD file "RF_FU_Pipe_wrapper_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_wrapper(fast)
+# Loading work.Reg_file(fast)
+# Loading work.Forwarding_Unit(fast)
+# Loading work.Even_Pipe(fast)
+# Loading work.FX1_ALU(fast)
+# Loading work.a(fast)
+# Loading work.addx(fast)
+# Loading work.ah(fast)
+# Loading work.ahi(fast)
+# Loading work.ai(fast)
+# Loading work.and_op(fast)
+# Loading work.andhi(fast)
+# Loading work.andi(fast)
+# Loading work.bg(fast)
+# Loading work.bgx(fast)
+# Loading work.ceq(fast)
+# Loading work.ceqh(fast)
+# Loading work.ceqhi(fast)
+# Loading work.ceqi(fast)
+# Loading work.cg(fast)
+# Loading work.cgt(fast)
+# Loading work.cgth(fast)
+# Loading work.cgthi(fast)
+# Loading work.cgti(fast)
+# Loading work.cgx(fast)
+# Loading work.clz(fast)
+# Loading work.eqv(fast)
+# Loading work.il(fast)
+# Loading work.ila(fast)
+# Loading work.ilh(fast)
+# Loading work.ilhu(fast)
+# Loading work.iohl(fast)
+# Loading work.nand_op(fast)
+# Loading work.nor_op(fast)
+# Loading work.or_op(fast)
+# Loading work.orhi(fast)
+# Loading work.ori(fast)
+# Loading work.selb(fast)
+# Loading work.sf(fast)
+# Loading work.sfh(fast)
+# Loading work.sfhi(fast)
+# Loading work.sfi(fast)
+# Loading work.sfx(fast)
+# Loading work.xor_op(fast)
+# Loading work.xorhi(fast)
+# Loading work.xori(fast)
+# Loading work.FX2_ALU(fast)
+# Loading work.rot(fast)
+# Loading work.roth(fast)
+# Loading work.rothi(fast)
+# Loading work.roti(fast)
+# Loading work.shl(fast)
+# Loading work.shlh(fast)
+# Loading work.shlhi(fast)
+# Loading work.shli(fast)
+# Loading work.SP_ALU(fast)
+# Loading work.fa(fast)
+# Loading work.fm(fast)
+# Loading work.fma(fast)
+# Loading work.fms(fast)
+# Loading work.fnms(fast)
+# Loading work.fs(fast)
+# Loading work.mpy(fast)
+# Loading work.mpya(fast)
+# Loading work.mpyh(fast)
+# Loading work.mpyi(fast)
+# Loading work.mpyu(fast)
+# Loading work.mpyui(fast)
+# Loading work.BYTE_ALU(fast)
+# Loading work.absdb(fast)
+# Loading work.avgb(fast)
+# Loading work.cntb(fast)
+# Loading work.sumb(fast)
+# Loading work.Odd_Pipe(fast)
+# Loading work.PERM_ALU(fast)
+# Loading work.rotqbi(fast)
+# Loading work.rotqbii(fast)
+# Loading work.rotqby(fast)
+# Loading work.rotqbyi(fast)
+# Loading work.shlqbi(fast)
+# Loading work.shlqbii(fast)
+# Loading work.shlqby(fast)
+# Loading work.shlqbyi(fast)
+# Loading work.BRANCH_ALU(fast)
+# Loading work.br(fast)
+# Loading work.bra(fast)
+# Loading work.brasl(fast)
+# Loading work.brhnz(fast)
+# Loading work.brhz(fast)
+# Loading work.brnz(fast)
+# Loading work.brsl(fast)
+# Loading work.brz(fast)
+# Loading work.LS_ALU(fast)
+# Loading work.lqa(fast)
+# Loading work.lqd(fast)
+# Loading work.stqa(fast)
+# Loading work.stqd(fast)
+# Loading work.LocalStore(fast)
+# Loading work.Program_Counter(fast)
+run -all
+# ** Note: $finish    : /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(384)
+#    Time: 325 ns  Iteration: 0  Instance: /tb_RF_FU_Pipe_wrapper
+# 1
+# Break in Module tb_RF_FU_Pipe_wrapper at /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v line 384
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+restart
+# Closing VCD file "RF_FU_Pipe_wrapper_tb.vcd"
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.tb_RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_Pipe_wrapper(fast)
+# Loading work.RF_FU_wrapper(fast)
+# Loading work.Reg_file(fast)
+# Loading work.Forwarding_Unit(fast)
+# Loading work.Even_Pipe(fast)
+# Loading work.FX1_ALU(fast)
+# Loading work.a(fast)
+# Loading work.addx(fast)
+# Loading work.ah(fast)
+# Loading work.ahi(fast)
+# Loading work.ai(fast)
+# Loading work.and_op(fast)
+# Loading work.andhi(fast)
+# Loading work.andi(fast)
+# Loading work.bg(fast)
+# Loading work.bgx(fast)
+# Loading work.ceq(fast)
+# Loading work.ceqh(fast)
+# Loading work.ceqhi(fast)
+# Loading work.ceqi(fast)
+# Loading work.cg(fast)
+# Loading work.cgt(fast)
+# Loading work.cgth(fast)
+# Loading work.cgthi(fast)
+# Loading work.cgti(fast)
+# Loading work.cgx(fast)
+# Loading work.clz(fast)
+# Loading work.eqv(fast)
+# Loading work.il(fast)
+# Loading work.ila(fast)
+# Loading work.ilh(fast)
+# Loading work.ilhu(fast)
+# Loading work.iohl(fast)
+# Loading work.nand_op(fast)
+# Loading work.nor_op(fast)
+# Loading work.or_op(fast)
+# Loading work.orhi(fast)
+# Loading work.ori(fast)
+# Loading work.selb(fast)
+# Loading work.sf(fast)
+# Loading work.sfh(fast)
+# Loading work.sfhi(fast)
+# Loading work.sfi(fast)
+# Loading work.sfx(fast)
+# Loading work.xor_op(fast)
+# Loading work.xorhi(fast)
+# Loading work.xori(fast)
+# Loading work.FX2_ALU(fast)
+# Loading work.rot(fast)
+# Loading work.roth(fast)
+# Loading work.rothi(fast)
+# Loading work.roti(fast)
+# Loading work.shl(fast)
+# Loading work.shlh(fast)
+# Loading work.shlhi(fast)
+# Loading work.shli(fast)
+# Loading work.SP_ALU(fast)
+# Loading work.fa(fast)
+# Loading work.fm(fast)
+# Loading work.fma(fast)
+# Loading work.fms(fast)
+# Loading work.fnms(fast)
+# Loading work.fs(fast)
+# Loading work.mpy(fast)
+# Loading work.mpya(fast)
+# Loading work.mpyh(fast)
+# Loading work.mpyi(fast)
+# Loading work.mpyu(fast)
+# Loading work.mpyui(fast)
+# Loading work.BYTE_ALU(fast)
+# Loading work.absdb(fast)
+# Loading work.avgb(fast)
+# Loading work.cntb(fast)
+# Loading work.sumb(fast)
+# Loading work.Odd_Pipe(fast)
+# Loading work.PERM_ALU(fast)
+# Loading work.rotqbi(fast)
+# Loading work.rotqbii(fast)
+# Loading work.rotqby(fast)
+# Loading work.rotqbyi(fast)
+# Loading work.shlqbi(fast)
+# Loading work.shlqbii(fast)
+# Loading work.shlqby(fast)
+# Loading work.shlqbyi(fast)
+# Loading work.BRANCH_ALU(fast)
+# Loading work.br(fast)
+# Loading work.bra(fast)
+# Loading work.brasl(fast)
+# Loading work.brhnz(fast)
+# Loading work.brhz(fast)
+# Loading work.brnz(fast)
+# Loading work.brsl(fast)
+# Loading work.brz(fast)
+# Loading work.LS_ALU(fast)
+# Loading work.lqa(fast)
+# Loading work.lqd(fast)
+# Loading work.stqa(fast)
+# Loading work.stqd(fast)
+# Loading work.LocalStore(fast)
+# Loading work.Program_Counter(fast)
+run -all
+# ** Note: $finish    : /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(400)
+#    Time: 335 ns  Iteration: 0  Instance: /tb_RF_FU_Pipe_wrapper
+# 1
+# Break in Module tb_RF_FU_Pipe_wrapper at /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v line 400
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# list element in quotes followed by ":" instead of space
