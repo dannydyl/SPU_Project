@@ -141,7 +141,6 @@ always @(*) begin
       default: result = 128'd0;
     endcase
     packed_1stage = {unit_id, result, reg_dst, latency, reg_wr};
-    // packed_LS_result_stage1 = {rc_data, addr_result, LS_write_en};
   end
 end
 
