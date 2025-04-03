@@ -41,22 +41,22 @@ module RF_FU_Pipe_wrapper(
   input [0:127] preload_LS_data
 );
 
-wire [0:31] full_instr_even_to_pipe, full_instr_odd_to_pipe;
-wire [0:6] instr_id_even_to_pipe, instr_id_odd_to_pipe;
-wire [0:6] reg_dst_even_to_pipe, reg_dst_odd_to_pipe;
-wire [0:2] unit_id_even_to_pipe, unit_id_odd_to_pipe;
-wire [0:3] latency_even_to_pipe, latency_odd_to_pipe;
-wire reg_wr_even_to_pipe, reg_wr_odd_to_pipe;
+reg [0:31] full_instr_even_to_pipe, full_instr_odd_to_pipe;
+reg [0:6] instr_id_even_to_pipe, instr_id_odd_to_pipe;
+reg [0:6] reg_dst_even_to_pipe, reg_dst_odd_to_pipe;
+reg [0:2] unit_id_even_to_pipe, unit_id_odd_to_pipe;
+reg [0:3] latency_even_to_pipe, latency_odd_to_pipe;
+reg reg_wr_even_to_pipe, reg_wr_odd_to_pipe;
 
-wire [0:6] imme7_even_to_pipe, imme7_odd_to_pipe;
-wire [0:9] imme10_even_to_pipe, imme10_odd_to_pipe;
-wire [0:15] imme16_even_to_pipe, imme16_odd_to_pipe;
-wire [0:17] imme18_even_to_pipe, imme18_odd_to_pipe;
+reg [0:6] imme7_even_to_pipe, imme7_odd_to_pipe;
+reg [0:9] imme10_even_to_pipe, imme10_odd_to_pipe;
+reg [0:15] imme16_even_to_pipe, imme16_odd_to_pipe;
+reg [0:17] imme18_even_to_pipe, imme18_odd_to_pipe;
 
-wire [0:127] ra_data_even_to_pipe, rb_data_even_to_pipe, rc_data_even_to_pipe,
+reg [0:127] ra_data_even_to_pipe, rb_data_even_to_pipe, rc_data_even_to_pipe,
               ra_data_odd_to_pipe, rb_data_odd_to_pipe, rc_data_odd_to_pipe;
 
-wire [0:142] packed_1stage_even, packed_2stage_even, packed_3stage_even, packed_4stage_even, 
+reg [0:142] packed_1stage_even, packed_2stage_even, packed_3stage_even, packed_4stage_even, 
               packed_5stage_even, packed_6stage_even, packed_7stage_even,
               packed_1stage_odd, packed_2stage_odd, packed_3stage_odd, packed_4stage_odd,
               packed_5stage_odd, packed_6stage_odd, packed_7stage_odd;
@@ -66,6 +66,20 @@ wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
 wire [0:9] current_PC_odd, new_PC_odd;
+
+
+wire [0:31] full_instr_even_fo, full_instr_odd_fo;
+wire [0:6] instr_id_even_fo, instr_id_odd_fo;
+wire [0:6] reg_dst_even_fo, reg_dst_odd_fo;
+wire [0:2] unit_id_even_fo, unit_id_odd_fo;
+wire [0:3] latency_even_fo, latency_odd_fo;
+wire reg_wr_even_fo, reg_wr_odd_fo;
+wire [0:6] imme7_even_fo, imme7_odd_fo;
+wire [0:9] imme10_even_fo, imme10_odd_fo;
+wire [0:15] imme16_even_fo, imme16_odd_fo;
+wire [0:17] imme18_even_fo, imme18_odd_fo;
+wire [0:127] ra_data_even_fo, rb_data_even_fo, rc_data_even_fo,
+              ra_data_odd_fo, rb_data_odd_fo, rc_data_odd_fo;
 
 RF_FU_wrapper RF_FU_wrapper_inst (
   .clk(clk),
@@ -124,39 +138,99 @@ RF_FU_wrapper RF_FU_wrapper_inst (
   .packed_7stage_odd(packed_7stage_odd),
 
   // output
-  .out_full_instr_even(full_instr_even_to_pipe),
-  .out_instr_id_even(instr_id_even_to_pipe),
-  .out_reg_dst_even(reg_dst_even_to_pipe),
-  .out_unit_id_even(unit_id_even_to_pipe),
-  .out_latency_even(latency_even_to_pipe),
-  .out_reg_wr_even(reg_wr_even_to_pipe),
-  .out_imme7_even(imme7_even_to_pipe),
-  .out_imme10_even(imme10_even_to_pipe),
-  .out_imme16_even(imme16_even_to_pipe),
-  .out_imme18_even(imme18_even_to_pipe),
+  .out_full_instr_even(full_instr_even_fo),
+  .out_instr_id_even(instr_id_even_fo),
+  .out_reg_dst_even(reg_dst_even_fo),
+  .out_unit_id_even(unit_id_even_fo),
+  .out_latency_even(latency_even_fo),
+  .out_reg_wr_even(reg_wr_even_fo),
+  .out_imme7_even(imme7_even_fo),
+  .out_imme10_even(imme10_even_fo),
+  .out_imme16_even(imme16_even_fo),
+  .out_imme18_even(imme18_even_fo),
 
-  .out_full_instr_odd(full_instr_odd_to_pipe),
-  .out_instr_id_odd(instr_id_odd_to_pipe),
-  .out_reg_dst_odd(reg_dst_odd_to_pipe),
-  .out_unit_id_odd(unit_id_odd_to_pipe),
-  .out_latency_odd(latency_odd_to_pipe),
-  .out_reg_wr_odd(reg_wr_odd_to_pipe),
-  .out_imme7_odd(imme7_odd_to_pipe),
-  .out_imme10_odd(imme10_odd_to_pipe),
-  .out_imme16_odd(imme16_odd_to_pipe),
-  .out_imme18_odd(imme18_odd_to_pipe),
+  .out_full_instr_odd(full_instr_odd_fo),
+  .out_instr_id_odd(instr_id_odd_fo),
+  .out_reg_dst_odd(reg_dst_odd_fo),
+  .out_unit_id_odd(unit_id_odd_fo),
+  .out_latency_odd(latency_odd_fo),
+  .out_reg_wr_odd(reg_wr_odd_fo),
+  .out_imme7_odd(imme7_odd_fo),
+  .out_imme10_odd(imme10_odd_fo),
+  .out_imme16_odd(imme16_odd_fo),
+  .out_imme18_odd(imme18_odd_fo),
 
-  .ra_data_even(ra_data_even_to_pipe),
-  .rb_data_even(rb_data_even_to_pipe),
-  .rc_data_even(rc_data_even_to_pipe),
-  .ra_data_odd(ra_data_odd_to_pipe),
-  .rb_data_odd(rb_data_odd_to_pipe),
-  .rc_data_odd(rc_data_odd_to_pipe),
+  .ra_data_even(ra_data_even_fo),
+  .rb_data_even(rb_data_even_fo),
+  .rc_data_even(rc_data_even_fo),
+  .ra_data_odd(ra_data_odd_fo),
+  .rb_data_odd(rb_data_odd_fo),
+  .rc_data_odd(rc_data_odd_fo),
 
   .preload_en(preload_en),
   .preload_addr(preload_addr),
   .preload_values(preload_values)
 );
+
+always @(posedge clk or posedge rst) begin
+  if (rst) begin
+    full_instr_even_to_pipe <= 0;
+    instr_id_even_to_pipe <= 0;
+    reg_dst_even_to_pipe <= 0;
+    unit_id_even_to_pipe <= 0;
+    latency_even_to_pipe <= 0;
+    reg_wr_even_to_pipe <= 0;
+    ra_data_even_to_pipe <= 0;
+    rb_data_even_to_pipe <= 0;
+    rc_data_even_to_pipe <= 0;
+    imme7_even_to_pipe <= 0;
+    imme10_even_to_pipe <= 0;
+    imme16_even_to_pipe <= 0;
+    imme18_even_to_pipe <= 0;
+
+    full_instr_odd_to_pipe <= 0;
+    instr_id_odd_to_pipe <= 0;
+    reg_dst_odd_to_pipe <= 0;
+    unit_id_odd_to_pipe <= 0;
+    latency_odd_to_pipe <= 0;
+    reg_wr_odd_to_pipe <= 0;
+    ra_data_odd_to_pipe <= 0;
+    rb_data_odd_to_pipe <= 0;
+    rc_data_odd_to_pipe <= 0;
+    imme7_odd_to_pipe <= 0;
+    imme10_odd_to_pipe <= 0;
+    imme16_odd_to_pipe <= 0;
+    imme18_odd_to_pipe <= 0;
+  end else begin
+    full_instr_even_to_pipe <= full_instr_even_fo;
+    instr_id_even_to_pipe <= instr_id_even_fo;
+    reg_dst_even_to_pipe <= reg_dst_even_fo;
+    unit_id_even_to_pipe <= unit_id_even_fo;
+    latency_even_to_pipe <= latency_even_fo;
+    reg_wr_even_to_pipe <= reg_wr_even_fo;
+    ra_data_even_to_pipe <= ra_data_even_fo;
+    rb_data_even_to_pipe <= rb_data_even_fo;
+    rc_data_even_to_pipe <= rc_data_even_fo;
+    imme7_even_to_pipe <= imme7_even_fo;
+    imme10_even_to_pipe <= imme10_even_fo;
+    imme16_even_to_pipe <= imme16_even_fo;
+    imme18_even_to_pipe <= imme18_even_fo;
+
+    full_instr_odd_to_pipe <= full_instr_odd_fo;
+    instr_id_odd_to_pipe <= instr_id_odd_fo;
+    reg_dst_odd_to_pipe <= reg_dst_odd_fo;
+    unit_id_odd_to_pipe <= unit_id_odd_fo;
+    latency_odd_to_pipe <= latency_odd_fo;
+    reg_wr_odd_to_pipe <= reg_wr_odd_fo;
+    ra_data_odd_to_pipe <= ra_data_odd_fo;
+    rb_data_odd_to_pipe <= rb_data_odd_fo;
+    rc_data_odd_to_pipe <= rc_data_odd_fo;
+    imme7_odd_to_pipe <= imme7_odd_fo;
+    imme10_odd_to_pipe <= imme10_odd_fo;
+    imme16_odd_to_pipe <= imme16_odd_fo;
+    imme18_odd_to_pipe <= imme18_odd_fo; 
+  end
+end
 
 Even_Pipe Even_Pipe_inst (
   .clk(clk),
@@ -225,14 +299,4 @@ Program_Counter Program_Counter_inst( // only for branch verification purpose. S
   .PC_out(new_PC_odd)
 );
 
-// always @(posedge clk or posedge rst) begin
-//   if (rst) begin
-//     packed_1stage_even <= 0;
-//     packed_1stage_odd <= 0;
-//   end
-//   else begin
-//     packed_1stage_even <= packed_2stage_even;
-//     packed_1stage_odd <= packed_2stage_odd;
-//   end
-// end
 endmodule
