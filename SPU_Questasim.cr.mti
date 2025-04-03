@@ -5,6 +5,21 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	ilh
 
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v {2 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module tb_RF_FU_Pipe_wrapper
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(176): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(191): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(207): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(222): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(238): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(253): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(269): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v(284): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+
+Top level modules:
+	tb_RF_FU_Pipe_wrapper
+
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module roth
@@ -46,13 +61,6 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 
 Top level modules:
 	mpyui
-
-} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v
-QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
--- Compiling module RF_FU_Pipe_wrapper
-
-Top level modules:
-	RF_FU_Pipe_wrapper
 
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/a.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
