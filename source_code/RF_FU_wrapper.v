@@ -310,27 +310,56 @@ Forwarding_Unit FU_inst(
 );
 
 // For instruction info bypassing
-wire [0:31] temp_full_instr_even;
-wire [0:6] temp_instr_id_even;
-wire [0:6] temp_reg_dst_even;
-wire [0:2] temp_unit_id_even;
-wire [0:3] temp_latency_even;
-wire temp_reg_wr_even;
-wire [0:6] temp_imme7_even;
-wire [0:9] temp_imme10_even;
-wire [0:15] temp_imme16_even;
-wire [0:17] temp_imme18_even;
+// wire [0:31] temp_full_instr_even;
+// wire [0:6] temp_instr_id_even;
+// wire [0:6] temp_reg_dst_even;
+// wire [0:2] temp_unit_id_even;
+// wire [0:3] temp_latency_even;
+// wire temp_reg_wr_even;
+// wire [0:6] temp_imme7_even;
+// wire [0:9] temp_imme10_even;
+// wire [0:15] temp_imme16_even;
+// wire [0:17] temp_imme18_even;
 
-wire [0:31] temp_full_instr_odd;
-wire [0:6] temp_instr_id_odd;
-wire [0:6] temp_reg_dst_odd;
-wire [0:2] temp_unit_id_odd;
-wire [0:3] temp_latency_odd;
-wire temp_reg_wr_odd;
-wire [0:6] temp_imme7_odd;
-wire [0:9] temp_imme10_odd;
-wire [0:15] temp_imme16_odd;
-wire [0:17] temp_imme18_odd;
+// wire [0:31] temp_full_instr_odd;
+// wire [0:6] temp_instr_id_odd;
+// wire [0:6] temp_reg_dst_odd;
+// wire [0:2] temp_unit_id_odd;
+// wire [0:3] temp_latency_odd;
+// wire temp_reg_wr_odd;
+// wire [0:6] temp_imme7_odd;
+// wire [0:9] temp_imme10_odd;
+// wire [0:15] temp_imme16_odd;
+// wire [0:17] temp_imme18_odd;
+
+reg [0:31] temp_full_instr_even;
+reg [0:6] temp_instr_id_even;
+reg [0:6] temp_reg_dst_even;
+reg [0:2] temp_unit_id_even;
+reg [0:3] temp_latency_even;
+reg temp_reg_wr_even;
+reg [0:6] temp_imme7_even;
+reg [0:9] temp_imme10_even;
+reg [0:15] temp_imme16_even;
+reg [0:17] temp_imme18_even;
+
+reg [0:31] temp_full_instr_odd;
+reg [0:6] temp_instr_id_odd;
+reg [0:6] temp_reg_dst_odd;
+reg [0:2] temp_unit_id_odd;
+reg [0:3] temp_latency_odd;
+reg temp_reg_wr_odd;
+reg [0:6] temp_imme7_odd;
+reg [0:9] temp_imme10_odd;
+reg [0:15] temp_imme16_odd;
+reg [0:17] temp_imme18_odd;
+
+reg [0:127] ra_data_even_temp;
+reg [0:127] rb_data_even_temp;
+reg [0:127] rc_data_even_temp;
+reg [0:127] ra_data_odd_temp;
+reg [0:127] rb_data_odd_temp;
+reg [0:127] rc_data_odd_temp;
 
 assign temp_full_instr_even = full_instr_even;
 assign temp_instr_id_even = instr_id_even;
@@ -416,6 +445,28 @@ always @(posedge clk or posedge rst) begin
     rc_data_odd <= 128'b0;
   end
   else begin
+    temp_full_instr_even <= full_instr_even;
+    temp_instr_id_even <= instr_id_even;
+    temp_reg_dst_even <= reg_dst_even;
+    temp_unit_id_even <= unit_id_even;
+    temp_latency_even <= latency_even;
+    temp_reg_wr_even <= reg_wr_even;
+    temp_imme7_even <= imme7_even;
+    temp_imme10_even <= imme10_even;
+    temp_imme16_even <= imme16_even;
+    temp_imme18_even <= imme18_even;
+    temp_full_instr_odd <= full_instr_odd;
+    temp_instr_id_odd <= instr_id_odd;
+    temp_reg_dst_odd <= reg_dst_odd;
+    temp_unit_id_odd <= unit_id_odd;
+    temp_latency_odd <= latency_odd;
+    temp_reg_wr_odd <= reg_wr_odd;
+    temp_imme7_odd <= imme7_odd;
+    temp_imme10_odd <= imme10_odd;
+    temp_imme16_odd <= imme16_odd;
+    temp_imme18_odd <= imme18_odd;
+    // -----------------------------------
+
     out_full_instr_even <= temp_full_instr_even;
     out_instr_id_even <= temp_instr_id_even;
     out_reg_dst_even <= temp_reg_dst_even;
@@ -439,7 +490,7 @@ always @(posedge clk or posedge rst) begin
     out_imme18_odd <= temp_imme18_odd;
 
     // when result has to be forwarded to ra (even), recent stages has priority for forwarding ALSO same pipe has priority
-    ra_data_even <=             (ra_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+    ra_data_even_temp <=             (ra_fw_en_2stage_even) ? reg_dst_result_2stage_even :
                     (ra_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
                                 (ra_fw_en_3stage_even) ? reg_dst_result_3stage_even :
                     (ra_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
@@ -453,7 +504,7 @@ always @(posedge clk or posedge rst) begin
                     (ra_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
                                                          regfile_out_data_1;
 
-    rb_data_even <=             (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+    rb_data_even_temp <=             (rb_fw_en_2stage_even) ? reg_dst_result_2stage_even :
                     (rb_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
                                 (rb_fw_en_3stage_even) ? reg_dst_result_3stage_even :
                     (rb_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
@@ -467,7 +518,7 @@ always @(posedge clk or posedge rst) begin
                     (rb_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
                                                          regfile_out_data_2;
 
-    rc_data_even <=             (rc_fw_en_2stage_even) ? reg_dst_result_2stage_even :
+    rc_data_even_temp <=             (rc_fw_en_2stage_even) ? reg_dst_result_2stage_even :
                     (rc_fw_en_2stage_from_odd_to_even) ? reg_dst_result_2stage_odd :
                                 (rc_fw_en_3stage_even) ? reg_dst_result_3stage_even :
                     (rc_fw_en_3stage_from_odd_to_even) ? reg_dst_result_3stage_odd :
@@ -481,7 +532,7 @@ always @(posedge clk or posedge rst) begin
                     (rc_fw_en_7stage_from_odd_to_even) ? reg_dst_result_7stage_odd :
                                                          regfile_out_data_3;
                     
-    ra_data_odd <=               (ra_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+    ra_data_odd_temp <=               (ra_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
                     (ra_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
                                  (ra_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
                     (ra_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
@@ -495,7 +546,7 @@ always @(posedge clk or posedge rst) begin
                     (ra_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
                                                          regfile_out_data_4;
                     
-    rb_data_odd <=               (rb_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+    rb_data_odd_temp <=               (rb_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
                     (rb_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
                                  (rb_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
                     (rb_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
@@ -509,7 +560,7 @@ always @(posedge clk or posedge rst) begin
                     (rb_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
                                                          regfile_out_data_5;
 
-    rc_data_odd <=               (rc_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
+    rc_data_odd_temp <=               (rc_fw_en_2stage_odd) ? reg_dst_result_2stage_odd :
                     (rc_fw_en_2stage_from_even_to_odd) ? reg_dst_result_2stage_even :
                                  (rc_fw_en_3stage_odd) ? reg_dst_result_3stage_odd :
                     (rc_fw_en_3stage_from_even_to_odd) ? reg_dst_result_3stage_even :
@@ -523,7 +574,12 @@ always @(posedge clk or posedge rst) begin
                     (rc_fw_en_7stage_from_even_to_odd) ? reg_dst_result_7stage_even :
                                                          regfile_out_data_6;
                     
-
+    ra_data_even <= ra_data_even_temp;
+    rb_data_even <= rb_data_even_temp;
+    rc_data_even <= rc_data_even_temp;
+    ra_data_odd <= ra_data_odd_temp;
+    rb_data_odd <= rb_data_odd_temp;
+    rc_data_odd <= rc_data_odd_temp;
 
   end
 end
