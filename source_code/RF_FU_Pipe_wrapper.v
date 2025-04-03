@@ -224,4 +224,15 @@ Program_Counter Program_Counter_inst( // only for branch verification purpose. S
   .PC_in(current_PC_odd),
   .PC_out(new_PC_odd)
 );
+
+// always @(posedge clk or posedge rst) begin
+//   if (rst) begin
+//     packed_1stage_even <= 0;
+//     packed_1stage_odd <= 0;
+//   end
+//   else begin
+//     packed_1stage_even <= packed_2stage_even;
+//     packed_1stage_odd <= packed_2stage_odd;
+//   end
+// end
 endmodule
