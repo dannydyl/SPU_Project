@@ -361,27 +361,27 @@ reg [0:127] ra_data_odd_temp;
 reg [0:127] rb_data_odd_temp;
 reg [0:127] rc_data_odd_temp;
 
-assign temp_full_instr_even = full_instr_even;
-assign temp_instr_id_even = instr_id_even;
-assign temp_reg_dst_even = reg_dst_even;
-assign temp_unit_id_even = unit_id_even;
-assign temp_latency_even = latency_even;
-assign temp_reg_wr_even = reg_wr_even;
-assign temp_imme7_even = imme7_even;
-assign temp_imme10_even = imme10_even;
-assign temp_imme16_even = imme16_even;
-assign temp_imme18_even = imme18_even;
+// assign temp_full_instr_even = full_instr_even;
+// assign temp_instr_id_even = instr_id_even;
+// assign temp_reg_dst_even = reg_dst_even;
+// assign temp_unit_id_even = unit_id_even;
+// assign temp_latency_even = latency_even;
+// assign temp_reg_wr_even = reg_wr_even;
+// assign temp_imme7_even = imme7_even;
+// assign temp_imme10_even = imme10_even;
+// assign temp_imme16_even = imme16_even;
+// assign temp_imme18_even = imme18_even;
 
-assign temp_full_instr_odd = full_instr_odd;
-assign temp_instr_id_odd = instr_id_odd;
-assign temp_reg_dst_odd = reg_dst_odd;
-assign temp_unit_id_odd = unit_id_odd;
-assign temp_latency_odd = latency_odd;
-assign temp_reg_wr_odd = reg_wr_odd;
-assign temp_imme7_odd = imme7_odd;
-assign temp_imme10_odd = imme10_odd;
-assign temp_imme16_odd = imme16_odd;
-assign temp_imme18_odd = imme18_odd;
+// assign temp_full_instr_odd = full_instr_odd;
+// assign temp_instr_id_odd = instr_id_odd;
+// assign temp_reg_dst_odd = reg_dst_odd;
+// assign temp_unit_id_odd = unit_id_odd;
+// assign temp_latency_odd = latency_odd;
+// assign temp_reg_wr_odd = reg_wr_odd;
+// assign temp_imme7_odd = imme7_odd;
+// assign temp_imme10_odd = imme10_odd;
+// assign temp_imme16_odd = imme16_odd;
+// assign temp_imme18_odd = imme18_odd;
 
 // for forwarding reg dst result extracted from packed value
 wire [0:127] reg_dst_result_2stage_even;
