@@ -97,6 +97,12 @@ R0
 R1
 R0
 R1
+R0
+R1
+R0
+R1
+R0
+R1
 Z2 !s12c _opt2
 R1
 R0
@@ -256,10 +262,10 @@ R1
 cModel Technology
 Z3 d/home/home5/dlee/ese545work/SPU_Project
 T_opt1
-!s110 1743361862
-VPVkGlN5o5RFiabF>7TY<33
+!s110 1743719110
+V24QjoNS4>k@Hj@UkGz@G11
 Z4 04 21 4 work tb_RF_FU_Pipe_wrapper fast 0
-=3-000ae431a4f1-67e99745-b8d3c-e1eb2
+=4-000ae431a4f1-67ef0ac6-42ddf-dc72b
 R1
 Z5 !s12f OEM100
 Z6 !s12b OEM100
@@ -268,7 +274,6 @@ Z8 o-quiet -auto_acc_if_foreign -work work +acc
 Z9 tCvgOpt 0
 n@_opt1
 Z10 OE;O;2023.4_3;77
-R3
 T_opt2
 !s110 1743020673
 V3QEHD3jieadc3nz6Le2DR0
@@ -2563,22 +2568,22 @@ R16
 R9
 vtb_RF_FU_Pipe_wrapper
 2/home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
-R28
+!s110 1743719103
 !i10b 1
-!s100 9g@ZN:j`d?jlJaQ`mZUko1
-ICMdSM3iFLFV:<4;8n[IUJ1
+!s100 NC;bmg8hQ@9aEVfLU`UV92
+I3J_5^d;BDiFZVSh;5VfF73
 R3
-w1743362242
+w1743719507
 8/home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v
-!i122 4200
-L0 3 414
+!i122 4288
+L0 3 475
 R13
 R14
 r1
 !s85 0
 31
-R30
+!s108 1743719103.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/tb_RF_FU_Pipe_wrapper.v|
 !i113 0

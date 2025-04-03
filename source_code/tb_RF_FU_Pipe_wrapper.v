@@ -172,8 +172,9 @@ module tb_RF_FU_Pipe_wrapper;
 
   // ------------------------ test cases ------------------------------------
     #(clock_cycle);
+    #(clock_cycle);
     full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd69;
+    instr_id_odd    = 7'd65;
     reg_dst_odd     = 7'd1;
     unit_id_odd     = 3'd5;
     latency_odd     = 4'd4;
@@ -204,7 +205,7 @@ module tb_RF_FU_Pipe_wrapper;
 
     #(clock_cycle);
     full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd69;
+    instr_id_odd    = 7'd66;
     reg_dst_odd     = 7'd1;
     unit_id_odd     = 3'd5;
     latency_odd     = 4'd4;
@@ -219,7 +220,7 @@ module tb_RF_FU_Pipe_wrapper;
     rc_addr_odd  = 7'd4;
 
     full_instr_even  = 32'd00011000001000001100000100000001;
-    instr_id_even    = 7'd47;
+    instr_id_even    = 7'd48;
     reg_dst_even     = 7'd3;
     unit_id_even     = 3'd2;
     latency_even     = 4'd4;
@@ -235,7 +236,7 @@ module tb_RF_FU_Pipe_wrapper;
 
     #(clock_cycle);
     full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd69;
+    instr_id_odd    = 7'd70;
     reg_dst_odd     = 7'd1;
     unit_id_odd     = 3'd5;
     latency_odd     = 4'd4;
@@ -250,7 +251,7 @@ module tb_RF_FU_Pipe_wrapper;
     rc_addr_odd  = 7'd4;
 
     full_instr_even  = 32'd00011000001000001100000100000001;
-    instr_id_even    = 7'd47;
+    instr_id_even    = 7'd49;
     reg_dst_even     = 7'd3;
     unit_id_even     = 3'd2;
     latency_even     = 4'd4;
@@ -266,7 +267,7 @@ module tb_RF_FU_Pipe_wrapper;
 
     #(clock_cycle);
     full_instr_odd  = 32'd00011000001000001100000100000001;
-    instr_id_odd    = 7'd69;
+    instr_id_odd    = 7'd71;
     reg_dst_odd     = 7'd10;
     unit_id_odd     = 3'd5;
     latency_odd     = 4'd4;
@@ -281,7 +282,7 @@ module tb_RF_FU_Pipe_wrapper;
     rc_addr_odd  = 7'd4;
 
     full_instr_even  = 32'd00011000001000001100000100000001;
-    instr_id_even    = 7'd47;
+    instr_id_even    = 7'd50;
     reg_dst_even     = 7'd3;
     unit_id_even     = 3'd2;
     latency_even     = 4'd4;
