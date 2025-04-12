@@ -33,8 +33,10 @@ module Instruction_Decode{
 
   output reg [0:6] ra_addr_odd,
   output reg [0:6] rb_addr_odd,
-  output reg [0:6] rc_addr_odd
-  
+  output reg [0:6] rc_addr_odd,
+
+  output reg instr1_type,
+  output reg instr2_type
 };
 
 `include "opcode_package.vh"
@@ -57,8 +59,8 @@ reg [0:2] instr_format_even;
 reg [0:2] instr_format_odd;
 
 // 1 for even, 0 for odd
-reg instr1_type;
-reg instr2_type;
+// reg instr1_type;
+// reg instr2_type;
 
 // ------------- for instruction 1 -------------------
 always @(*) begin
