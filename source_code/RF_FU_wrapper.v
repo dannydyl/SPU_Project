@@ -1,6 +1,7 @@
 module RF_FU_wrapper(
   input clk,
   input rst,
+  input flush,
 
   // inputs for instruction
   input [0:31] full_instr_even,
@@ -432,6 +433,37 @@ always @(posedge clk or posedge rst) begin
     ra_data_even <= 128'b0;
     rb_data_even <= 128'b0;
     rc_data_even <= 128'b0;
+
+    ra_data_odd <= 128'b0;
+    rb_data_odd <= 128'b0;
+    rc_data_odd <= 128'b0;
+  end
+  else if (flush) begin
+    out_full_instr_even <= 32'b0;
+    out_instr_id_even <= 7'd86;
+    out_reg_dst_even <= 7'b0;
+    out_unit_id_even <= 3'b0;
+    out_latency_even <= 4'b0;
+    out_reg_wr_even <= 1'b0;
+    out_imme7_even <= 7'b0;
+    out_imme10_even <= 10'b0;
+    out_imme16_even <= 16'b0;
+    out_imme18_even <= 18'b0;
+
+    ra_data_even <= 128'b0;
+    rb_data_even <= 128'b0;
+    rc_data_even <= 128'b0;
+
+    out_full_instr_odd <= 32'b0;
+    out_instr_id_odd <= 7'd85;
+    out_reg_dst_odd <= 7'b0;
+    out_unit_id_odd <= 3'b0;
+    out_latency_odd <= 4'b0;
+    out_reg_wr_odd <= 1'b0;
+    out_imme7_odd <= 7'b0;
+    out_imme10_odd <= 10'b0;
+    out_imme16_odd <= 16'b0;
+    out_imme18_odd <= 18'b0;
 
     ra_data_odd <= 128'b0;
     rb_data_odd <= 128'b0;

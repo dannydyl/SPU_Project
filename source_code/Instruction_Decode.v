@@ -33,7 +33,7 @@ module Instruction_Decode{
   output reg [0:6] rc_addr_odd,
 
   output reg instr1_type,
-  output reg instr2_type
+  output reg instr2_type,
 };
 
 `include "opcode_package.vh"
@@ -836,7 +836,9 @@ always @(*) begin
   end
 end
 
+// ---------------------------------------------------
 // ------------- for instruction 2 -------------------
+// ---------------------------------------------------  
 always @(*) begin
 
   // -------------- RRR ------------------
@@ -1135,7 +1137,7 @@ else if (temp_opcode2[0:8] == `op_ilh || temp_opcode2[0:8] == `op_ilhu || temp_o
 
   else if(temp_opcode2[0:8] == `op_brhz) begin
     instr_id_odd = `instr_ID_brhz;
-    unit_id_odd = 3'b001;
+    unit_id_odd = 3'b111;
     latency_odd = 4'd2;
     reg_wr_odd = 1'b1;
     instr2_type = 1'b0;

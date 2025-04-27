@@ -1,6 +1,8 @@
 module Hazard_Unit(
   input instr1_type,
   input instr2_type,
+  input is_branch,
+  input branch_taken,
   input [0:6] ra_addr_even,
   input [0:6] rb_addr_even,
   input [0:6] rc_addr_even,
@@ -37,7 +39,11 @@ always @(*) begin
 
   else if (reg_dst_even == reg_dst_odd) begin
     stall = 1'b1;
-  end 
+  end
+  
+  else if (branch_taken == is_branch) begin // for now it's always predict-not-taken, later should be replaced by branch prediction signal
+    flush = 1'b1;
+  end
 
   else if ((ra_addr_even == packed_RFFUstage_even[131:137] || rb_addr_even == packed_RFFUstage_even[131:137] || rc_addr_even == packed_RFFUstage_even[131:137]) && packed_RFFUstage_even[142]) begin
     if(packed_RFFUstage_even[138:141] > 4'd1) begin
@@ -113,6 +119,7 @@ always @(*) begin
 
   else begin
     stall = 1'b0;
+    flush = 1'b0;
   end
   
 end

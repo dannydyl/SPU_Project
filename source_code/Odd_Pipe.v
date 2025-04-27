@@ -1,6 +1,7 @@
 module Odd_Pipe(
   input clk,
   input rst,
+  input flush,
 
   input [0:31] full_instr,
   input [0:6] instr_id,
@@ -35,6 +36,8 @@ module Odd_Pipe(
 
   // branch new PC
   output reg [0:9] new_PC,
+  output reg branch_taken,
+  output reg is_branch,
 
   // preload signals
   input preload_LS_en,
@@ -53,7 +56,7 @@ wire [0:127] PERM_result, branch_rt_result, LS_data_result;
 // reg [0:9] new_PC;
 wire [0:14] addr_result;
 
-reg LS_write_en;
+reg LS_write_en, branch_taken_1stage;
 
 // Permute 
 PERM_ALU PERM_inst(
@@ -75,7 +78,8 @@ BRANCH_ALU BRANCH_inst(
   .imme16(imme16),
   .in_PC(current_PC),
   .PC_result(new_PC_result),
-  .rt_result(branch_rt_result)
+  .rt_result(branch_rt_result),
+  .branch_taken(branch_taken_1stage)
 );
 
 // LS
@@ -134,8 +138,25 @@ always @(posedge clk or posedge rst) begin
     packed_6stage <= 0;
     packed_7stage <= 0;
   end
+  else if (flush) begin
+    packed_2stage <= 0;
+    packed_3stage <= packed_2stage;
+    packed_4stage <= packed_3stage;
+    packed_5stage <= packed_4stage;
+    packed_6stage <= packed_5stage;
+    packed_7stage <= packed_6stage;
+    WB_reg_write_addr <= packed_7stage[131:137];
+    WB_reg_write_data <= packed_7stage[3:130];
+    WB_reg_write_en <= packed_7stage[142];
+  end
   else begin
-    new_PC <= new_PC_result;
+    if(unit_id == 3'b111) begin
+      new_PC <= new_PC_result;
+      branch_taken <= branch_taken_1stage;
+      is_branch <= 1'b1;
+    end else begin
+      is_branch <= 1'b0;
+    end
 
     packed_2stage <= packed_1stage;
     packed_3stage <= packed_2stage;

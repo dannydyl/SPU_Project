@@ -6,7 +6,8 @@ module BRANCH_ALU(
   input [0:9] in_PC,
 
   output reg [0:9] PC_result,
-  output reg [0:127] rt_result
+  output reg [0:127] rt_result,
+  output reg branch_taken
 );
 
 `include "opcode_package.vh"
@@ -32,54 +33,62 @@ end
 br br_inst (
   .in_PC(in_PC),
   .imme16(imme16),
-  .PC_result(br_result)
+  .PC_result(br_result),
+  .branch_taken(branch_taken)
 );
 
 bra bra_inst (
   .imme16(imme16),
-  .PC_result(bra_result)
+  .PC_result(bra_result),
+  .branch_taken(branch_taken)
 );
 
 brasl brasl_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .PC_result(brasl_result),
-  .rt_result(rt_result_temp)
+  .rt_result(rt_result_temp),
+  .branch_taken(branch_taken)
 );
 
 brhnz brhnz_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .rt(rc_data),
-  .PC_result(brhnz_result)
+  .PC_result(brhnz_result),
+  .branch_taken(branch_taken)
 );
 
 brhz brhz_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .rt(rc_data),
-  .PC_result(brhz_result)
+  .PC_result(brhz_result),
+  .branch_taken(branch_taken)
 );
 
 brnz brnz_inst (
   .in_PC(in_PC),
   .rt(rc_data),
   .imme16(imme16),
-  .PC_result(brnz_result)
+  .PC_result(brnz_result),
+  .branch_taken(branch_taken)
 );
 
 brsl brsl_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .PC_result(brsl_result),
-  .rt_result(rt_result_temp)
+  .rt_result(rt_result_temp),
+  .branch_taken(branch_taken)
 );
 
 brz brz_inst (
   .in_PC(in_PC),
   .rt(rc_data),
   .imme16(imme16),
-  .PC_result(brz_result)
+  .PC_result(brz_result),
+  .branch_taken(branch_taken)
 );
 
 endmodule

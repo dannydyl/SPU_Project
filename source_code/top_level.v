@@ -32,7 +32,7 @@ wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
 wire [0:9] current_PC_odd, new_PC_odd;
 
-wire stall, flush;
+wire stall, flush, branch_taken, is_branch;
 
 IF_wrapper IF_inst(
   .clk(clk),
@@ -51,6 +51,8 @@ IF_wrapper IF_inst(
 ID_HU_wrapper IDHU_inst(
   .clk(clk),
   .rst(rst),
+  .is_branch(is_branch),
+  .branch_taken(branch_taken),
   .instruction_in1(instruction_out1),
   .instruction_in2(instruction_out2),
 
@@ -91,7 +93,7 @@ ID_HU_wrapper IDHU_inst(
 RF_FU_wrapper RFFU_inst(
   .clk(clk),
   .rst(rst),
-
+  .flush(flush),
   // from ID 
   .full_instr_even(full_instr_even),
   .instr_id_even(instr_id_even),
@@ -182,6 +184,7 @@ RF_FU_wrapper RFFU_inst(
 Even_Pipe Even_Pipe_inst (
   .clk(clk),
   .rst(rst),
+  .flush(flush),
   .full_instr(full_instr_even_to_pipe),
   .instr_id(instr_id_even_to_pipe),
   .reg_dst(reg_dst_even_to_pipe),
@@ -209,6 +212,7 @@ Even_Pipe Even_Pipe_inst (
 Odd_Pipe Odd_Pipe_inst(
   .clk(clk),
   .rst(rst),
+  .flush(flush),
   .full_instr(full_instr_odd_to_pipe),
   .instr_id(instr_id_odd_to_pipe),
   .reg_dst(reg_dst_odd_to_pipe),
@@ -233,6 +237,8 @@ Odd_Pipe Odd_Pipe_inst(
   .WB_reg_write_data(WB_reg_write_data_odd),
   .WB_reg_write_en(WB_reg_write_en_odd),
   .new_PC(current_PC_odd), // have to be connected to PC module
+  .branch_taken(branch_taken),
+  .is_branch(is_branch),
   .preload_LS_en(preload_LS_en),
   .preload_LS_addr(preload_LS_addr),
   .preload_LS_data(preload_LS_data)
