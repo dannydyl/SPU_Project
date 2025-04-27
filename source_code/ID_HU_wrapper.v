@@ -4,8 +4,21 @@ module ID_HU_wrapper(
 
   input is_branch,
   input branch_taken,
+  input [0:9] PC_pass_in,
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
+
+  input [0:142] packed_2stage_even,
+  input [0:142] packed_3stage_even,
+  input [0:142] packed_4stage_even,
+  input [0:142] packed_5stage_even,
+  input [0:142] packed_6stage_even,
+
+  input [0:142] packed_2stage_odd,
+  input [0:142] packed_3stage_odd,
+  input [0:142] packed_4stage_odd,
+  input [0:142] packed_5stage_odd,
+  input [0:142] packed_6stage_odd,
 
   output reg[0:31] full_instr_even,
   output reg [0:6] instr_id_even,
@@ -39,6 +52,7 @@ module ID_HU_wrapper(
 
   output reg stall,
   output reg flush,
+  output reg [0:9] PC_pass_out
 );
 
 `include "opcode_package.vh"
@@ -145,6 +159,7 @@ always @(posedge clk or posedge rst) begin
   else if (temp_stall) begin
     stall <= temp_stall;
     flush <= temp_flush;
+    PC_pass_out <= PC_pass_in;
     // feed nop to both pipes
     full_instr_even <= 32'b01000000001000000000000000000000;
     instr_id_even <= 'instr_ID_nop;
@@ -209,6 +224,7 @@ always @(posedge clk or posedge rst) begin
     // stall signal goes to PC and flush signal goes to RFFU stage and stage 1
     stall <= temp_stall;
     flush <= temp_flush;
+    PC_pass_out <= PC_pass_in;
 
     // keeping packed info of RF stage and 1 stage for hazard check since we cannot get this from the pipes
     packed_RFFUstage_even <= packed_IDstage_even;

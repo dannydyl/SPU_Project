@@ -1,8 +1,15 @@
 module top_level(
+  input clk,
+  input rst,
+  input load_en,
+  input [0:31] instruction_in,
+  input preload_en,
+  input [0:9] preload_addr,
+  input [0:127] preload_values,
 
 );
 
-
+wire [0:31] instruction_out1, instruction_out2;
 
 wire [0:31] full_instr_even, full_instr_odd, full_instr_even_to_pipe, full_instr_odd_to_pipe;
 wire [0:6] instr_id_even, instr_id_odd, instr_id_even_to_pipe, instr_id_odd_to_pipe;
@@ -30,7 +37,7 @@ wire [0:6] WB_reg_write_addr_even, WB_reg_write_addr_odd;
 wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
-wire [0:9] current_PC_odd, new_PC_odd;
+wire [0:9] current_PC_odd, PC_pass2ID, PC_pass2RF, PC_pass2odd;
 
 wire stall, flush, branch_taken, is_branch;
 
@@ -43,7 +50,7 @@ IF_wrapper IF_inst(
   .branch_taken(branch_taken),
   .stall(stall),
 
-  .PC_current(new_PC_odd),
+  .PC_current(PC_pass2_ID),
   .instruction_out1(instruction_out1),
   .instruction_out2(instruction_out2)
 );
@@ -53,8 +60,21 @@ ID_HU_wrapper IDHU_inst(
   .rst(rst),
   .is_branch(is_branch),
   .branch_taken(branch_taken),
+  .PC_pass_in(PC_pass2ID),
   .instruction_in1(instruction_out1),
   .instruction_in2(instruction_out2),
+
+  .packed_2stage_even(packed_2stage_even),
+  .packed_3stage_even(packed_3stage_even),
+  .packed_4stage_even(packed_4stage_even),
+  .packed_5stage_even(packed_5stage_even),
+  .packed_6stage_even(packed_6stage_even),
+
+  .packed_2stage_odd(packed_2stage_odd),
+  .packed_3stage_odd(packed_3stage_odd),
+  .packed_4stage_odd(packed_4stage_odd),
+  .packed_5stage_odd(packed_5stage_odd),
+  .packed_6stage_odd(packed_6stage_odd),
 
   .full_instr_even(full_instr_even),
   .instr_id_even(instr_id_even),
@@ -87,13 +107,15 @@ ID_HU_wrapper IDHU_inst(
   .rc_addr_odd(rc_addr_odd),
 
   .stall(stall),
-  .flush(flush)
+  .flush(flush),
+  .PC_pass_out(PC_pass2RF),
 );
 
 RF_FU_wrapper RFFU_inst(
   .clk(clk),
   .rst(rst),
   .flush(flush),
+  .PC_pass_in(PC_pass2RF),
   // from ID 
   .full_instr_even(full_instr_even),
   .instr_id_even(instr_id_even),
@@ -176,6 +198,8 @@ RF_FU_wrapper RFFU_inst(
   .rb_data_odd(rb_data_odd_to_pipe),
   .rc_data_odd(rc_data_odd_to_pipe),
 
+  .PC_pass_out(PC_pass2odd),
+
   .preload_en(preload_en),
   .preload_addr(preload_addr),
   .preload_values(preload_values)
@@ -226,7 +250,7 @@ Odd_Pipe Odd_Pipe_inst(
   .imme10(imme10_odd_to_pipe),
   .imme16(imme16_odd_to_pipe),
   .imme18(imme18_odd_to_pipe),
-  .current_PC(new_PC_odd), // have to be connected to PC module
+  .current_PC(PC_pass2odd), // have to be connected to PC module
   .packed_2stage(packed_2stage_odd),
   .packed_3stage(packed_3stage_odd),
   .packed_4stage(packed_4stage_odd),
