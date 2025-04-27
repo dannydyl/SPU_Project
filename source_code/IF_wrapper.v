@@ -1,8 +1,13 @@
 module IF_wrapper(
-    input wire clk,
-    input wire rst,
-    input wire load_en,
-    input wire [0:31] instruction_in,
+    input  clk,
+    input  rst,
+    input  load_en,
+    input  [0:31] instruction_in,
+    input [0:9] PC_in,
+    input  branch_taken,
+    input  stall,
+
+    output reg [0:9] PC_current,
     output reg [0:31] instruction_out1,
     output reg [0:31] instruction_out2
 );
@@ -12,18 +17,33 @@ module IF_wrapper(
     reg [0:31] instr_buffer [0:LINE_LENGTH-1];
     
     // Program Counter
-    reg [0:9] PC_current;
+    reg [0:9] load_cnt;
     reg no_more_instruction;
 
     // Instantiate Program Counter module
     Program_Counter PC_inst (
         .clk(clk),
         .rst(rst),
+        .branch_taken(branch_taken),
+        .stall(stall),
+        .PC_in(PC_in),
         .PC_out(PC_current)
     );
 
-    assign instruction_out1 = instr_buffer[PC_current];
-    assign instruction_out2 = instr_buffer[PC_current+1];
+    
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            instruction_out1 <= 32'b0;
+            instruction_out2 <= 32'b0;
+        end
+        else if (!stall) begin
+            // Only fetch new instructions if not stalled
+            instruction_out1 <= instr_buffer[PC_current];
+            instruction_out2 <= instr_buffer[PC_current + 1];
+        end
+
+    end
+    
 
     // Process to load and output instructions
     always @(posedge clk or posedge rst) begin
@@ -32,9 +52,11 @@ module IF_wrapper(
             for (i = 0; i < LINE_LENGTH; i = i + 1)
                 instr_buffer[i] <= 32'b0;
             no_more_instruction <= 1'b0;
+            load_cnt <= 9'b0;
         end else begin
             if (load_en) begin
-                instr_buffer[PC_current] <= instruction_in;  // Load instruction
+                instr_buffer[load_cnt] <= instruction_in;  // Load instruction
+                load_cnt <= load_cnt + 1;  // Increment load count
             end else begin
                 if (PC_current == LINE_LENGTH-1)
                     no_more_instruction <= 1'b1;

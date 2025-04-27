@@ -1,7 +1,4 @@
 module Instruction_Decode{
-  input clk,
-  input rst,
-
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
 
@@ -1577,24 +1574,6 @@ end
       rb_addr_odd = instruction_in2[11:17];
       rc_addr_odd = instruction_in2[25:31]; // for rt data
     end
-  end
-
-end
-
-reg stall;
-
-always @(posedge clk or posedge rst) begin
-  if(rst) begin
-
-  end else begin
-    if (instr1_type == instr2_type) begin
-      stall = 1'b1;
-    end
-    else if (reg_dst_even == reg_dst_odd) begin
-      stall = 1'b1;
-    end
-    else if ()
-    
   end
 
 end

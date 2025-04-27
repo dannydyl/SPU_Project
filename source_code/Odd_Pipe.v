@@ -34,7 +34,7 @@ module Odd_Pipe(
   output reg WB_reg_write_en,
 
   // branch new PC
-  output [0:9] new_PC,
+  output reg [0:9] new_PC,
 
   // preload signals
   input preload_LS_en,
@@ -46,19 +46,8 @@ module Odd_Pipe(
 
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
-
+wire [0:9] new_PC_result; // new PC from branch unit
 reg [0:127] result; // used for permute or branch 
-
-// was going to use this but it seems like it is not necessary
-// [0:127] rt data, [128:142] addr_result, [143] LS_write_en
-// reg [0:143] packed_LS_result_stage1;
-// reg [0:143] packed_LS_result_stage2;
-// reg [0:143] packed_LS_result_stage3;
-// reg [0:143] packed_LS_result_stage4;
-// reg [0:143] packed_LS_result_stage5;
-// reg [0:143] packed_LS_result_stage6;
-// reg [0:143] packed_LS_result_stage7;
-
 
 wire [0:127] PERM_result, branch_rt_result, LS_data_result;
 // reg [0:9] new_PC;
@@ -85,7 +74,7 @@ BRANCH_ALU BRANCH_inst(
   .rc_data(rc_data),
   .imme16(imme16),
   .in_PC(current_PC),
-  .PC_result(new_PC),
+  .PC_result(new_PC_result),
   .rt_result(branch_rt_result)
 );
 
@@ -107,12 +96,6 @@ always @(*) begin // this should actually come from ID stage
   endcase
 end
 
-// always @(*) begin // this is for store instruction to be able forwarding
-//   if (instr_id == `instr_ID_stqa || instr_id == `instr_ID_stq) begin
-//     LS_data_result = rc_data;
-//   end
-// end
-
 // LocalStore
 LocalStore LSmem_inst(
   .clk(clk),
@@ -127,9 +110,6 @@ LocalStore LSmem_inst(
   .preload_LS_data(preload_LS_data)
 );
 
-// the problem here is that if the instruction is store, the rt data should be able to forward before writing on LS
-// but load instruction, will not be able to forward until 7th stage
-// now that i think about it, store instruction dont really need to forward anything because no register is being written
 always @(*) begin
   if (instr_id == 7'd85 | instr_id == 7'd87) begin
     packed_1stage = 143'b0;
@@ -155,6 +135,8 @@ always @(posedge clk or posedge rst) begin
     packed_7stage <= 0;
   end
   else begin
+    new_PC <= new_PC_result;
+
     packed_2stage <= packed_1stage;
     packed_3stage <= packed_2stage;
     packed_4stage <= packed_3stage;

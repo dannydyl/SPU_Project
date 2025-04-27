@@ -87,8 +87,8 @@
 `define op_brsl    9'b001100110     // Branch and Set Link
 `define op_br      9'b001100100     // Branch
 `define op_brhz    9'b001000100     // Branch if Halfword Zero
-`define op_lnop    11'b00000000001  // Load No Operation
-`define op_nop     11'b0100000000
+`define op_lnop    11'b00000000001  // Load No Operation (for odd)
+`define op_nop     11'b0100000000   // No Operation for even
 `define op_stop    11'b00000000000  // Stop
 
 `define instr_ID_addx    7'd0
