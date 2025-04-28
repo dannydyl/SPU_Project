@@ -1,0 +1,1053 @@
+# //  Questa Sim
+# //  Version 2023.4_3 linux Feb 17 2024
+# //
+# //  Copyright 1991-2024 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -voptargs="+acc" tb_top_level 
+# Start time: 17:30:10 on Apr 27,2025
+# ** Error (suppressible): (vsim-19) Failed to access library 'work' at "work".
+# No such file or directory. (errno = ENOENT)
+# Error loading design
+# End time: 17:30:10 on Apr 27,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Loading project SPU_Questasim
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v failed with 2 errors.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v failed with 2 errors.
+# Compile of ID_HU_wrapper.v failed with 7 errors.
+# Compile of IF_wrapper.v failed with 1 errors.
+# Compile of Instruction_Decode.v failed with 8 errors.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v failed with 1 errors.
+# 108 compiles, 6 failed with 21 errors.
+# Compile of brhz.v failed with 2 errors.
+# Compile of brhz.v was successful.
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v was successful.
+# Compile of ID_HU_wrapper.v failed with 8 errors.
+# Compile of IF_wrapper.v failed with 1 errors.
+# Compile of Instruction_Decode.v failed with 8 errors.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v failed with 1 errors.
+# 108 compiles, 4 failed with 18 errors.
+# Compile of IF_wrapper.v was successful.
+# Compile of Instruction_Decode.v failed with 1 errors.
+# Compile of Instruction_Decode.v failed with 1 errors.
+# Compile of Instruction_Decode.v failed with 1 errors.
+# Compile of Instruction_Decode.v failed with 3 errors.
+# Compile of Instruction_Decode.v was successful.
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v was successful.
+# Compile of ID_HU_wrapper.v failed with 8 errors.
+# Compile of IF_wrapper.v was successful.
+# Compile of Instruction_Decode.v was successful.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v failed with 1 errors.
+# 108 compiles, 2 failed with 9 errors.
+# couldn't load file "/usr/local/mgc/questasim/linux/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: cannot open shared object file: No such file or directory
+# Compile of ID_HU_wrapper.v failed with 2 errors.
+# Compile of ID_HU_wrapper.v failed with 1 errors.
+# Compile of ID_HU_wrapper.v was successful.
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v was successful.
+# Compile of ID_HU_wrapper.v was successful.
+# Compile of IF_wrapper.v was successful.
+# Compile of Instruction_Decode.v was successful.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v failed with 1 errors.
+# 108 compiles, 1 failed with 1 error.
+# Compile of top_level.v failed with 1 errors.
+# Compile of top_level.v was successful.
+vsim -voptargs="+acc" tb_top_level
+# vsim -voptargs=""+acc"" tb_top_level 
+# Start time: 18:13:57 on Apr 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: (vopt-13130) Failed to find design unit 'tb_top_level'.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 18:13:58 on Apr 27,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 21
+# Load canceled
+vlog tb_top_level.v
+# QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+# Start time: 18:19:20 on Apr 27,2025
+# vlog -reportprogress 300 tb_top_level.v 
+# ** Error: (vlog-7) Failed to open design unit file "tb_top_level.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 18:19:20 on Apr 27,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /usr/local/mgc/questasim/linux/vlog failed.
+# Compile of tb_top_level.v was successful.
+vsim -voptargs="+acc" tb_top_level
+# vsim -voptargs=""+acc"" tb_top_level 
+# Start time: 18:20:05 on Apr 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: (vopt-13130) Failed to find design unit 'tb_top_level'.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# End time: 18:20:06 on Apr 27,2025, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 3
+# Compile of tb_top_level.v was successful.
+vsim -voptargs="+acc" tb_top_level
+# vsim -voptargs=""+acc"" tb_top_level 
+# Start time: 18:20:52 on Apr 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(86): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(78): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(70): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(62): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(54): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(46): (vopt-8884) Illegal output port connection for 'branch_taken' (5th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(40): (vopt-8884) Illegal output port connection for 'branch_taken' (3rd connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/BRANCH_ALU.v(33): (vopt-8884) Illegal output port connection for 'branch_taken' (4th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'branch_taken' (7th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(24): (vopt-8884) Illegal output port connection for 'PC_out' (6th connection) to reg type. 
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=10, Warnings=1.
+# Error loading design
+# End time: 18:20:54 on Apr 27,2025, Elapsed time: 0:00:02
+# Errors: 10, Warnings: 3
+# Compile of BRANCH_ALU.v was successful.
+vsim -voptargs="+acc" tb_top_level
+# vsim -voptargs=""+acc"" tb_top_level 
+# Start time: 18:29:51 on Apr 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(75): (vopt-8884) Illegal output port connection for 'branch_taken' (7th connection) to reg type. 
+# ** Error (suppressible): /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(24): (vopt-8884) Illegal output port connection for 'PC_out' (6th connection) to reg type. 
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=1.
+# Error loading design
+# End time: 18:29:51 on Apr 27,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 3
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v was successful.
+# Compile of ID_HU_wrapper.v was successful.
+# Compile of IF_wrapper.v was successful.
+# Compile of Instruction_Decode.v was successful.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v was successful.
+# 108 compiles, 0 failed with no errors.
+vsim -voptargs="+acc" tb_top_level
+# vsim -voptargs=""+acc"" tb_top_level 
+# Start time: 18:32:26 on Apr 27,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(24): (vopt-2685) [TFMPC] - Too few port connections for 'PC_inst'.  Expected 7, found 6.
+# ** Warning: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(24): (vopt-2718) [TFMPC] - Missing connection for port 'unit_id'.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading work.tb_top_level(fast)
+# Loading work.top_level(fast)
+# Loading work.IF_wrapper(fast)
+# Loading work.Program_Counter(fast)
+# Loading work.ID_HU_wrapper(fast)
+# Loading work.Instruction_Decode(fast)
+# Loading work.Hazard_Unit(fast)
+# Loading work.RF_FU_wrapper(fast)
+# Loading work.Reg_file(fast)
+# Loading work.Forwarding_Unit(fast)
+# Loading work.Even_Pipe(fast)
+# Loading work.FX1_ALU(fast)
+# Loading work.a(fast)
+# Loading work.addx(fast)
+# Loading work.ah(fast)
+# Loading work.ahi(fast)
+# Loading work.ai(fast)
+# Loading work.and_op(fast)
+# Loading work.andhi(fast)
+# Loading work.andi(fast)
+# Loading work.bg(fast)
+# Loading work.bgx(fast)
+# Loading work.ceq(fast)
+# Loading work.ceqh(fast)
+# Loading work.ceqhi(fast)
+# Loading work.ceqi(fast)
+# Loading work.cg(fast)
+# Loading work.cgt(fast)
+# Loading work.cgth(fast)
+# Loading work.cgthi(fast)
+# Loading work.cgti(fast)
+# Loading work.cgx(fast)
+# Loading work.clz(fast)
+# Loading work.eqv(fast)
+# Loading work.il(fast)
+# Loading work.ila(fast)
+# Loading work.ilh(fast)
+# Loading work.ilhu(fast)
+# Loading work.iohl(fast)
+# Loading work.nand_op(fast)
+# Loading work.nor_op(fast)
+# Loading work.or_op(fast)
+# Loading work.orhi(fast)
+# Loading work.ori(fast)
+# Loading work.selb(fast)
+# Loading work.sf(fast)
+# Loading work.sfh(fast)
+# Loading work.sfhi(fast)
+# Loading work.sfi(fast)
+# Loading work.sfx(fast)
+# Loading work.xor_op(fast)
+# Loading work.xorhi(fast)
+# Loading work.xori(fast)
+# Loading work.FX2_ALU(fast)
+# Loading work.rot(fast)
+# Loading work.roth(fast)
+# Loading work.rothi(fast)
+# Loading work.roti(fast)
+# Loading work.shl(fast)
+# Loading work.shlh(fast)
+# Loading work.shlhi(fast)
+# Loading work.shli(fast)
+# Loading work.SP_ALU(fast)
+# Loading work.fa(fast)
+# Loading work.fm(fast)
+# Loading work.fma(fast)
+# Loading work.fms(fast)
+# Loading work.fnms(fast)
+# Loading work.fs(fast)
+# Loading work.mpy(fast)
+# Loading work.mpya(fast)
+# Loading work.mpyh(fast)
+# Loading work.mpyi(fast)
+# Loading work.mpyu(fast)
+# Loading work.mpyui(fast)
+# Loading work.BYTE_ALU(fast)
+# Loading work.absdb(fast)
+# Loading work.avgb(fast)
+# Loading work.cntb(fast)
+# Loading work.sumb(fast)
+# Loading work.Odd_Pipe(fast)
+# Loading work.PERM_ALU(fast)
+# Loading work.rotqbi(fast)
+# Loading work.rotqbii(fast)
+# Loading work.rotqby(fast)
+# Loading work.rotqbyi(fast)
+# Loading work.shlqbi(fast)
+# Loading work.shlqbii(fast)
+# Loading work.shlqby(fast)
+# Loading work.shlqbyi(fast)
+# Loading work.BRANCH_ALU(fast)
+# Loading work.br(fast)
+# Loading work.bra(fast)
+# Loading work.brasl(fast)
+# Loading work.brhnz(fast)
+# Loading work.brhz(fast)
+# Loading work.brnz(fast)
+# Loading work.brsl(fast)
+# Loading work.brz(fast)
+# Loading work.LS_ALU(fast)
+# Loading work.lqa(fast)
+# Loading work.lqd(fast)
+# Loading work.stqa(fast)
+# Loading work.stqd(fast)
+# Loading work.LocalStore(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'PC_current_out'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(10).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IF_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'PC_out'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v(8).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IF_inst/PC_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v Line: 24
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(34).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(49).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(50).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(51).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(33).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(37).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (10) for port 'preload_addr'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(97).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (15) does not match connection size (1) for port 'preload_LS_addr'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(44).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/Odd_Pipe_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 236
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'preload_LS_data'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(45).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/Odd_Pipe_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 236
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading work.tb_top_level(fast)
+# Loading work.top_level(fast)
+# Loading work.IF_wrapper(fast)
+# Loading work.Program_Counter(fast)
+# Loading work.ID_HU_wrapper(fast)
+# Loading work.Instruction_Decode(fast)
+# Loading work.Hazard_Unit(fast)
+# Loading work.RF_FU_wrapper(fast)
+# Loading work.Reg_file(fast)
+# Loading work.Forwarding_Unit(fast)
+# Loading work.Even_Pipe(fast)
+# Loading work.FX1_ALU(fast)
+# Loading work.a(fast)
+# Loading work.addx(fast)
+# Loading work.ah(fast)
+# Loading work.ahi(fast)
+# Loading work.ai(fast)
+# Loading work.and_op(fast)
+# Loading work.andhi(fast)
+# Loading work.andi(fast)
+# Loading work.bg(fast)
+# Loading work.bgx(fast)
+# Loading work.ceq(fast)
+# Loading work.ceqh(fast)
+# Loading work.ceqhi(fast)
+# Loading work.ceqi(fast)
+# Loading work.cg(fast)
+# Loading work.cgt(fast)
+# Loading work.cgth(fast)
+# Loading work.cgthi(fast)
+# Loading work.cgti(fast)
+# Loading work.cgx(fast)
+# Loading work.clz(fast)
+# Loading work.eqv(fast)
+# Loading work.il(fast)
+# Loading work.ila(fast)
+# Loading work.ilh(fast)
+# Loading work.ilhu(fast)
+# Loading work.iohl(fast)
+# Loading work.nand_op(fast)
+# Loading work.nor_op(fast)
+# Loading work.or_op(fast)
+# Loading work.orhi(fast)
+# Loading work.ori(fast)
+# Loading work.selb(fast)
+# Loading work.sf(fast)
+# Loading work.sfh(fast)
+# Loading work.sfhi(fast)
+# Loading work.sfi(fast)
+# Loading work.sfx(fast)
+# Loading work.xor_op(fast)
+# Loading work.xorhi(fast)
+# Loading work.xori(fast)
+# Loading work.FX2_ALU(fast)
+# Loading work.rot(fast)
+# Loading work.roth(fast)
+# Loading work.rothi(fast)
+# Loading work.roti(fast)
+# Loading work.shl(fast)
+# Loading work.shlh(fast)
+# Loading work.shlhi(fast)
+# Loading work.shli(fast)
+# Loading work.SP_ALU(fast)
+# Loading work.fa(fast)
+# Loading work.fm(fast)
+# Loading work.fma(fast)
+# Loading work.fms(fast)
+# Loading work.fnms(fast)
+# Loading work.fs(fast)
+# Loading work.mpy(fast)
+# Loading work.mpya(fast)
+# Loading work.mpyh(fast)
+# Loading work.mpyi(fast)
+# Loading work.mpyu(fast)
+# Loading work.mpyui(fast)
+# Loading work.BYTE_ALU(fast)
+# Loading work.absdb(fast)
+# Loading work.avgb(fast)
+# Loading work.cntb(fast)
+# Loading work.sumb(fast)
+# Loading work.Odd_Pipe(fast)
+# Loading work.PERM_ALU(fast)
+# Loading work.rotqbi(fast)
+# Loading work.rotqbii(fast)
+# Loading work.rotqby(fast)
+# Loading work.rotqbyi(fast)
+# Loading work.shlqbi(fast)
+# Loading work.shlqbii(fast)
+# Loading work.shlqby(fast)
+# Loading work.shlqbyi(fast)
+# Loading work.BRANCH_ALU(fast)
+# Loading work.br(fast)
+# Loading work.bra(fast)
+# Loading work.brasl(fast)
+# Loading work.brhnz(fast)
+# Loading work.brhz(fast)
+# Loading work.brnz(fast)
+# Loading work.brsl(fast)
+# Loading work.brz(fast)
+# Loading work.LS_ALU(fast)
+# Loading work.lqa(fast)
+# Loading work.lqd(fast)
+# Loading work.stqa(fast)
+# Loading work.stqd(fast)
+# Loading work.LocalStore(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'PC_current_out'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v(10).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IF_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 44
+# ** Warning: (vsim-3015) [PCDPC] - Port size (10) does not match connection size (1) for port 'PC_out'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v(8).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IF_inst/PC_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v Line: 24
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(34).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(49).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(50).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v(51).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/IDHU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 58
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(31).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(32).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_even'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(33).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'ra_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(35).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rb_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(36).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (7) does not match connection size (128) for port 'rc_addr_odd'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(37).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (10) for port 'preload_addr'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_wrapper.v(97).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/RFFU_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 114
+# ** Warning: (vsim-3015) [PCDPC] - Port size (15) does not match connection size (1) for port 'preload_LS_addr'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(44).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/Odd_Pipe_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 236
+# ** Warning: (vsim-3015) [PCDPC] - Port size (128) does not match connection size (1) for port 'preload_LS_data'. The port definition is at: /home/home5/dlee/ese545work/SPU_Project/source_code/Odd_Pipe.v(45).
+#    Time: 0 ps  Iteration: 0  Instance: /tb_top_level/dut/Odd_Pipe_inst File: /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v Line: 236
+# Compile of BRANCH_ALU.v was successful.
+# Compile of BYTE_ALU.v was successful.
+# Compile of Even_Pipe.v was successful.
+# Compile of Forwarding_Unit.v was successful.
+# Compile of FX1_ALU.v was successful.
+# Compile of FX2_ALU.v was successful.
+# Compile of LocalStore.v was successful.
+# Compile of LS_ALU.v was successful.
+# Compile of Odd_Pipe.v was successful.
+# Compile of PERM_ALU.v was successful.
+# Compile of Program_Counter.v was successful.
+# Compile of Reg_file.v was successful.
+# Compile of RF_FU_Pipe_wrapper.v was successful.
+# Compile of RF_FU_wrapper.v was successful.
+# Compile of SP_ALU.v was successful.
+# Compile of tb_Even_Pipe.v was successful.
+# Compile of tb_RF_FU_Pipe_wrapper.v was successful with warnings.
+# Compile of br.v was successful.
+# Compile of bra.v was successful.
+# Compile of brasl.v was successful.
+# Compile of brhnz.v was successful.
+# Compile of brhz.v was successful.
+# Compile of brnz.v was successful.
+# Compile of brsl.v was successful.
+# Compile of brz.v was successful.
+# Compile of absdb.v was successful.
+# Compile of avgb.v was successful.
+# Compile of cntb.v was successful.
+# Compile of sumb.v was successful.
+# Compile of a.v was successful.
+# Compile of addx.v was successful.
+# Compile of ah.v was successful.
+# Compile of ahi.v was successful.
+# Compile of ai.v was successful.
+# Compile of and.v was successful.
+# Compile of andhi.v was successful.
+# Compile of andi.v was successful.
+# Compile of bg.v was successful.
+# Compile of bgx.v was successful.
+# Compile of ceq.v was successful.
+# Compile of ceqh.v was successful.
+# Compile of ceqhi.v was successful.
+# Compile of ceqi.v was successful.
+# Compile of cg.v was successful.
+# Compile of cgt.v was successful.
+# Compile of cgth.v was successful.
+# Compile of cgthi.v was successful.
+# Compile of cgti.v was successful.
+# Compile of cgx.v was successful.
+# Compile of clz.v was successful.
+# Compile of eqv.v was successful.
+# Compile of il.v was successful.
+# Compile of ila.v was successful.
+# Compile of ilh.v was successful.
+# Compile of ilhu.v was successful.
+# Compile of iohl.v was successful.
+# Compile of nand.v was successful.
+# Compile of nor.v was successful.
+# Compile of or.v was successful.
+# Compile of orhi.v was successful.
+# Compile of ori.v was successful.
+# Compile of selb.v was successful.
+# Compile of sf.v was successful.
+# Compile of sfh.v was successful.
+# Compile of sfhi.v was successful.
+# Compile of sfi.v was successful.
+# Compile of sfx.v was successful.
+# Compile of xor.v was successful.
+# Compile of xorhi.v was successful.
+# Compile of xori.v was successful.
+# Compile of rot.v was successful.
+# Compile of roth.v was successful.
+# Compile of rothi.v was successful.
+# Compile of roti.v was successful.
+# Compile of shl.v was successful.
+# Compile of shlh.v was successful.
+# Compile of shlhi.v was successful.
+# Compile of shli.v was successful.
+# Compile of lqa.v was successful.
+# Compile of lqd.v was successful.
+# Compile of stqa.v was successful.
+# Compile of stqd.v was successful.
+# Compile of rotqbi.v was successful.
+# Compile of rotqbii.v was successful.
+# Compile of rotqby.v was successful.
+# Compile of rotqbyi.v was successful.
+# Compile of shlqbi.v was successful.
+# Compile of shlqbii.v was successful.
+# Compile of shlqby.v was successful.
+# Compile of shlqbyi.v was successful.
+# Compile of fa.v was successful.
+# Compile of fm.v was successful.
+# Compile of fma.v was successful.
+# Compile of fms.v was successful.
+# Compile of fnms.v was successful.
+# Compile of fs.v was successful.
+# Compile of mpy.v was successful.
+# Compile of mpya.v was successful.
+# Compile of mpyh.v was successful.
+# Compile of mpyi.v was successful.
+# Compile of mpyu.v was successful.
+# Compile of mpyui.v was successful.
+# Compile of Hazard_Unit.v was successful.
+# Compile of ID_HU_wrapper.v was successful.
+# Compile of IF_wrapper.v was successful.
+# Compile of Instruction_Decode.v was successful.
+# Compile of tb_top_level.v was successful.
+# Compile of top_level.v was successful.
+# 108 compiles, 0 failed with no errors.

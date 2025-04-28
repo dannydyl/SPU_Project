@@ -29,9 +29,8 @@
 // ila $1, 1023
 
 
-brz $1, h2
-brnz $1, h2
-brasl $1, h2
-brsl $1, h2
-br h3
-brhz $1m h3
+and $1, $2, $3
+and $1, $2, $3
+and $1, $2, $3
+and $1, $2, $3
+and $1, $2, $3

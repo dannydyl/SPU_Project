@@ -3,11 +3,12 @@ module IF_wrapper(
     input  rst,
     input  load_en,
     input  [0:31] instruction_in,
+    input [0:9] instr_load_addr,
     input [0:9] PC_in,
     input  branch_taken,
     input  stall,
 
-    output reg [0:9] PC_current,
+    output reg [0:9] PC_current_out,
     output reg [0:31] instruction_out1,
     output reg [0:31] instruction_out2
 );
@@ -17,8 +18,8 @@ module IF_wrapper(
     reg [0:31] instr_buffer [0:LINE_LENGTH-1];
     
     // Program Counter
-    reg [0:9] load_cnt;
     reg no_more_instruction;
+    wire [0:9] PC_current;
 
     // Instantiate Program Counter module
     Program_Counter PC_inst (
@@ -41,27 +42,25 @@ module IF_wrapper(
             instruction_out1 <= instr_buffer[PC_current];
             instruction_out2 <= instr_buffer[PC_current + 1];
         end
+        PC_current_out <= PC_current;  // Output current PC
 
     end
     
-
+integer i;
     // Process to load and output instructions
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            integer i;
-            for (i = 0; i < LINE_LENGTH; i = i + 1)
-                instr_buffer[i] <= 32'b0;
-            no_more_instruction <= 1'b0;
-            load_cnt <= 9'b0;
-        end else begin
             if (load_en) begin
-                instr_buffer[load_cnt] <= instruction_in;  // Load instruction
-                load_cnt <= load_cnt + 1;  // Increment load count
+                instr_buffer[instr_load_addr] <= instruction_in;  // Load instruction
+            end
+                // for (i = 0; i < LINE_LENGTH; i = i + 1)
+                //     instr_buffer[i] <= 32'b0;
+                no_more_instruction <= 1'b0;
+        end else begin
+            if (PC_current == LINE_LENGTH-1) begin
+                no_more_instruction <= 1'b1;
             end else begin
-                if (PC_current == LINE_LENGTH-1)
-                    no_more_instruction <= 1'b1;
-                else
-                    no_more_instruction <= 1'b0;
+                no_more_instruction <= 1'b0;
             end
         end
     end

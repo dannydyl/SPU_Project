@@ -3,9 +3,12 @@ module Hazard_Unit(
   input instr2_type,
   input is_branch,
   input branch_taken,
+
+  input [0:6] reg_dst_even,
   input [0:6] ra_addr_even,
   input [0:6] rb_addr_even,
   input [0:6] rc_addr_even,
+  input [0:6] reg_dst_odd,
   input [0:6] ra_addr_odd,
   input [0:6] rb_addr_odd,
   input [0:6] rc_addr_odd,

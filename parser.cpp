@@ -464,5 +464,10 @@ int main() {
     //         cout << binary << "\n";
     //     }
     // }
+
+
+
+    // g++ parser.cpp -o parser
+    // ./parser
     return 0;
 }

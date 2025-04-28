@@ -74,7 +74,7 @@ wire [0:6] temp_ra_addr_even, temp_ra_addr_odd;
 wire [0:6] temp_rb_addr_even, temp_rb_addr_odd;
 wire [0:6] temp_rc_addr_even, temp_rc_addr_odd;
 
-wire temp_stall, temp_flush;
+wire temp_stall, temp_flush, temp_instr1_type, temp_instr2_type;
 
 
 Instruction_Decode ID_inst(
@@ -111,21 +111,24 @@ Instruction_Decode ID_inst(
   .rb_addr_odd(temp_rb_addr_odd),
   .rc_addr_odd(temp_rc_addr_odd),
 
-  .instr1_type(instr1_type),
-  .instr2_type(instr2_type),
+  .instr1_type(temp_instr1_type),
+  .instr2_type(temp_instr2_type)
 );
 
 Hazard_Unit HU_inst(
-  .instr1_type(instr1_type),
-  .instr2_type(instr2_type),
+  .instr1_type(temp_instr1_type),
+  .instr2_type(temp_instr2_type),
   .is_branch(is_branch),
   .branch_taken(branch_taken),
-  .ra_addr_even(ra_addr_even),
-  .rb_addr_even(rb_addr_even),
-  .rc_addr_even(rc_addr_even),
-  .ra_addr_odd(ra_addr_odd),
-  .rb_addr_odd(rb_addr_odd),
-  .rc_addr_odd(rc_addr_odd),
+
+  .reg_dst_even(temp_reg_dst_even),
+  .ra_addr_even(temp_ra_addr_even),
+  .rb_addr_even(temp_rb_addr_even),
+  .rc_addr_even(temp_rc_addr_even),
+  .reg_dst_odd(temp_reg_dst_odd),
+  .ra_addr_odd(temp_ra_addr_odd),
+  .rb_addr_odd(temp_rb_addr_odd),
+  .rc_addr_odd(temp_rc_addr_odd),
 
   .packed_RFFUstage_even(packed_RFFUstage_even),
   .packed_1stage_even(packed_1stage_even),
@@ -162,7 +165,7 @@ always @(posedge clk or posedge rst) begin
     PC_pass_out <= PC_pass_in;
     // feed nop to both pipes
     full_instr_even <= 32'b01000000001000000000000000000000;
-    instr_id_even <= 'instr_ID_nop;
+    instr_id_even <= `instr_ID_nop;
     reg_dst_even <= 7'b0;
     unit_id_even <= 3'b0;
     latency_even <= 4'b0;
@@ -177,7 +180,7 @@ always @(posedge clk or posedge rst) begin
     rc_addr_even <= 7'b0;
 
     full_instr_odd <= 32'b00000000001000000000000000000000;
-    instr_id_odd <= 'instr_ID_lnop;
+    instr_id_odd <= `instr_ID_lnop;
     reg_dst_odd <= 7'b0;
     unit_id_odd <= 3'b0;
     latency_odd <= 4'b0;

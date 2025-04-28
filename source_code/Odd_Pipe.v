@@ -56,7 +56,8 @@ wire [0:127] PERM_result, branch_rt_result, LS_data_result;
 // reg [0:9] new_PC;
 wire [0:14] addr_result;
 
-reg LS_write_en, branch_taken_1stage;
+reg LS_write_en;
+wire branch_taken_1stage;
 
 // Permute 
 PERM_ALU PERM_inst(

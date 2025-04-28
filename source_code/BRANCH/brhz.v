@@ -16,5 +16,5 @@ always @(*) begin
     branch_taken = 1'b0;
   end
 end
-s
+
 endmodule

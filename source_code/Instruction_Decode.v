@@ -1,4 +1,4 @@
-module Instruction_Decode{
+module Instruction_Decode(
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
 
@@ -33,8 +33,8 @@ module Instruction_Decode{
   output reg [0:6] rc_addr_odd,
 
   output reg instr1_type,
-  output reg instr2_type,
-};
+  output reg instr2_type
+);
 
 `include "opcode_package.vh"
 
@@ -114,12 +114,12 @@ always @(*) begin
   else if (temp_opcode1[0:7] == `op_ahi || temp_opcode1[0:7] == `op_ai ||
            temp_opcode1[0:7] == `op_andhi || temp_opcode1[0:7] == `op_andi ||
            temp_opcode1[0:7] == `op_ceqhi || temp_opcode1[0:7] == `op_ceqi ||
-           temp_opcode1[0:7] == `op_cgtihi || temp_opcode1[0:7] == `op_cgti ||
+           temp_opcode1[0:7] == `op_cgthi || temp_opcode1[0:7] == `op_cgti ||
            temp_opcode1[0:7] == `op_xorhi || temp_opcode1[0:7] == `op_xori ||
            temp_opcode1[0:7] == `op_orhi || temp_opcode1[0:7] == `op_ori ||
            temp_opcode1[0:7] == `op_sfhi || temp_opcode1[0:7] == `op_sfi ||
            temp_opcode1[0:7] == `op_mpyi || temp_opcode1[0:7] == `op_mpyui ||
-          temp_opcode1[0:7] == `op_lqd || temp_opcode1[0:7] == `op_stqd || ) begin
+          temp_opcode1[0:7] == `op_lqd || temp_opcode1[0:7] == `op_stqd) begin
 
     // i dont think below two are necessary
     // instr_format_even = RI10;
@@ -174,8 +174,8 @@ always @(*) begin
       instr1_type = 1'b1;
     end
 
-    else if (temp_opcode1[0:7] == `op_cgtihi) begin
-      instr_id_even = `instr_ID_cgtihi;
+    else if (temp_opcode1[0:7] == `op_cgthi) begin
+      instr_id_even = `instr_ID_cgthi;
       unit_id_even = 3'b001;
       latency_even = 4'd3;
       reg_wr_even = 1'b1;
@@ -893,7 +893,7 @@ always @(*) begin
   else if (temp_opcode2[0:7] == `op_ahi || temp_opcode2[0:7] == `op_ai ||
           temp_opcode2[0:7] == `op_andhi || temp_opcode2[0:7] == `op_andi ||
           temp_opcode2[0:7] == `op_ceqhi || temp_opcode2[0:7] == `op_ceqi ||
-          temp_opcode2[0:7] == `op_cgtihi || temp_opcode2[0:7] == `op_cgti ||
+          temp_opcode2[0:7] == `op_cgthi || temp_opcode2[0:7] == `op_cgti ||
           temp_opcode2[0:7] == `op_xorhi || temp_opcode2[0:7] == `op_xori ||
           temp_opcode2[0:7] == `op_orhi || temp_opcode2[0:7] == `op_ori ||
           temp_opcode2[0:7] == `op_sfhi || temp_opcode2[0:7] == `op_sfi ||
@@ -936,8 +936,8 @@ always @(*) begin
       latency_even = 4'd3;
       reg_wr_even = 1'b1;
       instr2_type = 1'b1;
-    end else if (temp_opcode2[0:7] == `op_cgtihi) begin
-      instr_id_even = `instr_ID_cgtihi;
+    end else if (temp_opcode2[0:7] == `op_cgthi) begin
+      instr_id_even = `instr_ID_cgthi;
       unit_id_even = 3'b001;
       latency_even = 4'd3;
       reg_wr_even = 1'b1;
@@ -1502,7 +1502,7 @@ end
     end
 
     else if (temp_opcode2 == `op_cntb) begin
-      instr_id_even = `in2str_ID_cntb; 
+      instr_id_even = `instr_ID_cntb; 
       unit_id_even = 3'd4; 
       latency_even = 4'd4; 
       reg_wr_even = 1'b1; 

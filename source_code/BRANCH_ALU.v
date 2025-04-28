@@ -14,6 +14,7 @@ module BRANCH_ALU(
 
 wire [0:9] br_result, bra_result, brasl_result, brhnz_result, brhz_result, brnz_result, brsl_result, brz_result;
 wire [0:127] rt_result_temp;
+wire temp_branch_taken;
 
 always @(*) begin
   case (instr_id)
@@ -28,19 +29,20 @@ always @(*) begin
     default : PC_result = 10'h0;
   endcase
   rt_result = rt_result_temp;
+  branch_taken = temp_branch_taken;
 end
 
 br br_inst (
   .in_PC(in_PC),
   .imme16(imme16),
   .PC_result(br_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 bra bra_inst (
   .imme16(imme16),
   .PC_result(bra_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brasl brasl_inst (
@@ -48,7 +50,7 @@ brasl brasl_inst (
   .imme16(imme16),
   .PC_result(brasl_result),
   .rt_result(rt_result_temp),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brhnz brhnz_inst (
@@ -56,7 +58,7 @@ brhnz brhnz_inst (
   .imme16(imme16),
   .rt(rc_data),
   .PC_result(brhnz_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brhz brhz_inst (
@@ -64,7 +66,7 @@ brhz brhz_inst (
   .imme16(imme16),
   .rt(rc_data),
   .PC_result(brhz_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brnz brnz_inst (
@@ -72,7 +74,7 @@ brnz brnz_inst (
   .rt(rc_data),
   .imme16(imme16),
   .PC_result(brnz_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brsl brsl_inst (
@@ -80,7 +82,7 @@ brsl brsl_inst (
   .imme16(imme16),
   .PC_result(brsl_result),
   .rt_result(rt_result_temp),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 brz brz_inst (
@@ -88,7 +90,7 @@ brz brz_inst (
   .rt(rc_data),
   .imme16(imme16),
   .PC_result(brz_result),
-  .branch_taken(branch_taken)
+  .branch_taken(temp_branch_taken)
 );
 
 endmodule
