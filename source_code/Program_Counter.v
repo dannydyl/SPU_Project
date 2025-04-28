@@ -3,6 +3,7 @@ module Program_Counter(
   input rst,  
   // input [0:2] unit_id, // will be removed later
   input branch_taken,
+  input is_branch,
   input stall,
   input [0:9] PC_in,
   output reg [0:9] PC_out
@@ -27,7 +28,10 @@ always @(posedge clk or posedge rst) begin
   else if (stall) begin
     PC <= PC;
   end
-  else if (branch_taken) begin
+  else if (is_branch && branch_taken) begin
+    if (PC_in[9] == 1'b1) begin // misalligned target
+      
+    end
     PC <= PC_in;  // Update PC with the branch target
   end
   else begin

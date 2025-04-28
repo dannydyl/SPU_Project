@@ -6,7 +6,10 @@ module top_level(
   input [0:9] instr_load_addr,
   input preload_en,
   input [0:9] preload_addr,
-  input [0:127] preload_values
+  input [0:127] preload_values,
+  input preload_LS_en,
+  input [0:14] preload_LS_addr,
+  input [0:127] preload_LS_data
 
 );
 
@@ -38,9 +41,9 @@ wire [0:6] WB_reg_write_addr_even, WB_reg_write_addr_odd;
 wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
-wire [0:9] current_PC_odd, PC_pass2ID, PC_pass2RF, PC_pass2odd;
+wire [0:9] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd;
 
-wire stall, flush, branch_taken, is_branch;
+wire stall, flush, branch_taken, is_branch, find_nop;
 
 IF_wrapper IF_inst(
   .clk(clk),
@@ -48,13 +51,15 @@ IF_wrapper IF_inst(
   .load_en(load_en),
   .instruction_in(instruction_in),
   .instr_load_addr(instr_load_addr),
-  .PC_in(current_PC_odd),
+  .PC_br_target(PC_br_target),
+  .is_branch(is_branch),
   .branch_taken(branch_taken),
   .stall(stall),
 
   .PC_current_out(PC_pass2ID),
   .instruction_out1(instruction_out1),
-  .instruction_out2(instruction_out2)
+  .instruction_out2(instruction_out2),
+  .find_nop(find_nop)
 );
 
 ID_HU_wrapper IDHU_inst(
@@ -65,13 +70,18 @@ ID_HU_wrapper IDHU_inst(
   .PC_pass_in(PC_pass2ID),
   .instruction_in1(instruction_out1),
   .instruction_in2(instruction_out2),
+  .find_nop(find_nop),
 
+  .RF_reg_dst_even(reg_dst_even_to_pipe),
+  .RF_reg_wr_even(reg_wr_even_to_pipe),
   .packed_2stage_even(packed_2stage_even),
   .packed_3stage_even(packed_3stage_even),
   .packed_4stage_even(packed_4stage_even),
   .packed_5stage_even(packed_5stage_even),
   .packed_6stage_even(packed_6stage_even),
 
+  .RF_reg_dst_odd(reg_dst_odd_to_pipe),
+  .RF_reg_wr_odd(reg_wr_odd_to_pipe),
   .packed_2stage_odd(packed_2stage_odd),
   .packed_3stage_odd(packed_3stage_odd),
   .packed_4stage_odd(packed_4stage_odd),
@@ -252,7 +262,7 @@ Odd_Pipe Odd_Pipe_inst(
   .imme10(imme10_odd_to_pipe),
   .imme16(imme16_odd_to_pipe),
   .imme18(imme18_odd_to_pipe),
-  .current_PC(PC_pass2odd), // have to be connected to PC module
+  .current_PC(PC_pass2odd),
   .packed_2stage(packed_2stage_odd),
   .packed_3stage(packed_3stage_odd),
   .packed_4stage(packed_4stage_odd),
@@ -262,7 +272,7 @@ Odd_Pipe Odd_Pipe_inst(
   .WB_reg_write_addr(WB_reg_write_addr_odd),
   .WB_reg_write_data(WB_reg_write_data_odd),
   .WB_reg_write_en(WB_reg_write_en_odd),
-  .new_PC(current_PC_odd), // have to be connected to PC module
+  .new_PC(PC_br_target), 
   .branch_taken(branch_taken),
   .is_branch(is_branch),
   .preload_LS_en(preload_LS_en),

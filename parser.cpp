@@ -291,7 +291,7 @@ pair<int, int> parseDFormOperand(const string& operand) {
  *  - Call the corresponding assemble function
  *  - Return a 32-bit binary string (or empty if error)
  */
-string processInstruction(const string &line) {
+string processInstruction(const string &line, const unordered_map<string, int> &labelMap, int pc) {
     // 1) Extract mnemonic
     istringstream iss(line);
     string mnemonic;
@@ -379,21 +379,27 @@ string processInstruction(const string &line) {
         return assembleRI10(info.opcode, imm, ra, rt);
     }
     case FormatType::RI16: {
-        // e.g. "MNEMONIC $rt, imm16"
-        // or "MNEMONIC $rt, $ra, imm16" if your doc says so. Adjust as needed.
-        if (operands.size() == 1) {
-            // e.g., bra h3
-            int rt = 0; // default RT register (ignored or $0)
-            int imm = parseOperand(operands[0]);
-            return assembleRI16(info.opcode, imm, rt);
-        } else if (operands.size() >= 2) {
-            int rt  = parseOperand(operands[0]);
-            int imm = parseOperand(operands[1]);
-            return assembleRI16(info.opcode, imm, rt);
+        // operands: e.g. "bra targetLabel" or "brz $1, targetLabel"
+        int rt=0, imm=0;
+        if (operands.size()>1) {
+            rt = parseOperand(operands[0]);
+            string &tok = operands.back();
+            // if tok matches a label name use its index
+            auto itL = labelMap.find(tok);
+            if (itL!=labelMap.end())
+            imm = itL->second + 2;
+            else
+            imm = parseOperand(tok);
         } else {
-            cerr << "Error: RI16 expects 1 or 2 operands (imm or RT, imm).\n";
-            return "";
+            // single operand is immediate or label
+            string &tok = operands[0];
+            auto itL = labelMap.find(tok);
+            if (itL!=labelMap.end())
+            imm = itL->second + 2;
+            else
+            imm = parseOperand(tok);
         }
+        return assembleRI16(info.opcode, imm, rt);
     }
     case FormatType::RI18: {
         // e.g. "MNEMONIC $rt, imm18"
@@ -413,40 +419,89 @@ string processInstruction(const string &line) {
 
 int main() {
 
-    // file mode
-    ifstream infile("input_assembly.txt");
-    ofstream outfile("output_binary.txt");
-    if (!infile) {
-        cerr << "Error opening input_assembly.txt\n";
-        return 1;
-    }
-    if (!outfile) {
-        cerr << "Error opening output_binary.txt\n";
-        return 1;
+    // read all lines into memory
+    vector<string> allLines;
+    {
+        ifstream fin("input_assembly.txt");
+        if (!fin) { cerr << "Error opening input file\n"; return 1; }
+        string raw;
+        while (getline(fin, raw))
+            allLines.push_back(raw);
     }
 
-    string line;
-    while (getline(infile, line)) {
-        // Trim leading whitespace
-        size_t pos = line.find_first_not_of(" \t");
-        if (pos == string::npos) continue;  // Skip empty lines
+    // map label name to instruction index
+    unordered_map<string,int> labelMap;
+    // filtered list of real instructions
+    vector<string> instLines;
 
-        // Check if the first non-whitespace characters form a comment marker (e.g. "//")
-        if (line.substr(pos, 2) == "//") continue;
+    for (auto &raw : allLines) {
+        // trim leading plus trailing whitespace
+        size_t start = raw.find_first_not_of(" \t");
+        if (start == string::npos) continue;
+        size_t end = raw.find_last_not_of(" \t");
+        string t = raw.substr(start, end - start + 1);
 
-        // Process the line normally if it's not a comment
-        string bits32 = processInstruction(line);
-        if (!bits32.empty()) {
-            if (bits32.size() != 32) {
-                cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
-                continue;
-            }
-            outfile << bits32 << "\n";
+        // skip full-line comments
+        if (t.rfind("//", 0) == 0) continue;
+
+        // label if ends with colon
+        if (t.back() == ':') {
+            string name = t.substr(0, t.size() - 1);
+            labelMap[name] = instLines.size();
+        }
+        else {
+            instLines.push_back(t);
         }
     }
 
-    infile.close();
-    outfile.close();
+    ofstream fout("output_binary.txt");
+    if (!fout) { cerr << "Error opening output file\n"; return 1; }
+
+    for (int i = 0; i < (int)instLines.size(); ++i) {
+        string bin32 = processInstruction(instLines[i], labelMap, i);
+        if (bin32.size() == 32)
+            fout << bin32 << "\n";
+        else
+            cerr << "line " << i
+                 << " gave " << bin32.size()
+                 << " bits: " << instLines[i] << "\n";
+    }
+
+
+    // // file mode
+    // ifstream infile("input_assembly.txt");
+    // ofstream outfile("output_binary.txt");
+    // if (!infile) {
+    //     cerr << "Error opening input_assembly.txt\n";
+    //     return 1;
+    // }
+    // if (!outfile) {
+    //     cerr << "Error opening output_binary.txt\n";
+    //     return 1;
+    // }
+
+    // string line;
+    // while (getline(infile, line)) {
+    //     // Trim leading whitespace
+    //     size_t pos = line.find_first_not_of(" \t");
+    //     if (pos == string::npos) continue;  // Skip empty lines
+
+    //     // Check if the first non-whitespace characters form a comment marker (e.g. "//")
+    //     if (line.substr(pos, 2) == "//") continue;
+
+    //     // Process the line normally if it's not a comment
+    //     string bits32 = processInstruction(line);
+    //     if (!bits32.empty()) {
+    //         if (bits32.size() != 32) {
+    //             cerr << "Error: Assembled instruction != 32 bits for line: " << line << "\n";
+    //             continue;
+    //         }
+    //         outfile << bits32 << "\n";
+    //     }
+    // }
+
+    // infile.close();
+    // outfile.close();
 
     // print out mode
     // cout << "Enter assembly instructions (type 'exit' to quit):\n";

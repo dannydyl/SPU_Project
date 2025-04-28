@@ -11,6 +11,9 @@ module tb_top_level;
   reg  [0:9]  instr_load_addr;
   reg   [0:9] preload_addr;
   reg [0:127] preload_values;
+  reg         preload_LS_en;
+  reg [0:14] preload_LS_addr;
+  reg [0:127] preload_LS_data;
 
   integer i;
   reg [0:31] instruction_mem [0:1023];  // up to 1024 instructions
@@ -24,7 +27,10 @@ module tb_top_level;
     .instr_load_addr (instr_load_addr),
     .preload_en     (preload_en),
     .preload_addr   (preload_addr),
-    .preload_values (preload_values)
+    .preload_values (preload_values),
+    .preload_LS_en  (preload_LS_en),
+    .preload_LS_addr(preload_LS_addr),
+    .preload_LS_data(preload_LS_data)
   );
 
   localparam clock_cycle = 10;
@@ -39,12 +45,7 @@ module tb_top_level;
     #(clock_cycle/2);
     // -------------------------
     // Read instructions from file
-    $readmemb("/home/home5/dlee/ese545work/SPU_Project/output_binary.txt", instruction_mem);  
-    $display("Checking first few loaded instructions:");
-    $display("instruction_mem[0] = %b", instruction_mem[0]);
-    $display("instruction_mem[1] = %b", instruction_mem[1]);
-    $display("instruction_mem[2] = %b", instruction_mem[2]);
-    $display("instruction_mem[3] = %b", instruction_mem[3]);
+    $readmemb("/home/home5/dlee/ese545work/SPU_Project/output_binary.txt", instruction_mem); 
     // -------------------------
     // initial values
     rst            = 1;
@@ -54,11 +55,33 @@ module tb_top_level;
     instr_load_addr = 0;
     preload_addr   = 0;
     preload_values = 0;
+    preload_LS_en  = 0;
+    preload_LS_addr = 0;
+    preload_LS_data = 0;
     #(clock_cycle);  
+    
+    // preload to LS
+    preload_LS_en  = 1;
+
+    preload_LS_addr = 15'b000_0000_0000_0001;
+    preload_LS_data = 128'h00000001_00000001_00000001_00000001;
+    #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0000_0010;
+    preload_LS_data = 128'h00000002_00000002_00000002_00000002;
+    #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0000_0011;
+    preload_LS_data = 128'h00000003_00000003_00000003_00000003;
+    #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0000_0100;
+    preload_LS_data = 128'h00000004_00000004_00000004_00000004;
+    #(clock_cycle); 
+
 
     // -------------------------
     // Feed instructions one by one
-    
     load_en = 1;
     i = 0;
     begin : load_loop
@@ -73,7 +96,9 @@ module tb_top_level;
         end
       end
     end
+
     rst = 0;  // release reset
+    preload_LS_en  = 0;
     load_en = 0;
     // -------------------------
     // let pipeline run for a while
