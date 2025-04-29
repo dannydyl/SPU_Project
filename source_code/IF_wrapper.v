@@ -85,7 +85,7 @@ integer i;
                 //     instr_buffer[i] <= 32'b0;
                 no_more_instruction <= 1'b0;
         end else begin
-            if (PC_current == LINE_LENGTH-1) begin
+            if (PC == LINE_LENGTH-1) begin
                 no_more_instruction <= 1'b1;
             end else begin
                 no_more_instruction <= 1'b0;

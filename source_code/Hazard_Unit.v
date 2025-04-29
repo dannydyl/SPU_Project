@@ -1,4 +1,5 @@
 module Hazard_Unit(
+  input [0:1] who_went_first,
   input instr1_type,
   input instr2_type,
   input is_branch,
@@ -38,8 +39,10 @@ module Hazard_Unit(
 
 
 always @(*) begin
-
-  if (instr1_type == instr2_type) begin
+  if (who_went_first != 2'b00) begin
+    dependent_stall = 1'b0;
+  end
+  else if (instr1_type == instr2_type) begin
     dependent_stall = 1'b1;
   end
 
@@ -121,7 +124,7 @@ always @(*) begin
 
   else begin
     stall = 1'b0;
-    dependednt_stall = 1'b0;
+    dependent_stall = 1'b0;
     flush = 1'b0;
   end
   

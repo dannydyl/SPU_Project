@@ -96,10 +96,11 @@ module tb_top_level;
         end
       end
     end
-
+    #(clock_cycle/2);
     rst = 0;  // release reset
     preload_LS_en  = 0;
     load_en = 0;
+    
     // -------------------------
     // let pipeline run for a while
     #200;
