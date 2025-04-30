@@ -74,6 +74,7 @@ ID_HU_wrapper IDHU_inst(
 
   .RF_reg_dst_even(reg_dst_even_to_pipe),
   .RF_reg_wr_even(reg_wr_even_to_pipe),
+  .RF_latency_even(latency_even_to_pipe)
   .packed_2stage_even(packed_2stage_even),
   .packed_3stage_even(packed_3stage_even),
   .packed_4stage_even(packed_4stage_even),
@@ -82,6 +83,7 @@ ID_HU_wrapper IDHU_inst(
 
   .RF_reg_dst_odd(reg_dst_odd_to_pipe),
   .RF_reg_wr_odd(reg_wr_odd_to_pipe),
+  .RF_latency_odd(latency_odd_to_pipe),
   .packed_2stage_odd(packed_2stage_odd),
   .packed_3stage_odd(packed_3stage_odd),
   .packed_4stage_odd(packed_4stage_odd),
