@@ -1,95 +1,92 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/clk
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/rst
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/load_en
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/instruction_in
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/branch_taken
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/stall
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/PC
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/instruction_out1
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/instruction_out2
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/no_more_instruction
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/instr_buffer
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/PC_br_target
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/find_nop
-add wave -noupdate -group IF /tb_top_level/dut/IF_inst/i
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/clk
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/rst
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/is_branch
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/branch_taken
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/PC_pass_in
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/instruction_in1
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/instruction_in2
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_2stage_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_3stage_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_4stage_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_5stage_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_6stage_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_2stage_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_3stage_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_4stage_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_5stage_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/packed_6stage_odd
-add wave -noupdate -group ID -radix binary /tb_top_level/dut/IDHU_inst/full_instr_even
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/instr_id_even
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/reg_dst_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/unit_id_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/latency_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/reg_wr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme7_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme10_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme16_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme18_even
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/ra_addr_even
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rb_addr_even
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rc_addr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/full_instr_odd
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/instr_id_odd
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/reg_dst_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/unit_id_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/latency_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/reg_wr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme7_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme10_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme16_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/imme18_odd
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/ra_addr_odd
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rb_addr_odd
-add wave -noupdate -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rc_addr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/stall
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/flush
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/PC_pass_out
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_full_instr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_full_instr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_instr_id_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_instr_id_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_reg_dst_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_reg_dst_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_unit_id_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_unit_id_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_latency_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_latency_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_reg_wr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_reg_wr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme7_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme7_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme10_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme10_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme16_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme16_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme18_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_imme18_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_ra_addr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_ra_addr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_rb_addr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_rb_addr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_rc_addr_even
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_rc_addr_odd
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_stall
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_flush
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_instr1_type
-add wave -noupdate -group ID /tb_top_level/dut/IDHU_inst/temp_instr2_type
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/clk
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/rst
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/load_en
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instruction_in
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/branch_taken
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/stall
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/PC
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instruction_out1
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instruction_out2
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/no_more_instruction
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instr_buffer
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/PC_br_target
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/find_nop
+add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/i
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/clk
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/rst
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/is_branch
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/branch_taken
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/PC_pass_in
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/instruction_in1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/instruction_in2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_2stage_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_3stage_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_4stage_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_5stage_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_6stage_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_2stage_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_3stage_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_4stage_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_5stage_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/packed_6stage_odd
+add wave -noupdate -expand -group ID -radix binary /tb_top_level/dut/IDHU_inst/full_instr_even
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/instr_id_even
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/reg_dst_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/unit_id_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/latency_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/reg_wr_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme7_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme10_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme16_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme18_even
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/ra_addr_even
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rb_addr_even
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rc_addr_even
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/full_instr_odd
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/instr_id_odd
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/reg_dst_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/unit_id_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/latency_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/reg_wr_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme7_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme10_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme16_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/imme18_odd
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/ra_addr_odd
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rb_addr_odd
+add wave -noupdate -expand -group ID -radix unsigned /tb_top_level/dut/IDHU_inst/rc_addr_odd
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr_id_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_reg_dst_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_unit_id_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_latency_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_reg_wr_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_ra_addr_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_rb_addr_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_rc_addr_1
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr_id_2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_reg_dst_2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_unit_id_2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_latency_2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_reg_wr_2
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_stall
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_dependent_stall
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_flush
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr1_type
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr2_type
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/instr_dependent_protocol
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/data_dependent_protocol
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/stall
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_dependent_stall
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/instr_dependent_protocol
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/data_dependent_protocol
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/flush
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/PC_pass_out
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_stall
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_flush
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr1_type
+add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/temp_instr2_type
 add wave -noupdate -group RF /tb_top_level/dut/RFFU_inst/clk
 add wave -noupdate -group RF /tb_top_level/dut/RFFU_inst/rst
 add wave -noupdate -group RF /tb_top_level/dut/RFFU_inst/flush
@@ -376,7 +373,7 @@ add wave -noupdate -expand -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst
 add wave -noupdate -expand -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst/packed_6stage
 add wave -noupdate -expand -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst/packed_7stage
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {215000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {154681 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 367
 configure wave -valuecolwidth 100
@@ -392,4 +389,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {0 ps} {325500 ps}
+WaveRestoreZoom {0 ps} {346500 ps}

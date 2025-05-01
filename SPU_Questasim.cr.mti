@@ -111,6 +111,13 @@ QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 Top level modules:
 	ceqhi
 
+} {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/ID_HU_wrapper.v
+QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
+-- Compiling module ID_HU_wrapper
+
+Top level modules:
+	ID_HU_wrapper
+
 } {} {}} /home/home5/dlee/ese545work/SPU_Project/source_code/Hazard_Unit.v {1 {vlog -work work -vopt -stats=none /home/home5/dlee/ese545work/SPU_Project/source_code/Hazard_Unit.v
 QuestaSim vlog 2023.4_3 Compiler 2024.02 Feb 17 2024
 -- Compiling module Hazard_Unit

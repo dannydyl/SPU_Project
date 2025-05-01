@@ -29,6 +29,8 @@ R0
 R1
 R0
 R1
+R0
+R1
 Z2 !s12c _opt2
 R1
 R2
@@ -342,10 +344,10 @@ n@_opt
 Z10 OE;O;2023.4_3;77
 R4
 T_opt1
-!s110 1746074163
-Vj2S;nMg?I4NX=zQZCWPaY0
+!s110 1746119560
+VSl=Ol>IT=igZKc:1SR1e_2
 04 12 4 work tb_top_level fast 0
-=1-000ae431a4f1-6812fa33-e08a-1713e0
+=1-000ae431a4f1-6813ab87-873ec-1748a4
 R1
 R5
 R6
@@ -1451,7 +1453,7 @@ R9
 n@i@d_@h@u_wrapper
 vIF_wrapper
 2/home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v
-Z42 !s110 1746075021
+!s110 1746075021
 !i10b 1
 !s100 7GG]7nC^RGBJ7H2LLgG4a3
 IFg;?>NHDoaTR?Qm8M^<[c2
@@ -1466,7 +1468,7 @@ R13
 r1
 !s85 0
 31
-Z43 !s108 1746075021.000000
+!s108 1746075021.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/IF_wrapper.v|
 !i113 0
@@ -1521,7 +1523,7 @@ R14
 R9
 vilh
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v
-Z44 !s110 1746075000
+Z42 !s110 1746075000
 !i10b 1
 !s100 o4YJigz8@5<;P5EB1oMF23
 I8TTYTK:TFofe17dTgnh131
@@ -1530,13 +1532,13 @@ R22
 8/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v
 !i122 8628
-Z45 L0 1 12
+Z43 L0 1 12
 R12
 R13
 r1
 !s85 0
 31
-Z46 !s108 1746075000.000000
+Z44 !s108 1746075000.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilh.v|
 !i113 0
@@ -1544,7 +1546,7 @@ R14
 R9
 vilhu
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v
-R44
+R42
 !i10b 1
 !s100 P=5XkVQ@UZ9[>X0Y[f;eO2
 IDT>G^KEM4=5_L>oa4WNXh0
@@ -1559,7 +1561,7 @@ R13
 r1
 !s85 0
 31
-R46
+R44
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ilhu.v|
 !i113 0
@@ -1567,7 +1569,7 @@ R14
 R9
 vInstruction_Decode
 2/home/home5/dlee/ese545work/SPU_Project/source_code/Instruction_Decode.v
-R42
+!s110 1746120625
 !i10b 1
 !s100 BhPa65BLB]lmOHla1QHMH1
 IbGzg2TGR=?Ifb=AJB4bC92
@@ -1576,14 +1578,14 @@ w1746074554
 8/home/home5/dlee/ese545work/SPU_Project/source_code/Instruction_Decode.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/Instruction_Decode.v
 R27
-!i122 8679
+!i122 8683
 L0 1 1748
 R12
 R13
 r1
 !s85 0
 31
-R43
+!s108 1746120625.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/opcode_package.vh|/home/home5/dlee/ese545work/SPU_Project/source_code/Instruction_Decode.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/Instruction_Decode.v|
 !i113 0
@@ -1639,7 +1641,7 @@ R9
 n@local@store
 vlqa
 2/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v
-Z47 !s110 1746075012
+Z45 !s110 1746075012
 !i10b 1
 !s100 bQ7PGZAnQazRn3IS9>E;k2
 IzNLZi;jhREU<YN4ckd]@R1
@@ -1648,13 +1650,13 @@ w1743178892
 8/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v
 !i122 8653
-R45
+R43
 R12
 R13
 r1
 !s85 0
 31
-Z48 !s108 1746075012.000000
+Z46 !s108 1746075012.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqa.v|
 !i113 0
@@ -1662,7 +1664,7 @@ R14
 R9
 vlqd
 2/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v
-R47
+R45
 !i10b 1
 !s100 G5JGL2>F0RA[nlFA?fLOo2
 I:VakD=B@@SgjOMYH;?jgh3
@@ -1671,13 +1673,13 @@ w1743138995
 8/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v
 !i122 8654
-R45
+R43
 R12
 R13
 r1
 !s85 0
 31
-R48
+R46
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/LS/lqd.v|
 !i113 0
@@ -1695,7 +1697,7 @@ R24
 F/home/home5/dlee/ese545work/SPU_Project/source_code/LS_ALU.v
 R27
 !i122 8582
-Z49 L0 1 228
+Z47 L0 1 228
 R12
 R13
 r1
@@ -1756,7 +1758,7 @@ R14
 R9
 vmpyh
 2/home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyh.v
-Z50 !s110 1746075019
+Z48 !s110 1746075019
 !i10b 1
 !s100 h6ZJcK@V0mIgo]7^11OSR3
 IIYlj`Pzz3@>^CQ_[f7Q7m2
@@ -1771,7 +1773,7 @@ R13
 r1
 !s85 0
 31
-Z51 !s108 1746075019.000000
+Z49 !s108 1746075019.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyh.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyh.v|
 !i113 0
@@ -1779,7 +1781,7 @@ R14
 R9
 vmpyi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyi.v
-R50
+R48
 !i10b 1
 !s100 il`8bkzFSMb5Ck;lk1B8J3
 I_RZ3NIQh4M_60^]D9S;PO0
@@ -1794,7 +1796,7 @@ R13
 r1
 !s85 0
 31
-R51
+R49
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/SP/mpyi.v|
 !i113 0
@@ -1848,7 +1850,7 @@ R14
 R9
 vnand_op
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nand.v
-Z52 !s110 1746075002
+Z50 !s110 1746075002
 !i10b 1
 !s100 M:B3e2@F[Te2d;Y`WX1FR3
 IEoRR>dJ[j[>R^;h3jAe`>0
@@ -1863,7 +1865,7 @@ R13
 r1
 !s85 0
 31
-Z53 !s108 1746075002.000000
+Z51 !s108 1746075002.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nand.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nand.v|
 !i113 0
@@ -1871,7 +1873,7 @@ R14
 R9
 vnor_op
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nor.v
-R52
+R50
 !i10b 1
 !s100 z?U[m@>27jibRdMFX:`V_0
 Io=><Xa:FN?M[;G7ZNh]>K2
@@ -1886,7 +1888,7 @@ R13
 r1
 !s85 0
 31
-R53
+R51
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nor.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/nor.v|
 !i113 0
@@ -1919,7 +1921,7 @@ R9
 n@odd_@pipe
 vor_op
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/or.v
-Z54 !s110 1746075003
+Z52 !s110 1746075003
 !i10b 1
 !s100 W[M0DY_9EKCnD0LY3ePWX2
 Ijzn^jYz4YVcI5Inz^m=U52
@@ -1934,7 +1936,7 @@ R13
 r1
 !s85 0
 31
-Z55 !s108 1746075003.000000
+Z53 !s108 1746075003.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/or.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/or.v|
 !i113 0
@@ -1942,7 +1944,7 @@ R14
 R9
 vorhi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/orhi.v
-R54
+R52
 !i10b 1
 !s100 aaPnMPKm4U7MnHkHI<56_2
 IFLaWITCcQUJHOk=<]00J02
@@ -1957,7 +1959,7 @@ R13
 r1
 !s85 0
 31
-R55
+R53
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/orhi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/orhi.v|
 !i113 0
@@ -1965,7 +1967,7 @@ R14
 R9
 vori
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v
-Z56 !s110 1746075004
+Z54 !s110 1746075004
 !i10b 1
 !s100 CQ2=oji417H5ne`5[aPHB1
 Ijl=]XO^knEPhoh^>[j<Z50
@@ -1980,7 +1982,7 @@ R13
 r1
 !s85 0
 31
-Z57 !s108 1746075004.000000
+Z55 !s108 1746075004.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/ori.v|
 !i113 0
@@ -1988,7 +1990,7 @@ R14
 R9
 vPERM_ALU
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v
-Z58 !s110 1746074914
+Z56 !s110 1746074914
 !i10b 1
 !s100 ^];?e3D7CSTJaknZ2F[093
 IUAe1=6MBiUo2:FF6iKac63
@@ -2004,7 +2006,7 @@ R13
 r1
 !s85 0
 31
-Z59 !s108 1746074914.000000
+Z57 !s108 1746074914.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/opcode_package.vh|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM_ALU.v|
 !i113 0
@@ -2013,7 +2015,7 @@ R9
 n@p@e@r@m_@a@l@u
 vProgram_Counter
 2/home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v
-R58
+R56
 !i10b 1
 !s100 @HK`ff0a:9l0gbgnn4<7b3
 InRiE;`oJhaiB3?njFdTVz1
@@ -2023,13 +2025,13 @@ w1745902032
 F/home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v
 R27
 !i122 8585
-R49
+R47
 R12
 R13
 r1
 !s85 0
 31
-R59
+R57
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/opcode_package.vh|/home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/Program_Counter.v|
 !i113 0
@@ -2038,7 +2040,7 @@ R9
 n@program_@counter
 vReg_file
 2/home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v
-Z60 !s110 1746074915
+Z58 !s110 1746074915
 !i10b 1
 !s100 b;lNGLAP6]Ab7b:F[0X0>0
 IBUF]C>6:2g[lmnZ9CYjhc0
@@ -2053,7 +2055,7 @@ R13
 r1
 !s85 0
 31
-Z61 !s108 1746074915.000000
+Z59 !s108 1746074915.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/Reg_file.v|
 !i113 0
@@ -2062,7 +2064,7 @@ R9
 n@reg_file
 vRF_FU_Pipe_wrapper
 2/home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v
-R60
+R58
 !i10b 1
 !s100 db^lmg61GfVkZX>=S]lJ]2
 IQPof^4YX3Wk;jb=CG@O5B2
@@ -2077,7 +2079,7 @@ R13
 r1
 !s85 0
 31
-R61
+R59
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/RF_FU_Pipe_wrapper.v|
 !i113 0
@@ -2110,7 +2112,7 @@ R9
 n@r@f_@f@u_wrapper
 vrot
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rot.v
-Z62 !s110 1746075010
+Z60 !s110 1746075010
 !i10b 1
 !s100 i]A5UQZ2]BPI?U`Q3gcE;3
 IO`e=c:P?IdQBdQboFGnI[3
@@ -2125,7 +2127,7 @@ R13
 r1
 !s85 0
 31
-Z63 !s108 1746075010.000000
+Z61 !s108 1746075010.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rot.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rot.v|
 !i113 0
@@ -2133,7 +2135,7 @@ R14
 R9
 vroth
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
-R62
+R60
 !i10b 1
 !s100 UTm8=3YEnBH;1Via37dUz1
 ILC@QF3gc1]dabND:>oNV=3
@@ -2142,13 +2144,13 @@ w1742332015
 8/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v
 !i122 8646
-Z64 L0 1 27
+Z62 L0 1 27
 R12
 R13
 r1
 !s85 0
 31
-R63
+R61
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roth.v|
 !i113 0
@@ -2156,7 +2158,7 @@ R14
 R9
 vrothi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v
-Z65 !s110 1746075011
+Z63 !s110 1746075011
 !i10b 1
 !s100 kED>C]?bla06PO:3n6gM`1
 IABH0?;^@nAmLJ]Y[69T;c1
@@ -2165,13 +2167,13 @@ w1742428325
 8/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v
 !i122 8647
-R64
+R62
 R12
 R13
 r1
 !s85 0
 31
-Z66 !s108 1746075011.000000
+Z64 !s108 1746075011.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/rothi.v|
 !i113 0
@@ -2179,7 +2181,7 @@ R14
 R9
 vroti
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v
-R65
+R63
 !i10b 1
 !s100 a7MNdJCWa[E`:e@TVIK9`3
 IFIQQ_SH`@Ek`Kzna::`0]2
@@ -2194,7 +2196,7 @@ R13
 r1
 !s85 0
 31
-R66
+R64
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/roti.v|
 !i113 0
@@ -2202,7 +2204,7 @@ R14
 R9
 vrotqbi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbi.v
-Z67 !s110 1746075013
+Z65 !s110 1746075013
 !i10b 1
 !s100 K1]Y]m<P>SBKbOjoC[gfh0
 IE0TOZeD]CSB]H?EEEDXc]2
@@ -2217,7 +2219,7 @@ R13
 r1
 !s85 0
 31
-Z68 !s108 1746075013.000000
+Z66 !s108 1746075013.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbi.v|
 !i113 0
@@ -2225,7 +2227,7 @@ R14
 R9
 vrotqbii
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbii.v
-R67
+R65
 !i10b 1
 !s100 [?JLMNQWozd4DLz=WCU[S2
 IH=aUS5Dgl`6bzRP;71H8z1
@@ -2240,7 +2242,7 @@ R13
 r1
 !s85 0
 31
-R68
+R66
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbii.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbii.v|
 !i113 0
@@ -2248,7 +2250,7 @@ R14
 R9
 vrotqby
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqby.v
-R67
+R65
 !i10b 1
 !s100 gV9LNV>zCaAjKQeUi0T4J3
 I120cmgJY6gEH_[O8Gg>P_3
@@ -2263,7 +2265,7 @@ R13
 r1
 !s85 0
 31
-R68
+R66
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqby.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqby.v|
 !i113 0
@@ -2271,7 +2273,7 @@ R14
 R9
 vrotqbyi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbyi.v
-Z69 !s110 1746075014
+Z67 !s110 1746075014
 !i10b 1
 !s100 n7`Z>ZPN_<<[?CR]D6RcP2
 I@N[GfX]R>cA;35S<eDl]E2
@@ -2286,7 +2288,7 @@ R13
 r1
 !s85 0
 31
-Z70 !s108 1746075014.000000
+Z68 !s108 1746075014.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbyi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/rotqbyi.v|
 !i113 0
@@ -2294,7 +2296,7 @@ R14
 R9
 vselb
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v
-R56
+R54
 !i10b 1
 !s100 AS3m^EII:AOz@donMb;R83
 I6ZY[AgMfi^7=]6Xk87j8a0
@@ -2303,13 +2305,13 @@ R22
 8/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v
 !i122 8636
-R45
+R43
 R12
 R13
 r1
 !s85 0
 31
-R57
+R55
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/selb.v|
 !i113 0
@@ -2340,7 +2342,7 @@ R14
 R9
 vsfh
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfh.v
-Z71 !s110 1746075006
+Z69 !s110 1746075006
 !i10b 1
 !s100 Dh=E]X9]UGn@nTGRAzLaS1
 IJ6Z^BbJEG1Io;@n<gHfY02
@@ -2355,7 +2357,7 @@ R13
 r1
 !s85 0
 31
-Z72 !s108 1746075006.000000
+Z70 !s108 1746075006.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfh.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfh.v|
 !i113 0
@@ -2363,7 +2365,7 @@ R14
 R9
 vsfhi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfhi.v
-R71
+R69
 !i10b 1
 !s100 _W[Q6BZfh8TUBzXmC^o?Q0
 I<ji1fY3iV;f7f=:42AKaU1
@@ -2378,7 +2380,7 @@ R13
 r1
 !s85 0
 31
-R72
+R70
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfhi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfhi.v|
 !i113 0
@@ -2386,7 +2388,7 @@ R14
 R9
 vsfi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v
-Z73 !s110 1746075007
+Z71 !s110 1746075007
 !i10b 1
 !s100 MzTaP15jzhi>VUiWHbhk92
 IZogbel0O`HDQ8^[GTSaa92
@@ -2401,7 +2403,7 @@ R13
 r1
 !s85 0
 31
-Z74 !s108 1746075007.000000
+Z72 !s108 1746075007.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfi.v|
 !i113 0
@@ -2409,7 +2411,7 @@ R14
 R9
 vsfx
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v
-R73
+R71
 !i10b 1
 !s100 6HnC6>9<>BU9Cn:eLfPV:0
 IT=F5aQjc4;hVLid0<8U]D1
@@ -2424,7 +2426,7 @@ R13
 r1
 !s85 0
 31
-R74
+R72
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/sfx.v|
 !i113 0
@@ -2432,7 +2434,7 @@ R14
 R9
 vshl
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shl.v
-R65
+R63
 !i10b 1
 !s100 1UZ`V^@^9[feTbnP1>4c=3
 IC7h`UFKT9D>KkJC>:nDY40
@@ -2447,7 +2449,7 @@ R13
 r1
 !s85 0
 31
-R66
+R64
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shl.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shl.v|
 !i113 0
@@ -2455,7 +2457,7 @@ R14
 R9
 vshlh
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlh.v
-R47
+R45
 !i10b 1
 !s100 OO;03GUKkDgKzRhnZ7GD00
 I5iz9_g8nnL_WfbMGG_C4:0
@@ -2470,7 +2472,7 @@ R13
 r1
 !s85 0
 31
-R48
+R46
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlh.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlh.v|
 !i113 0
@@ -2478,7 +2480,7 @@ R14
 R9
 vshlhi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlhi.v
-R47
+R45
 !i10b 1
 !s100 Ue24Sh;>K]1RD:2AdflIO0
 I;Ca5:bK]n3R9`Voeo[hd83
@@ -2493,7 +2495,7 @@ R13
 r1
 !s85 0
 31
-R48
+R46
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlhi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shlhi.v|
 !i113 0
@@ -2501,7 +2503,7 @@ R14
 R9
 vshli
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shli.v
-R47
+R45
 !i10b 1
 !s100 ing]i6<4;7E?EhoAmz0ha0
 I^Q^LY1c1^?z0ijTkI4JFK2
@@ -2516,7 +2518,7 @@ R13
 r1
 !s85 0
 31
-R48
+R46
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shli.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX2/shli.v|
 !i113 0
@@ -2524,7 +2526,7 @@ R14
 R9
 vshlqbi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbi.v
-R69
+R67
 !i10b 1
 !s100 ;_;M]HGHliFUEC8Pl0MWO1
 IH9^M6Y_6;hDmONTOidEhm0
@@ -2539,7 +2541,7 @@ R13
 r1
 !s85 0
 31
-R70
+R68
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbi.v|
 !i113 0
@@ -2547,7 +2549,7 @@ R14
 R9
 vshlqbii
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbii.v
-R69
+R67
 !i10b 1
 !s100 GS<]cA1oCz<cVzLlcSQ:?2
 IYPK9dne3Ub72TS]VPQzQH2
@@ -2562,7 +2564,7 @@ R13
 r1
 !s85 0
 31
-R70
+R68
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbii.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbii.v|
 !i113 0
@@ -2570,7 +2572,7 @@ R14
 R9
 vshlqby
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqby.v
-R69
+R67
 !i10b 1
 !s100 BYbQKcXNCKGDLT8B=z<if2
 I>6c=SYg6G4VK`4cNEzkg71
@@ -2585,7 +2587,7 @@ R13
 r1
 !s85 0
 31
-R70
+R68
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqby.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqby.v|
 !i113 0
@@ -2593,7 +2595,7 @@ R14
 R9
 vshlqbyi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v
-R69
+R67
 !i10b 1
 !s100 [Xb]=AK7cZi@>oZem;M1[2
 IVN?zZYKIVV?@8>:=Z3eO61
@@ -2602,13 +2604,13 @@ R15
 8/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v
 !i122 8664
-R64
+R62
 R12
 R13
 r1
 !s85 0
 31
-R70
+R68
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/PERM/shlqbyi.v|
 !i113 0
@@ -2641,7 +2643,7 @@ R9
 n@s@p_@a@l@u
 vstqa
 2/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v
-R47
+R45
 !i10b 1
 !s100 YeDI=J:P]ZoJnHDUMW:@S2
 I`DlzjLRN^m0ZjVU1<2g^80
@@ -2650,13 +2652,13 @@ w1743177201
 8/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v
 F/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v
 !i122 8655
-R45
+R43
 R12
 R13
 r1
 !s85 0
 31
-R48
+R46
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqa.v|
 !i113 0
@@ -2664,7 +2666,7 @@ R14
 R9
 vstqd
 2/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqd.v
-R67
+R65
 !i10b 1
 !s100 5nUk;9gj?`_HX]NV_2=_e2
 I2nb5o[MccSTF==j1J_?a:1
@@ -2679,7 +2681,7 @@ R13
 r1
 !s85 0
 31
-R68
+R66
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqd.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/LS/stqd.v|
 !i113 0
@@ -2756,15 +2758,15 @@ R14
 R9
 ntb_@r@f_@f@u_@pipe_wrapper
 vtb_top_level
-Z75 2/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
-Z76 !s110 1746075022
+Z73 2/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
+Z74 !s110 1746075022
 !i10b 1
 !s100 FTB?95OXO?9Uz;HEL9>R12
 IB>l^VL02d:oMDWldBPaOJ0
 R4
 w1745904115
-Z77 8/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
-Z78 F/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
+Z75 8/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
+Z76 F/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v
 !i122 8680
 L0 3 115
 R12
@@ -2772,15 +2774,15 @@ R13
 r1
 !s85 0
 31
-Z79 !s108 1746075022.000000
-Z80 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v|
-Z81 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v|
+Z77 !s108 1746075022.000000
+Z78 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v|
+Z79 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/tb_top_level.v|
 !i113 0
 R14
 R9
 vtop_level
 2/home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v
-R76
+R74
 !i10b 1
 !s100 aF6JD=0Ige<cM`][W7OMm2
 I`PfI6Oa>k1OEz2M0Pkk7G3
@@ -2795,22 +2797,22 @@ R13
 r1
 !s85 0
 31
-R79
+R77
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/top_level.v|
 !i113 0
 R14
 R9
 vtop_level_tb
-R75
+R73
 !s110 1745792373
 !i10b 1
 !s100 _UHd6maeVGl2SWa;4Skj83
 IjIFXfCU2UPKD5VS[eCNHa3
 R4
 R24
-R77
-R78
+R75
+R76
 !i122 5329
 L0 3 67
 R12
@@ -2819,8 +2821,8 @@ r1
 !s85 0
 31
 !s108 1745792373.000000
-R80
-R81
+R78
+R79
 !i113 0
 R14
 R9
@@ -2849,7 +2851,7 @@ R14
 R9
 vxorhi
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v
-Z82 !s110 1746075009
+Z80 !s110 1746075009
 !i10b 1
 !s100 <mCa1bGXHe[QY9P1cHKAg1
 IHFO@eTCzjbD;@OWnKN4na3
@@ -2864,7 +2866,7 @@ R13
 r1
 !s85 0
 31
-Z83 !s108 1746075009.000000
+Z81 !s108 1746075009.000000
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xorhi.v|
 !i113 0
@@ -2872,7 +2874,7 @@ R14
 R9
 vxori
 2/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xori.v
-R82
+R80
 !i10b 1
 !s100 >MG86bFM=d91`NcDVbQ3<1
 I2<W`Hc@2:87iFf759i[Ia2
@@ -2887,7 +2889,7 @@ R13
 r1
 !s85 0
 31
-R83
+R81
 !s107 /home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xori.v|
 !s90 -reportprogress|300|-work|work|-vopt|-stats=none|/home/home5/dlee/ese545work/SPU_Project/source_code/FX1/xori.v|
 !i113 0
