@@ -1,5 +1,5 @@
 module Hazard_Unit(
-  input [0:1] who_went_first,
+  input [0:1] instr_dependent_protocol,
   input instr1_type,
   input instr2_type,
   input is_branch,
@@ -43,15 +43,15 @@ module Hazard_Unit(
 
 
 always @(*) begin
-  if (who_went_first != 2'b00) begin
+  if (instr_dependent_protocol != 2'b00) begin
     dependent_stall = 1'b0;
   end
   else if (instr1_type == instr2_type) begin
     dependent_stall = 1'b1;
   end
 
-  else if (reg_dst_even == reg_dst_odd) begin
-    stall = 1'b1;
+  else if (reg_dst_even == reg_dst_odd) begin // 생각해보니까 이것도 dependent_stall이네
+    dependent_stall = 1'b1;
   end
   
   else if (branch_taken == is_branch) begin // for now it's always predict-not-taken, later should be replaced by branch prediction signal
@@ -66,27 +66,27 @@ always @(*) begin
       stall = 1'b1;
     end
   end
-  else if ((ra_addr_even == packed_2stage_even[131:137] || rb_addr_even == packed_2stage_even[131:137] || rc_addr_even == packed_2stage_even[131:137]) && packed_1stage_even[142]) begin
+  else if ((ra_addr_even == packed_2stage_even[131:137] || rb_addr_even == packed_2stage_even[131:137] || rc_addr_even == packed_2stage_even[131:137]) && packed_2stage_even[142]) begin
     if(packed_2stage_even[138:141] > 4'd3) begin
       stall = 1'b1;
     end
   end
-  else if ((ra_addr_even == packed_3stage_even[131:137] || rb_addr_even == packed_3stage_even[131:137] || rc_addr_even == packed_3stage_even[131:137]) && packed_1stage_even[142]) begin
+  else if ((ra_addr_even == packed_3stage_even[131:137] || rb_addr_even == packed_3stage_even[131:137] || rc_addr_even == packed_3stage_even[131:137]) && packed_3stage_even[142]) begin
     if(packed_3stage_even[138:141] > 4'd4) begin
       stall = 1'b1;
     end
   end
-  else if ((ra_addr_even == packed_4stage_even[131:137] || rb_addr_even == packed_4stage_even[131:137] || rc_addr_even == packed_4stage_even[131:137]) && packed_1stage_even[142]) begin
+  else if ((ra_addr_even == packed_4stage_even[131:137] || rb_addr_even == packed_4stage_even[131:137] || rc_addr_even == packed_4stage_even[131:137]) && packed_4stage_even[142]) begin
     if(packed_4stage_even[138:141] > 4'd5) begin
       stall = 1'b1;
     end
   end
-  else if ((ra_addr_even == packed_5stage_even[131:137] || rb_addr_even == packed_5stage_even[131:137] || rc_addr_even == packed_5stage_even[131:137]) && packed_1stage_even[142]) begin
+  else if ((ra_addr_even == packed_5stage_even[131:137] || rb_addr_even == packed_5stage_even[131:137] || rc_addr_even == packed_5stage_even[131:137]) && packed_5stage_even[142]) begin
     if(packed_5stage_even[138:141] > 4'd6) begin
       stall = 1'b1;
     end
   end
-  else if ((ra_addr_even == packed_6stage_even[131:137] || rb_addr_even == packed_6stage_even[131:137] || rc_addr_even == packed_6stage_even[131:137]) && packed_1stage_even[142]) begin
+  else if ((ra_addr_even == packed_6stage_even[131:137] || rb_addr_even == packed_6stage_even[131:137] || rc_addr_even == packed_6stage_even[131:137]) && packed_6stage_even[142]) begin
     if(packed_6stage_even[138:141] > 4'd7) begin
       stall = 1'b1;
     end

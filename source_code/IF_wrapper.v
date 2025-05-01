@@ -45,7 +45,9 @@ module IF_wrapper(
         else begin
             if (stall) begin
                 // hold PC
-                PC <= PC;  
+                instruction_out1 <= instr_buffer[PC - 2];
+                instruction_out2 <= instr_buffer[PC - 1];
+                PC <= PC;
                 find_nop <= 1'b0; 
             end
             else if (is_branch && branch_taken) begin // branch taken
