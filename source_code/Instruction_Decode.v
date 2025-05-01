@@ -1127,13 +1127,13 @@ else if (temp_opcode2[0:8] == `op_ilh || temp_opcode2[0:8] == `op_ilhu || temp_o
   end
 
   if (instr2_type) begin
-    imme16_2 = instruction_in1[9:24];
-    reg_dst_2 = instruction_in1[25:31];
-    rc_addr_2 = instruction_in1[25:31]; // for rt data
+    imme16_2 = instruction_in2[9:24];
+    reg_dst_2 = instruction_in2[25:31];
+    rc_addr_2 = instruction_in2[25:31]; // for rt data
   end else begin
-    imme16_2 = instruction_in1[9:24];
-    reg_dst_2 = instruction_in1[25:31];
-    rc_addr_2 = instruction_in1[25:31]; // for rt data
+    imme16_2 = instruction_in2[9:24];
+    reg_dst_2 = instruction_in2[25:31];
+    rc_addr_2 = instruction_in2[25:31]; // for rt data
   end
 end
 
