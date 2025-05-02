@@ -90,7 +90,6 @@ ID_HU_wrapper IDHU_inst(
   .packed_5stage_odd(packed_5stage_odd),
   .packed_6stage_odd(packed_6stage_odd),
 
-  .full_instr_even(full_instr_even),
   .instr_id_even(instr_id_even),
   .reg_dst_even(reg_dst_even),
   .unit_id_even(unit_id_even),
@@ -105,7 +104,6 @@ ID_HU_wrapper IDHU_inst(
   .rb_addr_even(rb_addr_even),
   .rc_addr_even(rc_addr_even),
 
-  .full_instr_odd(full_instr_odd),
   .instr_id_odd(instr_id_odd),
   .reg_dst_odd(reg_dst_odd),
   .unit_id_odd(unit_id_odd),
@@ -131,7 +129,6 @@ RF_FU_wrapper RFFU_inst(
   .flush(flush),
   .PC_pass_in(PC_pass2RF),
   // from ID 
-  .full_instr_even(full_instr_even),
   .instr_id_even(instr_id_even),
   .reg_dst_even(reg_dst_even),
   .unit_id_even(unit_id_even),
@@ -142,7 +139,6 @@ RF_FU_wrapper RFFU_inst(
   .imme16_even(imme16_even),  
   .imme18_even(imme18_even),
 
-  .full_instr_odd(full_instr_odd),
   .instr_id_odd(instr_id_odd),
   .reg_dst_odd(reg_dst_odd),
   .unit_id_odd(unit_id_odd),
@@ -183,7 +179,6 @@ RF_FU_wrapper RFFU_inst(
   .packed_7stage_odd(packed_7stage_odd),
 
   // output
-  .out_full_instr_even(full_instr_even_to_pipe),
   .out_instr_id_even(instr_id_even_to_pipe),
   .out_reg_dst_even(reg_dst_even_to_pipe),
   .out_unit_id_even(unit_id_even_to_pipe),
@@ -194,7 +189,6 @@ RF_FU_wrapper RFFU_inst(
   .out_imme16_even(imme16_even_to_pipe),
   .out_imme18_even(imme18_even_to_pipe),
 
-  .out_full_instr_odd(full_instr_odd_to_pipe),
   .out_instr_id_odd(instr_id_odd_to_pipe),
   .out_reg_dst_odd(reg_dst_odd_to_pipe),
   .out_unit_id_odd(unit_id_odd_to_pipe),
@@ -223,7 +217,6 @@ Even_Pipe Even_Pipe_inst (
   .clk(clk),
   .rst(rst),
   .flush(flush),
-  .full_instr(full_instr_even_to_pipe),
   .instr_id(instr_id_even_to_pipe),
   .reg_dst(reg_dst_even_to_pipe),
   .unit_id(unit_id_even_to_pipe),
@@ -251,7 +244,6 @@ Odd_Pipe Odd_Pipe_inst(
   .clk(clk),
   .rst(rst),
   .flush(flush),
-  .full_instr(full_instr_odd_to_pipe),
   .instr_id(instr_id_odd_to_pipe),
   .reg_dst(reg_dst_odd_to_pipe),
   .unit_id(unit_id_odd_to_pipe),

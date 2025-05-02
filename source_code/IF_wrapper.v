@@ -22,18 +22,6 @@ module IF_wrapper(
     // Program Counter
     reg no_more_instruction;
     reg [0:9] PC;
-
-    // Instantiate Program Counter module
-    // Program_Counter PC_inst (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .branch_taken(branch_taken),
-    //     .is_branch(is_branch),
-    //     .stall(stall),
-    //     .PC_in(PC_br_target),
-    //     .PC_out(PC_current)
-    // );
-
     
     always @(posedge clk or posedge rst) begin
         if (rst) begin
@@ -58,9 +46,9 @@ module IF_wrapper(
                     find_nop <= 1'b1; // telling ID stage to find which nop is needed
                 end
                 else begin // aligned target
-                    instruction_out1 <= instr_buffer[PC_br_target];
-                    instruction_out2 <= instr_buffer[PC_br_target + 1];
-                    PC <= PC_br_target + 2;
+                    instruction_out1 <= instr_buffer[PC_br_target - 2];
+                    instruction_out2 <= instr_buffer[PC_br_target - 1];
+                    PC <= PC_br_target;
                     find_nop <= 1'b0; 
                 end
             end
@@ -71,7 +59,7 @@ module IF_wrapper(
                 PC <= PC + 2;
                 find_nop <= 1'b0;
             end
-        
+            PC_current_out <= PC;  // Update output PC
         end
 
     end

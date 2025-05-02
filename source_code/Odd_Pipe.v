@@ -3,7 +3,6 @@ module Odd_Pipe(
   input rst,
   input flush,
 
-  input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
   input [0:2] unit_id,
@@ -140,6 +139,9 @@ always @(posedge clk or posedge rst) begin
     packed_7stage <= 0;
   end
   else if (flush) begin
+    is_branch <= 1'b0;
+    branch_taken <= 1'b0;
+    
     packed_2stage <= 0;
     packed_3stage <= packed_2stage;
     packed_4stage <= packed_3stage;
@@ -157,6 +159,7 @@ always @(posedge clk or posedge rst) begin
       is_branch <= 1'b1;
     end else begin
       is_branch <= 1'b0;
+      branch_taken <= 1'b0;
     end
 
     packed_2stage <= packed_1stage;

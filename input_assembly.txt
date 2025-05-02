@@ -28,10 +28,16 @@
 // Meaning: $1 = ILA(1023) with bit layout: [OP(7)][I18(18)][RT($1)]
 // ila $1, 1023
 
-lqa $1, h1
-lqa $2, h2
+LOOP:
 and $1, $2, $3
-rotqbi $4, $2, $3
-and $1, $2, $3
-and $1, $2, $3
-and $1, $2, $3
+rotqby $4, $2, $3
+and $5, $2, $3
+rotqby $6, $2, $3
+nop
+bra LOOP
+nop
+lnop
+nop
+lnop
+nop
+lnop

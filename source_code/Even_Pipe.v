@@ -3,7 +3,6 @@ module Even_Pipe(
   input rst,
   input flush,
 
-  input [0:31] full_instr,
   input [0:6] instr_id,
   input [0:6] reg_dst,
   input [0:2] unit_id,

@@ -324,6 +324,13 @@ string processInstruction(const string &line, const unordered_map<string, int> &
     switch (info.format) {
     case FormatType::RR: {
         // Expect assembly: e.g. "AND $rt, $ra, $rb"
+        // special case for zero-operand instructions
+        if (mnemonic=="nop" ||
+            mnemonic=="lnop"||
+            mnemonic=="stop") {
+            // emit opcode plus all zero registers
+            return assembleRR(info.opcode, 0, 0, 0);
+        }
         if (operands.size() < 3) {
             cerr << "Error: RR format expects 3 registers.\n";
             return "";

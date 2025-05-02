@@ -27,7 +27,6 @@ module ID_HU_wrapper(
   input [0:142] packed_5stage_odd,
   input [0:142] packed_6stage_odd,
 
-  output reg[0:31] full_instr_even,
   output reg [0:6] instr_id_even,
   output reg [0:6] reg_dst_even,
   output reg [0:2] unit_id_even,
@@ -42,7 +41,6 @@ module ID_HU_wrapper(
   output reg [0:6] rb_addr_even,
   output reg [0:6] rc_addr_even,
 
-  output reg [0:31] full_instr_odd,
   output reg [0:6] instr_id_odd,
   output reg [0:6] reg_dst_odd,
   output reg [0:2] unit_id_odd,
@@ -67,7 +65,6 @@ module ID_HU_wrapper(
 wire [0:142] packed_IDstage_even, packed_IDstage_odd;
 reg [0:142]   packed_RFFUstage_even, packed_1stage_even, packed_RFFUstage_odd, packed_1stage_odd;
 
-wire [0:31] temp_full_instr_1, temp_full_instr_2;
 wire [0:6] temp_instr_id_1, temp_instr_id_2;
 wire [0:6] temp_reg_dst_1, temp_reg_dst_2;
 wire [0:2] temp_unit_id_1, temp_unit_id_2;
@@ -93,7 +90,6 @@ Instruction_Decode ID_inst(
   .instruction_in1(instruction_in1),
   .instruction_in2(instruction_in2),
 
-  .full_instr_1(temp_full_instr_1),
   .instr_id_1(temp_instr_id_1),
   .reg_dst_1(temp_reg_dst_1),
   .unit_id_1(temp_unit_id_1),
@@ -108,7 +104,6 @@ Instruction_Decode ID_inst(
   .rb_addr_1(temp_rb_addr_1),
   .rc_addr_1(temp_rc_addr_1),
 
-  .full_instr_2(temp_full_instr_2),
   .instr_id_2(temp_instr_id_2),
   .reg_dst_2(temp_reg_dst_2),
   .unit_id_2(temp_unit_id_2),
@@ -140,15 +135,18 @@ assign temp_rc_addr_odd = temp_instr2_type ? temp_rc_addr_1 : temp_rc_addr_2;
 
 Hazard_Unit HU_inst(
   .instr_dependent_protocol(instr_dependent_protocol),
+  .data_dependent_protocol(data_dependent_protocol),
   .instr1_type(temp_instr1_type),
   .instr2_type(temp_instr2_type),
   .is_branch(is_branch),
   .branch_taken(branch_taken),
 
+  .instr_id_1(temp_instr_id_1),
   .reg_dst_even(temp_reg_dst_even),
   .ra_addr_even(temp_ra_addr_even),
   .rb_addr_even(temp_rb_addr_even),
   .rc_addr_even(temp_rc_addr_even),
+  .instr_id_2(temp_instr_id_2),
   .reg_dst_odd(temp_reg_dst_odd),
   .ra_addr_odd(temp_ra_addr_odd),
   .rb_addr_odd(temp_rb_addr_odd),
@@ -188,7 +186,6 @@ assign stall = temp_stall | temp_dependent_stall;
 
 always @(posedge clk or posedge rst) begin
   if (rst) begin
-    full_instr_even <= 32'b0;
     instr_id_even <= `instr_ID_nop;
     reg_dst_even <= 7'b0;
     unit_id_even <= 3'b0;
@@ -203,7 +200,6 @@ always @(posedge clk or posedge rst) begin
     rb_addr_even <= 7'b0;
     rc_addr_even <= 7'b0;
 
-    full_instr_odd <= 32'b0;
     instr_id_odd <= `instr_ID_nop;
     reg_dst_odd <= 7'b0;
     unit_id_odd <= 3'b0;
@@ -229,7 +225,6 @@ always @(posedge clk or posedge rst) begin
   end
   else if (temp_dependent_stall) begin // when dependency stall happens, allow first instruction go to first
     if(temp_instr1_type == 1'b1 && temp_instr2_type == 1'b1) begin // if both instrs are even
-      full_instr_even <= temp_full_instr_1;
       instr_id_even <= temp_instr_id_1;
       reg_dst_even <= temp_reg_dst_1;
       unit_id_even <= temp_unit_id_1;
@@ -243,7 +238,6 @@ always @(posedge clk or posedge rst) begin
       rb_addr_even <= temp_rb_addr_1;
       rc_addr_even <= temp_rc_addr_1;
 
-      full_instr_odd <= 32'b00000000001000000000000000000000;
       instr_id_odd <= `instr_ID_lnop;
       reg_dst_odd <= 7'b0;
       unit_id_odd <= 3'b0;
@@ -262,7 +256,6 @@ always @(posedge clk or posedge rst) begin
 
     end
     else if (temp_instr1_type == 1'b0 && temp_instr2_type == 1'b0) begin // if both instrs are odd
-      full_instr_even <= 32'b01000000001000000000000000000000;
       instr_id_even <= `instr_ID_nop;
       reg_dst_even <= 7'b0;
       unit_id_even <= 3'b0;
@@ -277,7 +270,6 @@ always @(posedge clk or posedge rst) begin
       rb_addr_even <= 7'b0;
       rc_addr_even <= 7'b0;
 
-      full_instr_odd <= temp_full_instr_1;
       instr_id_odd <= temp_instr_id_1;
       reg_dst_odd <= temp_reg_dst_1;
       unit_id_odd <= temp_unit_id_1;
@@ -363,7 +355,6 @@ always @(posedge clk or posedge rst) begin
     flush <= temp_flush;
     PC_pass_out <= PC_pass_in;
     // feed nop to both pipes
-    full_instr_even <= 32'b01000000001000000000000000000000;
     instr_id_even <= `instr_ID_nop;
     reg_dst_even <= 7'b0;
     unit_id_even <= 3'b0;
@@ -378,7 +369,6 @@ always @(posedge clk or posedge rst) begin
     rb_addr_even <= 7'b0;
     rc_addr_even <= 7'b0;
 
-    full_instr_odd <= 32'b00000000001000000000000000000000;
     instr_id_odd <= `instr_ID_lnop;
     reg_dst_odd <= 7'b0;
     unit_id_odd <= 3'b0;
@@ -496,7 +486,6 @@ always @(posedge clk or posedge rst) begin
       data_dependent_protocol <= 2'b00;
     end
     else if (data_dependent_protocol == 2'b10) begin // next even instr2 go when instr1 was odd
-      full_instr_even <= temp_full_instr_2;
       instr_id_even <= temp_instr_id_2;
       reg_dst_even <= temp_reg_dst_2;
       unit_id_even <= temp_unit_id_2;
@@ -530,7 +519,6 @@ always @(posedge clk or posedge rst) begin
   end
   else if (find_nop == 1'b1) begin
     if (temp_instr2_type == 1'b0) begin // if instr is even, lnop asserted
-      full_instr_odd <= 32'b00000000001000000000000000000000;
       instr_id_odd <= `instr_ID_lnop;
       reg_dst_odd <= 7'b0;
       unit_id_odd <= 3'b0;
@@ -546,7 +534,6 @@ always @(posedge clk or posedge rst) begin
       rc_addr_odd <= 7'b0;
     end
     else if (temp_instr2_type == 1'b1) begin // if instr is odd, nop asserted
-      full_instr_even <= 32'b01000000001000000000000000000000;
       instr_id_even <= `instr_ID_nop;
       reg_dst_even <= 7'b0;
       unit_id_even <= 3'b0;

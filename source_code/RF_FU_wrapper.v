@@ -5,7 +5,6 @@ module RF_FU_wrapper(
   input [0:9] PC_pass_in,
 
   // inputs for instruction
-  input [0:31] full_instr_even,
   input [0:6] instr_id_even,
   input [0:6] reg_dst_even,
   input [0:2] unit_id_even,
@@ -16,7 +15,6 @@ module RF_FU_wrapper(
   input [0:15] imme16_even,
   input [0:17] imme18_even,
 
-  input [0:31] full_instr_odd,
   input [0:6] instr_id_odd,
   input [0:6] reg_dst_odd,
   input [0:2] unit_id_odd,
@@ -60,7 +58,6 @@ module RF_FU_wrapper(
   input [0:142] packed_7stage_odd,
 
   // OUTPUT 
-  output reg [0:31] out_full_instr_even, // bypassing signals from ID
   output reg [0:6] out_instr_id_even,
   output reg [0:6] out_reg_dst_even,
   output reg [0:2] out_unit_id_even,
@@ -71,7 +68,6 @@ module RF_FU_wrapper(
   output reg [0:15] out_imme16_even,
   output reg [0:17] out_imme18_even,
 
-  output reg [0:31] out_full_instr_odd,
   output reg [0:6] out_instr_id_odd,
   output reg [0:6] out_reg_dst_odd,
   output reg [0:2] out_unit_id_odd,
@@ -313,30 +309,6 @@ Forwarding_Unit FU_inst(
   .rc_fw_en_7stage_from_even_to_odd(rc_fw_en_7stage_from_even_to_odd)
 );
 
-// For instruction info bypassing
-// wire [0:31] temp_full_instr_even;
-// wire [0:6] temp_instr_id_even;
-// wire [0:6] temp_reg_dst_even;
-// wire [0:2] temp_unit_id_even;
-// wire [0:3] temp_latency_even;
-// wire temp_reg_wr_even;
-// wire [0:6] temp_imme7_even;
-// wire [0:9] temp_imme10_even;
-// wire [0:15] temp_imme16_even;
-// wire [0:17] temp_imme18_even;
-
-// wire [0:31] temp_full_instr_odd;
-// wire [0:6] temp_instr_id_odd;
-// wire [0:6] temp_reg_dst_odd;
-// wire [0:2] temp_unit_id_odd;
-// wire [0:3] temp_latency_odd;
-// wire temp_reg_wr_odd;
-// wire [0:6] temp_imme7_odd;
-// wire [0:9] temp_imme10_odd;
-// wire [0:15] temp_imme16_odd;
-// wire [0:17] temp_imme18_odd;
-
-wire [0:31] temp_full_instr_even;
 wire [0:6] temp_instr_id_even;
 wire [0:6] temp_reg_dst_even;
 wire [0:2] temp_unit_id_even;
@@ -347,7 +319,6 @@ wire [0:9] temp_imme10_even;
 wire [0:15] temp_imme16_even;
 wire [0:17] temp_imme18_even;
 
-wire [0:31] temp_full_instr_odd;
 wire [0:6] temp_instr_id_odd;
 wire [0:6] temp_reg_dst_odd;
 wire [0:2] temp_unit_id_odd;
@@ -358,7 +329,6 @@ wire [0:9] temp_imme10_odd;
 wire [0:15] temp_imme16_odd;
 wire [0:17] temp_imme18_odd;
 
-assign temp_full_instr_even = full_instr_even;
 assign temp_instr_id_even = instr_id_even;
 assign temp_reg_dst_even = reg_dst_even;
 assign temp_unit_id_even = unit_id_even;
@@ -369,7 +339,6 @@ assign temp_imme10_even = imme10_even;
 assign temp_imme16_even = imme16_even;
 assign temp_imme18_even = imme18_even;
 
-assign temp_full_instr_odd = full_instr_odd;
 assign temp_instr_id_odd = instr_id_odd;
 assign temp_reg_dst_odd = reg_dst_odd;
 assign temp_unit_id_odd = unit_id_odd;
@@ -411,7 +380,6 @@ assign reg_dst_result_7stage_odd = packed_7stage_odd[3:130];
 
 always @(posedge clk or posedge rst) begin
   if(rst) begin
-    out_full_instr_even <= 32'b0;
     out_instr_id_even <= 7'b0;
     out_reg_dst_even <= 7'b0;
     out_unit_id_even <= 3'b0;
@@ -422,7 +390,6 @@ always @(posedge clk or posedge rst) begin
     out_imme16_even <= 16'b0;
     out_imme18_even <= 18'b0;
 
-    out_full_instr_odd <= 32'b0;
     out_instr_id_odd <= 7'b0;
     out_reg_dst_odd <= 7'b0;
     out_unit_id_odd <= 3'b0;
@@ -442,7 +409,6 @@ always @(posedge clk or posedge rst) begin
     rc_data_odd <= 128'b0;
   end
   else if (flush) begin
-    out_full_instr_even <= 32'b0;
     out_instr_id_even <= 7'd86;
     out_reg_dst_even <= 7'b0;
     out_unit_id_even <= 3'b0;
@@ -457,7 +423,6 @@ always @(posedge clk or posedge rst) begin
     rb_data_even <= 128'b0;
     rc_data_even <= 128'b0;
 
-    out_full_instr_odd <= 32'b0;
     out_instr_id_odd <= 7'd85;
     out_reg_dst_odd <= 7'b0;
     out_unit_id_odd <= 3'b0;
@@ -473,7 +438,6 @@ always @(posedge clk or posedge rst) begin
     rc_data_odd <= 128'b0;
   end
   else begin
-    out_full_instr_even <= temp_full_instr_even;
     out_instr_id_even <= temp_instr_id_even;
     out_reg_dst_even <= temp_reg_dst_even;
     out_unit_id_even <= temp_unit_id_even;
@@ -484,7 +448,6 @@ always @(posedge clk or posedge rst) begin
     out_imme16_even <= temp_imme16_even;
     out_imme18_even <= temp_imme18_even;
 
-    out_full_instr_odd <= temp_full_instr_odd;
     out_instr_id_odd <= temp_instr_id_odd;
     out_reg_dst_odd <= temp_reg_dst_odd;
     out_unit_id_odd <= temp_unit_id_odd;
@@ -583,6 +546,7 @@ always @(posedge clk or posedge rst) begin
 
 
   end
+  PC_pass_out <= PC_pass_in;
 end
 
 endmodule

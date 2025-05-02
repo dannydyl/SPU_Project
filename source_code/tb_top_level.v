@@ -63,19 +63,19 @@ module tb_top_level;
     // preload to LS
     preload_LS_en  = 1;
 
-    preload_LS_addr = 15'b000_0000_0000_0001;
+    preload_LS_addr = 15'b000_0000_0001_0000;
     preload_LS_data = 128'h00000001_00000001_00000001_00000001;
     #(clock_cycle); 
 
-    preload_LS_addr = 15'b000_0000_0000_0010;
+    preload_LS_addr = 15'b000_0000_0010_0000;
     preload_LS_data = 128'h00000002_00000002_00000002_00000002;
     #(clock_cycle); 
 
-    preload_LS_addr = 15'b000_0000_0000_0011;
+    preload_LS_addr = 15'b000_0000_0011_0000;
     preload_LS_data = 128'h00000003_00000003_00000003_00000003;
     #(clock_cycle); 
 
-    preload_LS_addr = 15'b000_0000_0000_0100;
+    preload_LS_addr = 15'b000_0000_0100_0000;
     preload_LS_data = 128'h00000004_00000004_00000004_00000004;
     #(clock_cycle); 
 
@@ -103,7 +103,7 @@ module tb_top_level;
     
     // -------------------------
     // let pipeline run for a while
-    #200;
+    #800;
 
     $finish;
   end

@@ -2,7 +2,6 @@ module Instruction_Decode(
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
 
-  output reg [0:31] full_instr_1,
   output reg [0:6] instr_id_1,
   output reg [0:6] reg_dst_1,
   output reg [0:2] unit_id_1,
@@ -17,7 +16,6 @@ module Instruction_Decode(
   output reg [0:6] rb_addr_1,
   output reg [0:6] rc_addr_1,
 
-  output reg [0:31] full_instr_2,
   output reg [0:6] instr_id_2,
   output reg [0:6] reg_dst_2,
   output reg [0:2] unit_id_2,
@@ -497,7 +495,8 @@ always @(*) begin
             temp_opcode1 == `op_fs || temp_opcode1 == `op_mpy || temp_opcode1 == `op_mpyu ||
             temp_opcode1 == `op_mpyh || temp_opcode1 == `op_cntb || temp_opcode1 == `op_absdb ||
             temp_opcode1 == `op_sumb || temp_opcode1 == `op_avgb || temp_opcode1 == `op_rotqby ||
-            temp_opcode1 == `op_rotqbi || temp_opcode1 == `op_shlqbi || temp_opcode1 == `op_shlqby) begin
+            temp_opcode1 == `op_rotqbi || temp_opcode1 == `op_shlqbi || temp_opcode1 == `op_shlqby ||
+            temp_opcode1 == `op_nop || temp_opcode1 == `op_lnop) begin
 
     if (temp_opcode1 == `op_addx) begin
       instr_id_1 = `instr_ID_addx;
@@ -615,32 +614,32 @@ always @(*) begin
       instr_id_1 = `instr_ID_xor; 
       unit_id_1 = 3'b001; 
       latency_1 = 4'd3; 
-      reg_wr_1 = 1'b0; 
-      instr1_type = 1'b0; 
+      reg_wr_1 = 1'b1; 
+      instr1_type = 1'b1; 
     end
 
     else if (temp_opcode1 == `op_nand) begin
       instr_id_1 = `instr_ID_nand; 
       unit_id_1 = 3'b001; 
       latency_1 = 4'd3; 
-      reg_wr_1 = 1'b0; 
-      instr1_type = 1'b0; 
+      reg_wr_1 = 1'b1; 
+      instr1_type = 1'b1; 
     end
 
     else if (temp_opcode1 == `op_nor) begin
       instr_id_1 = `instr_ID_nor; 
       unit_id_1 = 3'b001; 
       latency_1 = 4'd3; 
-      reg_wr_1 = 1'b0; 
-      instr1_type = 1'b0; 
+      reg_wr_1 = 1'b1; 
+      instr1_type = 1'b1; 
     end
 
     else if (temp_opcode1 == `op_or) begin
       instr_id_1 = `instr_ID_or; 
       unit_id_1 = 3'b001; 
       latency_1 = 4'd3; 
-      reg_wr_1 = 1'b0; 
-      instr1_type = 1'b0; 
+      reg_wr_1 = 1'b1; 
+      instr1_type = 1'b1; 
     end
 
     else if (temp_opcode1 == `op_sfx) begin
@@ -811,6 +810,22 @@ always @(*) begin
       instr1_type = 1'b0;
     end
 
+    else if (temp_opcode1 == `op_nop) begin
+      instr_id_1 = `instr_ID_nop;
+      unit_id_1 = 3'b000;
+      latency_1 = 4'd0;
+      reg_wr_1 = 1'b0;
+      instr1_type = 1'b1;
+    end
+
+    else if (temp_opcode1 == `op_lnop) begin
+      instr_id_1 = `instr_ID_lnop;
+      unit_id_1 = 3'b000;
+      latency_1 = 4'd0;
+      reg_wr_1 = 1'b0;
+      instr1_type = 1'b0;
+    end
+
     if (instr1_type) begin // no need
       reg_dst_1 = instruction_in1[25:31];
       ra_addr_1 = instruction_in1[18:24];
@@ -822,6 +837,13 @@ always @(*) begin
       rb_addr_1 = instruction_in1[11:17];
       rc_addr_1 = instruction_in1[25:31]; // for rt data
     end
+  end
+  else if (temp_opcode1 == `op_stop) begin
+    instr_id_1 = `instr_ID_stop;
+    unit_id_1 = 3'b000;
+    latency_1 = 4'd0;
+    reg_wr_1 = 1'b0;
+    instr1_type = 1'b1;
   end
 end
 
@@ -1234,7 +1256,8 @@ end
             temp_opcode2 == `op_fs || temp_opcode2 == `op_mpy || temp_opcode2 == `op_mpyu ||
             temp_opcode2 == `op_mpyh || temp_opcode2 == `op_cntb || temp_opcode2 == `op_absdb ||
             temp_opcode2 == `op_sumb || temp_opcode2 == `op_avgb || temp_opcode2 == `op_rotqby ||
-            temp_opcode2 == `op_rotqbi || temp_opcode2 == `op_shlqbi || temp_opcode2 == `op_shlqby) begin
+            temp_opcode2 == `op_rotqbi || temp_opcode2 == `op_shlqbi || temp_opcode2 == `op_shlqby ||
+            temp_opcode2 == `op_nop || temp_opcode2 == `op_lnop) begin
 
     if (temp_opcode2 == `op_addx) begin
       instr_id_2 = `instr_ID_addx;
@@ -1352,32 +1375,32 @@ end
       instr_id_2 = `instr_ID_xor; 
       unit_id_2 = 3'b001; 
       latency_2 = 4'd3; 
-      reg_wr_2 = 1'b0; 
-      instr2_type = 1'b0; 
+      reg_wr_2 = 1'b1; 
+      instr2_type = 1'b1; 
     end
 
     else if (temp_opcode2 == `op_nand) begin
       instr_id_2 = `instr_ID_nand; 
       unit_id_2 = 3'b001; 
       latency_2 = 4'd3; 
-      reg_wr_2 = 1'b0; 
-      instr2_type = 1'b0; 
+      reg_wr_2 = 1'b1; 
+      instr2_type = 1'b1; 
     end
 
     else if (temp_opcode2 == `op_nor) begin
       instr_id_2 = `instr_ID_nor; 
       unit_id_2 = 3'b001; 
       latency_2 = 4'd3; 
-      reg_wr_2 = 1'b0; 
-      instr2_type = 1'b0; 
+      reg_wr_2 = 1'b1; 
+      instr2_type = 1'b1; 
     end
 
     else if (temp_opcode2 == `op_or) begin
       instr_id_2 = `instr_ID_or; 
       unit_id_2 = 3'b001; 
       latency_2 = 4'd3; 
-      reg_wr_2 = 1'b0; 
-      instr2_type = 1'b0; 
+      reg_wr_2 = 1'b1; 
+      instr2_type = 1'b1; 
     end
 
     else if (temp_opcode2 == `op_sfx) begin
@@ -1548,6 +1571,22 @@ end
       instr2_type = 1'b0;
     end
 
+    else if (temp_opcode2 == `op_nop) begin
+      instr_id_2 = `instr_ID_nop;
+      unit_id_2 = 3'b000;
+      latency_2 = 4'd0;
+      reg_wr_2 = 1'b0;
+      instr2_type = 1'b1;
+    end
+
+    else if (temp_opcode2 == `op_lnop) begin
+      instr_id_2 = `instr_ID_lnop;
+      unit_id_2 = 3'b000;
+      latency_2 = 4'd0;
+      reg_wr_2 = 1'b0;
+      instr2_type = 1'b0;
+    end
+
     if (instr2_type) begin
       reg_dst_2 = instruction_in2[25:31];
       ra_addr_2 = instruction_in2[18:24];
@@ -1560,7 +1599,13 @@ end
       rc_addr_2 = instruction_in2[25:31]; // for rt data
     end
   end
-
+  else if (temp_opcode2 == `op_stop) begin
+    instr_id_2 = `instr_ID_stop;
+    unit_id_2 = 3'b000;
+    latency_2 = 4'd0;
+    reg_wr_2 = 1'b0;
+    instr2_type = 1'b0;
+  end
 end
 
 endmodule
