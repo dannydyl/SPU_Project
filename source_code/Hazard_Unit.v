@@ -149,10 +149,10 @@ always @(*) begin
     end
   end
 
-  else if ((ra_addr_even == ID_reg_dst_odd || rb_addr_even == ID_reg_dst_odd || rc_addr_even == ID_reg_dst_odd) && ID_reg_wr_odd) begin
+  else if ((ra_addr_even == ID_reg_dst_odd || rb_addr_even == ID_reg_dst_odd || (is_RRR_instr_even && rc_addr_even == ID_reg_dst_odd)) && ID_reg_wr_odd) begin
     stall = 1'b1;
   end
-  else if ((ra_addr_even == RF_reg_dst_odd || rb_addr_even == RF_reg_dst_odd || rc_addr_even == RF_reg_dst_odd) && RF_reg_wr_odd) begin
+  else if ((ra_addr_even == RF_reg_dst_odd || rb_addr_even == RF_reg_dst_odd || (is_RRR_instr_even && rc_addr_even == RF_reg_dst_odd)) && RF_reg_wr_odd) begin
     if(RF_latency_odd > 4'd2) begin
       stall = 1'b1;
     end
@@ -183,10 +183,10 @@ always @(*) begin
     end
   end
 
-  else if ((ra_addr_odd == ID_reg_dst_even || rb_addr_odd == ID_reg_dst_even || rc_addr_odd == ID_reg_dst_even) && ID_reg_wr_even) begin
+  else if ((ra_addr_odd == ID_reg_dst_even || rb_addr_odd == ID_reg_dst_even) && ID_reg_wr_even) begin
     stall = 1'b1;
   end
-  else if ((ra_addr_odd == RF_reg_dst_even || rb_addr_odd == RF_reg_dst_even || rc_addr_odd == RF_reg_dst_even) && RF_reg_wr_even) begin
+  else if ((ra_addr_odd == RF_reg_dst_even || rb_addr_odd == RF_reg_dst_even) && RF_reg_wr_even) begin
     if(RF_latency_even > 4'd2) begin
       stall = 1'b1;
     end

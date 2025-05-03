@@ -31,18 +31,11 @@ module IF_wrapper(
             PC_current_out <= 10'b0;  // Reset output PC
         end
         else begin
-            if (stall) begin
-                // hold PC
-                instruction_out1 <= instr_buffer[PC - 2];
-                instruction_out2 <= instr_buffer[PC - 1];
-                PC <= PC;
-                find_nop <= 1'b0; 
-            end
-            else if (is_branch && branch_taken) begin // branch taken
+            if (is_branch && branch_taken) begin // branch taken
                 if (PC_br_target[9] == 1'b1) begin // misaligned target
                     instruction_out1 <= 32'b0;  
-                    instruction_out2 <= instr_buffer[PC_br_target];  
-                    PC <= PC_br_target + 1;
+                    instruction_out2 <= instr_buffer[PC_br_target - 2];  
+                    PC <= PC_br_target - 1;
                     find_nop <= 1'b1; // telling ID stage to find which nop is needed
                 end
                 else begin // aligned target
@@ -51,6 +44,13 @@ module IF_wrapper(
                     PC <= PC_br_target;
                     find_nop <= 1'b0; 
                 end
+            end
+            else if (stall) begin
+                // hold PC
+                instruction_out1 <= instr_buffer[PC - 2];
+                instruction_out2 <= instr_buffer[PC - 1];
+                PC <= PC;
+                find_nop <= 1'b0; 
             end
             else begin
                 // Normal operation, increment PC

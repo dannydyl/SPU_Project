@@ -12,7 +12,7 @@ module tb_top_level;
   reg   [0:9] preload_addr;
   reg [0:127] preload_values;
   reg         preload_LS_en;
-  reg [0:14] preload_LS_addr;
+  reg [0:6] preload_LS_addr;
   reg [0:127] preload_LS_data;
 
   integer i;

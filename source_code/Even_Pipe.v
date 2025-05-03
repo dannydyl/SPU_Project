@@ -2,6 +2,7 @@ module Even_Pipe(
   input clk,
   input rst,
   input flush,
+  input flush_4stage,
 
   input [0:6] instr_id,
   input [0:6] reg_dst,
@@ -121,8 +122,13 @@ always @(posedge clk or posedge rst) begin
   end
   else if (flush) begin
     packed_2stage <= 0;
-    packed_3stage <= packed_2stage;
-    packed_4stage <= packed_3stage;
+    packed_3stage <= 0;
+    if(flush_4stage) begin
+      packed_4stage <= 0;
+    end
+    else begin
+      packed_4stage <= packed_3stage;
+    end
     packed_5stage <= packed_4stage;
     packed_6stage <= packed_5stage;
     packed_7stage <= packed_6stage;

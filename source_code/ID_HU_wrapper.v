@@ -4,6 +4,7 @@ module ID_HU_wrapper(
 
   input is_branch,
   input branch_taken,
+  input flush_instr2_even,
   input [0:9] PC_pass_in,
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
@@ -55,8 +56,10 @@ module ID_HU_wrapper(
   output reg [0:6] rb_addr_odd,
   output reg [0:6] rc_addr_odd,
 
+  output reg instr1_branch,
   output wire stall,
   output reg flush,
+  output reg flush_4stage,
   output reg [0:9] PC_pass_out
 );
 
@@ -185,6 +188,7 @@ assign stall = temp_stall | temp_dependent_stall;
 
 
 always @(posedge clk or posedge rst) begin
+instr1_branch <= 1'b0;
   if (rst) begin
     instr_id_even <= `instr_ID_nop;
     reg_dst_even <= 7'b0;
@@ -200,7 +204,7 @@ always @(posedge clk or posedge rst) begin
     rb_addr_even <= 7'b0;
     rc_addr_even <= 7'b0;
 
-    instr_id_odd <= `instr_ID_nop;
+    instr_id_odd <= `instr_ID_lnop;
     reg_dst_odd <= 7'b0;
     unit_id_odd <= 3'b0;
     latency_odd <= 4'b0;
@@ -217,7 +221,7 @@ always @(posedge clk or posedge rst) begin
     packed_RFFUstage_even <= 142'd0;
     packed_RFFUstage_odd <= 142'd0;
 
-    // stall <= 1'b0;
+    instr1_branch <= 1'b0;
     flush <= 1'b0; 
     PC_pass_out <= 10'b0;
     instr_dependent_protocol <= 2'b00;
@@ -351,9 +355,6 @@ always @(posedge clk or posedge rst) begin
     end
   end
   else if (temp_stall) begin
-    // stall <= temp_stall;
-    flush <= temp_flush;
-    PC_pass_out <= PC_pass_in;
     // feed nop to both pipes
     instr_id_even <= `instr_ID_nop;
     reg_dst_even <= 7'b0;
@@ -518,7 +519,21 @@ always @(posedge clk or posedge rst) begin
     end
   end
   else if (find_nop == 1'b1) begin
-    if (temp_instr2_type == 1'b0) begin // if instr is even, lnop asserted
+    if (temp_instr2_type == 1'b1) begin // if instr is even, lnop asserted
+      instr_id_even <= temp_instr_id_2;
+      reg_dst_even <= temp_reg_dst_2;
+      unit_id_even <= temp_unit_id_2;
+      latency_even <= temp_latency_2;
+      reg_wr_even <= temp_reg_wr_2;
+      imme7_even <= temp_imme7_2;
+      imme10_even <= temp_imme10_2;
+      imme16_even <= temp_imme16_2;
+      imme18_even <= temp_imme18_2;
+
+      ra_addr_even <= temp_ra_addr_2;
+      rb_addr_even <= temp_rb_addr_2;
+      rc_addr_even <= temp_rc_addr_2;
+
       instr_id_odd <= `instr_ID_lnop;
       reg_dst_odd <= 7'b0;
       unit_id_odd <= 3'b0;
@@ -533,7 +548,7 @@ always @(posedge clk or posedge rst) begin
       rb_addr_odd <= 7'b0;
       rc_addr_odd <= 7'b0;
     end
-    else if (temp_instr2_type == 1'b1) begin // if instr is odd, nop asserted
+    else if (temp_instr2_type == 1'b0) begin // if instr is odd, nop asserted
       instr_id_even <= `instr_ID_nop;
       reg_dst_even <= 7'b0;
       unit_id_even <= 3'b0;
@@ -547,6 +562,20 @@ always @(posedge clk or posedge rst) begin
       ra_addr_even <= 7'b0;
       rb_addr_even <= 7'b0;
       rc_addr_even <= 7'b0;
+
+      instr_id_odd <= temp_instr_id_2;
+      reg_dst_odd <= temp_reg_dst_2;
+      unit_id_odd <= temp_unit_id_2;
+      latency_odd <= temp_latency_2;
+      reg_wr_odd <= temp_reg_wr_2;
+      imme7_odd <= temp_imme7_2;
+      imme10_odd <= temp_imme10_2;
+      imme16_odd <= temp_imme16_2;
+      imme18_odd <= temp_imme18_2;
+
+      ra_addr_odd <= temp_ra_addr_2;
+      rb_addr_odd <= temp_rb_addr_2;
+      rc_addr_odd <= temp_rc_addr_2;
     end
   end
   else begin
@@ -612,8 +641,10 @@ always @(posedge clk or posedge rst) begin
       rc_addr_odd <= temp_rc_addr_2;
     end
   end
-  // stall signal goes to PC and flush signal goes to RFFU stage and stage 1
-  // stall <= temp_stall | temp_dependent_stall;
+  if (temp_unit_id_1 == 3'b111) begin // send signal to Odd pipe that instr1 is branch
+    instr1_branch <= 1'b1;
+  end
+  flush_4stage <= flush_instr2_even;
   flush <= temp_flush;
   PC_pass_out <= PC_pass_in;
 end

@@ -8,7 +8,7 @@ module top_level(
   input [0:9] preload_addr,
   input [0:127] preload_values,
   input preload_LS_en,
-  input [0:14] preload_LS_addr,
+  input [0:6] preload_LS_addr,
   input [0:127] preload_LS_data
 
 );
@@ -43,7 +43,7 @@ wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
 wire [0:9] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd;
 
-wire stall, flush, branch_taken, is_branch, find_nop;
+wire stall, flush, branch_taken, is_branch, find_nop, instr1_branch_pass2RF, instr1_branch_pass2odd, flush_instr2_even, flush_4stage;
 
 IF_wrapper IF_inst(
   .clk(clk),
@@ -67,6 +67,7 @@ ID_HU_wrapper IDHU_inst(
   .rst(rst),
   .is_branch(is_branch),
   .branch_taken(branch_taken),
+  .flush_instr2_even(flush_instr2_even),
   .PC_pass_in(PC_pass2ID),
   .instruction_in1(instruction_out1),
   .instruction_in2(instruction_out2),
@@ -118,8 +119,10 @@ ID_HU_wrapper IDHU_inst(
   .rb_addr_odd(rb_addr_odd),
   .rc_addr_odd(rc_addr_odd),
 
+  .instr1_branch(instr1_branch_pass2RF),
   .stall(stall),
   .flush(flush),
+  .flush_4stage(flush_4stage),
   .PC_pass_out(PC_pass2RF)
 );
 
@@ -128,6 +131,7 @@ RF_FU_wrapper RFFU_inst(
   .rst(rst),
   .flush(flush),
   .PC_pass_in(PC_pass2RF),
+  .instr1_branch(instr1_branch_pass2RF),
   // from ID 
   .instr_id_even(instr_id_even),
   .reg_dst_even(reg_dst_even),
@@ -206,6 +210,7 @@ RF_FU_wrapper RFFU_inst(
   .rb_data_odd(rb_data_odd_to_pipe),
   .rc_data_odd(rc_data_odd_to_pipe),
 
+  .instr1_branch_out(instr1_branch_pass2odd),
   .PC_pass_out(PC_pass2odd),
 
   .preload_en(preload_en),
@@ -217,6 +222,7 @@ Even_Pipe Even_Pipe_inst (
   .clk(clk),
   .rst(rst),
   .flush(flush),
+  .flush_4stage(flush_4stage),
   .instr_id(instr_id_even_to_pipe),
   .reg_dst(reg_dst_even_to_pipe),
   .unit_id(unit_id_even_to_pipe),
@@ -257,6 +263,7 @@ Odd_Pipe Odd_Pipe_inst(
   .imme16(imme16_odd_to_pipe),
   .imme18(imme18_odd_to_pipe),
   .current_PC(PC_pass2odd),
+  .instr1_branch(instr1_branch_pass2odd),
   .packed_2stage(packed_2stage_odd),
   .packed_3stage(packed_3stage_odd),
   .packed_4stage(packed_4stage_odd),
@@ -269,6 +276,7 @@ Odd_Pipe Odd_Pipe_inst(
   .new_PC(PC_br_target), 
   .branch_taken(branch_taken),
   .is_branch(is_branch),
+  .flush_instr2_even(flush_instr2_even),
   .preload_LS_en(preload_LS_en),
   .preload_LS_addr(preload_LS_addr),
   .preload_LS_data(preload_LS_data)

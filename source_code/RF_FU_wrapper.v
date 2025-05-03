@@ -3,6 +3,7 @@ module RF_FU_wrapper(
   input rst,
   input flush,
   input [0:9] PC_pass_in,
+  input instr1_branch,
 
   // inputs for instruction
   input [0:6] instr_id_even,
@@ -87,10 +88,11 @@ module RF_FU_wrapper(
   output reg [0:127] rc_data_odd,
 
   output reg [0:9] PC_pass_out,
+  output reg instr1_branch_out,
 
   // Preload RF. Verification purpose only
   input preload_en,
-  input [0:127] preload_addr,
+  input [0:6] preload_addr,
   input [0:127] preload_values
 
 );
@@ -546,6 +548,7 @@ always @(posedge clk or posedge rst) begin
 
 
   end
+  instr1_branch_out <= instr1_branch;
   PC_pass_out <= PC_pass_in;
 end
 

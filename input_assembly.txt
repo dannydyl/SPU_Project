@@ -33,11 +33,11 @@ and $1, $2, $3
 rotqby $4, $2, $3
 and $5, $2, $3
 rotqby $6, $2, $3
-nop
+and $7, $2, $3
+rotqby $8, $2, $3
 bra LOOP
-nop
-lnop
-nop
-lnop
-nop
-lnop
+and $9, $2, $3
+xor $10, $18, $12
+shlqbi $17, $14, $15
+xor $11, $18, $12
+shlqbi $19, $14, $15

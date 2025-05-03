@@ -18,7 +18,7 @@ module Odd_Pipe(
   input [0:17] imme18,
 
   input [0:9] current_PC,
-
+  input instr1_branch,
 
   // output for forwarding unit
   output reg [0:142] packed_2stage,
@@ -37,6 +37,7 @@ module Odd_Pipe(
   output reg [0:9] new_PC,
   output reg branch_taken,
   output reg is_branch,
+  output reg flush_instr2_even, // goes to Even pipe
 
   // preload signals
   input preload_LS_en,
@@ -143,7 +144,7 @@ always @(posedge clk or posedge rst) begin
     branch_taken <= 1'b0;
     
     packed_2stage <= 0;
-    packed_3stage <= packed_2stage;
+    packed_3stage <= 0;
     packed_4stage <= packed_3stage;
     packed_5stage <= packed_4stage;
     packed_6stage <= packed_5stage;
@@ -153,10 +154,14 @@ always @(posedge clk or posedge rst) begin
     WB_reg_write_en <= packed_7stage[142];
   end
   else begin
+  flush_instr2_even <= 1'b0; // default value
     if(unit_id == 3'b111) begin
       new_PC <= new_PC_result;
       branch_taken <= branch_taken_1stage;
       is_branch <= 1'b1;
+      if(instr1_branch && branch_taken_1stage) begin
+        flush_instr2_even <= 1'b1;
+      end
     end else begin
       is_branch <= 1'b0;
       branch_taken <= 1'b0;
