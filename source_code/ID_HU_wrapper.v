@@ -5,7 +5,7 @@ module ID_HU_wrapper(
   input is_branch,
   input branch_taken,
   input flush_instr2_even,
-  input [0:9] PC_pass_in,
+  input [0:8] PC_pass_in,
   input [0:31] instruction_in1,
   input [0:31] instruction_in2,
   input find_nop,
@@ -60,7 +60,7 @@ module ID_HU_wrapper(
   output wire stall,
   output reg flush,
   output reg flush_4stage,
-  output reg [0:9] PC_pass_out
+  output reg [0:8] PC_pass_out
 );
 
 `include "opcode_package.vh"

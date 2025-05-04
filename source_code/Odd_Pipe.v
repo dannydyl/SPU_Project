@@ -17,7 +17,7 @@ module Odd_Pipe(
   input [0:15] imme16,
   input [0:17] imme18,
 
-  input [0:9] current_PC,
+  input [0:8] current_PC,
   input instr1_branch,
 
   // output for forwarding unit
@@ -34,7 +34,7 @@ module Odd_Pipe(
   output reg WB_reg_write_en,
 
   // branch new PC
-  output reg [0:9] new_PC,
+  output reg [0:8] new_PC,
   output reg branch_taken,
   output reg is_branch,
   output reg flush_instr2_even, // goes to Even pipe
@@ -49,7 +49,7 @@ module Odd_Pipe(
 
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
-wire [0:9] new_PC_result; // new PC from branch unit
+wire [0:8] new_PC_result; // new PC from branch unit
 reg [0:127] result; // used for permute or branch 
 
 wire [0:127] PERM_result, branch_rt_result, LS_data_result;

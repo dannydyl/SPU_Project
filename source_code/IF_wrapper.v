@@ -3,13 +3,13 @@ module IF_wrapper(
     input  rst,
     input  load_en,
     input  [0:31] instruction_in,
-    input [0:9] instr_load_addr,
-    input [0:9] PC_br_target,
+    input [0:8] instr_load_addr,
+    input [0:8] PC_br_target,
     input  branch_taken,
     input is_branch,
     input  stall,
 
-    output reg [0:9] PC_current_out,
+    output reg [0:8] PC_current_out,
     output reg [0:31] instruction_out1,
     output reg [0:31] instruction_out2,
     output reg find_nop
@@ -21,11 +21,11 @@ module IF_wrapper(
     
     // Program Counter
     reg no_more_instruction;
-    reg [0:9] PC;
+    reg [0:8] PC;
     
     always @(posedge clk or posedge rst) begin
         if (rst) begin
-            PC <= 10'b0;  // Reset PC to 0
+            PC <= 9'b0;  // Reset PC to 0
             instruction_out1 <= 32'b0;
             instruction_out2 <= 32'b0;
             PC_current_out <= 10'b0;  // Reset output PC

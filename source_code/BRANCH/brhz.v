@@ -1,15 +1,15 @@
 module brhz(
   input [0:127] rt,
   input [0:15] imme16,
-  input [0:9] in_PC,
+  input [0:8] in_PC,
 
-  output reg [0:9] PC_result,
+  output reg [0:8] PC_result,
   output reg branch_taken
 );
-
+wire [0:8] temp_imme = imme16[7:15];
 always @(*) begin
   if (rt[16:31] == 0) begin
-    PC_result = in_PC + $signed(imme16);
+    PC_result = in_PC + $signed(temp_imme);
     branch_taken = 1'b1;
   end else begin
     PC_result = in_PC + 2;

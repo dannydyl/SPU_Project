@@ -2,7 +2,7 @@ module RF_FU_wrapper(
   input clk,
   input rst,
   input flush,
-  input [0:9] PC_pass_in,
+  input [0:8] PC_pass_in,
   input instr1_branch,
 
   // inputs for instruction
@@ -87,7 +87,7 @@ module RF_FU_wrapper(
   output reg [0:127] rb_data_odd,
   output reg [0:127] rc_data_odd,
 
-  output reg [0:9] PC_pass_out,
+  output reg [0:8] PC_pass_out,
   output reg instr1_branch_out,
 
   // Preload RF. Verification purpose only

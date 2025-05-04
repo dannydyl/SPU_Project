@@ -3,9 +3,9 @@ module BRANCH_ALU(
   input [0:15] imme16,
   input [0:127] rc_data, // used for rt
 
-  input [0:9] in_PC,
+  input [0:8] in_PC,
 
-  output reg [0:9] PC_result,
+  output reg [0:8] PC_result,
   output reg [0:127] rt_result,
   output reg branch_taken
 );
@@ -14,7 +14,7 @@ module BRANCH_ALU(
 
 wire br_taken, bra_taken, brasl_taken, brhnz_taken, brhz_taken;
 wire brnz_taken, brsl_taken, brz_taken;
-wire [0:9] br_result, bra_result, brasl_result, brhnz_result, brhz_result, brnz_result, brsl_result, brz_result;
+wire [0:8] br_result, bra_result, brasl_result, brhnz_result, brhz_result, brnz_result, brsl_result, brz_result;
 wire [0:127] brasl_rt_result, brsl_rt_result;
 wire temp_branch_taken;
 

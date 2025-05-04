@@ -3,7 +3,7 @@ module top_level(
   input rst,
   input load_en,
   input [0:31] instruction_in,
-  input [0:9] instr_load_addr,
+  input [0:8] instr_load_addr,
   input preload_en,
   input [0:6] preload_addr,
   input [0:127] preload_values,
@@ -41,7 +41,7 @@ wire [0:6] WB_reg_write_addr_even, WB_reg_write_addr_odd;
 wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
-wire [0:9] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd;
+wire [0:8] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd;
 
 wire stall, flush, branch_taken, is_branch, find_nop, instr1_branch_pass2RF, instr1_branch_pass2odd, flush_instr2_even, flush_4stage;
 
