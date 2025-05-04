@@ -53,7 +53,6 @@ wire [0:9] new_PC_result; // new PC from branch unit
 reg [0:127] result; // used for permute or branch 
 
 wire [0:127] PERM_result, branch_rt_result, LS_data_result;
-// reg [0:9] new_PC;
 wire [0:14] addr_result;
 
 reg LS_write_en;
@@ -92,8 +91,7 @@ LS_ALU LS_inst(
   .addr_result(addr_result)
 );
 
-// below two always block can be combined
-always @(*) begin // this should actually come from ID stage
+always @(*) begin 
   case (instr_id)
     `instr_ID_stqa: LS_write_en = 1'b1;
     `instr_ID_stqd: LS_write_en = 1'b1;

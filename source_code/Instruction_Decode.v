@@ -33,7 +33,7 @@ module Instruction_Decode(
   output reg instr1_type, // 1 for even, 0 for odd
   output reg instr2_type
 );
-// the problem here is that if both instr1 and instr2 are same type, one just overwrites the other
+
 `include "opcode_package.vh"
 
 localparam RRR = 3'b000;
@@ -55,34 +55,53 @@ assign temp_opcode2 = instruction_in2[0:10];
 always @(*) begin
 
   // -------------- RRR ------------------
-  if (temp_opcode1[0:1] == 2'b11) begin
-    case (temp_opcode1)
-      `op_fma: instr_id_1 = `instr_ID_fma;
-      `op_fms: instr_id_1 = `instr_ID_fms;
-      `op_fnms: instr_id_1 = `instr_ID_fnms;
-      `op_mpya: instr_id_1 = `instr_ID_mpya;
-      default: instr_id_1 = 7'b0;
-    endcase
+  if (temp_opcode1[0:3] == `op_fma || temp_opcode1[0:3] == `op_fms ||
+      temp_opcode1[0:3] == `op_fnms || temp_opcode1[0:3] == `op_mpya || 
+      temp_opcode1[0:3] == `op_selb) begin
+
+    if (temp_opcode1[0:3] == `op_fma) begin
+      instr_id_1 = `instr_ID_fma;
+      unit_id_1 = 3'b011;
+      latency_1 = 4'd7;
+      reg_wr_1 = 1'b1;
+      instr1_type = 1'b1;
+    end
+
+    else if (temp_opcode1[0:3] == `op_fms) begin
+      instr_id_1 = `instr_ID_fms;
+      unit_id_1 = 3'b011;
+      latency_1 = 4'd7;
+      reg_wr_1 = 1'b1;
+      instr1_type = 1'b1;
+    end
+
+    else if (temp_opcode1[0:3] == `op_fnms) begin
+      instr_id_1 = `instr_ID_fnms;
+      unit_id_1 = 3'b011;
+      latency_1 = 4'd7;
+      reg_wr_1 = 1'b1;
+      instr1_type = 1; 
+    end
+
+    else if (temp_opcode1[0:3] == `op_mpya) begin
+      instr_id_1 = `instr_ID_mpya;
+      unit_id_1 = 3'b011;
+      latency_1 = 4'd8;
+      reg_wr_1 = 1;
+      instr1_type = 1; 
+    end
+    else if (temp_opcode1[0:3] == `op_selb) begin
+      instr_id_1 = `instr_ID_selb;
+      unit_id_1 = 3'b001;
+      latency_1 = 4'd3;
+      reg_wr_1 = 1'b1;
+      instr1_type = 1'b1;
+    end 
+
     reg_dst_1 = instruction_in1[4:10];
-    unit_id_1 = 3'b011;
-    latency_1 = 4'd8;
-    reg_wr_1 = 1'b1;
     ra_addr_1 = instruction_in1[18:24];
     rb_addr_1 = instruction_in1[11:17];
     rc_addr_1 = instruction_in1[25:31];
-    instr1_type = 1'b1;
-  end 
-  
-  else if (temp_opcode1[0:3] == `op_selb) begin
-    instr_id_1 = `instr_ID_selb;
-    reg_dst_1 = instruction_in1[4:10];
-    unit_id_1 = 3'b001;
-    latency_1 = 4'd3;
-    reg_wr_1 = 1'b1;
-    ra_addr_1 = instruction_in1[18:24];
-    rb_addr_1 = instruction_in1[11:17];
-    rc_addr_1 = instruction_in1[25:31];
-    instr1_type = 1'b1;
   end 
   
   // -------------- R18 ------------------
@@ -256,17 +275,11 @@ always @(*) begin
       instr1_type = 1'b0;
     end
 
-    if (instr1_type) begin // dont need if statement anymore
-      imme7_1 = instruction_in1[8:17];
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end else begin
-      imme7_1 = instruction_in1[8:17];
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end
+    imme10_1 = instruction_in1[8:17];
+    reg_dst_1 = instruction_in1[25:31];
+    ra_addr_1 = instruction_in1[18:24];
+    rc_addr_1 = instruction_in1[25:31]; // for rt data
+
   end
 
   // -------------- RI16 -----------------------
@@ -389,15 +402,10 @@ always @(*) begin
       instr1_type = 1'b0;
     end
 
-    if (instr1_type) begin // no need
-      imme16_1 = instruction_in1[9:24];
-      reg_dst_1 = instruction_in1[25:31];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end else begin
-      imme16_1 = instruction_in1[9:24];
-      reg_dst_1 = instruction_in1[25:31];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end
+
+    imme16_1 = instruction_in1[9:24];
+    reg_dst_1 = instruction_in1[25:31];
+    rc_addr_1 = instruction_in1[25:31]; // for rt data
   end
 
   // -------------- RI7 -----------------------
@@ -466,20 +474,14 @@ always @(*) begin
       instr_id_1 = `instr_ID_shlqbyi; 
       unit_id_1 = 3'd5; 
       latency_1 = 4'd4;
+      reg_wr_1 = 1'b1; 
       instr1_type = 1'b0; 
     end
 
-    if (instr1_type) begin // no need
-      imme7_1 = instruction_in1[11:17];
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end else begin
-      imme7_1 = instruction_in1[11:17];
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rc_addr_1 = instruction_in1[25:31];
-    end
+    imme7_1 = instruction_in1[11:17];
+    reg_dst_1 = instruction_in1[25:31];
+    ra_addr_1 = instruction_in1[18:24];
+    rc_addr_1 = instruction_in1[25:31];
   end
 
   // -------------- RR ----------------------
@@ -688,7 +690,7 @@ always @(*) begin
       latency_1 = 4'd3;
       reg_wr_1 = 1'b1;
       instr1_type = 1'b1;
-  end
+    end
 
     else if (temp_opcode1 == `op_shl) begin
       instr_id_1 = `instr_ID_shl; 
@@ -826,17 +828,11 @@ always @(*) begin
       instr1_type = 1'b0;
     end
 
-    if (instr1_type) begin // no need
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rb_addr_1 = instruction_in1[11:17];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end else begin
-      reg_dst_1 = instruction_in1[25:31];
-      ra_addr_1 = instruction_in1[18:24];
-      rb_addr_1 = instruction_in1[11:17];
-      rc_addr_1 = instruction_in1[25:31]; // for rt data
-    end
+
+    reg_dst_1 = instruction_in1[25:31];
+    ra_addr_1 = instruction_in1[18:24];
+    rb_addr_1 = instruction_in1[11:17];
+    rc_addr_1 = instruction_in1[25:31]; // for rt data
   end
   else if (temp_opcode1 == `op_stop) begin
     instr_id_1 = `instr_ID_stop;
@@ -853,36 +849,54 @@ end
 always @(*) begin
 
   // -------------- RRR ------------------
-  if (temp_opcode2[0:1] == 2'b11) begin
-      case (temp_opcode2)
-        `op_fma: instr_id_2 = `instr_ID_fma;
-        `op_fms: instr_id_2 = `instr_ID_fms;
-        `op_fnms: instr_id_2 = `instr_ID_fnms;
-        `op_mpya: instr_id_2 = `instr_ID_mpya;
-        default: instr_id_2 = 7'b0;
-      endcase
+  if (temp_opcode2[0:3] == `op_fma || temp_opcode2[0:3] == `op_fms ||
+      temp_opcode2[0:3] == `op_fnms || temp_opcode2[0:3] == `op_mpya || 
+      temp_opcode2[0:3] == `op_selb) begin
+
+    if (temp_opcode2[0:3] == `op_fma) begin
+      instr_id_2 = `instr_ID_fma;
+      unit_id_2 = 3'b011;
+      latency_2 = 4'd7;
+      reg_wr_2 = 1'b1;
+      instr2_type = 1'b1;
+    end
+
+    else if (temp_opcode2[0:3] == `op_fms) begin
+      instr_id_2 = `instr_ID_fms;
+      unit_id_2 = 3'b011;
+      latency_2 = 4'd7;
+      reg_wr_2 = 1'b1;
+      instr2_type = 1'b1;
+    end
+
+    else if (temp_opcode2[0:3] == `op_fnms) begin
+      instr_id_2 = `instr_ID_fnms;
+      unit_id_2 = 3'b011;
+      latency_2 = 4'd7;
+      reg_wr_2 = 1'b1;
+      instr2_type = 1; 
+    end
+
+    else if (temp_opcode2[0:3] == `op_mpya) begin
+      instr_id_2 = `instr_ID_mpya;
+      unit_id_2 = 3'b011;
+      latency_2 = 4'd8;
+      reg_wr_2 = 1;
+      instr2_type = 1; 
+    end
+    else if (temp_opcode2[0:3] == `op_selb) begin
+      instr_id_2 = `instr_ID_selb;
+      unit_id_2 = 3'b001;
+      latency_2 = 4'd3;
+      reg_wr_2 = 1'b1;
+      instr2_type = 1'b1;
+    end 
+
     reg_dst_2 = instruction_in2[4:10];
-    unit_id_2 = 3'b011;
-    latency_2 = 4'd8;
-    reg_wr_2 = 1'b1;
     ra_addr_2 = instruction_in2[18:24];
     rb_addr_2 = instruction_in2[11:17];
     rc_addr_2 = instruction_in2[25:31];
-    instr2_type = 1'b1;
-  end 
-
-  else if (temp_opcode2[0:3] == `op_selb) begin
-    instr_id_2 = `instr_ID_selb;
-    reg_dst_2 = instruction_in2[4:10];
-    unit_id_2 = 3'b001;
-    latency_2 = 4'd3;
-    reg_wr_2 = 1'b1;
-    ra_addr_2 = instruction_in2[18:24];
-    rb_addr_2 = instruction_in2[11:17];
-    rc_addr_2 = instruction_in2[25:31];
-    instr2_type = 1'b1;
-  end 
-
+  end
   // -------------- R18 ------------------
   else if (temp_opcode2[0:6] == `op_ila) begin
     instr_id_2 = `instr_ID_ila;
@@ -1015,17 +1029,10 @@ always @(*) begin
       instr2_type = 1'b0;
     end
 
-    if (instr2_type) begin
-      imme7_2 = instruction_in2[8:17];
-      reg_dst_2 = instruction_in2[25:31];
-      ra_addr_2 = instruction_in2[18:24];
-      rc_addr_2 = instruction_in2[25:31];
-    end else begin
-      imme7_2 = instruction_in2[8:17];
-      reg_dst_2 = instruction_in2[25:31];
-      ra_addr_2 = instruction_in2[18:24];
-      rc_addr_2 = instruction_in2[25:31];
-    end
+    imme10_2 = instruction_in2[8:17];
+    reg_dst_2 = instruction_in2[25:31];
+    ra_addr_2 = instruction_in2[18:24];
+    rc_addr_2 = instruction_in2[25:31];
   end
 
   // -------------- RI16 -----------------------
@@ -1148,15 +1155,9 @@ else if (temp_opcode2[0:8] == `op_ilh || temp_opcode2[0:8] == `op_ilhu || temp_o
     instr2_type = 1'b0;
   end
 
-  if (instr2_type) begin
-    imme16_2 = instruction_in2[9:24];
-    reg_dst_2 = instruction_in2[25:31];
-    rc_addr_2 = instruction_in2[25:31]; // for rt data
-  end else begin
-    imme16_2 = instruction_in2[9:24];
-    reg_dst_2 = instruction_in2[25:31];
-    rc_addr_2 = instruction_in2[25:31]; // for rt data
-  end
+  imme16_2 = instruction_in2[9:24];
+  reg_dst_2 = instruction_in2[25:31];
+  rc_addr_2 = instruction_in2[25:31]; // for rt data
 end
 
 // -------------- RI7 -----------------------
@@ -1229,17 +1230,10 @@ else if (temp_opcode2 == `op_rothi || temp_opcode2 == `op_roti ||
     instr2_type = 1'b0; 
   end
 
-  if (instr2_type) begin
-    imme7_2 = instruction_in2[11:17];
-    reg_dst_2 = instruction_in2[25:31];
-    ra_addr_2 = instruction_in2[18:24];
-    rc_addr_2 = instruction_in2[25:31]; // for rt data
-  end else begin
-    imme7_2 = instruction_in2[11:17];
-    reg_dst_2 = instruction_in2[25:31];
-    ra_addr_2 = instruction_in2[18:24];
-    rc_addr_2 = instruction_in2[25:31];
-  end
+  imme7_2 = instruction_in2[11:17];
+  reg_dst_2 = instruction_in2[25:31];
+  ra_addr_2 = instruction_in2[18:24];
+  rc_addr_2 = instruction_in2[25:31]; // for rt data
 end
 
 
@@ -1587,17 +1581,10 @@ end
       instr2_type = 1'b0;
     end
 
-    if (instr2_type) begin
-      reg_dst_2 = instruction_in2[25:31];
-      ra_addr_2 = instruction_in2[18:24];
-      rb_addr_2 = instruction_in2[11:17];
-      rc_addr_2 = instruction_in2[25:31]; // for rt data
-    end else begin
-      reg_dst_2 = instruction_in2[25:31];
-      ra_addr_2 = instruction_in2[18:24];
-      rb_addr_2 = instruction_in2[11:17];
-      rc_addr_2 = instruction_in2[25:31]; // for rt data
-    end
+    reg_dst_2 = instruction_in2[25:31];
+    ra_addr_2 = instruction_in2[18:24];
+    rb_addr_2 = instruction_in2[11:17];
+    rc_addr_2 = instruction_in2[25:31]; // for rt data
   end
   else if (temp_opcode2 == `op_stop) begin
     instr_id_2 = `instr_ID_stop;

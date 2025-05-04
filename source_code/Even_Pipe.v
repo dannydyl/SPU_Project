@@ -18,9 +18,6 @@ module Even_Pipe(
   input [0:15] imme16,
   input [0:17] imme18,
 
-
-
-
   // output for forwarding unit
   output reg [0:142] packed_2stage,
   output reg [0:142] packed_3stage,
@@ -37,7 +34,6 @@ module Even_Pipe(
 );
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
-// reg [0:142] packed_result_1stage, packed_result_2stage, packed_result_3stage, packed_result_4stage, packed_result_5stage, packed_result_6stage, packed_result_7stage;
 
 reg [0:127] result;
 

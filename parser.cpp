@@ -13,9 +13,10 @@ using namespace std;
  * Convert an integer 'value' to a binary string of length 'bits'.
  * Zero-pads (or truncates) on the left as needed.
  */
+// value may be negative. bits is the field width you need (7,10,16,18,…)
 string toBinary(int value, int bits) {
-    // Convert to 32-bit binary, then take the rightmost 'bits'.
-    return bitset<32>(value).to_string().substr(32 - bits, bits);
+    auto s = bitset<32>(value).to_string();
+    return s.substr(32 - bits);
 }
 
 /*
@@ -244,8 +245,6 @@ unordered_map<string, InstructionInfo> instructionMap = {
     {"lnop", {FormatType::RR, 0b00000000001}},
     {"nop", {FormatType::RR, 0b01000000001}},
     {"stop", {FormatType::RR, 0b00000000000}},
-
-    // Add more instructions...
 };
 
 /*
@@ -291,15 +290,25 @@ pair<int, int> parseDFormOperand(const string& operand) {
  *  - Call the corresponding assemble function
  *  - Return a 32-bit binary string (or empty if error)
  */
-string processInstruction(const string &line, const unordered_map<string, int> &labelMap, int pc) {
+string processInstruction(const string &rawLine, const unordered_map<string, int> &labelMap, int pc) {
     // 1) Extract mnemonic
-    istringstream iss(line);
+    // strip inline comment
+    size_t cpos = rawLine.find("//");
+    string code = (cpos != string::npos
+                   ? rawLine.substr(0, cpos)
+                   : rawLine);
+
+    // trim whitespace
+    size_t start = code.find_first_not_of(" \t");
+    if (start == string::npos) return "";
+    size_t end   = code.find_last_not_of(" \t");
+    code = code.substr(start, end - start + 1);
+
+    // extract mnemonic
+    istringstream iss(code);
     string mnemonic;
     iss >> mnemonic;
-    if (mnemonic.empty()) {
-        return ""; // skip empty or invalid line
-    }
-
+    if (mnemonic.empty()) return "";
     // 2) Lookup
     auto it = instructionMap.find(mnemonic);
     if (it == instructionMap.end()) {
@@ -386,26 +395,43 @@ string processInstruction(const string &line, const unordered_map<string, int> &
         return assembleRI10(info.opcode, imm, ra, rt);
     }
     case FormatType::RI16: {
-        // operands: e.g. "bra targetLabel" or "brz $1, targetLabel"
-        int rt=0, imm=0;
-        if (operands.size()>1) {
-            rt = parseOperand(operands[0]);
-            string &tok = operands.back();
-            // if tok matches a label name use its index
-            auto itL = labelMap.find(tok);
-            if (itL!=labelMap.end())
-            imm = itL->second + 2;
-            else
-            imm = parseOperand(tok);
-        } else {
-            // single operand is immediate or label
-            string &tok = operands[0];
-            auto itL = labelMap.find(tok);
-            if (itL!=labelMap.end())
-            imm = itL->second + 2;
-            else
-            imm = parseOperand(tok);
+        int rt  = 0;
+        int imm = 0;
+        string tok;
+
+        // 1-operand form or 2-operand form
+        if (operands.size() == 1) {
+            tok = operands[0];
         }
+        else if (operands.size() == 2) {
+            rt  = parseOperand(operands[0]);
+            tok = operands[1];
+        }
+        else {
+            cerr << "Error: RI16 expects one or two operands\n";
+            return "";
+        }
+
+        // resolve label first
+        auto itL = labelMap.find(tok);
+        if (itL != labelMap.end()) {
+            int targetPC = itL->second + 2;            // absolute target
+            if (mnemonic == "bra")
+                imm = targetPC;                        // absolute
+            else
+                imm = targetPC - (pc + 1);             // signed relative
+        }
+        else {
+            // must be a numeric immediate
+            try {
+                imm = parseOperand(tok);
+            }
+            catch (const invalid_argument&) {
+                cerr << "Error: unknown label or immediate '" << tok << "'\n";
+                return "";
+            }
+        }
+
         return assembleRI16(info.opcode, imm, rt);
     }
     case FormatType::RI18: {

@@ -14,9 +14,9 @@ module IF_wrapper(
     output reg [0:31] instruction_out2,
     output reg find_nop
 );
-    localparam LINE_LENGTH = 1024;  // 1024 instructions (4KB total)
+    localparam LINE_LENGTH = 512;  // 512 instructions (2KB total)
 
-    // Instruction buffer memory (4KB = 1024 x 32-bit instructions)
+    // Instruction buffer memory (2KB = 512 x 32-bit instructions)
     reg [0:31] instr_buffer [0:LINE_LENGTH-1];
     
     // Program Counter

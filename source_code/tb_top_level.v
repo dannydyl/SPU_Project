@@ -12,7 +12,7 @@ module tb_top_level;
   reg   [0:9] preload_addr;
   reg [0:127] preload_values;
   reg         preload_LS_en;
-  reg [0:6] preload_LS_addr;
+  reg [0:14] preload_LS_addr;
   reg [0:127] preload_LS_data;
 
   integer i;
@@ -36,7 +36,7 @@ module tb_top_level;
   localparam clock_cycle = 10;
   // Clock generation: 10ns period
   initial begin
-    clk = 0;
+    clk = 1;
     forever #(clock_cycle/2) clk = ~clk;
   end
 
@@ -63,21 +63,65 @@ module tb_top_level;
     // preload to LS
     preload_LS_en  = 1;
 
+    // matrix A
+    preload_LS_addr = 15'b000_0000_0000_0000;
+    preload_LS_data = 128'h00000000_00000000_00000000_00000000;
+    #(clock_cycle); 
+
     preload_LS_addr = 15'b000_0000_0001_0000;
-    preload_LS_data = 128'h00000001_00000001_00000001_00000001;
+    preload_LS_data = 128'h3f800000_3f800000_3f800000_3f800000;
     #(clock_cycle); 
 
     preload_LS_addr = 15'b000_0000_0010_0000;
-    preload_LS_data = 128'h00000002_00000002_00000002_00000002;
+    preload_LS_data = 128'h40000000_40000000_40000000_40000000;
     #(clock_cycle); 
 
     preload_LS_addr = 15'b000_0000_0011_0000;
-    preload_LS_data = 128'h00000003_00000003_00000003_00000003;
+    preload_LS_data = 128'h40400000_40400000_40400000_40400000;
     #(clock_cycle); 
 
+    // A matrix for other elements
+    // preload_LS_addr = 15'b000_0000_0001_0000;
+    // preload_LS_data = 128'h40800000_40a00000_40c00000_40e00000;
+    // #(clock_cycle); 
+
+    // preload_LS_addr = 15'b000_0000_0010_0000;
+    // preload_LS_data = 128'h41000000_41100000_41200000_41300000;
+    // #(clock_cycle); 
+
+    // preload_LS_addr = 15'b000_0000_0011_0000;
+    // preload_LS_data = 128'h41400000_41500000_41600000_41700000;
+    // #(clock_cycle); 
+
+    // matrix B
     preload_LS_addr = 15'b000_0000_0100_0000;
-    preload_LS_data = 128'h00000004_00000004_00000004_00000004;
+    preload_LS_data = 128'h41800000_41800000_41800000_41800000;
     #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0101_0000;
+    preload_LS_data = 128'h41a00000_41a00000_41a00000_41a00000;
+    #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0110_0000;
+    preload_LS_data = 128'h41c00000_41c00000_41c00000_41c00000;
+    #(clock_cycle); 
+
+    preload_LS_addr = 15'b000_0000_0111_0000;
+    preload_LS_data = 128'h41e00000_41e00000_41e00000_41e00000;
+    #(clock_cycle); 
+
+    // B matrix for other elements
+    // preload_LS_addr = 15'b000_0000_0101_0000;
+    // preload_LS_data = 128'h41880000_41a80000_41c80000_41e80000;
+    // #(clock_cycle); 
+
+    // preload_LS_addr = 15'b000_0000_0110_0000;
+    // preload_LS_data = 128'h41900000_41b00000_41d00000_41f00000;
+    // #(clock_cycle); 
+
+    // preload_LS_addr = 15'b000_0000_0111_0000;
+    // preload_LS_data = 128'h41980000_41b80000_41d80000_41f80000;
+    // #(clock_cycle); 
 
 
     // -------------------------
@@ -103,7 +147,7 @@ module tb_top_level;
     
     // -------------------------
     // let pipeline run for a while
-    #800;
+    #2000;
 
     $finish;
   end

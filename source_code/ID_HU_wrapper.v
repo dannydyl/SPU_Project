@@ -86,6 +86,7 @@ wire [0:6] temp_reg_dst_even, temp_reg_dst_odd, temp_ra_addr_even, temp_ra_addr_
 
 wire temp_stall, temp_dependent_stall, temp_flush, temp_instr1_type, temp_instr2_type;
 
+wire [0:6] temp_instr_id_even, temp_instr_id_odd;
 reg [0:1] instr_dependent_protocol; // 01: even, 10: odd 00: reset
 reg [0:1] data_dependent_protocol; // 01: even, 10: odd 00: reset
 
@@ -133,8 +134,8 @@ assign temp_reg_dst_odd = temp_instr2_type ? temp_reg_dst_1 : temp_reg_dst_2;
 assign temp_ra_addr_odd = temp_instr2_type ? temp_ra_addr_1 : temp_ra_addr_2;
 assign temp_rb_addr_odd = temp_instr2_type ? temp_rb_addr_1 : temp_rb_addr_2;
 assign temp_rc_addr_odd = temp_instr2_type ? temp_rc_addr_1 : temp_rc_addr_2;
-// assign temp_reg_wr_even = temp_instr1_type ? temp_reg_wr_1 : temp_reg_wr_2;
-// assign temp_reg_wr_odd = temp_instr2_type ? temp_reg_wr_1 : temp_reg_wr_2;
+assign temp_instr_id_even = temp_instr1_type ? temp_instr_id_1 : temp_instr_id_2;
+assign temp_instr_id_odd = temp_instr2_type ? temp_instr_id_1 : temp_instr_id_2;
 
 Hazard_Unit HU_inst(
   .instr_dependent_protocol(instr_dependent_protocol),
@@ -144,12 +145,12 @@ Hazard_Unit HU_inst(
   .is_branch(is_branch),
   .branch_taken(branch_taken),
 
-  .instr_id_1(temp_instr_id_1),
+  .instr_id_even(temp_instr_id_even),
   .reg_dst_even(temp_reg_dst_even),
   .ra_addr_even(temp_ra_addr_even),
   .rb_addr_even(temp_rb_addr_even),
   .rc_addr_even(temp_rc_addr_even),
-  .instr_id_2(temp_instr_id_2),
+  .instr_id_odd(temp_instr_id_odd),
   .reg_dst_odd(temp_reg_dst_odd),
   .ra_addr_odd(temp_ra_addr_odd),
   .rb_addr_odd(temp_rb_addr_odd),
@@ -578,6 +579,141 @@ instr1_branch <= 1'b0;
       rc_addr_odd <= temp_rc_addr_2;
     end
   end
+  else if (temp_instr_id_1 == `instr_ID_stop || temp_instr_id_2 == `instr_ID_stop) begin // when one of instr is stop
+    if(temp_instr_id_1 != `instr_ID_stop && temp_instr1_type == 1'b1) begin
+      instr_id_even <= temp_instr_id_1;
+      reg_dst_even <= temp_reg_dst_1;
+      unit_id_even <= temp_unit_id_1;
+      latency_even <= temp_latency_1;
+      reg_wr_even <= temp_reg_wr_1;
+      imme7_even <= temp_imme7_1;
+      imme10_even <= temp_imme10_1;
+      imme16_even <= temp_imme16_1;
+      imme18_even <= temp_imme18_1;
+      ra_addr_even <= temp_ra_addr_1;
+      rb_addr_even <= temp_rb_addr_1;
+      rc_addr_even <= temp_rc_addr_1;
+
+      instr_id_odd <= `instr_ID_stop;
+      reg_dst_odd <= 7'b0;
+      unit_id_odd <= 3'b0;
+      latency_odd <= 4'b0;
+      reg_wr_odd <= 1'b0;
+      imme7_odd <= 7'b0;
+      imme10_odd <= 10'b0;
+      imme16_odd <= 16'b0;
+      imme18_odd <= 18'b0;
+      
+      ra_addr_odd <= 7'b0;
+      rb_addr_odd <= 7'b0;
+      rc_addr_odd <= 7'b0;
+    end
+    else if (temp_instr_id_1 != `instr_ID_stop && temp_instr1_type == 1'b0) begin
+      instr_id_even <= `instr_ID_stop;
+      reg_dst_even <= 7'b0;
+      unit_id_even <= 3'b0;
+      latency_even <= 4'b0;
+      reg_wr_even <= 1'b0;
+      imme7_even <= 7'b0;
+      imme10_even <= 10'b0;
+      imme16_even <= 16'b0;
+      imme18_even <= 18'b0;
+
+      ra_addr_even <= 7'b0;
+      rb_addr_even <= 7'b0;
+      rc_addr_even <= 7'b0;
+
+      instr_id_odd <= temp_instr_id_1;
+      reg_dst_odd <= temp_reg_dst_1;
+      unit_id_odd <= temp_unit_id_1;
+      latency_odd <= temp_latency_1;
+      reg_wr_odd <= temp_reg_wr_1;
+      imme7_odd <= temp_imme7_1;
+      imme10_odd <= temp_imme10_1;
+      imme16_odd <= temp_imme16_1;
+      imme18_odd <= temp_imme18_1;
+
+      ra_addr_odd <= temp_ra_addr_1;
+      rb_addr_odd <= temp_rb_addr_1;
+      rc_addr_odd <= temp_rc_addr_1;
+
+    end
+    else if(temp_instr_id_2 != `instr_ID_stop && temp_instr2_type == 1'b1) begin
+      instr_id_even <= temp_instr_id_2;
+      reg_dst_even <= temp_reg_dst_2;
+      unit_id_even <= temp_unit_id_2;
+      latency_even <= temp_latency_2;
+      reg_wr_even <= temp_reg_wr_2;
+      imme7_even <= temp_imme7_2;
+      imme10_even <= temp_imme10_2;
+      imme16_even <= temp_imme16_2;
+      imme18_even <= temp_imme18_2;
+
+      ra_addr_even <= temp_ra_addr_2;
+      rb_addr_even <= temp_rb_addr_2;
+      rc_addr_even <= temp_rc_addr_2;
+
+      instr_id_odd <= `instr_ID_stop;
+      reg_dst_odd <= 7'b0;
+      unit_id_odd <= 3'b0;
+      latency_odd <= 4'b0;
+      reg_wr_odd <= 1'b0;
+      imme7_odd <= 7'b0;
+      imme10_odd <= 10'b0;
+      imme16_odd <= 16'b0;
+      imme18_odd <= 18'b0;
+
+      ra_addr_odd <= 7'b0;
+      rb_addr_odd <= 7'b0;
+      rc_addr_odd <= 7'b0;
+
+    end
+    else if(temp_instr_id_2 != `instr_ID_stop && temp_instr2_type == 1'b0) begin
+      instr_id_even <= `instr_ID_stop;
+      reg_dst_even <= 7'b0;
+      unit_id_even <= 3'b0;
+      latency_even <= 4'b0;
+      reg_wr_even <= 1'b0;
+      imme7_even <= 7'b0;
+      imme10_even <= 10'b0;
+      imme16_even <= 16'b0;
+      imme18_even <= 18'b0;
+
+      ra_addr_even <= 7'b0;
+      rb_addr_even <= 7'b0;
+      rc_addr_even <= 7'b0;
+
+      instr_id_odd <= temp_instr_id_2;
+      reg_dst_odd <= temp_reg_dst_2;
+      unit_id_odd <= temp_unit_id_2;
+      latency_odd <= temp_latency_2;
+      reg_wr_odd <= temp_reg_wr_2;
+      imme7_odd <= temp_imme7_2;
+      imme10_odd <= temp_imme10_2;
+      imme16_odd <= temp_imme16_2;
+      imme18_odd <= temp_imme18_2;
+
+      ra_addr_odd <= temp_ra_addr_2;
+      rb_addr_odd <= temp_rb_addr_2;
+      rc_addr_odd <= temp_rc_addr_2;
+
+    end
+    else if(temp_instr_id_2 != `instr_ID_stop && temp_instr2_type ) begin
+      instr_id_even <= temp_instr_id_1;
+      reg_dst_even <= temp_reg_dst_1;
+      unit_id_even <= temp_unit_id_1;
+      latency_even <= temp_latency_1;
+      reg_wr_even <= temp_reg_wr_1;
+      imme7_even <= temp_imme7_1;
+      imme10_even <= temp_imme10_1;
+      imme16_even <= temp_imme16_1;
+      imme18_even <= temp_imme18_1;
+
+      ra_addr_even <= temp_ra_addr_1;
+      rb_addr_even <= temp_rb_addr_1;
+      rc_addr_even <= temp_rc_addr_1;
+    end
+  end
   else begin
     // feed the decoded instruction to the next stage RF
     if(temp_instr1_type == 1'b1) begin
@@ -640,6 +776,7 @@ instr1_branch <= 1'b0;
       rb_addr_odd <= temp_rb_addr_2;
       rc_addr_odd <= temp_rc_addr_2;
     end
+
   end
   if (temp_unit_id_1 == 3'b111) begin // send signal to Odd pipe that instr1 is branch
     instr1_branch <= 1'b1;

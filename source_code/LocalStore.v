@@ -17,7 +17,7 @@ reg [0:7] LS_mem [0:32767];
 
 integer i;
   // Asynchronous read
-  always @(LS_addr) begin
+  always @(*) begin
       for (i = 0; i < 16; i = i + 1) begin
           LS_data_out[i*8 +: 8] = LS_mem[LS_addr + i];
       end

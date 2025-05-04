@@ -67,7 +67,7 @@ assign reg_read_data_6 =
 integer i;
 
 // write operations (synchronous)
-always @(posedge clk or posedge rst)
+always @(posedge clk or posedge rst) begin
   if (rst) begin
     if (preload_en) begin
       // Load register every cycle
@@ -86,5 +86,6 @@ always @(posedge clk or posedge rst)
       reg_file[reg_write_addr_2] <= reg_write_data_2;
     end
   end   
+end
 
 endmodule

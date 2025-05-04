@@ -1,43 +1,19 @@
-// RR format (e.g. AND)
-// Assembly: "and $1, $2, $3"
-// Meaning: $1 = $2 AND $3, which will be encoded as [OP(11)][RB($3)][RA($2)][RT($1)]
-// and $1, $2, $3
-
-// RRR format (e.g. SELB)
-// Assembly: "selb $4, $5, $6, $7"
-// Meaning: $4 = SELB($5, $6, $7) with bit layout: [OP(4)][RT($4)][RB($5)][RA($6)][RC($7)]
-// selb $4, $5, $6, $7
-
-// RI7 format (e.g. ROTHI)
-// Assembly: "rothi $1, $2, 5"
-// Meaning: $1 = ROTHI($2, 5) with bit layout: [OP(11)][I7(5)][RA($2)][RT($1)]
-// rothi $1, $2, 5
-
-// RI10 format (e.g. AHI)
-// Assembly: "ahi $1, $2, 10"
-// Meaning: $1 = AHI($2, 10) with bit layout: [OP(8)][I10(10)][RA($2)][RT($1)]
-// ahi $1, $2, 10
-
-// RI16 format (e.g. LQA)
-// Assembly: "lqa $1, 255"
-// Meaning: $1 = LQA(255) with bit layout: [OP(9)][I16(16)][RT($1)]
-// lqa $1, 255
-
-// RI18 format (e.g. ILA)
-// Assembly: "ila $1, 1023"
-// Meaning: $1 = ILA(1023) with bit layout: [OP(7)][I18(18)][RT($1)]
-// ila $1, 1023
-
+// initialization
+ila $3, 0 // A base addr
+ila $4, 64 // B base addr
+ila $5, 128 // C base addr
+il $6, 0 // counter k
+il $8, 0 // accumulator
 LOOP:
-and $1, $2, $3
-rotqby $4, $2, $3
-and $5, $2, $3
-rotqby $6, $2, $3
-and $7, $2, $3
-rotqby $8, $2, $3
-bra LOOP
-and $9, $2, $3
-xor $10, $18, $12
-shlqbi $17, $14, $15
-xor $11, $18, $12
-shlqbi $19, $14, $15
+mpyi $10, $6, 16 // $10 = k * 16 byte offset
+a $11, $3, $10 // $11 = addr of A[0][k]
+lqd $12, 0($11) // $12 = A[0][k]
+a $13, $4, $10 // $13 = addr of B[k][0]
+lqd $14, 0($13) // $14 = B[k][0]
+fma $8, $12, $14, $8 // $8 = A[0][k] * B[k][0] + $8
+ai $6, $6, 1
+ceqi $15, $6, 4 // if $6 = 4 then $15 = 1
+brz $15, LOOP  // if $15 != 0 branch taken
+stqd $8, 0($5)
+stop
+

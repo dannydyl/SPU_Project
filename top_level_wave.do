@@ -12,8 +12,8 @@ add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instruction_out1
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instruction_out2
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/no_more_instruction
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instr_buffer
-add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/PC_br_target
-add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/PC_current_out
+add wave -noupdate -expand -group IF -radix unsigned /tb_top_level/dut/IF_inst/PC_br_target
+add wave -noupdate -expand -group IF -radix unsigned /tb_top_level/dut/IF_inst/PC_current_out
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/find_nop
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/i
 add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/HU_inst/stall
@@ -341,17 +341,22 @@ add wave -noupdate -expand -group OddPipe /tb_top_level/dut/Odd_Pipe_inst/addr_r
 add wave -noupdate -expand -group OddPipe /tb_top_level/dut/Odd_Pipe_inst/LS_write_en
 add wave -noupdate -expand -group OddPipe /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/branch_taken
 add wave -noupdate -expand -group OddPipe /tb_top_level/dut/Odd_Pipe_inst/branch_taken_1stage
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/clk
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/rst
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_write_en
-add wave -noupdate -group LSmem -radix binary /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_addr
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_data_in
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_data_out
-add wave -noupdate -group LSmem -expand /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_mem
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_en
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_addr
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_data
-add wave -noupdate -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/i
+add wave -noupdate -radix unsigned /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/brz_inst/imme16
+add wave -noupdate /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/brz_inst/rt
+add wave -noupdate -radix unsigned /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/brz_inst/in_PC
+add wave -noupdate -radix unsigned /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/brz_inst/PC_result
+add wave -noupdate /tb_top_level/dut/Odd_Pipe_inst/BRANCH_inst/brz_inst/branch_taken
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/clk
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/rst
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_write_en
+add wave -noupdate -expand -group LSmem -radix binary /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_addr
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_data_in
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_data_out
+add wave -noupdate -expand -group LSmem -expand /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/LS_mem
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_en
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_addr
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/preload_LS_data
+add wave -noupdate -expand -group LSmem /tb_top_level/dut/Odd_Pipe_inst/LSmem_inst/i
 add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/clk
 add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/IF_inst/instruction_out1
 add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/IF_inst/instruction_out2
@@ -407,10 +412,10 @@ add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst/packed_
 add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst/packed_6stage
 add wave -noupdate -group Full_pipe_demo /tb_top_level/dut/Odd_Pipe_inst/packed_7stage
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {187849 ps} 0}
+WaveRestoreCursors {{Cursor 1} {1762180 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 452
-configure wave -valuecolwidth 100
+configure wave -namecolwidth 362
+configure wave -valuecolwidth 81
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -423,4 +428,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ps
 update
-WaveRestoreZoom {5240 ps} {468056 ps}
+WaveRestoreZoom {0 ps} {488700 ps}

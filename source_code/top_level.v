@@ -5,10 +5,10 @@ module top_level(
   input [0:31] instruction_in,
   input [0:9] instr_load_addr,
   input preload_en,
-  input [0:9] preload_addr,
+  input [0:6] preload_addr,
   input [0:127] preload_values,
   input preload_LS_en,
-  input [0:6] preload_LS_addr,
+  input [0:14] preload_LS_addr,
   input [0:127] preload_LS_data
 
 );
