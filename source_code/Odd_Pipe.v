@@ -50,6 +50,7 @@ module Odd_Pipe(
 // [0:2] unit ID, [3:130] 128-bit result, [131:137] reg_dst, [138:141] latency, [142] RegWr
 reg [0:142] packed_1stage;
 wire [0:8] new_PC_result; // new PC from branch unit
+wire [0:8] temp_in_PC = current_PC + 2; // used for branch taken
 reg [0:127] result; // used for permute or branch 
 
 wire [0:127] PERM_result, branch_rt_result, LS_data_result;
@@ -154,7 +155,7 @@ always @(posedge clk or posedge rst) begin
   else begin
   flush_instr2_even <= 1'b0; // default value
     if(unit_id == 3'b111) begin
-      new_PC <= new_PC_result;
+      new_PC <= new_PC_result - 2;
       branch_taken <= branch_taken_1stage;
       is_branch <= 1'b1;
       if(instr1_branch && branch_taken_1stage) begin

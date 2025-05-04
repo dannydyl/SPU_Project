@@ -144,7 +144,7 @@ module tb_top_level;
     rst = 0;  // release reset
     preload_LS_en  = 0;
     load_en = 0;
-    
+    #(clock_cycle); 
     // -------------------------
     // let pipeline run for a while
     #2000;

@@ -419,7 +419,7 @@ string processInstruction(const string &rawLine, const unordered_map<string, int
             if (mnemonic == "bra")
                 imm = targetPC;                        // absolute
             else
-                imm = targetPC - (pc + 1);             // signed relative
+                imm = targetPC - (pc);             // signed relative
         }
         else {
             // must be a numeric immediate

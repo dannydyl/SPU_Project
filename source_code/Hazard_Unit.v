@@ -1,6 +1,6 @@
 module Hazard_Unit(
   input [0:1] instr_dependent_protocol,
-  input [0:2] data_dependent_protocol,
+  input [0:1] data_dependent_protocol,
   input instr1_type,
   input instr2_type,
   input is_branch,

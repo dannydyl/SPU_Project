@@ -21,21 +21,22 @@ module IF_wrapper(
     
     // Program Counter
     reg no_more_instruction;
-    reg [0:8] PC;
+    reg [0:8] PC, PC_i;
     
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             PC <= 9'b0;  // Reset PC to 0
             instruction_out1 <= 32'b0;
             instruction_out2 <= 32'b0;
-            PC_current_out <= 10'b0;  // Reset output PC
+            PC_current_out <= 9'b0;  // Reset output PC
+            PC_i <= 9'b0;  // Reset input PC
         end
         else begin
             if (is_branch && branch_taken) begin // branch taken
-                if (PC_br_target[9] == 1'b1) begin // misaligned target
+                if (PC_br_target[8] == 1'b1) begin // misaligned target
                     instruction_out1 <= 32'b0;  
-                    instruction_out2 <= instr_buffer[PC_br_target - 2];  
-                    PC <= PC_br_target - 1;
+                    instruction_out2 <= instr_buffer[PC_br_target - 1];  
+                    PC <= PC_br_target + 1;
                     find_nop <= 1'b1; // telling ID stage to find which nop is needed
                 end
                 else begin // aligned target
@@ -61,7 +62,6 @@ module IF_wrapper(
             end
             PC_current_out <= PC;  // Update output PC
         end
-
     end
     
 integer i;

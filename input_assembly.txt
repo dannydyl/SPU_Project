@@ -1,19 +1,49 @@
-// initialization
-ila $3, 0 // A base addr
-ila $4, 64 // B base addr
-ila $5, 128 // C base addr
-il $6, 0 // counter k
-il $8, 0 // accumulator
-LOOP:
-mpyi $10, $6, 16 // $10 = k * 16 byte offset
-a $11, $3, $10 // $11 = addr of A[0][k]
-lqd $12, 0($11) // $12 = A[0][k]
-a $13, $4, $10 // $13 = addr of B[k][0]
-lqd $14, 0($13) // $14 = B[k][0]
-fma $8, $12, $14, $8 // $8 = A[0][k] * B[k][0] + $8
-ai $6, $6, 1
-ceqi $15, $6, 4 // if $6 = 4 then $15 = 1
-brz $15, LOOP  // if $15 != 0 branch taken
-stqd $8, 0($5)
-stop
+        // Base addresses
+        ila     $3, 0          // $3 = A_base
+        ila     $4, 992        // $4 = B_base = A_base + 248*4
+        ila     $5, 1984       // $5 = C_base = B_base + 248*4
 
+        il      $50, 0         // i = row index
+
+ROW_LOOP:
+        il      $51, 0         // j = col index
+        shli    $60, $50, 8    // $60 = i * 256 (i * 62 * 4)
+        a       $61, $3, $60   // $61 = base addr of A[i][0]
+
+COL_LOOP:
+        il      $6, 0          // k = 0
+        il      $8, 0          // accumulator = 0
+
+        shli    $62, $51, 8    // $62 = j * 256
+        a       $63, $4, $62   // $63 = base addr of B[j][0] (pre-transposed layout)
+DOT_LOOP:
+        shli    $10, $6, 4     // $10 = k * 16 bytes
+        a       $11, $61, $10  // $11 = addr of A[i][k]
+        lqd     $12, 0($11)    // $12 = A[i][k]
+
+        a       $13, $63, $10  // $13 = addr of B[k][j] (pre-transposed: stored as B[j][k])
+        lqd     $14, 0($13)    // $14 = B[k][j]
+
+        fma     $8, $12, $14, $8  // acc += A[i][k] * B[k][j]
+
+        ai      $6, $6, 1
+        ceqi    $15, $6, 3     // 4 iterations for k = 0 to 3
+        brz     $15, DOT_LOOP
+
+        // Store C[i][j]
+        // C[i][j] address = C_base + (i*256 + j*16)
+        shli    $20, $50, 8    // i * 256
+        shli    $21, $51, 4    // j * 16
+        a       $22, $20, $21
+        a       $22, $5, $22
+        stqd    $8, 0($22)
+
+        ai      $51, $51, 1    // j++
+        ceqi    $15, $51, 3
+        brz     $15, COL_LOOP
+
+        ai      $50, $50, 1    // i++
+        ceqi    $15, $50, 3
+        brz     $15, ROW_LOOP
+
+        stop

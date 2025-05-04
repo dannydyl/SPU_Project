@@ -126,11 +126,6 @@ always @(*) begin
            temp_opcode1[0:7] == `op_mpyi || temp_opcode1[0:7] == `op_mpyui ||
           temp_opcode1[0:7] == `op_lqd || temp_opcode1[0:7] == `op_stqd) begin
 
-    // i dont think below two are necessary
-    // instr_format_even = RI10;
-    // full_instr_even = instruction_in1;
-
-
     if (temp_opcode1[0:7] == `op_ahi) begin
       instr_id_1 = `instr_ID_ahi;
       unit_id_1 = 3'b001;
@@ -280,6 +275,7 @@ always @(*) begin
     ra_addr_1 = instruction_in1[18:24];
     rc_addr_1 = instruction_in1[25:31]; // for rt data
 
+    rb_addr_1 = 0;
   end
 
   // -------------- RI16 -----------------------
@@ -406,6 +402,9 @@ always @(*) begin
     imme16_1 = instruction_in1[9:24];
     reg_dst_1 = instruction_in1[25:31];
     rc_addr_1 = instruction_in1[25:31]; // for rt data
+
+    ra_addr_1 = 0;
+    rb_addr_1 = 0;
   end
 
   // -------------- RI7 -----------------------
@@ -482,6 +481,8 @@ always @(*) begin
     reg_dst_1 = instruction_in1[25:31];
     ra_addr_1 = instruction_in1[18:24];
     rc_addr_1 = instruction_in1[25:31];
+
+    rb_addr_1 = 0;
   end
 
   // -------------- RR ----------------------
@@ -1033,6 +1034,8 @@ always @(*) begin
     reg_dst_2 = instruction_in2[25:31];
     ra_addr_2 = instruction_in2[18:24];
     rc_addr_2 = instruction_in2[25:31];
+
+    rb_addr_2 = 0;
   end
 
   // -------------- RI16 -----------------------
@@ -1158,6 +1161,9 @@ else if (temp_opcode2[0:8] == `op_ilh || temp_opcode2[0:8] == `op_ilhu || temp_o
   imme16_2 = instruction_in2[9:24];
   reg_dst_2 = instruction_in2[25:31];
   rc_addr_2 = instruction_in2[25:31]; // for rt data
+
+  ra_addr_2 = 0;
+  rb_addr_2 = 0;
 end
 
 // -------------- RI7 -----------------------
@@ -1234,6 +1240,8 @@ else if (temp_opcode2 == `op_rothi || temp_opcode2 == `op_roti ||
   reg_dst_2 = instruction_in2[25:31];
   ra_addr_2 = instruction_in2[18:24];
   rc_addr_2 = instruction_in2[25:31]; // for rt data
+
+  rb_addr_2 = 0;
 end
 
 

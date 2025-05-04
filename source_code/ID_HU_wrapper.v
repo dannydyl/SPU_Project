@@ -385,11 +385,6 @@ instr1_branch <= 1'b0;
     rb_addr_odd <= 7'b0;
     rc_addr_odd <= 7'b0;
 
-    // feed 0s to internal packed stages
-    packed_RFFUstage_even <= 142'b0;
-    packed_RFFUstage_odd <= 142'b0;
-    packed_1stage_even <= packed_RFFUstage_even;
-    packed_1stage_odd <= packed_RFFUstage_odd;
   end
   else if (instr_dependent_protocol != 2'b00) begin // when dependency stall, allow the next instruction to go with nop
     if (instr_dependent_protocol == 2'b01) begin // next even instr go
