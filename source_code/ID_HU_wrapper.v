@@ -81,12 +81,12 @@ wire [0:6] temp_ra_addr_1, temp_ra_addr_2;
 wire [0:6] temp_rb_addr_1, temp_rb_addr_2;
 wire [0:6] temp_rc_addr_1, temp_rc_addr_2;
 
-wire [0:6] temp_reg_dst_even, temp_reg_dst_odd, temp_ra_addr_even, temp_ra_addr_odd,
+reg [0:6] temp_reg_dst_even, temp_reg_dst_odd, temp_ra_addr_even, temp_ra_addr_odd,
             temp_rb_addr_even, temp_rb_addr_odd, temp_rc_addr_even, temp_rc_addr_odd;
 
 wire temp_stall, temp_dependent_stall, temp_flush, temp_instr1_type, temp_instr2_type;
 
-wire [0:6] temp_instr_id_even, temp_instr_id_odd;
+reg [0:6] temp_instr_id_even, temp_instr_id_odd;
 reg [0:1] instr_dependent_protocol; // 01: even, 10: odd 00: reset
 reg [0:1] data_dependent_protocol; // 01: even, 10: odd 00: reset
 
@@ -126,17 +126,66 @@ Instruction_Decode ID_inst(
   .instr2_type(temp_instr2_type)
 );
 
-assign temp_reg_dst_even = temp_instr1_type ? temp_reg_dst_1 : temp_reg_dst_2;
-assign temp_ra_addr_even = temp_instr1_type ? temp_ra_addr_1 : temp_ra_addr_2;
-assign temp_rb_addr_even = temp_instr1_type ? temp_rb_addr_1 : temp_rb_addr_2;
-assign temp_rc_addr_even = temp_instr1_type ? temp_rc_addr_1 : temp_rc_addr_2;
-assign temp_reg_dst_odd = temp_instr2_type ? temp_reg_dst_1 : temp_reg_dst_2;
-assign temp_ra_addr_odd = temp_instr2_type ? temp_ra_addr_1 : temp_ra_addr_2;
-assign temp_rb_addr_odd = temp_instr2_type ? temp_rb_addr_1 : temp_rb_addr_2;
-assign temp_rc_addr_odd = temp_instr2_type ? temp_rc_addr_1 : temp_rc_addr_2;
-assign temp_instr_id_even = temp_instr1_type ? temp_instr_id_1 : temp_instr_id_2;
-assign temp_instr_id_odd = temp_instr2_type ? temp_instr_id_1 : temp_instr_id_2;
-
+//assign temp_reg_dst_even = temp_instr1_type ? temp_reg_dst_1 : temp_reg_dst_2;
+//assign temp_ra_addr_even = temp_instr1_type ? temp_ra_addr_1 : temp_ra_addr_2;
+//assign temp_rb_addr_even = temp_instr1_type ? temp_rb_addr_1 : temp_rb_addr_2;
+//assign temp_rc_addr_even = temp_instr1_type ? temp_rc_addr_1 : temp_rc_addr_2;
+//assign temp_reg_dst_odd = temp_instr2_type ? temp_reg_dst_1 : temp_reg_dst_2;
+//assign temp_ra_addr_odd = temp_instr2_type ? temp_ra_addr_1 : temp_ra_addr_2;
+//assign temp_rb_addr_odd = temp_instr2_type ? temp_rb_addr_1 : temp_rb_addr_2;
+//assign temp_rc_addr_odd = temp_instr2_type ? temp_rc_addr_1 : temp_rc_addr_2;
+//assign temp_instr_id_even = temp_instr1_type ? temp_instr_id_1 : temp_instr_id_2;
+//assign temp_instr_id_odd = temp_instr2_type ? temp_instr_id_1 : temp_instr_id_2;
+always @(*) begin
+  if ((temp_instr1_type == 1'b1) && (temp_instr2_type == 1'b0)) begin
+    temp_reg_dst_even = temp_reg_dst_1;
+    temp_ra_addr_even = temp_ra_addr_1;
+    temp_rb_addr_even = temp_rb_addr_1;
+    temp_rc_addr_even = temp_rc_addr_1;
+    temp_reg_dst_odd = temp_reg_dst_2;
+    temp_ra_addr_odd = temp_ra_addr_2;
+    temp_rb_addr_odd = temp_rb_addr_2;
+    temp_rc_addr_odd = temp_rc_addr_2;
+    temp_instr_id_even = temp_instr_id_1;
+    temp_instr_id_odd = temp_instr_id_2;
+  end
+  else if ((temp_instr1_type == 1'b0) && (temp_instr2_type == 1'b0)) begin
+    temp_reg_dst_even = temp_reg_dst_2;
+    temp_ra_addr_even = temp_ra_addr_2;
+    temp_rb_addr_even = temp_rb_addr_2;
+    temp_rc_addr_even = temp_rc_addr_2;
+    temp_reg_dst_odd = temp_reg_dst_1;
+    temp_ra_addr_odd = temp_ra_addr_1;
+    temp_rb_addr_odd = temp_rb_addr_1;
+    temp_rc_addr_odd = temp_rc_addr_1;
+    temp_instr_id_even = temp_instr_id_2;
+    temp_instr_id_odd = temp_instr_id_1;
+  end
+  else if ((temp_instr1_type == 1'b1) && (temp_instr2_type == 1'b1)) begin
+    temp_reg_dst_even = temp_reg_dst_2;
+    temp_ra_addr_even = temp_ra_addr_2;
+    temp_rb_addr_even = temp_rb_addr_2;
+    temp_rc_addr_even = temp_rc_addr_2;
+    temp_reg_dst_odd = 0;
+    temp_ra_addr_odd = 0;
+    temp_rb_addr_odd = 0;
+    temp_rc_addr_odd = 0;
+    temp_instr_id_even = temp_instr_id_2;
+    temp_instr_id_odd = 0;
+  end
+  else if ((temp_instr1_type == 1'b0) && (temp_instr2_type == 1'b0)) begin
+    temp_reg_dst_odd = temp_reg_dst_2;
+    temp_ra_addr_odd = temp_ra_addr_2;
+    temp_rb_addr_odd = temp_rb_addr_2;
+    temp_rc_addr_odd = temp_rc_addr_2;
+    temp_reg_dst_even = 0;
+    temp_ra_addr_even = 0;
+    temp_rb_addr_even = 0;
+    temp_rc_addr_even = 0;
+    temp_instr_id_even = 0;
+    temp_instr_id_odd = temp_instr_id_2;
+  end
+end
 Hazard_Unit HU_inst(
   .instr_dependent_protocol(instr_dependent_protocol),
   .data_dependent_protocol(data_dependent_protocol),
@@ -779,6 +828,7 @@ instr1_branch <= 1'b0;
   flush_4stage <= flush_instr2_even;
   flush <= temp_flush;
   PC_pass_out <= PC_pass_in;
+  // stall <= temp_stall | temp_dependent_stall;
 end
 
 endmodule

@@ -19,7 +19,7 @@ module Hazard_Unit(
 
   input [0:6] ID_reg_dst_even,
   input ID_reg_wr_even,
-  input [0:6] RF_reg_dst_even, // 얘가 사실상 stage 1이 가지고 잇는 정보야
+  input [0:6] RF_reg_dst_even, 
   input RF_reg_wr_even,
   input [0:3] RF_latency_even,
   input [0:142] packed_2stage_even,

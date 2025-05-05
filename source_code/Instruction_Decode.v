@@ -439,7 +439,7 @@ always @(*) begin
 
     else if (temp_opcode1 == `op_shli) begin
       instr_id_1 = `instr_ID_shli;
-      unit_id_1 = 3'd5;
+      unit_id_1 = 3'd2;
       latency_1 = 4'd4;
       reg_wr_1 = 1'b1;
       instr1_type = 1'b1;
