@@ -15,7 +15,17 @@ add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/instr_buffer
 add wave -noupdate -expand -group IF -radix unsigned /tb_top_level/dut/IF_inst/PC_br_target
 add wave -noupdate -expand -group IF -radix unsigned /tb_top_level/dut/IF_inst/PC_current_out
 add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/find_nop
-add wave -noupdate -expand -group IF /tb_top_level/dut/IF_inst/i
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/clk
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/rst
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/PC_in
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/instr1_in
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/instr2_in
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/find_nop_in
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/stall
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/PC_out
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/instr1_out
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/instr2_out
+add wave -noupdate /tb_top_level/dut/IF_reg_inst/find_nop_out
 add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/HU_inst/stall
 add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/HU_inst/dependent_stall
 add wave -noupdate -expand -group ID /tb_top_level/dut/IDHU_inst/HU_inst/flush

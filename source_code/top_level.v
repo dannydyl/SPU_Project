@@ -13,7 +13,7 @@ module top_level(
 
 );
 
-wire [0:31] instruction_out1, instruction_out2;
+wire [0:31] instruction_out1, instruction_out2, instruction_out1_reg, instruction_out2_reg;
 
 wire [0:31] full_instr_even, full_instr_odd, full_instr_even_to_pipe, full_instr_odd_to_pipe;
 wire [0:6] instr_id_even, instr_id_odd, instr_id_even_to_pipe, instr_id_odd_to_pipe;
@@ -41,9 +41,9 @@ wire [0:6] WB_reg_write_addr_even, WB_reg_write_addr_odd;
 wire [0:127] WB_reg_write_data_even, WB_reg_write_data_odd;
 wire WB_reg_write_en_even, WB_reg_write_en_odd;
 
-wire [0:8] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd;
+wire [0:8] PC_br_target, PC_pass2ID, PC_pass2RF, PC_pass2odd, PC_pass2ID_reg;
 
-wire stall, flush, branch_taken, is_branch, find_nop, instr1_branch_pass2RF, instr1_branch_pass2odd, flush_instr2_even, flush_4stage;
+wire stall, flush, branch_taken, is_branch, find_nop, instr1_branch_pass2RF, instr1_branch_pass2odd, flush_instr2_even, flush_4stage, find_nop_reg;
 
 IF_wrapper IF_inst(
   .clk(clk),
@@ -62,16 +62,31 @@ IF_wrapper IF_inst(
   .find_nop(find_nop)
 );
 
+IF_reg IF_reg_inst (
+  .clk(clk),
+  .rst(rst),
+  .PC_in(PC_pass2ID),
+  .instr1_in(instruction_out1),
+  .instr2_in(instruction_out2),
+  .find_nop_in(find_nop),
+  .stall(stall),
+
+  .PC_out(PC_pass2ID_reg),
+  .instr1_out(instruction_out1_reg),
+  .instr2_out(instruction_out2_reg),
+  .find_nop_out(find_nop_reg)
+);
+
 ID_HU_wrapper IDHU_inst(
   .clk(clk),
   .rst(rst),
   .is_branch(is_branch),
   .branch_taken(branch_taken),
   .flush_instr2_even(flush_instr2_even),
-  .PC_pass_in(PC_pass2ID),
-  .instruction_in1(instruction_out1),
-  .instruction_in2(instruction_out2),
-  .find_nop(find_nop),
+  .PC_pass_in(PC_pass2ID_reg),
+  .instruction_in1(instruction_out1_reg),
+  .instruction_in2(instruction_out2_reg),
+  .find_nop(find_nop_reg),
 
   .RF_reg_dst_even(reg_dst_even_to_pipe),
   .RF_reg_wr_even(reg_wr_even_to_pipe),
