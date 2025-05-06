@@ -1,6 +1,6 @@
 # SONY Cell SPU Processor: Dual-Issue Pipelined Multimedia Microarchitecture
 
-This repository contains the complete Verilog/SystemVerilog implementation and supporting tools for a cycle-accurate, dual-issue pipelined multimedia processor inspired by the Synergistic Processing Unit (SPU) of the Cell Broadband Engine architecture. The processor is referred to as **SPU-lite**, and supports a wide subset of SIMD-oriented SPU instructions, focused on multimedia and scientific workloads.
+This repository contains the complete Verilog implementation and supporting tools for a cycle-accurate, dual-issue pipelined multimedia processor inspired by the Synergistic Processing Unit (SPU) of the Cell Broadband Engine architecture. The processor is referred to as **SPU-lite**, and supports a wide subset of SIMD-oriented SPU instructions, focused on multimedia and scientific workloads.
 
 ---
 
