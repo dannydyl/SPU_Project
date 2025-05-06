@@ -100,6 +100,28 @@ All instruction names and binary encodings strictly follow the official SPU docu
 The register write-back stage validates these tags and commits results accordingly, maintaining correctness across data and control flow.
 
 ---
+## Simulation
+
+This processor has been verified using both **Xcelium** and **Questasim** simulators.
+
+The `output_binary.txt` file should be preloaded into the instruction memory via the testbench before simulation begins.
+
+### The testbench handles:
+
+- Clock generation  
+- Reset sequencing  
+- Instruction memory initialization  
+- Optional register file / Local Store Memory preloading  
+
+---
+
+### Tools Used
+
+- **Xcelium**  
+
+- **Questasim**  
+
+---
 
 ## Assembler
 
